@@ -6,11 +6,11 @@ We have provided a starter kit for your project in the GitHub repo. It includes 
 
 ### index.html
 
-Here you will create some HTML elements. Don't forget to add IDs to the elements so that you can access and update them later on in the JavaScript file.
+Here you will create some HTML elements. Don't forget to add IDs to the elements so you can access and update them later in the JavaScript file.
 
 ### script.js
 
-In order to simplify the execution of this project, we have provided you with two arrays with data. Remove the one you are not using (or both if you create your own)
+In order to simplify the execution of this project, we have provided you with two arrays with data. Remove the one you are not using (or both if you create your own).
 
 ## How to get started
 
