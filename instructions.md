@@ -4,11 +4,11 @@
 
 We have provided a starter kit for your project in the GitHub repo. It includes an HTML file, a CSS file, and a JS file. Don't forget to connect the files.
 
-### code/index.html
+### index.html
 
 Here you will create some HTML elements. Don't forget to add IDs to the elements so that you can access and update them later on in the JavaScript file.
 
-### code/script.js
+### script.js
 
 In order to simplify the execution of this project, we have provided you with two arrays with data. Remove the one you are not using (or both if you create your own)
 
