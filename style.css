@@ -30,9 +30,11 @@ img {
   /* COLORS */
   --BGCOLOR-FADE: rgb(252, 220, 160);
   --BGCOLOR: orange;
+  --BGCOLOR-FADE: rgb(252, 220, 160);
+  --BGCOLOR: rgb(255, 0, 174);
   --BGIMAGE: linear-gradient(to bottom, var(--BGCOLOR), var(--BGCOLOR-FADE));
   --BODY-BGCOLOR: #fff;
-  --BORDER-COLOR: #333;
+  --BORDER-COLOR: #610963;
   --BUTTON-COLOR: #fff;
   --FONT-COLOR: #000;
   --HEADER-BGCOLOR: #000;
@@ -67,9 +69,9 @@ body {
   min-height: 100vh;
   max-width: 1200px;
   margin: 0 auto;
-  /* border-left: var(--BORDERS);
+  border-left: var(--BORDERS);
   border-right: var(--BORDERS);
-  box-shadow: 0 0 10px var(--BORDER-COLOR); */
+  box-shadow: 0 0 10px var(--BORDER-COLOR);
 }
 
 h1,
@@ -104,18 +106,20 @@ main section {
   flex-grow: 1;
   padding: var(--PADDING);
   display: grid;
-  grid-template-columns: repeat(3, minmax(100px, 300px));
+  grid-template-columns: repeat(3, minmax(100px, 400px));
   gap: min(2vw, 20px);
 }
 
 /* || FEATURES */
 
 .card {
-  background-color: var(--SQUARE-BGCOLOR);
-  border: var(--BORDERS);
-  border-radius: 15px;
-  display: grid;
-  place-content: center;
-  font-size: var(--FS-XL);
-  box-shadow: var(--SHADOWS);
+  background-color: var(--BGCOLOR-FADE);
+  border-radius: 30px;
+  text-align: right;
+  padding: var(--PADDING);
+}
+
+.card img {
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
 }
