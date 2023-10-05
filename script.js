@@ -185,3 +185,7 @@ const books = [
   }
 ]
 
+const highRating = document.getElementById("high-low");
+const lowRating = document.getElementById("low-high");
+const latest = document.getElementById("latest-oldest");
+const oldest = document.getElementById("oldest-latest");
