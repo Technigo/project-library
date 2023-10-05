@@ -10,14 +10,41 @@
     <h1>Book Library</h1>
     <!-- Add options for each genre -->
     <select id="filterDropdown">
-      <option value="adventure"></option>
-      <option value="dystopian"></option>
-      <option value="fantasy"></option>
-      <option value="fiction"></option>
-      <option value="horror"></option>
-      <option value="mystery"></option>
-      <option value="science-fiction"></option>
+      <option value="all">All</option>
+      <option value="adventure">Adventure</option>
+      <option value="dystopian">Dystopian</option>
+      <option value="fantasy">Fantasy</option>
+      <option value="fiction">Fiction</option>
+      <option value="horror">Horror</option>
+      <option value="mystery">Mystery</option>
+      <option value="science-fiction">Science Fiction</option>
     </select>
+
+    <section id="container">
+      <!-- This is where the cards for each book will go -->
+      <div class="card">
+        <figure>
+          <img
+            src="./books-images/the-great-gatsby.jpg"
+            alt="F. Scott Fitzgerald"
+            title="The Great Gatsby"
+            width="1000px"
+            height="667px"
+          />
+          <figcaption class="offscreen">The Great Gatsby</figcaption>
+        </figure>
+        <div class="section__book-content">
+          <div class="section__book-info">
+            <p>1925</p>
+            <p>F. Scott Fitzgerald</p>
+            <p>Fiction</p>
+          </div>
+          <h3>The Great Gatsby</h3>
+        </div>
+        <!-- rating 4.2 -->
+      </div>
+    </section>
+
     <script src="script.js"></script>
   </body>
 </html>
