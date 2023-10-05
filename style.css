@@ -1,0 +1,121 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@200;400;900&display=swap");
+
+/* // RESET */
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+img {
+  /* removes the small padding */
+  display: block;
+  /* will make the images responsive */
+  max-width: 100%;
+  height: auto;
+}
+
+/* || VARIABLES */
+
+:root {
+  /* FONTS */
+  --FF: "Raleway", sans-serif;
+  --FF-HEADINGS: "Raleway", sans-serif;
+  /* Use to make fonts grow and shrink */
+  --FS: clamp(1rem, 2.2vh, 1.5rem);
+
+  /* COLORS */
+  --BGCOLOR-FADE: rgb(252, 220, 160);
+  --BGCOLOR: orange;
+  --BGIMAGE: linear-gradient(to bottom, var(--BGCOLOR), var(--BGCOLOR-FADE));
+  --BODY-BGCOLOR: #fff;
+  --BORDER-COLOR: #333;
+  --BUTTON-COLOR: #fff;
+  --FONT-COLOR: #000;
+  --HEADER-BGCOLOR: #000;
+  --HEADER-COLOR: #fff;
+
+  /* BORDERS */
+  --BORDERS: 1px solid var(--BORDER-COLOR);
+  --BORDER-RADIUS: 30px;
+
+  /* STANDARD PADDING */
+  --PADDING: 0.5em;
+  --PADDING-TB: 0.25em;
+  --PADDING-SIDE: 2.5%;
+
+  /* STANDARD MARGIN */
+  --MARGIN: clamp(1em, 2.5vh, 1.5em) 0;
+}
+
+/* || GENERAL STYLE */
+
+html {
+  scroll-behavior: smooth;
+  font-size: var(--FS);
+  font-family: var(--FF);
+  background-color: var(--BGCOLOR);
+  background-image: var(--BGIMAGE);
+}
+
+body {
+  background-color: var(--BODY-BGCOLOR);
+  color: var(--FONT-COLOR);
+  min-height: 100vh;
+  max-width: 1200px;
+  margin: 0 auto;
+  /* border-left: var(--BORDERS);
+  border-right: var(--BORDERS);
+  box-shadow: 0 0 10px var(--BORDER-COLOR); */
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--FF-HEADINGS);
+  letter-spacing: 0.1em;
+}
+
+p {
+  line-height: 1.5;
+}
+
+/* || HEADERS */
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.header__h1 {
+  text-align: center;
+  background-color: var(--HEADER-BGCOLOR);
+  color: var(--HEADER-COLOR);
+  padding: var(--PADDING-TB) var(--PADDING-SIDE);
+}
+
+/* || MAIN */
+
+main section {
+  flex-grow: 1;
+  padding: var(--PADDING);
+  display: grid;
+  grid-template-columns: repeat(3, minmax(100px, 300px));
+  gap: min(2vw, 20px);
+}
+
+/* || FEATURES */
+
+.card {
+  background-color: var(--SQUARE-BGCOLOR);
+  border: var(--BORDERS);
+  border-radius: 15px;
+  display: grid;
+  place-content: center;
+  font-size: var(--FS-XL);
+  box-shadow: var(--SHADOWS);
+}
