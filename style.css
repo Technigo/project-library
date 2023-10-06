@@ -159,7 +159,7 @@ main section {
   border-radius: 30px;
   height: 100%;
   display: flex;
-  justify-content: center;
   align-items: center;
   text-align: center;
+  padding: var(--PADDING);
 }
