@@ -20,6 +20,16 @@
   padding-left: 30px;
   padding-right: 30px;
 }
+.dropdown-row {
+  padding-top: 30px;
+  display: flex;
+  justify-content: center;
+  justify-content: space-around;
+}
+select {
+  border-radius: 10px;
+  padding: 6px 0;
+}
 
 .book-title {
   font-size: 24px;
@@ -32,14 +42,36 @@ img {
   width: 280px;
   height: 200px;
   border-radius: 10px;
+  object-fit: cover;
 }
 
 .genre {
-  padding-top: 30px;
-  padding-bottom: 30px;
   text-align: center;
 }
 
 .sort {
   text-align: center;
+}
+.century {
+  text-align: center;
+}
+.search {
+  padding-top: 30px;
+  text-align: center;
+}
+input {
+  padding: 16px;
+  border: 1px solid;
+  width: 300px;
+  height: 40px;
+  border-radius: 10px;
+}
+
+@media (max-width: 850px) {
+  .card {
+    width: 100%;
+  }
+  img {
+    width: 100%;
+  }
 }
