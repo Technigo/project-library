@@ -117,9 +117,19 @@ main section {
   border-radius: 30px;
   text-align: right;
   padding: var(--PADDING);
+  position: relative;
+}
+
+.card .rating {
+  position: absolute;
+  font-weight: 600;
+  font-size: 1.3rem;
+  color: var(--BGCOLOR);
 }
 
 .card img {
   border-top-left-radius: 30px;
   border-top-right-radius: 30px;
+  height: 300px;
+  object-fit: cover;
 }
