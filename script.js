@@ -213,31 +213,32 @@ const booksLoader = (books) => {
   books.forEach((book) => {
     bookContainer.innerHTML += `
     <div class="card">
-    <img
-      src=${book.image}
-      title=${book.title}
-      width="1000px"
-      height="667px"
-    />
-
-    <div class="section__book-info">
-      <p>${book.year}</p>
-      <p>${book.author}</p>
-      <p>${book.genre}</p>
-    </div>
-    <h3>${book.title}</h3>
+      <img
+        src=${book.image}
+        width="1000px"
+        height="667px"
+      />
+      <div class="section__book-info">
+        <p class="rating">${book.rating}</p>
+        <p>${book.year}</p>
+        <p>${book.author}</p>
+        <p>${book.genre}</p>
+        <h3>${book.title}</h3>
+      </div>
+      <div class="section__book-description">
+      <p>${book.description}</p>
+      </div>
     </div>
     `;
   });
 };
-
 booksLoader(books);
 
 // Function to filter and display books based on genre
 const filterBooks = () => {
   const value = filterDropdown.value;
 
-  if (value === "all") {
+  if (value === "filter") {
     booksLoader(books);
   } else {
     // Only load filtered books based on genre
@@ -247,33 +248,34 @@ const filterBooks = () => {
 };
 // Adding eventlistener to the filterDropdown.
 filterDropdown.addEventListener("change", filterBooks);
-
 filterBooks();
 
+// Function to sort and display books
 const sortBooks = () => {
   const value = sortDropdown.value;
   let sortedBooks = books.map((book) => book);
 
-  console.log(sortedBooks);
   switch (value) {
-    case "all":
+    case "sort":
       return booksLoader(books);
     case "newest":
       // use built-in function to sort books from newest to oldest
       sortedBooks = sortedBooks.sort((a, b) => b.year - a.year);
-
       break;
     case "oldest":
       sortedBooks = sortedBooks.sort((a, b) => a.year - b.year);
-
+      break;
+    case "highest":
+      sortedBooks = sortedBooks.sort((a, b) => b.rating - a.rating);
+      break;
+    case "lowest":
+      sortedBooks = sortedBooks.sort((a, b) => a.rating - b.rating);
       break;
     default:
       break;
   }
   return booksLoader(sortedBooks);
 };
-
 // Adding eventlistener to the filterDropdown.
 sortDropdown.addEventListener("change", sortBooks);
-
 sortBooks();

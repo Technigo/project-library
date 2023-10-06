@@ -141,3 +141,25 @@ main section {
   height: 300px;
   object-fit: cover;
 }
+
+.card .section__book-description,
+.card:hover .section__book-description {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: opacity 0.3s ease;
+}
+.card .section__book-description {
+  opacity: 0;
+}
+
+.card:hover .section__book-description {
+  opacity: 1;
+  background-color: #000000cf;
+  border-radius: 30px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
