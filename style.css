@@ -163,3 +163,10 @@ main section {
   text-align: center;
   padding: var(--PADDING);
 }
+
+/* Media query for screens 300px or less */
+@media screen and (max-width: 600px) {
+  main section {
+    grid-template-columns: 1fr;
+  }
+}
