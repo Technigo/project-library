@@ -9,3 +9,5 @@ If I had more time I would have created a function that would have made it possi
 It was also a bit tricky to make the images in the library the same hight, but I learned that setting the height property and using object-fit: cover; for the images helps maintain consistent image dimensions and cropping when necessary.
 
 ## View it live
+
+https://development--technigo-project-library.netlify.app/
