@@ -3,18 +3,63 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link stylesheet="style.css">
-  <title>Books and Receips</title>
+  <link rel="stylesheet" href="style.css">
+  <title>Books Library</title>
 </head>
 <body>
-  <h1>Welcome to Books and Receips Library</h1>
-  <p>Select Books as per your preference</p>
-  <select>
-    <option id="high-low">Highest-Lowest-Rating</option>
-    <option id="low-high">Lowest-Highest-Rating</option>
-    <option id="lastest-oldest">Latest-Oldest</option>
-    <option id="oldest-latest">Oldest-Latest</option>
-  </select>
+  <h1 id="page-title">Virtual Books Library 📚</h1>
+  <div id="wrapper">
+    <p class="para">Filter Genre</p>
+    <select id="filterDropDown">
+      <option value="all">All</option>
+      <option value="Adventure">Adventure</option>
+      <option value="Dystopian">Dystopian</option>
+      <option value="Fantasy">Fantasy</option>
+      <option value="Fiction">Fiction</option>
+      <option value="Horror">Horror</option>
+      <option value="Mystery">Mystery</option>
+      <option value="Science Fiction">Science Fiction</option>
+    </select>
+    <p class="para">SORT</p>
+    <button id="sorting-high-to-low-button" class="button">High-Low Rating</button>
+    <button id="sorting-low-to-high-button" class="button">Low-High Rating</button>
+    <br>
+
+  </div>
+<div id="search-div">
+  <input type="text" id="search-input" placeholder="Search for books...🔍">
+    <div id="search-results"></div>
+  </div>
+
+  
+  <!-- <label>
+    <input type="radio" name="sort-options" value="high-to-low">
+    High to Low
+  </label>
+  <label>
+    <input type="radio" name="sort-options" value="low-to-high">
+    Low to High
+  </label>
+  <label>
+    <input type="radio" name="sort-options" value="a-z">
+    A-Z
+  </label>
+  <label>
+    <input type="radio" name="sort-options" value="z-a">
+    Z-A
+  </label>
+  
+  <button id="sorting-button">Sort</button> -->
+
+
+  <div id="container">
+  </div>
+
+  <section id="add-to-cart">
+  </section>
+
+  <section id="select-random-books">
+  </section>
   <script src="script.js"></script>
 </body>
 </html>

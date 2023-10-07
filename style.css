@@ -1,0 +1,116 @@
+* {
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    padding: 10px;
+    
+}
+html {
+    background-image: url("./books-images/lib-1.png");
+    height: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#page-title{
+    color: black;
+    background-color: aliceblue;
+    display: flex;
+    justify-content: center;
+    width: 30%;
+}
+.para {
+    color: black;
+    font-weight: 500;
+    background-color:bisque;
+    margin: 4px;
+}
+
+#container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+#wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.card {
+    background-color: white;
+    border-radius: 25px;
+    border: 1px solid gainsboro;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+img {
+    width: 250px;
+    height: 400px;
+}
+
+
+.card {
+    width: 250px;
+}
+.book-title{
+    font-weight: bold;
+}
+/* .description{
+    font-weight: bold;
+} */
+
+/* .animated-text {
+    font-size: 36px;
+    background-image: linear-gradient(45deg, #ff0000, #00ff00, #0000ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-animation: textAnimation linear infinite;
+    animation: textAnimation linear infinite;
+}
+
+@keyframes textAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 100% 50%;
+    }
+} */
+
+
+input {
+    border-radius: 15px;
+    width: 30%;
+    height: 30px;
+    display: block;
+  margin-right: 10px;
+  margin-left: auto;
+}
+#search-list, .search-result {
+    font-size: 10px;
+    width: 25%;
+    display: block;
+  margin-right: 10px;
+  margin-left: auto;
+  padding-right: 80px;
+  background-color: aliceblue;
+}
+button {
+    border-radius: 1px;
+    cursor: pointer;
+    background-color: whitesmoke;
+    border: 1px solid gainsboro;
+    width: 10%;
+    margin: 1px;
+    height: 30px;
+}
+
+button:hover {
+    cursor: pointer;
+    background-color: brown;
+    border: 0.1px solid lightgray;
+    color: white;
+}
