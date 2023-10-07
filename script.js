@@ -1,7 +1,3 @@
-/*Here we have created two different arrays that you can work with if you want.
-If you choose to create your own arrays with elements, just make sure that some
-of the properties make sense to filter on, and some to sort on.*/
-
 const books = [
   {
     title: "The Great Gatsby",
@@ -184,21 +180,6 @@ const books = [
     image: "./books-images/unknown.jpg",
   },
 ];
-
-/**
- * - Display all the elements and their information in the array collection when the webiste is loaded.
- * - Create a function to filter and display the books. Get the value from the selected genre
- * - Create a function to sort the books
- *    from newest to oldest and vice versa
-      from the highest to lowest rating and vice versa for recipes:
-      from most to least ingredients and vice versa
-      from longest to shortest cooking time and vice versa
-*/
-
-/**
- * 1. Get the container and save it in a varable
- * 2. Create a function expression to load and display the list of books
- */
 
 // Get references to HTML elements using their IDs.
 const bookContainer = document.getElementById("container");
