@@ -218,12 +218,19 @@ booksLoader(books);
 // Function to filter and display books based on genre
 const filterBooks = () => {
   const value = filterDropdown.value;
+  let filtredBooks = books.map((book) => book);
 
   if (value === "filter") {
     booksLoader(books);
+  } else if (value === "21th-century") {
+    // Only show books that are from the 21th century
+    filtredBooks = books.filter(
+      (book) => book.year >= 2000 && book.year < 2100
+    );
+    booksLoader(filtredBooks);
   } else {
     // Only load filtered books based on genre
-    const filtredBooks = books.filter((book) => book.genre === value);
+    filtredBooks = books.filter((book) => book.genre === value);
     booksLoader(filtredBooks);
   }
 };
@@ -251,6 +258,10 @@ const sortBooks = () => {
       break;
     case "lowest":
       sortedBooks = sortedBooks.sort((a, b) => a.rating - b.rating);
+      break;
+    // Alphabetical order A - Ö
+    case "alphabetical":
+      sortedBooks = sortedBooks.sort((a, b) => a.title > b.title);
       break;
     default:
       break;
