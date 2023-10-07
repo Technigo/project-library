@@ -202,8 +202,8 @@ const booksLoader = (books) => {
       <div class="section__book-info">
         <p class="rating">${book.rating}</p>
         <p>${book.year}</p>
-        <p>${book.author}</p>
         <p>${book.genre}</p>
+        <p>${book.author}</p>
         <h3>${book.title}</h3>
       </div>
       <div class="section__book-description">
