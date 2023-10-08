@@ -404,3 +404,67 @@ const recipes = [
     image: './recipe-images/grilled.jpg'
   }
 ]
+
+const recipes_section = document.getElementById("recipes")
+
+function displayRecipes(recipes) {
+  recipes_section.innerHTML = ""
+  recipes.forEach((recipe) => {
+    recipes_section.innerHTML += `
+      <section class="recipesection">
+        <h2>${recipe.name}</h2>
+        <img src="${recipe.image}"/>
+      </section>
+    `
+  })
+}
+
+displayRecipes(recipes)
+
+function displayAllRecipe() {
+  displayRecipes(recipes)
+}
+
+function displayAmericanRecipe() {
+  displayRecipes(recipes.filter(filterAmerican))
+}
+
+function filterAmerican(recipe) {
+  return recipe.cuisineType.toLocaleString().toLowerCase().includes("american")
+}
+
+function displayItalianRecipe() {
+  displayRecipes(recipes.filter(filterItalian))
+}
+
+function filterItalian(recipe) {
+  return recipe.cuisineType.toLocaleString().toLowerCase().includes("italian")
+}
+
+function displayChineseRecipe() {
+  displayRecipes(recipes.filter(filterChinese))
+}
+
+function filterChinese(recipe) {
+  return recipe.cuisineType.toLocaleString().toLowerCase().includes("chinese")
+}
+
+function sortDescCooktimeRecipe(){
+  displayRecipes(recipes.sort((a, b) => a.totalTime - b.totalTime))
+}
+
+function sortAscCooktimeRecipe(){
+  displayRecipes(recipes.sort((a, b) => b.totalTime - a.totalTime))
+}
+
+function sortDescNameRecipe(){
+  displayRecipes(recipes.sort((a, b) => a.name.localeCompare(b.name)))
+}
+
+function sortAscNameRecipe(){
+  displayRecipes(recipes.sort((a, b) => b.name.localeCompare(a.name)))
+}
+
+function search_name(name){
+  displayRecipes(recipes.filter((r) => r.name.toLocaleLowerCase().includes(name.toLocaleLowerCase())))
+} 

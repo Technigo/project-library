@@ -1,0 +1,42 @@
+  .filter {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .filter h6 {
+    margin: 5px 5px 5px 0px;
+  } 
+  
+  .filter div {
+    margin: 20px 20px 20px 20px;
+  }
+
+  h1 {
+    text-align: center;
+  }
+  
+  #recipes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .recipesection {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background: #f2d7a4;
+    padding: 15px;
+    border-radius: 15px;
+    max-width: 300px;
+    height: 300px;
+    margin: 10px 10px 10px 10px;
+  }
+  
+  img {
+    width: 300px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 15px;
+  }

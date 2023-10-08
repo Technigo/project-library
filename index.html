@@ -4,10 +4,38 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- Don't forget to change the title and connect the CSS file -->
+  <link rel="stylesheet" href="./style.css" />
   <title>Project Library</title>
 </head>
 <body>
-  <h1>Project Library</h1>
+  <h1>Recipe Library</h1>
+  <section class="filter">
+    <div>
+      <h6>Filter</h6>
+      <button id="all" onclick="displayAllRecipe()">All</button>
+      <button id="italian" onclick="displayItalianRecipe()">Italian</button>
+      <button id="american" onclick="displayAmericanRecipe()">American</button>
+      <button id="chinese" onclick="displayChineseRecipe()">Chinese</button>
+    </div>
+    <div>
+      <h6>Sort Cook Time</h6>
+      <button id="descending_time" onclick="sortDescCooktimeRecipe()">---</button>
+      <button id="ascending_time" onclick="sortAscCooktimeRecipe()">+++</button>
+    </div>
+    <div>
+      <h6>Sort Name</h6>
+      <button id="descending_name" onclick="sortDescNameRecipe()">---</button>
+      <button id="ascending_name" onclick="sortAscNameRecipe()">+++</button>
+    </div>
+    <div>
+      <h6>Search</h6>
+      <input name="search" onChange="search_name(this.value);" type="text"/>
+    </div>
+  </section>
+  <section id="recipes">
+  </section>
+
   <!-- Don't forget to connect the JavaScript file -->
+  <script src="./script.js"></script>  
 </body>
 </html>
