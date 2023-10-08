@@ -1,13 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Don't forget to change the title and connect the CSS file -->
-  <title>Project Library</title>
+  <title>Hodas's recipes </title>
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-  <h1>Project Library</h1>
-  <!-- Don't forget to connect the JavaScript file -->
+  <h1>Hoda's recipes </h1>
+  <p>Discover a variety of delightful recipes</p>
+
+  <input type="text" id="searchInput" placeholder="Search for a recipe...">
+  <button onclick="searchRecipes()">Search</button>
+  
+
+  <select id="filterDropdown">
+    <option value="all">All recipes</option>
+    <option value="chicken">Chicken</option>
+    <option value="fish">Fish</option>
+    <option value="vegetarian">Vegetarian</option>
+  </select>
+
+  <section id="container">
+  </section>
+
+  <section id="favorites">
+  </section>
+
+  <script src="script.js"></script>
 </body>
+
 </html>
