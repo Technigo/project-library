@@ -253,7 +253,7 @@ function sortBooks() {
 
 // Function to handle search
 function handleSearch() {
-  const searchTerm = searchInput.value.toLowerCase();
+  const searchTerm = searchInput.value.trim().toLowerCase();
 
   if (searchTerm === "") {
     // Handle the case when the search input is empty
