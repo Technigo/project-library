@@ -1,0 +1,106 @@
+body {
+    margin: 0;
+    color: #ebe6dc;
+    font-family: "Oswald", sans-serif;
+  }
+  
+  h1 {
+    text-transform: uppercase;
+    font-size: 32px;
+    margin-bottom: 8px;
+    text-align: center;
+  }
+
+  a {
+    text-decoration: none;
+    color: #ebe6dc;
+  }
+
+  p {
+    font-size: 20px;
+    margin: 5px 10px;
+  }
+
+  button {
+    margin: 25px 10px;
+  }
+
+  /* HEADER */
+  
+  header {
+    background: #7A96B3;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+  
+  .header-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    max-width: 1200px;
+  }
+
+  /* MAIN */
+
+  #filter-dropdown {
+    margin: 15px;
+  }
+  #card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .card {
+    min-height: 450px;
+    width: 20%;
+    flex-grow: 1;
+    vertical-align: text-top;
+    background: rgb(179,151,122);
+    border-radius: 16px;
+    border: 2px solid rgb(161,135,109);
+    margin: 10px;
+    padding-top: 10px;
+  }
+  .card img {
+    width: 100%;
+    margin-top: 15px;
+  }
+    
+
+  /* FOOTER */
+
+  footer {
+    background: #7A96B3;
+    display: flex;
+  }
+  
+  .footer-container {
+    width: 90%;
+    margin: auto;
+    padding: 28px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .footer-container a:hover {
+    color: #fff;
+    font-weight: bold;
+  }
+  
+  .icons a {
+    padding: 8px;
+  }
+  
+  .contacs {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .contacs p {
+    margin: 0 0 8px 0;
+  }
+  
