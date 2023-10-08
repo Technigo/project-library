@@ -255,6 +255,11 @@ function sortBooks() {
 function handleSearch() {
   const searchTerm = searchInput.value.toLowerCase();
 
+  if (searchTerm === "") {
+    // Handle the case when the search input is empty
+    return;
+  }
+
   const matchingBooks = books.filter((book) => {
     const { title, author, genre } = book;
     return (
@@ -263,8 +268,20 @@ function handleSearch() {
       genre.toLowerCase().includes(searchTerm)
     );
   });
+  if (matchingBooks.length > 0) {
+    loadBooks(matchingBooks);
+  } else {
+    // Display a custom message at the top-right corner that automatically disappears after 2 seconds
+    const messageElement = document.createElement("div");
+    messageElement.textContent = "Book is not available";
+    messageElement.classList.add("custom-message");
+    document.body.appendChild(messageElement);
 
-  loadBooks(matchingBooks);
+    setTimeout(function () {
+      // Remove the custom message element after 2 seconds
+      document.body.removeChild(messageElement);
+    }, 2000); // 2000 milliseconds = 2 seconds
+  }
 }
 
 // Event listeners

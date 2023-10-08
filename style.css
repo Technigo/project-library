@@ -14,7 +14,7 @@ html {
 /* Header styling */
 #page-title {
   color: black;
-  background-color: #EBEBEB;
+  background-color: #ebebeb;
   display: flex;
   justify-content: center;
   width: 30%;
@@ -83,4 +83,16 @@ input {
   margin-right: 20px;
   margin-left: auto;
   background-color: aliceblue;
+}
+
+.custom-message {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  transform: translateX(-50%);
+  background-color: #f44336;
+  color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+  z-index: 9999;
 }
