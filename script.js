@@ -184,67 +184,36 @@ const books = [
     image: "./books-images/the-giver.jpeg",
   },
 ];
-
-// creating a new array for each of high, low, latest and oldested books
-const rating = [];
-const publishedYear = [];
-const genre = [];
-
+// HTML elements
 const container = document.getElementById("container");
-const addToCart = document.getElementById("addToCart");
 const filterDropDown = document.getElementById("filterDropDown");
-const sortingHighButton = document.getElementById("sorting-high-to-low-button");
-const sortingLowButton = document.getElementById("sorting-low-to-high-button");
+const sortingSelect = document.getElementById("sortingSelect");
+const searchInput = document.getElementById("search-input");
+const searchResults = document.getElementById("search-results");
 
-// const sortingButton = document.getElementById("sorting-button");
-
-
-// Function to display all of the book list
-const loadBooks = (books) => {
-  container.innerHTML = "";
-  books.forEach((book) => {
-    container.innerHTML += `
+// Function to generate the HTML for a book card
+function createBookCard(book) {
+  return `
     <div class="card">
-      <p class="book-title">${book.title}</p>
-      <p>⭐️ ${book.rating}</p>
+      <p class="book-item" id="book-title">${book.title}</p>
+      <p class="book-item">Author: ${book.author}</p>
+      <p class="book-item">⭐️ ${book.rating}</p>
       <img src="${book.image}" alt="${book.title}">
     </div>
-      `;
+  `;
+}
+
+// Function to display all of the book list
+function loadBooks(booksToDisplay) {
+  container.innerHTML = "";
+  booksToDisplay.forEach((book) => {
+    container.innerHTML += createBookCard(book);
   });
-};
-
-// ...
-
-// function sort(sortOption) {
-//   const sortBook = [...books];
-//   switch (sortOption) {
-//     case "high-to-low":
-//       console.log("Sorting High to Low");
-//       sortBook.sort(
-//         (highRating, lowRating) => lowRating.rating - highRating.rating
-//       );
-//       break;
-//     case "low-to-high":
-//       sortBook.sort(
-//         (highRating, lowRating) => highRating.rating - lowRating.rating
-//       );
-//       break;
-//     case "a-z":
-//       sortBook.sort((a, z) => a.title.toLowerCase() - z.title.toLowerCase()); //lowercase method used to avoid case sensitiveness
-//       break;
-//     case "z-a":
-//       sortBook.sort((a, z) => z.title.toLowerCase() - a.title.toLowerCase());
-//       break;
-//         default:
-//           break;
-
-//   }
-//   loadBooks(sortBook);
-// }
+}
 
 // Function to filter and display books based on genre
-const filterBooks = () => {
-  const value = filterDropDown.value; // Change filterDropDown to filter
+function filterBooks() {
+  const value = filterDropDown.value;
 
   if (value === "all") {
     loadBooks(books);
@@ -254,125 +223,54 @@ const filterBooks = () => {
     );
     loadBooks(filterList);
   }
-};
-
-//Function to sort the books
-// function sortBooks()
-
-//function to sort the book as per rating
-function sortByHighRating() {
-  // container.innerHTML = "";
-  // creating a new copy of the books array
-  const sortedBooks = [...books];
-  sortedBooks.sort((popular, least) => least.rating - popular.rating);
-  loadBooks(sortedBooks); // update the displayed books with the sorted array
-
-  console.log(sortedBooks);
 }
 
-//function to sort the book as per rating
-function sortByLowRating() {
-  // container.innerHTML = "";
-  // creating a new copy of the books array
-  const sortBooks = [...books];
-  sortBooks.sort((popular, least) => popular.rating - least.rating);
-  loadBooks(sortBooks); // update the displayed books with the sorted array
+// Function to sort books based on selected option
+function sortBooks() {
+  const value = sortingSelect.value;
 
-  console.log(sortBooks);
+  let sortedBooks = [...books];
+
+  switch (value) {
+    case "highToLowRating":
+      sortedBooks.sort((low, high) => high.rating - low.rating);
+      break;
+    case "lowToHighRating":
+      sortedBooks.sort((low, high) => low.rating - high.rating);
+      break;
+    case "azTitle":
+      sortedBooks.sort((a, z) => a.title.localeCompare(z.title)); // localCompare method compares two strings
+      break;
+    case "zaTitle":
+      sortedBooks.sort((a, z) => z.title.localeCompare(a.title));
+      break;
+    default:
+      break;
+  }
+
+  loadBooks(sortedBooks);
 }
-
-// console.log(sort);
-
-// Apply the filter when the user changes the dropdown
-filterDropDown.addEventListener("change", filterBooks);
-
-sortingHighButton.addEventListener("click", sortByHighRating);
-sortingLowButton.addEventListener("click", sortByLowRating);
-
-// sortingButton.addEventListener("click", () => {
-//   const sortOption = document.querySelector('input[name="sort-options"]:checked').value;
-// // const sortField = document.querySelector('input[name="sort-field"]:checked').value;
-// console.log(sortOption);
-//  sort(sortOption);
-// });
-
-
-
-// stephan's https://github.com/Stefanpenk/FooCoding/blob/master/JavaScript2/Week2/app.js
-
-// check stackover flow and chatgpt for search option first
-
-// HTML elements
-const searchInput = document.getElementById('search-input'); // Assuming you have an HTML input element with id 'search-input'
-const searchResults = document.getElementById('search-results'); // Assuming you have an HTML element where you want to display search results
 
 // Function to handle search
 function handleSearch() {
-   
   const searchTerm = searchInput.value.toLowerCase();
 
-  // Use the map function to filter and create an array of matching books
-  const matchingBooks = books
-    .filter((book) => {
-      const { title, author, genre } = book;
-      return (
-        title.toLowerCase().includes(searchTerm) ||
-        author.toLowerCase().includes(searchTerm) ||
-        genre.toLowerCase().includes(searchTerm)
-      );
-    })
-    .map((book) => {
-      // Create an HTML element for each matching book 
-      return `
-        <div id="search-list">
-          <h5 class="search-result">${book.title}</h5>
-          <p class="search-result"><strong>Author:</strong> ${book.author}</p>
-          <p class="search-result">${book.genre}</p>
-        </div>
-      `;
-    });
-  // Display the matching books in the searchResults element
+  const matchingBooks = books.filter((book) => {
+    const { title, author, genre } = book;
+    return (
+      title.toLowerCase().includes(searchTerm) ||
+      author.toLowerCase().includes(searchTerm) ||
+      genre.toLowerCase().includes(searchTerm)
+    );
+  });
 
-  if (matchingBooks.length === 0){
-    searchResults.innerHTML = `<p class="search-result">Book is not available </p>`;
-  } else {
-    searchResults.innerHTML = matchingBooks.join('');
-  }
+  loadBooks(matchingBooks);
 }
 
-// Add an event listener to the search input to trigger the search
-searchInput.addEventListener('input', handleSearch);
-// Add an event listener to the search input to clear it when it becomes empty
-searchInput.addEventListener('input', function () {
-  if (searchInput.value.trim() === '') {
-    searchInput.value = ''; // Clear the search input
-  }
-});
+// Event listeners
+filterDropDown.addEventListener("change", filterBooks);
+sortingSelect.addEventListener("change", sortBooks);
+searchInput.addEventListener("input", handleSearch);
 
-// loadBooks(books); // Call loadBooks with the initial list of books
-
-
-
-// make a add to cart button
-// const addToCartBtns=document.querySelectorAll("addToCart")
-// console.log(addToCartBtns[0])
-// for(let i=1; i<addToCart.length; i++) {
-//   addToCartBtns[i].addEventListener("click", ()=> {
-//     console.log("button clicked")
-//     let productName="";
-//     if(localStorage.getItem(`${productName}`))
-//     {
-//       alert("Product already exists in your Cart!");
-//       return false;}
-//       else {
-//         alert(`Added ${productName}`);
-//       }
-//   })
-// }
-
-
-// ADD TO CART
-
-const cart= []
-
-// create a cart function
+// Initial load of books
+loadBooks(books);
