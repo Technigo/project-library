@@ -1,13 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Don't forget to change the title and connect the CSS file -->
-  <title>Project Library</title>
-</head>
-<body>
-  <h1>Project Library</h1>
-  <!-- Don't forget to connect the JavaScript file -->
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Don't forget to change the title and connect the CSS file -->
+    <title>Project Library</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="title">
+      <h1>Book Library</h1>
+    </div>
+    <div class="search">
+      <input
+        id="search"
+        for="search"
+        size="40"
+        placeholder="Search your books by title or author"
+      />
+    </div>
+    <div class="dropdown-row">
+      <div class="dropdown">
+        <select id="filterDropdown">
+          <option value="all">Sorted by Genre</option>
+          <option value="Fiction">Fiction</option>
+          <option value="Science Fiction">Science Fiction</option>
+          <option value="Fantasy">Fantasy</option>
+          <option value="Adventure">Adventure</option>
+          <option value="Horror">Horror</option>
+          <option value="Mystery">Mystery</option>
+          <option value="Dystopian">Dystopian</option>
+        </select>
+      </div>
+      <div class="dropdown">
+        <select id="filterDropdownNewRat">
+          <option value="all">All Books</option>
+          <option value="Newest">Newest</option>
+          <option value="Oldest">Oldest</option>
+          <option value="Highest">Highest Rating</option>
+          <option value="Lowest">Lowest Rating</option>
+        </select>
+      </div>
+      <div class="dropdown">
+        <select id="filterDropdownCenAl">
+          <option value="all">Sorted by Order</option>
+          <option value="Alphabetical">Alphabetical Order</option>
+          <option value="Century">21st Century</option>
+        </select>
+      </div>
+    </div>
+    <div id="book-container"></div>
+
+    <script src="script.js"></script>
+  </body>
 </html>
