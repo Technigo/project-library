@@ -1,0 +1,47 @@
+body {
+    margin:0;
+    padding:0;
+}
+section {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.wrapper {
+    display:flex; 
+    justify-content: space-between;
+}
+
+h1 {
+    padding:24px;
+}
+
+p {
+    margin: 0;
+    font-size: 18px;
+    padding-bottom: 16px;
+}
+
+
+section .card{
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    max-width: 300px;
+    margin: 0 24px;
+}
+
+.card img {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    object-position: center;
+}
+
+select:first-of-type {
+    margin-left: 24px;
+}
+
+select {
+    margin-bottom: 24px;
+}
