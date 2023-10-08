@@ -280,7 +280,7 @@ function handleSearch() {
     setTimeout(function () {
       // Remove the custom message element after 2 seconds
       document.body.removeChild(messageElement);
-    }, 2000); // 2000 milliseconds = 2 seconds
+    }, 1000); // 1000 milliseconds = 1 seconds
   }
 }
 
