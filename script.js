@@ -220,7 +220,7 @@ const filterBooks = () => {
   const value = filterDropdown.value;
   let filtredBooks = books.map((book) => book);
 
-  if (value === "filter") {
+  if (value === "all") {
     booksLoader(books);
   } else if (value === "21th-century") {
     // Only show books that are from the 21th century
@@ -244,7 +244,7 @@ const sortBooks = () => {
   let sortedBooks = books.map((book) => book);
 
   switch (value) {
-    case "sort":
+    case "all":
       return booksLoader(books);
     case "newest":
       // use built-in function to sort books from newest to oldest
