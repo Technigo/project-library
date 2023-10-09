@@ -1,6 +1,3 @@
-//const title = document.getElementsByClassName("title");
-//const author = document.getElementsByClassName("author");
-
 const books = [
   {
     title: "The Great Gatsby",
