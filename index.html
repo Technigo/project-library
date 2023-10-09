@@ -1,13 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Don't forget to change the title and connect the CSS file -->
-  <title>Project Library</title>
-</head>
-<body>
-  <h1>Project Library</h1>
-  <!-- Don't forget to connect the JavaScript file -->
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=PT+Sans&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="./img/favicon.ico" type="image/x-icon" />
+    <title>Digital Library</title>
+  </head>
+
+  <body>
+    <!-- <header> -->
+    <header>
+      <h1>Digital Library</h1>
+    </header>
+
+    <!-- Main content -->
+    <section class="main">
+      <select id="filter-dropdown">
+        <option value="all">ALL</option>
+        <option value="Fiction">Fiction</option>
+        <option value="Science Fiction">Science Fiction</option>
+        <option value="Fantasy">Fantasy</option>
+        <option value="Adventure">Adventure</option>
+        <option value="Mystery">Mystery</option>
+        <option value="Dystopian">Dystopian</option>
+      </select>
+
+      <section id="card-container"></section>
+    </section>
+
+    <!-- <footer> -->
+    <footer>
+      <h2>My favourite books</h2>
+      <section id="favourites">
+        <p>No favourites here yet...</p>
+      </section>
+    </footer>
+    <script src="script.js"></script>
+  </body>
 </html>
