@@ -7,7 +7,7 @@ body {
   h1 {
     text-transform: uppercase;
     font-size: 32px;
-    margin-bottom: 8px;
+    margin-bottom: 16px;
     text-align: center;
   }
 
@@ -23,6 +23,19 @@ body {
 
   button {
     margin: 25px 10px;
+    background: #7A96B3;
+    color: #fff;
+    font-weight: bold;
+    border: 1px solid #999;
+    border-radius: 5px;
+    box-shadow: 2px 2px 8px 0px rgba(0, 0, 0, 0.4);
+    padding: 10px 15px;
+  }
+  
+  button:hover {
+    cursor: pointer;
+    transform: translateY(1px);
+    box-shadow: none;
   }
 
   /* HEADER */
@@ -31,16 +44,6 @@ body {
     background: #7A96B3;
     display: flex;
     justify-content: center;
-    width: 100%;
-  }
-  
-  .header-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    width: 90%;
-    max-width: 1200px;
   }
 
   /* MAIN */
@@ -57,50 +60,22 @@ body {
     min-height: 450px;
     width: 20%;
     flex-grow: 1;
-    vertical-align: text-top;
     background: rgb(179,151,122);
     border-radius: 16px;
     border: 2px solid rgb(161,135,109);
     margin: 10px;
     padding-top: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.3);
   }
   .card img {
     width: 100%;
     margin-top: 15px;
   }
     
-
   /* FOOTER */
 
   footer {
     background: #7A96B3;
-    display: flex;
+    min-height: 100px;
+    padding: 20px;
   }
-  
-  .footer-container {
-    width: 90%;
-    margin: auto;
-    padding: 28px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .footer-container a:hover {
-    color: #fff;
-    font-weight: bold;
-  }
-  
-  .icons a {
-    padding: 8px;
-  }
-  
-  .contacs {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .contacs p {
-    margin: 0 0 8px 0;
-  }
-  
