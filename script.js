@@ -123,27 +123,39 @@ const Books = [
 ];
 
 // References to HTML elements using their IDs.
-const container = document.getElementById("container");
+const allBooks = document.getElementById("allBooks");
 const filterDropdown = document.getElementById("filterDropdown");
 const sortingSelect = document.getElementById("sortingSelect");
 const searchInput = document.getElementById("search-input");
 const searchResults = document.getElementById("search-results");
+//const listTitle = document.getElementByid("listTitle");
+const shoppingCart = document.getElementById("shoppingCart");
+const showShoppingCartButton = document.getElementById("showShoppingCartButton");
 
-// Function to load and display the list of books.
+
+// Creating a variable that can store the books in the shopping cart.
+const booksInshoppingCart = [];
+
+// Function to load and display the list of books and shopping cart.
 const loadBooks = (BooksArray) => {
-  container.innerHTML = "";
+  allBooks.innerHTML = "";
+  shoppingCart.innerHTML = "";
 
   BooksArray.forEach((Books) => {
-    container.innerHTML += `
+    allBooks.innerHTML += `
     <div class="card">
-      <p id="title">${Books.title}</p>
-      <p id="small">By ${Books.author}</p>
-      <img src=${Books.img} art=${Books.title}>
-      <p id="rating">★: ${Books.rating}/5</p>
+    <p id="title">${Books.title}</p>
+    <p id="small">By ${Books.author}</p>
+    <p id="rating">★: ${Books.rating}/5</p>
+    <img src=${Books.img} art=${Books.title}>
+    <p id="description">Plot: ${Books.description}</p>
+    <button id="onClick">Add To Shopping Cart</button>
     </div>
       `;
   });
 };
+
+
 
 // Function to filter and display books based on their genre and get selected value from the filter dropdown.
 const filterBooks = () => {
@@ -216,10 +228,65 @@ function handleSearch() {
 }
 
 
+// Function that will add books to shopping cart.
+const addToShoppingCart = (Books) => {
+  
+  const parsedBooks = JSON.parse(decodeURIComponent(Books));
+  // If statement will output a message if the book is or isn't in the cart. It will also add the book to the shopping cart if it isn't there.
+  if (booksInShoppingCart.some((shoppingCart) => shoppingCart.name === parsedBooks.name)) {
+    alert(`${parsedBooks.name} is already in the cart!`);
+  } else {
+    booksInShoppingCart.push(parsedBooks);
+    alert(`${parsedBooks.name} added to shopping cart!`);
+  }
+}
+
+// Function creates list of books in shopping cart.
+const loadShoppingCart = () => {
+  allBooks.innerHTML = ""
+ 
+const shoppingCartButton = document.getElementById("onClick");
+shoppingCartButton.onclick = addToShoppingCart;
+  
+  // This will make sure the program display the books in the shopping cart.
+  booksInShoppingCart.forEach((Books) => {
+    shoppingCart.innerHTML += `
+    <div class="card">
+    <p id="title">${Books.title}</p>
+    <p id="small">By ${Books.author}</p>
+    <p id="rating">★: ${Books.rating}/5</p>
+    <img src=${Books.img} art=${Books.title}>
+    <p id="description">Plot: ${Books.description}</p>
+    </div>`
+  });
+};
+
+// Function that will toggle between shopping cart and all books.
+const toggleShoppingCart = () => {
+  allBooks.classList.toggle("shoppingCart");
+  
+  // This will change the button depending on if you're showing all of the books or the shopping cart.
+const buttonText = allBooks.classList.contains("shoppingCart") ? "Show all books" : "🛒 My Shopping Cart"
+showShoppingCartButton.textContent = buttonText;
+
+  if (allBooks.classList.contains("shoppingCart")) {
+    loadShoppingCart();
+    // Then change the title to "Your Shopping Cart".
+    listTitle.innerHTML = "🛒 Your Shopping Cart 🛒";
+  } else {
+    loadBooks(Books);
+    // Then change the title to "All Books"
+    listTitle.innerHTML = "All Books";
+  }
+}
+
+
+
 // Apply the filter when the user changes the dropdown selection.
 filterDropdown.addEventListener("change", filterBooks);
 sortingSelect.addEventListener("change", sortBooks);
 searchInput.addEventListener("input", handleSearch);
+showShoppingCartButton.addEventListener("click", toggleShoppingCart);
 
 // Load the initial list of books when the page loads.
 loadBooks(Books);
