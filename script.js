@@ -195,10 +195,14 @@ const searchResults = document.getElementById("search-results");
 function createBookCard(book) {
   return `
     <div class="card">
-      <p class="book-item" id="book-title">${book.title}</p>
-      <p class="book-item">Author: ${book.author}</p>
-      <p class="book-item">⭐️ ${book.rating}</p>
-      <img src="${book.image}" alt="${book.title}">
+    <img src="${book.image}" alt="${book.title}">
+    <div class ="book-info">
+      <p class="book-item" id="book-title">${book.title}  ⭐️ ${book.rating}</p>
+      <p class="book-item"><b>Author: </b>${book.author}</p>
+      <p class="book-item"><b>Genre: </b>${book.genre}</p>
+      <p class="book-item"><b>Year: </b>${book.year}</p>
+      <p class="book-item"><b> Description:</b> ${book.description}</p>
+      </div>
     </div>
   `;
 }

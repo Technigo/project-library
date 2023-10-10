@@ -1,6 +1,5 @@
 * {
   font-family: fantasy;
-  padding: 10px;
 }
 html {
   background-image: url("./books-images/lib-1.png");
@@ -33,37 +32,43 @@ html {
   justify-content: center;
   flex-wrap: wrap;
   gap: 20px;
-  margin-top: 12px;
+  margin-top: 30px;
 }
 #wrapper {
   display: flex;
   align-items: center;
   margin-top: 60px;
+  margin-left: 50px;
   gap: 10px;
 }
 
 .card {
   background-color: white;
-  border-radius: 25px;
+  border-radius: 25px 0 25px 0;
   border: 1px solid gainsboro;
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-  width: 255px;
-  height: 422px;
+  width: 350px;
+  height: 540px;
   background-color: #f4e9de;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
+}
+.book-info{
+  padding: 10px;
+}
+
+.book-item {
+  margin: 5px;
 }
 
 img {
-  width: 240px;
-  height: 285px;
+  width: 350px;
+  height: 300px;
+  border-radius: 25px 0 25px 0;
 }
-
 #book-title {
   font-weight: bold;
 }
-.book-item {
-  margin: auto;
-}
+
 
 input {
   border-radius: 15px;
@@ -76,13 +81,13 @@ input {
 
 #search-list {
   width: 25%;
-}
-
-#search-list {
   font-size: 10px;
   margin-right: 20px;
   margin-left: auto;
   background-color: aliceblue;
+}
+#search-input {
+  padding-left: 2%;
 }
 
 .custom-message {
@@ -95,4 +100,8 @@ input {
   padding: 10px;
   border-radius: 5px;
   z-index: 9999;
+}
+
+#filterDropDown, #sortingSelect {
+  padding: 5px;
 }
