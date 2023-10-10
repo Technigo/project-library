@@ -1,8 +1,26 @@
 /* Reset CSS for basic styling */
-body, h1, p, select, button, input {
-  margin: 0;
-  padding: 0;
-  font-family: Arial, sans-serif;
+h1 {
+  font-family: Georgia;
+  text-align: center;
+  margin-top: 100px;
+}
+
+#title {
+  font-size: 20px;
+  text-align: center;
+}
+
+#small {
+  font-size: 16px;
+}
+
+#rating {
+  color: orange;
+  font-size: 16px;
+}
+
+#description {
+  font-size: 14px;
 }
 
 /* Page background and basic styles */
@@ -75,6 +93,7 @@ button:hover {
   max-width: 100%;
   height: auto;
   margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 /* Shopping cart toggle button */
