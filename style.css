@@ -1,69 +1,98 @@
-h1 {
-  font-family: Georgia;
+/* Reset CSS for basic styling */
+body, h1, p, select, button, input {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* Page background and basic styles */
+body {
+  background-color: #f0f0f0;
   text-align: center;
-  margin-top: 100px;
+  padding: 20px;
 }
 
-p {
-  font-size: 20px;
+/* Header styles */
+h1 {
+  font-size: 36px;
+  margin-bottom: 20px;
 }
 
-#small {
-  font-size: 14px;
-}
-
-#rating {
-  color: orange;
-  font-size: 12px;
-}
-
-.card p {
-  font-family: Arial bold;
-  margin: 12px;
-}
-
-#filterDropdown {
-  margin-bottom: 14px;
-}
-
-#container {
-  width: 100%;
+/* Navigation styles */
+.buttons {
   display: flex;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+select, input, button {
+  margin: 5px;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+}
+
+select {
+  font-size: 16px;
+}
+
+input {
+  flex-grow: 1;
+  font-size: 16px;
+}
+
+button {
+  background-color: #007bff;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Book cards and shopping cart */
+.book-cards {
+  display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  justify-content: space-around;
+  gap: 20px;
 }
 
 .card {
-  width: calc(25% - 20px);
-  margin: 10px;
+  background-color: #fff;
   padding: 20px;
-  text-align: center;
-  border: 2px solid #000;
-  border-radius: 10px;
-  background-color: #f2f2f2;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s;
-  box-sizing: border-box; 
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: left;
+  width: 300px;
 }
 
 .card img {
-  width: 100%;
-  margin: 12px 0;
+  max-width: 100%;
+  height: auto;
+  margin-top: 10px;
 }
 
-.card:hover {
-  transform: scale(1.05);
+/* Shopping cart toggle button */
+#showShoppingCartButton {
+  margin-top: 10px;
+  background-color: #28a745;
+  font-size: 18px;
 }
 
-
+/* Message for search results */
 .message {
   position: fixed;
-  top: 20px;
-  right: 20px;
-  background-color: #pink;
-  color: #black;
-  padding: 10px;
+  top: 10px;
+  right: 10px;
+  background-color: #ff5722;
+  color: #fff;
+  padding: 10px 20px;
   border-radius: 5px;
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
