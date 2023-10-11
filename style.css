@@ -90,20 +90,19 @@ button:hover {
 }
 
 .card img {
-  max-width: 100%;
-  height: auto;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  width: 250px;
+  height: 300px;
+  object-fit: fill;
+  margin: 0 auto;
+  display: block;
 }
 
-/* Shopping cart toggle button */
 #showShoppingCartButton {
   margin-top: 10px;
   background-color: #28a745;
   font-size: 18px;
 }
 
-/* Message for search results */
 .message {
   position: fixed;
   top: 10px;
