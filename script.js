@@ -128,13 +128,11 @@ const filterDropdown = document.getElementById("filterDropdown");
 const sortingSelect = document.getElementById("sortingSelect");
 const searchInput = document.getElementById("search-input");
 const searchResults = document.getElementById("search-results");
-//const listTitle = document.getElementByid("listTitle");
+const listTitle = document.getElementById("listTitle");
 const shoppingCart = document.getElementById("shoppingCart");
 const showShoppingCartButton = document.getElementById("showShoppingCartButton");
 
 
-// Creating a variable that can store the books in the shopping cart.
-const booksInshoppingCart = [];
 
 // Function to load and display the list of books and shopping cart.
 const loadBooks = (BooksArray) => {
@@ -163,7 +161,7 @@ const filterBooks = () => {
 
 // Show all books or filter based on genre and load the filtered list.
   if (value === "all") {
-    loadBookss(Books);
+    loadBooks(Books);
   } else {
     const filteredList = Books.filter((Books) => Books.genre === value);
     loadBooks(filteredList);
@@ -194,6 +192,7 @@ function sortBooks() {
   }
   loadBooks(sortedBooks);
 }
+
 
 // Function to handle the search
 function handleSearch() {
@@ -228,10 +227,14 @@ function handleSearch() {
 }
 
 
+
+// Creating a variable that can store the books in the shopping cart.
+const booksInShoppingCart = [];
+
 // Function that will add books to shopping cart.
 const addToShoppingCart = (Books) => {
-  
   const parsedBooks = JSON.parse(decodeURIComponent(Books));
+  
   // If statement will output a message if the book is or isn't in the cart. It will also add the book to the shopping cart if it isn't there.
   if (booksInShoppingCart.some((shoppingCart) => shoppingCart.name === parsedBooks.name)) {
     alert(`${parsedBooks.name} is already in the cart!`);
@@ -244,9 +247,6 @@ const addToShoppingCart = (Books) => {
 // Function creates list of books in shopping cart.
 const loadShoppingCart = () => {
   allBooks.innerHTML = ""
- 
-const shoppingCartButton = document.getElementById("onClick");
-shoppingCartButton.onclick = addToShoppingCart;
   
   // This will make sure the program display the books in the shopping cart.
   booksInShoppingCart.forEach((Books) => {
@@ -266,9 +266,10 @@ const toggleShoppingCart = () => {
   allBooks.classList.toggle("shoppingCart");
   
   // This will change the button depending on if you're showing all of the books or the shopping cart.
-const buttonText = allBooks.classList.contains("shoppingCart") ? "Show all books" : "🛒 My Shopping Cart"
-showShoppingCartButton.textContent = buttonText;
+  const buttonText = allBooks.classList.contains("shoppingCart") ? "See all books" : "🛒 My Shopping Cart";
+  showShoppingCartButton.textContent = buttonText;
 
+  
   if (allBooks.classList.contains("shoppingCart")) {
     loadShoppingCart();
     // Then change the title to "Your Shopping Cart".
@@ -277,9 +278,8 @@ showShoppingCartButton.textContent = buttonText;
     loadBooks(Books);
     // Then change the title to "All Books"
     listTitle.innerHTML = "All Books";
-  }
+  } 
 }
-
 
 
 // Apply the filter when the user changes the dropdown selection.
