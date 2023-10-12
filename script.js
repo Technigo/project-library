@@ -133,7 +133,6 @@ const shoppingCart = document.getElementById("shoppingCart");
 const showShoppingCartButton = document.getElementById("showShoppingCartButton");
 
 
-
 // Function to load and display the list of books and shopping cart.
 const loadBooks = (BooksArray) => {
   allBooks.innerHTML = "";
@@ -145,14 +144,66 @@ const loadBooks = (BooksArray) => {
     <p id="title">${Books.title}</p>
     <p id="small">By ${Books.author}</p>
     <p id="rating">★: ${Books.rating}/5</p>
-    <img src=${Books.img} art=${Books.title}>
-    <p id="description">Plot: ${Books.description}</p>
-    <button id="onClick">Add To Shopping Cart</button>
+    <img src=${Books.img} alt=${Books.title}>
+    <p id="description">${Books.description}</p>
+    <button onclick="addToShoppingCart(${JSON.stringify(Books)})" id="addToShoppingCart">Add To Shopping Cart</button>
     </div>
       `;
   });
 };
 
+// Creating a variable that can store the books in the shopping cart.
+const booksInShoppingCart = [];
+
+// Function that will add books to shopping cart.
+const addToShoppingCart = (Books) => {
+  // Check if the book is already in the cart based on a unique identifier (till exempel bokens titel).
+  const bookExistsInCart = booksInShoppingCart.some((cartBook) => cartBook.title === Books.title);
+
+  if (bookExistsInCart) {
+    alert(`${Books.title} is already in the cart!`);
+  } else {
+    booksInShoppingCart.push(Books);
+    alert(`${Books.title} added to the shopping cart!`);
+  };
+};
+
+// Function creates list of books in shopping cart.
+const loadShoppingCart = () => {
+  allBooks.innerHTML = "";
+  
+  // This will make sure the program display the books in the shopping cart. 
+  booksInShoppingCart.forEach((Books) => {
+    shoppingCart.innerHTML += `
+    <div class="card">
+    <p id="title">${Books.title}</p>
+    <p id="small">By ${Books.author}</p>
+    <p id="rating">★: ${Books.rating}/5</p>
+    <img src=${Books.img} art=${Books.title}>
+    <p id="description">${Books.description}</p>
+    </div>`
+  });
+};
+
+// Function that will toggle between shopping cart and all books.
+const toggleShoppingCart = () => {
+  allBooks.classList.toggle("shoppingCart");
+  
+  // This will change the button depending on if you're showing all of the books or the shopping cart.
+  const buttonText = allBooks.classList.contains("shoppingCart") ? "See all books" : "🛒 My Shopping Cart";
+  showShoppingCartButton.textContent = buttonText;
+
+  
+  if (allBooks.classList.contains("shoppingCart")) {
+    loadShoppingCart();
+    // Then change the title to "Your Shopping Cart".
+    listTitle.innerHTML = "🛒 Your Shopping Cart 🛒";
+  } else {
+    loadBooks(Books);
+    // Then change the title to "All Books"
+    listTitle.innerHTML = "All Books";
+  } 
+}
 
 
 // Function to filter and display books based on their genre and get selected value from the filter dropdown.
@@ -189,9 +240,9 @@ function sortBooks() {
       break;
     default:
       break;
-  }
+  };
   loadBooks(sortedBooks);
-}
+};
 
 
 // Function to handle the search
@@ -224,61 +275,6 @@ function handleSearch() {
       document.body.removeChild(messageElement);
     }, 1500);
   }
-}
-
-
-
-// Creating a variable that can store the books in the shopping cart.
-const booksInShoppingCart = [];
-
-// Function that will add books to shopping cart.
-const addToShoppingCart = (Books) => {
-  const parsedBooks = JSON.parse(decodeURIComponent(Books));
-  
-  // If statement will output a message if the book is or isn't in the cart. It will also add the book to the shopping cart if it isn't there.
-  if (booksInShoppingCart.some((shoppingCart) => shoppingCart.name === parsedBooks.name)) {
-    alert(`${parsedBooks.name} is already in the cart!`);
-  } else {
-    booksInShoppingCart.push(parsedBooks);
-    alert(`${parsedBooks.name} added to shopping cart!`);
-  }
-}
-
-// Function creates list of books in shopping cart.
-const loadShoppingCart = () => {
-  allBooks.innerHTML = ""
-  
-  // This will make sure the program display the books in the shopping cart.
-  booksInShoppingCart.forEach((Books) => {
-    shoppingCart.innerHTML += `
-    <div class="card">
-    <p id="title">${Books.title}</p>
-    <p id="small">By ${Books.author}</p>
-    <p id="rating">★: ${Books.rating}/5</p>
-    <img src=${Books.img} art=${Books.title}>
-    <p id="description">Plot: ${Books.description}</p>
-    </div>`
-  });
-};
-
-// Function that will toggle between shopping cart and all books.
-const toggleShoppingCart = () => {
-  allBooks.classList.toggle("shoppingCart");
-  
-  // This will change the button depending on if you're showing all of the books or the shopping cart.
-  const buttonText = allBooks.classList.contains("shoppingCart") ? "See all books" : "🛒 My Shopping Cart";
-  showShoppingCartButton.textContent = buttonText;
-
-  
-  if (allBooks.classList.contains("shoppingCart")) {
-    loadShoppingCart();
-    // Then change the title to "Your Shopping Cart".
-    listTitle.innerHTML = "🛒 Your Shopping Cart 🛒";
-  } else {
-    loadBooks(Books);
-    // Then change the title to "All Books"
-    listTitle.innerHTML = "All Books";
-  } 
 }
 
 
