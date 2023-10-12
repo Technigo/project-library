@@ -179,7 +179,7 @@ const loadShoppingCart = () => {
     <p id="title">${Books.title}</p>
     <p id="small">By ${Books.author}</p>
     <p id="rating">★: ${Books.rating}/5</p>
-    <img src=${Books.img} art=${Books.title}>
+    <img src=${Books.img} alt=${Books.title}>
     <p id="description">${Books.description}</p>
     </div>`
   });
