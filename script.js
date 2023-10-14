@@ -230,9 +230,16 @@ const loadRecipes = (recipesArray) => {
     <div class="card">
     <h2> ${recipe.name}</h2>
     <img src="${recipe.img}" alt="${recipe.name} Image">
+    <p>Total cooking time: ${recipe.totalTime}</p>
+    <p>Cuisinetype: ${recipe.cuisineType}</p>
+    <p>Ingridients: ${recipe.ingredients}</p>
+    <p>Source: ${recipe.source}</p>
+<p>Website: ${recipe.url}</p>
+  
     </div>
     `})
 }
+
 
 //A function to filter recipies
 const filterRecipes = () => {
@@ -244,6 +251,8 @@ const filterRecipes = () => {
     loadRecipes(filterList)
   }
 }
+
+window.addEventListener("load", filterRecipes);
 filter.addEventListener("change", filterRecipes);
 
 
