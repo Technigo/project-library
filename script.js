@@ -201,7 +201,9 @@ const showBooks = (booksToBeShown) => {
       <section class="bookSection">
         <h3>${book.title}</h3>
         <img src="${book.image}"/>
-        <p>Author: ${book.author}, Year:${book.year}</p>
+        <span>Author: ${book.author}, Year:${book.year}</span>
+        <span>Genre: ${book.genre}, Rating:${book.rating}</span>
+        <p>Description: ${book.description}</p>
       </section>
     `
   )
