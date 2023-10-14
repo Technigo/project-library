@@ -1,194 +1,7 @@
-/*Here we have created two different arrays that you can work with if you want.
-If you choose to create your own arrays with elements, just make sure that some
-of the properties make sense to filter on, and some to sort on.*/
-
-const books = [
-  {
-    title: 'The Great Gatsby',
-    author: 'F. Scott Fitzgerald',
-    year: 1925,
-    genre: 'Fiction',
-    rating: 4.2,
-    description:
-      'A classic novel set in the Roaring Twenties, it explores themes of wealth, love, and the American Dream through the enigmatic Jay Gatsby.',
-    image: './books-images/the-great-gatsby.jpg'
-  },
-  {
-    title: 'To Kill a Mockingbird',
-    author: 'Harper Lee',
-    year: 1960,
-    genre: 'Fiction',
-    rating: 4.5,
-    description:
-      'Set in the American South, this novel tackles issues of racism and injustice through the eyes of young Scout Finch.',
-    image: './books-images/to-kill-a-mockingbird.jpg'
-  },
-  {
-    title: '1984',
-    author: 'George Orwell',
-    year: 1949,
-    genre: 'Science Fiction',
-    rating: 4.4,
-    description:
-      'A dystopian classic that explores totalitarianism and the consequences of a surveillance state in a bleak future.',
-    image: './books-images/1984.jpg'
-  },
-  {
-    title: 'Pride and Prejudice',
-    author: 'Jane Austen',
-    year: 1813,
-    genre: 'Fiction',
-    rating: 4.25,
-    description:
-      'A timeless romance novel that examines societal expectations and the misunderstandings that can arise from pride and prejudice.',
-    image: './books-images/pride-and-prejudice.jpg'
-  },
-  {
-    title: 'The Catcher in the Rye',
-    author: 'J.D. Salinger',
-    year: 1951,
-    genre: 'Fiction',
-    rating: 4,
-    description:
-      'Narrated by the teenage Holden Caulfield, the novel explores themes of alienation and the search for authenticity.',
-    image: './books-images/unknown.jpg'
-  },
-  {
-    title: 'The Hobbit',
-    author: 'J.R.R. Tolkien',
-    year: 1937,
-    genre: 'Fantasy',
-    rating: 4.6,
-    description:
-      'A fantasy adventure novel that follows Bilbo Baggins on a quest to help a group of dwarves reclaim their homeland from a dragon.',
-    image: './books-images/the-hobbit.jpg'
-  },
-  {
-    title: "Harry Potter and the Sorcerer's Stone",
-    author: 'J.K. Rowling',
-    year: 1997,
-    genre: 'Fantasy',
-    rating: 4.7,
-    description:
-      'The first book in the beloved Harry Potter series, it introduces readers to the magical world of Hogwarts and the young wizard Harry Potter.',
-    image: "./books-images/harry-potter-and-the-sorcerer'.jpg"
-  },
-  {
-    title: 'Moby-Dick',
-    author: 'Herman Melville',
-    year: 1851,
-    genre: 'Adventure',
-    rating: 4.1,
-    description:
-      'An epic tale of obsession, revenge, and the relentless pursuit of the great white whale, Moby Dick.',
-    image: './books-images/moby-dick.jpg'
-  },
-  {
-    title: 'The Lord of the Rings: The Fellowship of the Ring',
-    author: 'J.R.R. Tolkien',
-    year: 1954,
-    genre: 'Fantasy',
-    rating: 4.55,
-    description:
-      'The first volume of the epic fantasy trilogy follows Frodo Baggins and the Fellowship on their quest to destroy the One Ring.',
-    image: './books-images/the-lord-of-the-rings.jpg'
-  },
-  {
-    title: 'The Shining',
-    author: 'Stephen King',
-    year: 1977,
-    genre: 'Horror',
-    rating: 4.3,
-    description:
-      "A psychological horror novel that tells the story of the Torrance family's terrifying experiences at the haunted Overlook Hotel.",
-    image: './books-images/unknown.jpg'
-  },
-  {
-    title: 'The Chronicles of Narnia: The Lion, the Witch and the Wardrobe',
-    author: 'C.S. Lewis',
-    year: 1950,
-    genre: 'Fantasy',
-    rating: 4.15,
-    description:
-      'The first book in the Chronicles of Narnia series, it follows the adventures of children who discover the magical land of Narnia.',
-    image: './books-images/the-chronicles-of-narnia.jpg'
-  },
-  {
-    title: 'The Da Vinci Code',
-    author: 'Dan Brown',
-    year: 2003,
-    genre: 'Mystery',
-    rating: 3.8,
-    description:
-      'A gripping mystery thriller that follows Harvard symbologist Robert Langdon as he unravels the secrets of the Da Vinci Code.',
-    image: './books-images/unknown.jpg'
-  },
-  {
-    title: 'The Alchemist',
-    author: 'Paulo Coelho',
-    year: 1988,
-    genre: 'Fiction',
-    rating: 4.25,
-    description:
-      'A philosophical novel that tells the story of Santiago, a shepherd boy, on his quest to discover his personal legend.',
-    image: './books-images/unknown.jpg'
-  },
-  {
-    title: 'The Hunger Games',
-    author: 'Suzanne Collins',
-    year: 2008,
-    genre: 'Science Fiction',
-    rating: 4.3,
-    description:
-      "In a dystopian future, Katniss Everdeen becomes a symbol of rebellion when she volunteers to take her sister's place in the brutal Hunger Games.",
-    image: './books-images/unknown.jpg'
-  },
-  {
-    title: 'The Girl with the Dragon Tattoo',
-    author: 'Stieg Larsson',
-    year: 2005,
-    genre: 'Mystery',
-    rating: 4.1,
-    description:
-      'A gripping mystery novel featuring investigative journalist Mikael Blomkvist and the enigmatic hacker Lisbeth Salander.',
-    image: './books-images/unknown.jpg'
-  },
-  {
-    title: 'The Road',
-    author: 'Cormac McCarthy',
-    year: 2006,
-    genre: 'Dystopian',
-    rating: 4,
-    description:
-      "Set in a post-apocalyptic world, it follows a father and son's harrowing journey to survive and find safety.",
-    image: './books-images/unknown.jpg'
-  },
-  {
-    title: "The Hitchhiker's Guide to the Galaxy",
-    author: 'Douglas Adams',
-    year: 1979,
-    genre: 'Science Fiction',
-    rating: 4.35,
-    description:
-      "A comedic science fiction series that follows the misadventures of Arthur Dent after Earth's destruction.",
-    image: './books-images/unknown.jpg'
-  },
-  {
-    title: 'The Giver',
-    author: 'Lois Lowry',
-    year: 1993,
-    genre: 'Dystopian',
-    rating: 4.12,
-    description:
-      'A dystopian novel set in a seemingly perfect society where young Jonas discovers the dark truth beneath the surface.',
-    image: './books-images/unknown.jpg'
-  }
-]
-
 const recipes = [
   {
     name: 'Individual vegetarian lasagnes',
-    cuisineType: ['italian'],
+    cuisineType: ['Italian'],
     ingredients: [
       '1.2 kg cherry tomatoes',
       '5 sprigs of fresh thyme',
@@ -208,7 +21,7 @@ const recipes = [
     source: 'Jamie Oliver',
     totalTime: 130,
     url: 'http://www.jamieoliver.com/recipes/vegetables-recipes/individual-vegetarian-lasagnes/',
-    image: './recipe-images/individual-vegetarian-lasagnes.jpg'
+    img: "recipe-images/individual-vegetarian-lasagnes.jpg"
   },
   {
     name: 'Vegetarian Stir-Fried Garlic Scape',
@@ -231,7 +44,7 @@ const recipes = [
     source: 'Red Cook',
     totalTime: null,
     URL: 'http://redcook.net/2010/06/16/garlic-scape-an-off-menu-treat/',
-    image: './recipe-images/vegetarian-stir-fried-garlic-s.jpg'
+    img: './recipe-images/vegetarian-stir-fried-garlic-s.jpg'
   },
   {
     name: 'Cheat’s cheesy focaccia',
@@ -245,7 +58,7 @@ const recipes = [
     source: 'BBC Good Food',
     totalTime: 40,
     URL: 'https://www.bbcgoodfood.com/recipes/cheats-cheesy-focaccia',
-    image: './recipe-images/cheat’s-cheesy-focaccia.jpg'
+    img: "recipe-images/cheat’s-cheesy-focaccia.jpg"
   },
   {
     name: "Vegetarian Shepherd's Pie",
@@ -270,7 +83,7 @@ const recipes = [
     source: 'Martha Stewart',
     totalTime: 120,
     URL: 'https://www.marthastewart.com/1535235/vegetarian-shepherds-pie',
-    image: "./recipe-images/vegetarian-shepherd's-pie.jpg"
+    img: "recipe-images/vegetarian-shepherd's-pie.jpg"
   },
   {
     name: 'Chicken Paprikash',
@@ -291,11 +104,11 @@ const recipes = [
     source: 'No Recipes',
     totalTime: 80,
     URL: 'http://norecipes.com/recipe/chicken-paprikash/',
-    image: './recipe-images/chicken-paprikash.jpg'
+    img: "recipe-images/chicken-paprikash.jpg"
   },
   {
     name: 'Baked Chicken',
-    cuisineType: ['american'],
+    cuisineType: ['American'],
     ingredients: [
       '6 bone-in chicken breast halves, or 6 chicken thighs and wings, skin-on',
       '1/2 teaspoon coarse salt',
@@ -305,7 +118,7 @@ const recipes = [
     source: 'Martha Stewart',
     totalTime: 90,
     url: 'http://www.marthastewart.com/318981/baked-chicken',
-    image: './recipe-images/baked-chicken.jpg'
+    img: "recipe-images/baked-chicken.jpg"
   },
   {
     name: 'Deep Fried Fish Bones',
@@ -314,11 +127,11 @@ const recipes = [
     source: 'Serious Eats',
     totalTime: 31,
     url: 'http://www.seriouseats.com/recipes/2011/03/deep-fried-fish-bones-recipe.html',
-    image: './recipe-images/deep-fried-fish-bones.jpg'
+    img: "recipe-images/deep-fried-fish-bones.jpg"
   },
   {
     name: 'Burnt-Scallion Fish',
-    cuisineType: ['chinese'],
+    cuisineType: ['Chinese'],
     ingredients: [
       '2 bunches scallions',
       '8 tbsp. butter',
@@ -327,11 +140,11 @@ const recipes = [
     source: 'Saveur',
     totalTime: 70,
     url: 'http://www.saveur.com/article/Recipes/Burnt-Scallion-Fish',
-    image: './recipe-images/fish-dish.jpg'
+    img: "recipe-images/fish-dish.jpg"
   },
   {
     name: 'Curry-Crusted Fish',
-    cuisineType: ['south east asian'],
+    cuisineType: ['South east asian'],
     ingredients: [
       '3 slices bread , about 85g/3oz in total',
       '1 lime',
@@ -341,11 +154,11 @@ const recipes = [
     source: 'BBC Good Food',
     totalTime: 80,
     url: 'http://www.bbcgoodfood.com/recipes/4717/',
-    image: './recipe-images/fish-dish.jpg'
+    img: "recipe-images/fish-dish.jpg"
   },
   {
     name: 'Meat Stock',
-    cuisineType: 'american',
+    cuisineType: 'American',
     ingredients: [
       '2.5 pounds beef marrow bones',
       '1 large onion, quartered',
@@ -363,11 +176,11 @@ const recipes = [
     source: 'Food52',
     totalTime: 60,
     url: 'https://food52.com/recipes/3712-meat-stock',
-    image: './recipe-images/meat.jpg'
+    img: "recipe-images/meat.jpg"
   },
   {
     name: 'Homemade Meat Broth',
-    cuisineType: 'american',
+    cuisineType: 'American',
     ingredients: [
       '1 teaspoon salt',
       '1 carrot, peeled',
@@ -381,11 +194,11 @@ const recipes = [
     source: 'Cookstr',
     totalTime: 60,
     url: 'http://www.cookstr.com/recipes/il-brodo-homemade-meat-broth',
-    image: './recipe-images/meat.jpg'
+    img: "recipe-images/meat.jpg"
   },
   {
     name: 'Spice-Rubbed Grilled Flap Meat (Sirloin Tip) Recipe',
-    cuisineType: 'south-american',
+    cuisineType: 'South-american',
     ingredients: [
       '1 tablespoon whole black peppercorns, toasted',
       '1 teaspoon coriander seed, toasted',
@@ -401,6 +214,61 @@ const recipes = [
     source: 'Serious Eats',
     totalTime: 240,
     url: 'http://www.seriouseats.com/recipes/2012/05/spice-rubbed-grilled-flap-meat-sirloin-tip-recipe.html',
-    image: './recipe-images/grilled.jpg'
+    img: "recipe-images/grilled.jpg"
   }
 ]
+
+//Find HTML element
+const recipeContainer = document.getElementById("recipeContainer")
+const filter = document.getElementById("filter")
+
+//Use Foreach to iterate in my array
+const loadRecipes = (recipesArray) => {
+  recipeContainer.innerHTML = ""
+  recipesArray.forEach((recipe) => {
+    recipeContainer.innerHTML += `
+    <div class="card">
+    <h2> ${recipe.name}</h2>
+    <img src="${recipe.img}" alt="${recipe.name} Image">
+    <p>Total cooking time: ${recipe.totalTime}</p>
+    <p>Cuisinetype: ${recipe.cuisineType}</p>
+    <p>Ingridients: ${recipe.ingredients}</p>
+    <p>Source: ${recipe.source}</p>
+<p>Website: ${recipe.url}</p>
+  
+    </div>
+    `})
+}
+
+
+//A function to filter recipies
+const filterRecipes = () => {
+  const value = filter.value
+  if (value === "all") {
+    loadRecipes(recipes)
+  } else {
+    const filterList = recipes.filter((recipe) => recipe.cuisineType.includes(value));
+    loadRecipes(filterList)
+  }
+}
+
+window.addEventListener("load", filterRecipes);
+filter.addEventListener("change", filterRecipes);
+
+
+//Function to sort by Time
+const shortTimeBtn = document.getElementById("shortTimeBtn");
+const longTimeBtn = document.getElementById("longTimeBtn");
+
+const sortRecipesLongestTime = () => {
+  const sortedList = recipes.sort((a, b) => b.totalTime - a.totalTime)
+  loadRecipes(sortedList)
+}
+
+const sortRecipesShortestTime = () => {
+  const sortedList = recipes.sort((a, b) => a.totalTime - b.totalTime)
+  loadRecipes(sortedList)
+}
+
+shortTimeBtn.addEventListener("click", sortRecipesShortestTime);
+longTimeBtn.addEventListener("click", sortRecipesLongestTime);
