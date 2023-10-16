@@ -97,13 +97,13 @@ p {
   text-align: center;
 }
 
-.searchBar {
+.header__search {
   float: left;
 }
 
-.searchBar input {
+.header__search input {
   font-size: 0.8rem;
-  color: #000;
+  color: var(--HEADER-BGCOLOR);
   padding: 2px;
 }
 
