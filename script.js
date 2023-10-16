@@ -185,6 +185,8 @@ const books = [
 const bookContainer = document.getElementById("container");
 const filterDropdown = document.getElementById("filterDropdown");
 const sortDropdown = document.getElementById("sortDropdown");
+const searchForm = document.getElementById("searchForm");
+const searchInput = document.getElementById("searchInput");
 
 // Function for loading and displaying list of books
 const booksLoader = (books) => {
@@ -271,3 +273,41 @@ const sortBooks = () => {
 // Adding eventlistener to the filterDropdown.
 sortDropdown.addEventListener("change", sortBooks);
 sortBooks();
+
+// Function to sort and display books by keywords
+const searchForKeywords = (books) => {
+  searchValue = searchInput.value.toLowerCase();
+  const keywordBooks = [];
+
+  if (searchValue === "") {
+    booksLoader(books);
+    return;
+  }
+
+  books.forEach((book) => {
+    // Check if keyword exists in the book list
+    if (
+      Object.values(book).some((value) =>
+        // Make sure the value is lowercase
+        value.toString().toLowerCase().includes(searchValue)
+      )
+    ) {
+      keywordBooks.push(book);
+    } else {
+      console.log("Value does not exist");
+    }
+  });
+
+  if (keywordBooks.length === 0) {
+    alert("Oops, couldn't find what you requested. Please try again");
+    return booksLoader(books);
+  } else {
+    return booksLoader(keywordBooks);
+  }
+};
+searchForKeywords(books);
+
+searchForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+  searchForKeywords(books);
+});
