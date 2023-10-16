@@ -97,6 +97,16 @@ p {
   text-align: center;
 }
 
+.searchBar {
+  float: left;
+}
+
+.searchBar input {
+  font-size: 0.8rem;
+  color: #000;
+  padding: 2px;
+}
+
 /* Filter and Sorter Dropdowns */
 select {
   text-align: center;
