@@ -1,13 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Don't forget to change the title and connect the CSS file -->
-  <title>Project Library</title>
+  <title>Alyssa's Book Store</title>
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-  <h1>Project Library</h1>
-  <!-- Don't forget to connect the JavaScript file -->
+  <h1>📚 Welcome to Alyssa's Book Store 📚</h1>
+
+  <div class="buttons">
+    <select id="filterDropdown">
+      <option value="all">ALL</option>
+      <option value="Fiction">Fiction</option>
+      <option value="Science Fiction">Science Fiction</option>
+      <option value="Fantasy">Fantasy</option>
+      <option value="Horror">Horror</option>
+      <option value="Mystery">Mystery</option>
+      <option value="Dystopian">Dystopian</option>
+    </select>
+
+    <select id="sortingSelect">
+      <option value="default">Sort books</option>
+      <option value="highToLowRating">High-Low Rating</option>
+      <option value="lowToHighRating">Low-High Rating</option>
+      <option value="azTitle">Title A-Z</option>
+      <option value="zaTitle">Title Z-A</option>
+    </select>
+
+    <input type="text" id="search-input" placeholder="Search for books" />
+    <button id="showShoppingCartButton">🛒 My Shopping Cart</button>
+    <div id="search-results"></div>
+  </div>
+
+  <h1 id="listTitle">All Books</h1>
+  <section id="allBooks" class="book-cards"></section>
+  <section id="shoppingCart" class="book-cards"></section>
+
+  <script src="script.js"></script>
 </body>
+
 </html>
