@@ -10,4 +10,5 @@ It was also a bit tricky to make the images in the library the same hight, but I
 
 ## View it live
 
-https://development--technigo-project-library.netlify.app/
+[Book Library](https://development--technigo-project-library.netlify.app/)
+
