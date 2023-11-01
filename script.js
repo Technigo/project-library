@@ -202,6 +202,7 @@ const loadBooks = (bookArray) => {
     <p>${book.genre}</p>
     <p>${book.rating}</p>
     <img src=${book.image}>
+    <p>${book.description}</p>
   </div>
   `;
  })
