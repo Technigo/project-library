@@ -230,7 +230,7 @@ const recipes = [
     ],
     source: 'Red Cook',
     totalTime: null,
-    URL: 'http://redcook.net/2010/06/16/garlic-scape-an-off-menu-treat/',
+    url: 'http://redcook.net/2010/06/16/garlic-scape-an-off-menu-treat/',
     image: './recipe-images/vegetarian-stir-fried-garlic-s.jpg'
   },
   {
@@ -244,7 +244,7 @@ const recipes = [
     ],
     source: 'BBC Good Food',
     totalTime: 40,
-    URL: 'https://www.bbcgoodfood.com/recipes/cheats-cheesy-focaccia',
+    url: 'https://www.bbcgoodfood.com/recipes/cheats-cheesy-focaccia',
     image: './recipe-images/cheat’s-cheesy-focaccia.jpg'
   },
   {
@@ -269,7 +269,7 @@ const recipes = [
     ],
     source: 'Martha Stewart',
     totalTime: 120,
-    URL: 'https://www.marthastewart.com/1535235/vegetarian-shepherds-pie',
+    url: 'https://www.marthastewart.com/1535235/vegetarian-shepherds-pie',
     image: "./recipe-images/vegetarian-shepherd's-pie.jpg"
   },
   {
@@ -290,7 +290,7 @@ const recipes = [
     ],
     source: 'No Recipes',
     totalTime: 80,
-    URL: 'http://norecipes.com/recipe/chicken-paprikash/',
+    url: 'http://norecipes.com/recipe/chicken-paprikash/',
     image: './recipe-images/chicken-paprikash.jpg'
   },
   {
