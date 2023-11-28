@@ -195,9 +195,15 @@ const loadBooks = (books) => {
   books.forEach((book) => {
     cardContainer.innerHTML += `
       <div class="card">
-        <p>${book.title}</p>
-        <p>by ${book.author}</p>
-        <img src=${book.image} art=${book.title}>
+        <h2>${book.title}</h2>
+        <h3>by ${book.author}</h3>
+        <img src=${book.image} alt=${book.title}>
+        <div class="details">
+        <p><span>Year: </span>${book.year}</p>
+        <p><span>Genre: </span>${book.genre}</>
+        <p><span>Rating: </span>${book.rating}</>
+        <p><span>Description: </span>${book.description}</>
+        </div>
         <button onclick="addToFavourites('${book.title}')">
           Add to favourites
         </button>        
