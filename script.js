@@ -187,6 +187,7 @@ const favouriteBooks = [];
 const cardContainer = document.getElementById("card-container");
 const favourites = document.getElementById("favourites");
 const filterDropdown = document.getElementById("filter-dropdown");
+const sortDropdown = document.getElementById("sort-dropdown");
 
 // Function to load and display the list of books
 const loadBooks = (books) => {
@@ -199,10 +200,10 @@ const loadBooks = (books) => {
         <h3>by ${book.author}</h3>
         <img src=${book.image} alt=${book.title}>
         <div class="details">
-        <p><span>Year: </span>${book.year}</p>
-        <p><span>Genre: </span>${book.genre}</>
-        <p><span>Rating: </span>${book.rating}</>
-        <p><span>Description: </span>${book.description}</>
+          <p><span>Year: </span>${book.year}</p>
+          <p><span>Genre: </span>${book.genre}</>
+          <p><span>Rating: </span>${book.rating}</>
+          <p><span>Description: </span>${book.description}</>
         </div>
         <button onclick="addToFavourites('${book.title}')">
           Add to favourites
@@ -226,6 +227,52 @@ const filterBooks = () => {
   }
 };
 
+const sortBooks = () => {
+  const value = sortDropdown.value;
+  let newBookList = [...books];
+
+  if (value === "title") {
+    // sort title from a-z
+    newBookList = newBookList.sort((a, b) => {
+      const titleA = a.title.toUpperCase(); // ignore upper and lowercase
+      const titleB = b.title.toUpperCase(); // ignore upper and lowercase
+      if (titleA < titleB) {
+        return -1;
+      }
+      if (titleA > titleB) {
+        return 1;
+      }
+
+      // names must be equal
+      return 0;
+    });
+  } else if (value === "author") {
+    // sort author from z-a
+    newBookList = newBookList.sort((a, b) => {
+      const authorA = a.author.toUpperCase(); // ignore upper and lowercase
+      const authorB = b.author.toUpperCase(); // ignore upper and lowercase
+      if (authorA < authorB) {
+        return -1;
+      }
+      if (authorA > authorB) {
+        return 1;
+      }
+      // names must be equal
+      return 0;
+    });
+  } else if (value === "newest") {
+    // sort from newest to oldest
+    newBookList = newBookList.sort((a, b) => b.year - a.year);
+    // loadBooks(newBookList);
+  } else if (value === "oldest") {
+    // sort from oldes to newest
+    newBookList = newBookList.sort((a, b) => a.year - b.year);
+  } else if (value === "default") {
+    newBookList = [...books];
+  }
+  loadBooks(newBookList);
+};
+
 // Function to add a book to the list of favourites
 const addToFavourites = (book) => {
   favouriteBooks.push(book);
@@ -243,4 +290,5 @@ const loadFavourites = () => {
 
 // Apply the filter when the user changes the dropdown selection
 filterDropdown.addEventListener("change", filterBooks);
+sortDropdown.addEventListener("change", sortBooks);
 loadBooks(books);

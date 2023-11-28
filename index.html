@@ -17,21 +17,29 @@
     <!-- <header> -->
     <header>
       <h1>Digital Library</h1>
+      <div class="filter-menu">
+        <select class="filter-dropdown" id="filter-dropdown">
+          <option value="all">All categories</option>
+          <option value="Fiction">Fiction</option>
+          <option value="Science Fiction">Science Fiction</option>
+          <option value="Fantasy">Fantasy</option>
+          <option value="Adventure">Adventure</option>
+          <option value="Mystery">Mystery</option>
+          <option value="Dystopian">Dystopian</option>
+        </select>
+        <select class="sort-dropdown" id="sort-dropdown">
+          <option value="default">Sort books</option>
+          <option value="title">Alphabetically on title</option>
+          <option value="author">Alphabetically on author</option>
+          <option value="newest">From newest to oldest</option>
+          <option value="oldest">From oldest to newest</option>
+        </select>
+      </div>
     </header>
 
     <!-- Main content -->
     <section class="main">
-      <select id="filter-dropdown">
-        <option value="all">ALL</option>
-        <option value="Fiction">Fiction</option>
-        <option value="Science Fiction">Science Fiction</option>
-        <option value="Fantasy">Fantasy</option>
-        <option value="Adventure">Adventure</option>
-        <option value="Mystery">Mystery</option>
-        <option value="Dystopian">Dystopian</option>
-      </select>
-
-      <section id="card-container"></section>
+      <section class="card-container" id="card-container"></section>
     </section>
 
     <!-- <footer> -->
