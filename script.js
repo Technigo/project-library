@@ -189,6 +189,10 @@ const favourites = document.getElementById("favourites");
 const filterDropdown = document.getElementById("filter-dropdown");
 const sortDropdown = document.getElementById("sort-dropdown");
 
+const escapeSingleQuotes = (str) => {
+  return str.replaceAll("'", "\\'");
+};
+
 // Function to load and display the list of books
 const loadBooks = (books) => {
   cardContainer.innerHTML = "";
@@ -205,7 +209,8 @@ const loadBooks = (books) => {
           <p><span>Rating: </span>${book.rating}</>
           <p><span>Description: </span>${book.description}</>
         </div>
-        <button onclick="addToFavourites('${book.title}')">
+        <button onclick="addToFavourites('${escapeSingleQuotes(book.title)}')">
+
           Add to favourites
         </button>        
       </div>
@@ -284,7 +289,7 @@ const loadFavourites = () => {
   favourites.innerHTML = "";
   favouriteBooks.forEach((book) => {
     favourites.innerHTML += `
-    <p>${book}</p>`;
+    <p class="favourite">🕮 ${book}</p>`;
   });
 };
 
