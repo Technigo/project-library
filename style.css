@@ -5,24 +5,20 @@ body {
   color: #fff;
   font-family: "Gentium Book Plus", serif;
 }
-
 h1 {
   margin: 20px 0;
   text-transform: uppercase;
   font-size: 32px;
   text-align: center;
 }
-
 h2,
 h3 {
   margin: 0;
 }
-
 a {
   text-decoration: none;
   color: #ebe6dc;
 }
-
 button {
   margin: 25px 10px;
   background: #7a96b3;
@@ -33,7 +29,6 @@ button {
   box-shadow: 2px 2px 8px 0px rgba(0, 0, 0, 0.4);
   padding: 10px 15px;
 }
-
 button:hover {
   cursor: pointer;
   transform: translateY(1px);
@@ -43,29 +38,28 @@ button:hover {
 /* HEADER */
 
 header {
-  /* padding: 30px 40px 10px 40px; */
+  width: 100%;
   background: #7a96b3;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
-
 .filter-menu {
   width: 100%;
   background: #9ab0c6;
-  padding-right: 80px;
+  padding-right: 15px;
   display: flex;
   justify-content: flex-end;
 }
-
-/* MAIN */
-
 .filter-dropdown,
 .sort-dropdown {
   margin: 10px 5px;
   padding: 5px;
 }
+
+/* MAIN */
+
 .card-container {
   margin: 10px 0;
   display: flex;
@@ -78,7 +72,6 @@ header {
   border-radius: 16px;
   border: 2px solid #ab869a;
   padding: 20px;
-  width: 20%;
   background: #c0a4b3;
   display: flex;
   flex-direction: column;
@@ -91,12 +84,17 @@ header {
 .card span {
   font-weight: 700;
 }
-
-.card img {
+.cover-img {
   margin: 15px 0;
   height: 205px;
+  max-width: 100%;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
   align-self: center;
+  filter: grayscale(40%);
+  transition: filter 0.5s ease-in-out;
+}
+.card:hover .cover-img {
+  filter: none;
 }
 .favourite {
   margin: 2px;
@@ -111,4 +109,35 @@ footer {
   background: #7a96b3;
   min-height: 100px;
   padding: 20px;
+}
+
+/* MEDIA QUERIES */
+
+@media (min-width: 400px) {
+  .card {
+    min-width: 250px;
+    max-width: 350px;
+  }
+}
+
+@media (min-width: 667px) {
+  .card {
+    width: 20%;
+    max-width: 350px;
+  }
+  .filter-menu {
+    padding-right: 50px;
+  }
+}
+
+@media (max-width: 350px) {
+  .filter-menu {
+    flex-wrap: wrap;
+    padding: 5px 10px;
+  }
+  .filter-dropdown,
+  .sort-dropdown {
+    margin: 5px;
+    padding: 3px;
+  }
 }
