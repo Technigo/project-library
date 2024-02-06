@@ -1,0 +1,11 @@
+# Ignore compiled CSS files
+*.css
+*.css.map
+
+# Ignore Sass cache files
+.sass-cache/
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.DS_Store
