@@ -1,0 +1,10 @@
+.hero__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 70vh;
+  background-image: url("./../assets/hero.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  transform: scale(1);
+}
