@@ -54,7 +54,7 @@
     }
   }
   @media screen and (max-width: 667px) {
-    min-height: 400px;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   }
 }
 
@@ -65,4 +65,61 @@
 .section__banner {
   background: url("../assets/three-avokados.jpg") center/cover;
   min-height: 500px;
+}
+
+/* ========================
+   SECTION: TOP STORIES
+   ======================== */
+
+.section__top-stories {
+  display: grid;
+  // Grid with 2 columns
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 20px;
+
+  .big-story {
+    padding: 1em;
+    background-color: #f0f0f0;
+    display: flex;
+
+    .content,
+    .ingredients {
+      width: 50%;
+    }
+
+    .content {
+      padding-right: 0.5em;
+    }
+
+    .ingredients {
+      padding-left: 0.5em;
+
+      li {
+        font-size: 0.8rem;
+      }
+    }
+
+    span {
+      font-weight: 600;
+    }
+  }
+
+  .small-stories {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
+
+    .img-1 {
+      background: url("../assets/top-story-images/pink-avocado.jpg")
+        center/cover;
+    }
+
+    .img-2 {
+      background: url("../assets/top-story-images/avocado-show.jpg")
+        center/cover;
+    }
+  }
+  @media screen and (max-width: 667px) {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
 }
