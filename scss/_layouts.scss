@@ -8,3 +8,41 @@
   background-size: cover;
   transform: scale(1);
 }
+
+.section__inspiration {
+  background-color: green;
+  display: grid;
+  // Grid with 2 columns
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 20px;
+
+  .big-image {
+    background: url("../assets/inspiration-images/smoothie.jpg") center/cover;
+  }
+
+  .small-images {
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
+
+    .img-1 {
+      background: url("../assets/inspiration-images/avokado-peach.jpg")
+        center/cover;
+    }
+
+    .img-2 {
+      background: url("../assets/inspiration-images/yellow-avocado.jpg")
+        center/cover;
+    }
+
+    .img-3 {
+      background: url("../assets/inspiration-images/good-morning.jpg")
+        center/cover;
+    }
+
+    .img-4 {
+      background: url("../assets/inspiration-images/sandwich.jpg") center/cover;
+    }
+  }
+}
