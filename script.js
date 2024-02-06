@@ -21,7 +21,7 @@ const avocadoRecipes = [
     source: "Jamie Oliver",
     totalTime: 130,
     url: "http://www.jamieoliver.com/recipes/vegetables-recipes/individual-vegetarian-lasagnes/",
-    image: "./recipe-images/individual-vegetarian-lasagnes.jpg",
+    image: "./assets/recipe-images/big-recipy.jpg",
   },
   {
     name: "Vegetarian Stir-Fried Garlic Scape",
@@ -217,3 +217,38 @@ const avocadoRecipes = [
     image: "./recipe-images/grilled.jpg",
   },
 ];
+
+const recipyStory = document.getElementById("big-story");
+
+const recipyLoader = (avocadoRecipes) => {
+  // Add first recipy to top stories
+  recipyStory.innerHTML += `
+  <div class="content">
+    <img
+    src=${avocadoRecipes[0].image}
+    alt="Recipy Image"
+    width="295"
+    height="auto"
+    />
+
+    <div class="description">
+      <h3>${avocadoRecipes[0].name}</h3>
+      <hr />
+      <p><span>Cuisine:</span> ${avocadoRecipes[0].cuisineType
+        .map((cuisine) => cuisine)
+        .join("")}</p>
+      <p><span>Time:</span> 2h 10min</p>
+    </div>
+  </div>
+
+  <div class="ingredients">
+    <h3>Ingredients</h3>
+    <ul>
+    ${avocadoRecipes[0].ingredients
+      .map((ingredient) => `<li>${ingredient}</li>`)
+      .join("")}
+    </ul>
+  </div>
+  `;
+};
+recipyLoader(avocadoRecipes);

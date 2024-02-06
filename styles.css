@@ -65,25 +65,25 @@
   grid-template-columns: 1fr 1fr;
   grid-gap: 20px;
 }
-.section__top-stories .big-story {
+.section__top-stories #big-story {
   padding: 1em;
   background-color: #f0f0f0;
   display: flex;
 }
-.section__top-stories .big-story .content,
-.section__top-stories .big-story .ingredients {
+.section__top-stories #big-story .content,
+.section__top-stories #big-story .ingredients {
   width: 50%;
 }
-.section__top-stories .big-story .content {
+.section__top-stories #big-story .content {
   padding-right: 0.5em;
 }
-.section__top-stories .big-story .ingredients {
+.section__top-stories #big-story .ingredients {
   padding-left: 0.5em;
 }
-.section__top-stories .big-story .ingredients li {
+.section__top-stories #big-story .ingredients li {
   font-size: 0.8rem;
 }
-.section__top-stories .big-story span {
+.section__top-stories #big-story span {
   font-weight: 600;
 }
 .section__top-stories .small-stories {
