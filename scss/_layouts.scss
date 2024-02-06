@@ -15,6 +15,7 @@
   // Grid with 2 columns
   grid-template-columns: 1fr 1fr;
   grid-gap: 20px;
+  min-height: 700px;
 
   .big-image {
     background: url("../assets/inspiration-images/smoothie.jpg") center/cover;
@@ -44,5 +45,8 @@
     .img-4 {
       background: url("../assets/inspiration-images/sandwich.jpg") center/cover;
     }
+  }
+  @media screen and (max-width: 667px) {
+    min-height: 400px;
   }
 }
