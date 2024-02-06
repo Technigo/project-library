@@ -1,0 +1,207 @@
+@import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap");
+/* ========================
+   SECTION: HERO
+   ======================== */
+.hero__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 70vh;
+  background-image: url("./../assets/hero.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  transform: scale(1);
+}
+
+/* ========================
+   SECTION: INSPIRATION
+   ======================== */
+.section__inspiration {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 20px;
+  min-height: 700px;
+}
+.section__inspiration .big-image {
+  background: url("../assets/inspiration-images/smoothie.jpg") center/cover;
+}
+.section__inspiration .small-images {
+  display: grid;
+  grid-template-rows: repeat(2, 1fr);
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 10px;
+}
+.section__inspiration .small-images .img-1 {
+  background: url("../assets/inspiration-images/avokado-peach.jpg") center/cover;
+}
+.section__inspiration .small-images .img-2 {
+  background: url("../assets/inspiration-images/yellow-avocado.jpg") center/cover;
+}
+.section__inspiration .small-images .img-3 {
+  background: url("../assets/inspiration-images/good-morning.jpg") center/cover;
+}
+.section__inspiration .small-images .img-4 {
+  background: url("../assets/inspiration-images/sandwich.jpg") center/cover;
+}
+@media screen and (max-width: 667px) {
+  .section__inspiration {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+}
+
+/* ========================
+   SECTION: BANNER
+   ======================== */
+.section__banner {
+  background: url("../assets/three-avokados.jpg") center/cover;
+  min-height: 500px;
+}
+
+/* ========================
+   SECTION: TOP STORIES
+   ======================== */
+.section__top-stories {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 20px;
+}
+.section__top-stories .big-story {
+  padding: 1em;
+  background-color: #f0f0f0;
+  display: flex;
+}
+.section__top-stories .big-story .content,
+.section__top-stories .big-story .ingredients {
+  width: 50%;
+}
+.section__top-stories .big-story .content {
+  padding-right: 0.5em;
+}
+.section__top-stories .big-story .ingredients {
+  padding-left: 0.5em;
+}
+.section__top-stories .big-story .ingredients li {
+  font-size: 0.8rem;
+}
+.section__top-stories .big-story span {
+  font-weight: 600;
+}
+.section__top-stories .small-stories {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 10px;
+}
+.section__top-stories .small-stories .img-1 {
+  background: url("../assets/top-story-images/pink-avocado.jpg") center/cover;
+}
+.section__top-stories .small-stories .img-2 {
+  background: url("../assets/top-story-images/avocado-show.jpg") center/cover;
+}
+@media screen and (max-width: 667px) {
+  .section__top-stories {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+}
+
+/* ========================
+   SECTION: FILTER
+   ======================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: clamp(16px, 1.2vw, 32px);
+  scroll-behavior: smooth;
+}
+
+body {
+  position: relative;
+  font-family: "Spartan", sans-serif;
+  max-width: 100vw;
+  min-height: 100vh;
+}
+
+main {
+  max-width: 2560px;
+  margin: 0 auto;
+  letter-spacing: 0.01em;
+  padding: 0 3em;
+}
+
+section {
+  margin: 2em auto;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: 1.25;
+  margin-bottom: 0.75rem;
+}
+
+h1 {
+  color: #fff;
+  font-size: 7rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+h4 {
+  font-size: 0.875rem;
+}
+
+p {
+  margin-bottom: 1.25rem;
+  line-height: 1.5em;
+  font-weight: 300;
+}
+
+ul li {
+  list-style: none;
+  font-weight: 300;
+  line-height: 1.5;
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
+  cursor: pointer;
+}
+
+img {
+  width: 100%;
+  display: block;
+}
+
+hr {
+  border: 1px solid #e3e3e3;
+}
+
+@media screen and (max-width: 667px) {
+  main {
+    padding: 0 1em;
+  }
+  h1 {
+    font-size: 4rem;
+  }
+}
+
+/*# sourceMappingURL=styles.css.map */
