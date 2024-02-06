@@ -1,3 +1,7 @@
+/* ========================
+   SECTION: HERO
+   ======================== */
+
 .hero__container {
   display: flex;
   justify-content: center;
@@ -9,8 +13,11 @@
   transform: scale(1);
 }
 
+/* ========================
+   SECTION: INSPIRATION
+   ======================== */
+
 .section__inspiration {
-  background-color: green;
   display: grid;
   // Grid with 2 columns
   grid-template-columns: 1fr 1fr;
@@ -49,4 +56,13 @@
   @media screen and (max-width: 667px) {
     min-height: 400px;
   }
+}
+
+/* ========================
+   SECTION: BANNER
+   ======================== */
+
+.section__banner {
+  background: url("../assets/three-avokados.jpg") center/cover;
+  min-height: 500px;
 }
