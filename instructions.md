@@ -40,3 +40,4 @@ So you’ve completed all the steps above? Great job! Make sure you've committed
 
 ### Advanced stretch goals
 - Create a search bar where the user can search for specific keywords
+- Recreate the same design as the one provided in the example on Figma
