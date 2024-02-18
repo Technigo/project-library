@@ -1,0 +1,68 @@
+body {
+  background-color: white;
+  color: #b13f6a;
+  text-align: center;
+  /* <uniquifier>: Use a uniquifier for the class name
+    <weight>: Use a value from 100 to 900 */
+
+  font-family: "Jost", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 20px;
+}
+.filter-bar {
+  text-align: left;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  padding: 50px;
+}
+main {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+
+  margin: 0 auto;
+  width: 100%;
+}
+.gallery-wrapper {
+  background-color: #b13f6a;
+  color: #ffb000;
+  display: grid;
+  width: 100%;
+  grid-template-columns: auto;
+  justify-content: space-around;
+  box-sizing: border-box;
+}
+.card-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #ffb000;
+  color: #b13f6a;
+  width: 100%;
+  margin: 20px 0;
+  box-sizing: border-box;
+  border-radius: 20px;
+  border: solid rgb(205, 117, 30);
+}
+button {
+  background-color: #b13f6a;
+  color: #ffb000;
+  border-radius: 20px;
+  padding: 0 10px;
+  margin: 0 5px;
+  border-color: #b13f6a;
+}
+@media (min-width: 668px) and (max-width: 1024px) {
+  .gallery-wrapper {
+    grid-template-columns: auto auto;
+  }
+}
+@media (min-width: 1024px) {
+  .gallery-wrapper {
+    grid-template-columns: auto auto auto auto;
+  }
+}
