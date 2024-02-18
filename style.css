@@ -1,0 +1,92 @@
+:root {
+  --light-grey: #f2f2f2;
+  --dark-grey: rgb(99, 99, 99);
+  --border-radius: 24px;
+  --font-size: 16px;
+  --shadow: 0 1rem 2rem var(--light-grey);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+}
+
+main {
+  max-width: 1400px;
+  margin: 0 5vw;
+}
+
+h1 {
+  font-size: calc(var(--font-size) * 4);
+}
+
+.book-listing-bar {
+  width: 100%;
+}
+
+.book-listing {
+  display: flex;
+  gap: 1rem;
+  overflow-x: hidden;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: flex-start;
+}
+
+.book-item {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  padding: 1vw;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  margin-bottom: 1rem;
+}
+
+.year,
+.genre {
+    width: 50%;
+}
+
+.author::before {
+  content: "by ";
+  font-size: x-small;
+  font-style: italic;
+}
+
+.rating::before {
+  content: "rating ";
+  font-size: x-small;
+  font-style: italic;
+}
+
+.book-image {
+  max-width: 100%;
+  aspect-ratio: 5 / 4;
+  border-radius: var(--border-radius);
+  margin-bottom: 2rem;
+  object-fit: cover;
+}
+
+@media screen and (min-width: 668px) {
+  .book-listing {
+    justify-content: flex-start;
+  }
+    .book-item {
+    max-width: 48%;
+  }
+}
+
+@media screen and (min-width: 1025px) {
+      .book-item {
+      max-width: 24%;
+    }
+  }
