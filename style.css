@@ -1,0 +1,85 @@
+body {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+}
+
+.input {
+  border: solid;
+  min-height: 10px;
+}
+
+.filter-sort-flex {
+  display: flex;
+  gap: 80px;
+}
+
+.grid-container {
+  display: grid;
+  gap: 2rem;
+  grid-template-areas:
+    "book-1 book-2 book-3 book-4"
+    "book-5 book-6 book-7 book-8"
+    "book-9 book-10 book-11 book-12"
+    "book-13 book-14 book-15 book-16"
+    "book-17 book-18 book-19 book-20";
+}
+
+.grid-container div {
+  border: solid;
+  padding: 1rem;
+}
+
+.grid-container:nth-child(1) {
+  grid-area: book-1;
+}
+.grid-container:nth-child(2) {
+  grid-area: book-2;
+}
+.grid-container:nth-child(3) {
+  grid-area: book-3;
+}
+.grid-container:nth-child(4) {
+  grid-area: book-4;
+}
+.grid-container:nth-child(5) {
+  grid-area: book-5;
+}
+.grid-container:nth-child(6) {
+  grid-area: book-6;
+}
+.grid-container:nth-child(7) {
+  grid-area: book-7;
+}
+.grid-container:nth-child(8) {
+  grid-area: book-8;
+}
+.grid-container:nth-child(9) {
+  grid-area: book-9;
+}
+.grid-container:nth-child(10) {
+  grid-area: book-10;
+}
+.grid-container:nth-child(11) {
+  grid-area: book-11;
+}
+.grid-container:nth-child(12) {
+  grid-area: book-12;
+}
+.grid-container:nth-child(13) {
+  grid-area: book-13;
+}
+.grid-container:nth-child(14) {
+  grid-area: book-14;
+}
+.grid-container:nth-child(15) {
+  grid-area: book-15;
+}
+.grid-container:nth-child(16) {
+  grid-area: book-16;
+}
+.grid-container:nth-child(17) {
+  grid-area: book-17;
+}
+.grid-container:nth-child(18) {
+  grid-area: book-18;
+}
