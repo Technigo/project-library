@@ -11,6 +11,9 @@ body {
 .filter-sort-flex {
   display: flex;
   gap: 80px;
+  background-color: sandybrown;
+  padding: 1rem;
+  margin: 5px 0 5px 0;
 }
 
 .grid-container {
@@ -27,6 +30,14 @@ body {
 .grid-container div {
   border: solid;
   padding: 1rem;
+}
+
+.grid-container img {
+  max-height: 100px;
+}
+
+.book-display {
+  background-color: aqua;
 }
 
 .grid-container:nth-child(1) {

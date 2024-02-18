@@ -71,7 +71,7 @@ const books = [
     rating: 4.7,
     description:
       "The first book in the beloved Harry Potter series, it introduces readers to the magical world of Hogwarts and the young wizard Harry Potter.",
-    image: "./books-images/harry-potter-and-the-sorcerer'.jpg",
+    image: "./books-images/harry-potter-and-the-sorcerer.jpg",
   },
   {
     title: "Moby-Dick",
@@ -186,30 +186,73 @@ const books = [
 ];
 
 const gridContainer = document.getElementsByClassName("grid-container")[0];
-console.log(gridContainer);
+const randomButton = document.getElementById("random-button");
 
-books.forEach((book) => {
-  let bookDiv = document.createElement("div");
-  let bookDivText = document.createTextNode(book.author);
-  bookDiv.appendChild(bookDivText);
-  gridContainer.appendChild(bookDiv);
-});
-
-/*
-const insertBooks = (booklist) => {
-  booklist.forEach((book) => {
-    gridContainer.innerHTML += `
-    <div>
-      <p>${books.title}</p>
-    </div>`;
+// funkar
+const displayBooks = (bookArr) => {
+  bookArr.forEach((book) => {
+    let bookDiv = document.createElement("div");
+    bookDiv.setAttribute("class", "book-display");
+    bookDiv.innerHTML = `
+    <img src="${book.image}" alt="${book.title}" />
+    <h2>${book.title}</h2>
+    <h5>Author: ${book.author}</h5>
+    <h5>Published: ${book.year}</h5>
+    <h5>Genre: ${book.genre}</h5>
+    <h5>Rating: ${book.rating}</h5>
+    <h4>Description</h4>
+    <p>${book.description}</p>`;
+    gridContainer.appendChild(bookDiv);
   });
 };
 
-const insertBooks = (arr) => {
-  for (i = 0; i < arr.length; i++) {
-    gridContainer.innerHTML = `
-    <div>
-      <p>Title: ${arr[i].title}</p>
-    </div>`;
-  }
+// funkar
+const removeBooks = () => {
+  const bookDelete = gridContainer.getElementsByClassName("book-display");
+  Array.from(bookDelete).forEach((book) => {
+    book.remove();
+  });
+};
+
+// funkar
+window.onload = (event) => {
+  displayBooks(books);
+};
+
+const filterByGenre = (arr, genre) => {
+  return arr.filter((book) => book.genre === genre);
+};
+
+const fantasyBooks = filterByGenre(books, "Dystopian");
+console.log(fantasyBooks);
+
+/*
+const onlyTheFiction = () => {
+  // display only the books that are fiction
+  const filterByGenre = (arr, genre) => {
+    return arr.filter((book) => book.genre === genre);
+  };
+  const filteredGenre = "Fiction";
+  const filteredBooks = filterByGenre(books, filteredGenre);
+  console.log(filteredBooks);
 };*/
+
+/*
+randomButton.addEventListener("click", (event) => {
+  removeBooks();
+});*/
+
+/* Ett annat sätt
+books.forEach((book) => {
+  let bookDiv = document.createElement("div");
+  let bookDivText = document.createTextNode(
+    `${book.title} ${book.author} ${book.year} ${book.genre} ${book.rating} ${book.description}`
+  );
+  let bookImg = document.createElement("img");
+  bookImg.setAttribute("src", `${book.image}`);
+  bookImg.setAttribute("alt", `${book.title}`);
+  bookDiv.appendChild(bookDivText);
+  bookDiv.appendChild(bookImg);
+  gridContainer.appendChild(bookDiv);
+});
+*/
