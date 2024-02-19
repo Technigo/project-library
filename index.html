@@ -18,7 +18,7 @@
 
     <main>
       <div class="book-listing-bar">
-        <form action="">
+        <form>
           <label for="select-sort">
             Sort order
             <select
@@ -53,7 +53,7 @@
           <label for="search-field">
             <input
               id="search-field"
-              type="text" />
+              type="search" />
             <button
               type="submit"
               id="search-btn">
@@ -73,6 +73,12 @@
               </option>
             </select>
           </label>
+          <button
+            type="reset"
+            value="Reset book list"
+            id="reset-btn">
+            Reset
+          </button>
         </form>
         <button
           type="button"

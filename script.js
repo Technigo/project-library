@@ -190,13 +190,14 @@ const randomBookContainer = document.getElementById("random-book-container");
 const randomBookBtn = document.getElementById("random-book-btn");
 const searchField = document.getElementById("search-field");
 const searchBtn = document.getElementById("search-btn");
+const form = document.querySelector("form");
 
 // Global variables
 const summarytext = "About the book";
 let authors = [];
 let genres = [];
 
-// Turn object values into arrays
+// Turn object values into arrays, then compare to searchValue
 async function getSearchResults(searchterm) {
   const searchResults = books.filter(book => {
     return Object.values(book)
@@ -215,6 +216,7 @@ const search = event => {
   const searchValue = searchField.value.toLowerCase();
   console.log("Searched for: ", searchValue);
   getSearchResults(searchValue);
+  searchField.value = "";
 };
 
 // Get random book from array
@@ -395,3 +397,4 @@ filterAuthor.addEventListener("change", filterBooks);
 filterGenre.addEventListener("change", filterBooks);
 randomBookBtn.addEventListener("click", createRandomBook);
 searchBtn.addEventListener("click", search);
+form.addEventListener("reset", () => getBooks(books));
