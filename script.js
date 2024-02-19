@@ -1,7 +1,3 @@
-/*Here we have created two different arrays that you can work with if you want.
-If you choose to create your own arrays with elements, just make sure that some
-of the properties make sense to filter on, and some to sort on.*/
-
 const books = [
   {
     title: "The Great Gatsby",
@@ -198,10 +194,13 @@ const mysteryBtn = document.getElementById("mystery");
 const dystopianBtn = document.getElementById("dystopian");
 const newestBtn = document.getElementById("sort-newest");
 const oldestBtn = document.getElementById("sort-oldest");
+const filterButtons = document.querySelectorAll(".filter");
+const sortButtons = document.querySelectorAll(".sort");
 
 // Global variables
 let nowDispBooks = [];
 
+/*
 // Creating a new array with only the book titles
 const bookTitles = books.map((book) => {
   return book.title;
@@ -216,14 +215,14 @@ const publishDate = books.map((book) => {
 const bookRating = books.map((book) => {
   return book.rating;
 });
+*/
 
 ///////////////////////////// Functions /////////////////////////////
-// Function that adds divs with book information
-const displayBooks = (bookArr) => {
-  bookArr.forEach((book) => {
-    let bookDiv = document.createElement("div");
-    bookDiv.setAttribute("class", "book-display");
-    bookDiv.innerHTML = `
+// Create a book card divs
+const createBookCard = (book) => {
+  let bookDiv = document.createElement("div");
+  bookDiv.setAttribute("class", "book-display");
+  bookDiv.innerHTML = `
     <img src="${book.image}" alt="${book.title}" />
     <h2>${book.title}</h2>
     <h5>Author: ${book.author}</h5>
@@ -232,11 +231,17 @@ const displayBooks = (bookArr) => {
     <h5>Rating: ${book.rating}</h5>
     <h4>Description</h4>
     <p>${book.description}</p>`;
-    gridContainer.appendChild(bookDiv);
+  gridContainer.appendChild(bookDiv);
+};
+
+// Display all of the book cards
+const displayBooks = (bookArr) => {
+  bookArr.forEach((book) => {
+    createBookCard(book);
   });
 };
 
-// Function tha removes all books
+// Function that removes all books
 const removeBooks = () => {
   const bookDelete = gridContainer.getElementsByClassName("book-display");
   Array.from(bookDelete).forEach((book) => {
@@ -247,6 +252,7 @@ const removeBooks = () => {
 // Display all books when page is loaded
 window.onload = (event) => {
   displayBooks(books);
+  nowDispBooks = books;
 };
 
 // Function that lets us filter by genre of book
@@ -254,22 +260,20 @@ const filterByGenre = (arr, genre) => {
   return arr.filter((book) => book.genre === genre);
 };
 
-// Get random number
+// Function to get a random number
 const getRandomNum = (min, max) => {
   // prettier-ignore
   let getRandom = Math.floor((Math.random() * (max - min + 1) + min));
   return getRandom;
 };
 
-randomBtn.addEventListener("click", (event) => {
-  const randomNumber = getRandomNum(1, books.length);
-  console.log(randomNumber);
-});
-
-//////////////////// Click the buttons to filter ////////////////////
+//////////////// Click the buttons to filter and sort ////////////////
 // All genres
+
 allGenresBtn.addEventListener("click", (event) => {
   removeBooks();
+  filterButtons.forEach((btn) => btn.classList.remove("clicked-filter"));
+  allGenresBtn.classList.add("clicked-filter");
   displayBooks(books);
   nowDispBooks = books;
 });
@@ -277,6 +281,8 @@ allGenresBtn.addEventListener("click", (event) => {
 // Fiction
 fictionBtn.addEventListener("click", (event) => {
   removeBooks();
+  filterButtons.forEach((btn) => btn.classList.remove("clicked-filter"));
+  fictionBtn.classList.add("clicked-filter");
   const fictionBooks = filterByGenre(books, "Fiction");
   displayBooks(fictionBooks);
   nowDispBooks = fictionBooks;
@@ -285,6 +291,8 @@ fictionBtn.addEventListener("click", (event) => {
 // Science Fiction
 sciFiBtn.addEventListener("click", (event) => {
   removeBooks();
+  filterButtons.forEach((btn) => btn.classList.remove("clicked-filter"));
+  sciFiBtn.classList.add("clicked-filter");
   const sciFiBooks = filterByGenre(books, "Science Fiction");
   displayBooks(sciFiBooks);
   nowDispBooks = sciFiBooks;
@@ -293,6 +301,8 @@ sciFiBtn.addEventListener("click", (event) => {
 // Fantasy
 fantasyBtn.addEventListener("click", (event) => {
   removeBooks();
+  filterButtons.forEach((btn) => btn.classList.remove("clicked-filter"));
+  fantasyBtn.classList.add("clicked-filter");
   const fantasyBooks = filterByGenre(books, "Fantasy");
   displayBooks(fantasyBooks);
   nowDispBooks = fantasyBooks;
@@ -301,6 +311,8 @@ fantasyBtn.addEventListener("click", (event) => {
 // Adventure
 adventureBtn.addEventListener("click", (event) => {
   removeBooks();
+  filterButtons.forEach((btn) => btn.classList.remove("clicked-filter"));
+  adventureBtn.classList.add("clicked-filter");
   const adventureBooks = filterByGenre(books, "Adventure");
   displayBooks(adventureBooks);
   nowDispBooks = adventureBooks;
@@ -309,6 +321,8 @@ adventureBtn.addEventListener("click", (event) => {
 // Horror
 horrorBtn.addEventListener("click", (event) => {
   removeBooks();
+  filterButtons.forEach((btn) => btn.classList.remove("clicked-filter"));
+  horrorBtn.classList.add("clicked-filter");
   const horrorBooks = filterByGenre(books, "Horror");
   displayBooks(horrorBooks);
   nowDispBooks = horrorBooks;
@@ -317,6 +331,8 @@ horrorBtn.addEventListener("click", (event) => {
 // Mystery
 mysteryBtn.addEventListener("click", (event) => {
   removeBooks();
+  filterButtons.forEach((btn) => btn.classList.remove("clicked-filter"));
+  mysteryBtn.classList.add("clicked-filter");
   const mysteryBooks = filterByGenre(books, "Mystery");
   displayBooks(mysteryBooks);
   nowDispBooks = mysteryBooks;
@@ -325,6 +341,8 @@ mysteryBtn.addEventListener("click", (event) => {
 // Dystopian
 dystopianBtn.addEventListener("click", (event) => {
   removeBooks();
+  filterButtons.forEach((btn) => btn.classList.remove("clicked-filter"));
+  dystopianBtn.classList.add("clicked-filter");
   const dystopianBooks = filterByGenre(books, "Dystopian");
   displayBooks(dystopianBooks);
   nowDispBooks = dystopianBooks;
@@ -333,43 +351,26 @@ dystopianBtn.addEventListener("click", (event) => {
 // Newest
 newestBtn.addEventListener("click", (event) => {
   removeBooks();
-  const newBooks = nowDispBooks.sort((a, b) => a.year - b.year);
-  newBooks.reverse();
+  sortButtons.forEach((btn) => btn.classList.remove("clicked-sort"));
+  newestBtn.classList.add("clicked-sort");
+  const newBooks = nowDispBooks.sort((a, b) => b.year - a.year);
   displayBooks(newBooks);
 });
 
 // Oldest
 oldestBtn.addEventListener("click", (event) => {
   removeBooks();
+  sortButtons.forEach((btn) => btn.classList.remove("clicked-sort"));
+  oldestBtn.classList.add("clicked-sort");
   const oldBooks = nowDispBooks.sort((a, b) => a.year - b.year);
   displayBooks(oldBooks);
 });
 
-//books.sort((a, b) => a.year - b.year);
-
-///////// Annat /////////
-/*
-const onlyTheFiction = () => {
-  // display only the books that are fiction
-  const filterByGenre = (arr, genre) => {
-    return arr.filter((book) => book.genre === genre);
-  };
-  const filteredGenre = "Fiction";
-  const filteredBooks = filterByGenre(books, filteredGenre);
-  console.log(filteredBooks);
-};*/
-
-/* Ett annat sätt
-books.forEach((book) => {
-  let bookDiv = document.createElement("div");
-  let bookDivText = document.createTextNode(
-    `${book.title} ${book.author} ${book.year} ${book.genre} ${book.rating} ${book.description}`
-  );
-  let bookImg = document.createElement("img");
-  bookImg.setAttribute("src", `${book.image}`);
-  bookImg.setAttribute("alt", `${book.title}`);
-  bookDiv.appendChild(bookDivText);
-  bookDiv.appendChild(bookImg);
-  gridContainer.appendChild(bookDiv);
+// Random book
+randomBtn.addEventListener("click", (event) => {
+  const randomNumber = getRandomNum(0, books.length - 1);
+  removeBooks();
+  filterButtons.forEach((btn) => btn.classList.remove("clicked-filter"));
+  sortButtons.forEach((btn) => btn.classList.remove("clicked-sort"));
+  createBookCard(books[randomNumber]);
 });
-*/

@@ -1,19 +1,55 @@
 body {
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
+  background-color: #f1f3ed;
 }
 
-.input {
-  border: solid;
-  min-height: 10px;
+header {
+  background-color: #a2bb9d;
+  padding: 1rem;
+}
+
+button {
+  background-color: #fff;
+  border: 0 solid #e2e8f0;
+  border-radius: 1.5rem;
+  box-sizing: border-box;
+  color: #0d172a;
+  cursor: pointer;
+  display: inline-block;
+  margin: 2px;
+  font-weight: 600;
+  line-height: 1;
+  padding: 1rem 1.6rem;
+  text-align: center;
+}
+
+.filter:hover {
+  box-sizing: border-box;
+  box-shadow: inset 0 0 0 2px #729869;
+}
+
+.sort:hover {
+  box-sizing: border-box;
+  box-shadow: inset 0 0 0 2px #4a6445;
+}
+
+.clicked-filter {
+  background-color: #729869;
+  color: #fff;
+}
+
+.clicked-sort {
+  background-color: #4a6445;
+  color: #fff;
 }
 
 .filter-sort-flex {
   display: flex;
   gap: 80px;
-  background-color: sandybrown;
+  background-color: #c4d4c0;
   padding: 1rem;
-  margin: 5px 0 5px 0;
+  margin: 0 0 5px 0;
 }
 
 .grid-container {
@@ -29,18 +65,15 @@ body {
     "book-17 book-18 book-19 book-20";
 }
 
-.grid-container div {
-  border: solid;
-  padding: 1rem;
-}
-
 .grid-container img {
   max-height: 100px;
 }
 
 .book-display {
-  background-color: aqua;
+  background-color: #f1f5f1;
   max-width: 300px;
+  padding: 1rem;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .grid-container:nth-child(1) {
