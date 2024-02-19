@@ -204,6 +204,7 @@ const filterBar = document.getElementById('filterBar')
 const bookSection = document.createElement('bookGallery')
 const randomDiv = document.createElement('div')
 const bookRandomButton = document.createElement('button')
+const galleryWrapperDiv = document.createElement('div')
 
 
 
@@ -211,9 +212,11 @@ const bookRandomButton = document.createElement('button')
 // display all books on page (not done yet)
 
 const displayBooks = () => {
+  
   books.forEach(book => {
-    const singleBook = document.createElement('singleCard')
-    singleBook.innerHTML+= `
+    const singleCard = document.createElement('div')
+    singleCard.classList.add('card-wrapper')
+    singleCard.innerHTML+= `
     <img src="${book.image}" alt="${book.title}" />
         <h2>${book.title}</h2>
         <p>Author:${book.author}</p>
@@ -221,7 +224,8 @@ const displayBooks = () => {
         <p>Genre: ${book.genre}</p>
         <p>${book.description}</p>
     `
-  bookSection.appendChild(singleBook)
+    galleryWrapperDiv.appendChild(singleCard)
+    console.log(singleCard)
   })
 }
 displayBooks()
@@ -290,7 +294,6 @@ const fromNewest = () =>{
   console.log (descendingSort)
 }
 descendingButton.addEventListener('click',fromNewest)
-// all books display
 
 //random book
 const randomBook = ()=>{
@@ -308,6 +311,9 @@ randomBookChoice()
 }
 randomBook()
 bookRandomButton.addEventListener('click',randomBook)
+
+// all books display
+
 
 
 
