@@ -187,6 +187,14 @@ const books = [
 
 const gridContainer = document.getElementsByClassName("grid-container")[0];
 const randomButton = document.getElementById("random-button");
+const allGenresBtn = document.getElementById("all-genres");
+const fictionBtn = document.getElementById("fiction");
+const sciFiBtn = document.getElementById("sci-fi");
+const fantasyBtn = document.getElementById("fantasy");
+const adventureBtn = document.getElementById("adventure");
+const horrorBtn = document.getElementById("horror");
+const mysteryBtn = document.getElementById("mystery");
+const dystopianBtn = document.getElementById("dystopian");
 
 // funkar
 const displayBooks = (bookArr) => {
@@ -206,7 +214,7 @@ const displayBooks = (bookArr) => {
   });
 };
 
-// funkar
+// Functions that lets us remove all books
 const removeBooks = () => {
   const bookDelete = gridContainer.getElementsByClassName("book-display");
   Array.from(bookDelete).forEach((book) => {
@@ -214,17 +222,71 @@ const removeBooks = () => {
   });
 };
 
-// funkar
+// Display all books when page is loaded
 window.onload = (event) => {
   displayBooks(books);
 };
 
+// This function lets us filter by genre of book
 const filterByGenre = (arr, genre) => {
   return arr.filter((book) => book.genre === genre);
 };
 
-const fantasyBooks = filterByGenre(books, "Dystopian");
-console.log(fantasyBooks);
+//////////////////// Click the buttons to filter ////////////////////
+// All genres
+allGenresBtn.addEventListener("click", (event) => {
+  removeBooks();
+  displayBooks(books);
+});
+
+// Fiction
+fictionBtn.addEventListener("click", (event) => {
+  removeBooks();
+  const fictionBooks = filterByGenre(books, "Fiction");
+  displayBooks(fictionBooks);
+});
+
+// Science Fiction
+sciFiBtn.addEventListener("click", (event) => {
+  removeBooks();
+  const sciFiBooks = filterByGenre(books, "Science Fiction");
+  displayBooks(sciFiBooks);
+});
+
+// Fantasy
+fantasyBtn.addEventListener("click", (event) => {
+  removeBooks();
+  const fantasyBooks = filterByGenre(books, "Fantasy");
+  displayBooks(fantasyBooks);
+});
+
+// Adventure
+adventureBtn.addEventListener("click", (event) => {
+  removeBooks();
+  const adventureBooks = filterByGenre(books, "Adventure");
+  displayBooks(adventureBooks);
+});
+
+// Horror
+horrorBtn.addEventListener("click", (event) => {
+  removeBooks();
+  const horrorBooks = filterByGenre(books, "Horror");
+  displayBooks(horrorBooks);
+});
+
+// Mystery
+mysteryBtn.addEventListener("click", (event) => {
+  removeBooks();
+  const mysteryBooks = filterByGenre(books, "Mystery");
+  displayBooks(mysteryBooks);
+});
+
+// Dystopian
+dystopianBtn.addEventListener("click", (event) => {
+  removeBooks();
+  const dystopianBooks = filterByGenre(books, "Dystopian");
+  displayBooks(dystopianBooks);
+});
 
 /*
 const onlyTheFiction = () => {
@@ -236,11 +298,6 @@ const onlyTheFiction = () => {
   const filteredBooks = filterByGenre(books, filteredGenre);
   console.log(filteredBooks);
 };*/
-
-/*
-randomButton.addEventListener("click", (event) => {
-  removeBooks();
-});*/
 
 /* Ett annat sätt
 books.forEach((book) => {
