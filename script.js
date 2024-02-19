@@ -185,7 +185,7 @@ const recipes = [
   },
   {
     name: "Green Smoothie Bowl",
-    cuisineType: "american",
+    cuisineType: ["american"],
     ingredients: [
       "Spinach leaves (2 cups, fresh)",
       "Avocado (1, peeled and pitted)",
@@ -204,7 +204,7 @@ const recipes = [
   },
   {
     name: "Avocado Chocolate Mousse",
-    cuisineType: "american",
+    cuisineType: ["american"],
     ingredients: [
       "Ripe avocados (2, peeled and pitted)",
       "Cocoa powder (1/4 cup)",
@@ -223,7 +223,7 @@ const recipes = [
   },
   {
     name: "Vietnamese Avocado Mousse Ice Cream",
-    cuisineType: "vietnamese",
+    cuisineType: ["vietnamese"],
     ingredients: [
       "Ripe avocados (2, peeled and pitted)",
       "Sweetened condensed milk (1 cup)",
@@ -243,11 +243,11 @@ const recipes = [
   },
 ];
 
-// Get references to HTML elements using their IDs.
-const recipyStory = document.getElementById("big-story");
-const recipyWrapper = document.getElementById("section__recipes");
-
+// Function for loading and displaying recipes
 const recipyLoader = (recipes) => {
+  const recipyStory = document.getElementById("big-story");
+  const recipyWrapper = document.getElementById("section__recipes");
+
   // Add first recipy to top stories
   recipyStory.innerHTML += `
   <div class="content">
@@ -303,3 +303,33 @@ const recipyLoader = (recipes) => {
   });
 };
 recipyLoader(recipes);
+
+// Function to filter and display recipes based on cuisine and source
+const filterRecipes = (recipes) => {
+  // Filter all the cousine filters
+  const filteredCousine = [];
+  recipes.forEach((recipe) => {
+    recipe.cuisineType.forEach((cuisine) => {
+      if (!filteredCousine.includes(cuisine)) {
+        filteredCousine.push(cuisine.toLowerCase());
+      }
+    });
+  });
+
+  // Displaying all the cousine filters
+  const filterDropdown = document.getElementById("filterDropdown");
+  filteredCousine.forEach((cousine) => {
+    filterDropdown.innerHTML += `
+    <label>
+      <input type="checkbox" name="${cousine}" class="cuisine" />
+      ${cousine}
+    </label> `;
+  });
+};
+
+const cousineH4 = document.getElementById("cousine");
+cousineH4.addEventListener("click", () => {
+  filterDropdown.classList.toggle("active");
+});
+
+filterRecipes(recipes);
