@@ -146,26 +146,33 @@
   .section__filter {
     width: 100%;
     height: 50px;
-    background-color: $secondary-color;
     display: flex;
-    justify-content: center;
+    justify-content: left;
     align-items: center;
-    color: $white;
+
+    margin: 2rem 0;
+    border-bottom: 1px solid #000;
   }
 
   #section__recipes {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: auto;
     gap: 20px;
 
     .recipy-wrapper {
       background: #f0f0f0;
       padding: 0.5em;
-      height: auto;
+      height: fit-content;
 
       img {
         height: 200px;
         object-fit: cover;
+      }
+
+      h3 {
+        margin: 10px 0;
+        font-size: 1.2rem;
       }
     }
     @media screen and (max-width: 767px) {
