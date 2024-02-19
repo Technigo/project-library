@@ -229,12 +229,13 @@ const getAuthors = () => {
   books.forEach(book => {
     authors.push(book.author);
   });
-  authors = authors.sort().filter((name, i) => name !== authors[i - 1]);
-  createAuthorFilter();
+  return authors.sort().filter((author, i) => author !== authors[i - 1]);
 };
 
 // Put authors in filter
 const createAuthorFilter = () => {
+  authors = getAuthors();
+  console.log("Authors fetched");
   const fragment = document.createDocumentFragment();
   authors.forEach(name => {
     const option = document.createElement("option");
@@ -243,17 +244,39 @@ const createAuthorFilter = () => {
   });
   filterAuthor.appendChild(fragment);
 };
+
+// Filter books
+const filterBooks = event => {
+  console.log(event);
+  let filteredBooks = [];
+  switch (event.target.id) {
+    case "select-filter-author":
+      filteredBooks = books.filter(book => book.author === event.target.value);
+      break;
+    case "select-filter-genre":
+      filteredBooks = books.filter(book => book.genre === event.target.value);
+      break;
+
+    default:
+      break;
+  }
+  console.log(filteredBooks);
+  bookListing.innerHTML = "";
+  getBooks(filteredBooks);
+};
+
 // Function to extract genre to filter
 const getGenres = () => {
   books.forEach(book => {
     genres.push(book.genre);
   });
-  genres = genres.sort().filter((name, i) => name !== genres[i - 1]);
-  createGenreFilter();
+  return genres.sort().filter((name, i) => name !== genres[i - 1]);
 };
 
 // Put genre in filter
 const createGenreFilter = () => {
+  genres = getGenres();
+  console.log("Genres fetched");
   const fragment = document.createDocumentFragment();
   genres.forEach(name => {
     const option = document.createElement("option");
@@ -264,7 +287,7 @@ const createGenreFilter = () => {
 };
 
 // Put books from object into DOM
-const getBooks = bookArray => {
+async function getBooks(bookArray) {
   console.log("fetching books...");
   let fragment = document.createDocumentFragment();
   bookArray.forEach(book => {
@@ -294,16 +317,18 @@ const getBooks = bookArray => {
   });
   bookListing.append(fragment);
   console.log("books done!");
-};
+}
 
 // Load content
 const loadContent = () => {
   getBooks(books);
-  getAuthors();
-  getGenres();
+  createAuthorFilter();
+  createGenreFilter();
 };
 
 setTimeout(loadContent, 3000);
 
 // Event listeners
 sorting.addEventListener("change", sortListing);
+filterAuthor.addEventListener("change", filterBooks);
+filterGenre.addEventListener("change", filterBooks);
