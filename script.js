@@ -201,10 +201,11 @@ const getRandomBook = () => {
 };
 
 const createRandomBook = () => {
+  randomBookContainer.innerHTML = "";
   const book = getRandomBook();
   const article = document.createElement("article");
   article.classList.add("book-item");
-  article.innerHTML += `
+  article.innerHTML = `
   <img
     class="book-image"
     src="${book.image}"
