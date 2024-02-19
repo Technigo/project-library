@@ -186,11 +186,46 @@ const bookListing = document.querySelector(".book-listing");
 const filterAuthor = document.getElementById("select-filter-author");
 const filterGenre = document.getElementById("select-filter-genre");
 const sorting = document.getElementById("select-sort");
+const randomBookContainer = document.getElementById("random-book-container");
+const randomBookBtn = document.getElementById("random-book-btn");
 
 // Global variables
 const summarytext = "About the book";
 let authors = [];
 let genres = [];
+
+// Get random book
+const getRandomBook = () => {
+  const randomIndex = Math.floor(Math.random() * (books.length - 1));
+  return books[randomIndex];
+};
+
+const createRandomBook = () => {
+  const book = getRandomBook();
+  const article = document.createElement("article");
+  article.classList.add("book-item");
+  article.innerHTML += `
+  <img
+    class="book-image"
+    src="${book.image}"
+    alt="${book.title}" />
+  <h2 class="title">${book.title}</h2>
+  <h3 class="author">${book.author}</h3>
+  <time
+    class="year"
+    datetime=${book.year}
+    >${book.year}</time
+  >
+  <p class="genre">${book.genre}</p>
+  <p class="rating">${book.rating}</p>
+  <details>
+    <summary>${summarytext}</summary>
+    <span class="description">
+    ${book.description}
+    </span>
+  </details>`;
+  randomBookContainer.append(article);
+};
 
 // Sort book listing
 const sortListing = event => {
@@ -332,3 +367,4 @@ setTimeout(loadContent, 3000);
 sorting.addEventListener("change", sortListing);
 filterAuthor.addEventListener("change", filterBooks);
 filterGenre.addEventListener("change", filterBooks);
+randomBookBtn.addEventListener("click", createRandomBook);
