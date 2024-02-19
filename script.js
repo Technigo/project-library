@@ -1,6 +1,6 @@
-const avocadoRecipes = [
+const recipes = [
   {
-    name: "Avodado Toast with Egg",
+    name: "Avocado Toast with Egg",
     cuisineType: ["italian"],
     ingredients: [
       "Avocado",
@@ -247,21 +247,21 @@ const avocadoRecipes = [
 const recipyStory = document.getElementById("big-story");
 const recipyWrapper = document.getElementById("section__recipes");
 
-const recipyLoader = (avocadoRecipes) => {
+const recipyLoader = (recipes) => {
   // Add first recipy to top stories
   recipyStory.innerHTML += `
   <div class="content">
     
     <img
-    src=${avocadoRecipes[0].image}
+    src=${recipes[0].image}
     alt="Recipy Image"
     height="auto"
     />
 
     <div class="description">
-      <h3>${avocadoRecipes[0].name}</h3>
+      <h3>${recipes[0].name}</h3>
       <hr />
-      <p><span>Cuisine:</span> ${avocadoRecipes[0].cuisineType
+      <p><span>Cuisine:</span> ${recipes[0].cuisineType
         .map((cuisine) => cuisine)
         .join("")}</p>
       <p><span>Time:</span> 2h 10min</p>
@@ -271,7 +271,7 @@ const recipyLoader = (avocadoRecipes) => {
   <div class="ingredients">
     <h3>Ingredients</h3>
     <ul>
-    ${avocadoRecipes[0].ingredients
+    ${recipes[0].ingredients
       .map((ingredient) => `<li>${ingredient}</li>`)
       .join("")}
     </ul>
@@ -279,7 +279,7 @@ const recipyLoader = (avocadoRecipes) => {
   `;
 
   recipyWrapper.innerHTML = "";
-  avocadoRecipes.forEach((recipy) => {
+  recipes.forEach((recipy) => {
     recipyWrapper.innerHTML += `
     <div class="recipy-wrapper">
       <img
@@ -302,4 +302,4 @@ const recipyLoader = (avocadoRecipes) => {
     `;
   });
 };
-recipyLoader(avocadoRecipes);
+recipyLoader(recipes);
