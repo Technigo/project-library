@@ -16,11 +16,13 @@ Going in to the project we were given an array with object, each a book to be sh
 
 - To create a random book I randomized a book index and loaded the correspoding book.
 
+- For the search function from the stretch goals, I wanted to compare the search value to each word in each objects values. Therefor a created arrays with the words as items, and then used the include method. I also made it not case sensetive.
+
+- Got design outlines from Technigo example
+
 ### Next step
 
 If I have time, I will try
-
-- Adding a search bar from the stretch goals.
 
 - Making the filters work together, and to apply sorting to the filtered list.
 

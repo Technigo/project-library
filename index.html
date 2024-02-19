@@ -37,8 +37,8 @@
               <option value="by-rating">By Rating</option>
             </select>
           </label>
-          <label for="select-filter-genre">
-            Filter by Genre
+          <fieldset>
+            <label for="select-filter-genre"> Filter by Genre </label>
             <select
               name="Filter"
               id="select-filter-genre">
@@ -49,19 +49,8 @@
                 --
               </option>
             </select>
-          </label>
-          <label for="search-field">
-            <input
-              id="search-field"
-              type="search" />
-            <button
-              type="submit"
-              id="search-btn">
-              Search
-            </button>
-          </label>
-          <label for="select-filter-author">
-            Filter by Author
+
+            <label for="select-filter-author"> Filter by Author </label>
             <select
               name="Filter"
               id="select-filter-author">
@@ -72,7 +61,18 @@
                 --
               </option>
             </select>
-          </label>
+          </fieldset>
+          <fieldset class="search">
+            <input
+              id="search-field"
+              type="search" />
+            <button
+              type="submit"
+              id="search-btn">
+              Search
+            </button>
+          </fieldset>
+
           <button
             type="reset"
             value="Reset book list"
