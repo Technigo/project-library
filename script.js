@@ -185,7 +185,31 @@ const books = [
   }
 ]
 
-const recipes = [
+//global variable
+/*let i = ''
+
+const clickFiction = () => {
+  books[i].genre === "Fiction"
+  }
+document.getElementById("fiction").innerHTML= books.filter(clickFiction)*/
+
+// Define the click event handler function
+/*const clickFiction = () => {
+  // Filter the books array to get only the books with genre "Fiction"
+  const fictionBooks = books.filter(book => book.genre === "Fiction");
+  
+  // Convert the filtered array to HTML string
+  const fictionHTML = fictionBooks.map(book => `<li>${book.title}</li>`).join('');
+
+  // Set the innerHTML of the "fiction" element to the generated HTML string
+  document.getElementById("fiction").innerHTML = `<ul>${fictionHTML}</ul>`;
+  console.log(fictionHTML)
+}
+
+
+
+
+/*const recipes = [
   {
     name: 'Individual vegetarian lasagnes',
     cuisineType: ['italian'],
@@ -403,4 +427,4 @@ const recipes = [
     url: 'http://www.seriouseats.com/recipes/2012/05/spice-rubbed-grilled-flap-meat-sirloin-tip-recipe.html',
     image: './recipe-images/grilled.jpg'
   }
-]
+]*/
