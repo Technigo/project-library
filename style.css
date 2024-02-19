@@ -1,0 +1,47 @@
+body {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    color: black;
+    font-family: 
+}
+
+.title-container{
+    background-color: white;
+    width: ;
+    height: ;
+    display: flex;
+    flex-direction: row;
+}
+
+.filters {
+    display: flex;
+    flex-direction: row;
+
+}
+
+.genre{
+
+}
+
+.filters {
+
+}
+
+.sort{
+
+}
+
+.library{
+    background-color: white;
+    border-radius: 30px;
+    color: black;
+    font-family: ;
+    padding: 16px 10px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    width: ;
+}

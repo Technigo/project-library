@@ -2,6 +2,10 @@
 If you choose to create your own arrays with elements, just make sure that some
 of the properties make sense to filter on, and some to sort on.*/
 
+const title = document.getElementById("head")
+const filters = document.getElementById("filters")
+const library = document.getElementById("library")
+
 const books = [
   {
     title: 'The Great Gatsby',
