@@ -188,18 +188,42 @@ const filterGenre = document.getElementById("select-filter-genre");
 const sorting = document.getElementById("select-sort");
 const randomBookContainer = document.getElementById("random-book-container");
 const randomBookBtn = document.getElementById("random-book-btn");
+const searchField = document.getElementById("search-field");
+const searchBtn = document.getElementById("search-btn");
 
 // Global variables
 const summarytext = "About the book";
 let authors = [];
 let genres = [];
 
-// Get random book
+// Turn object values into arrays
+async function getSearchResults(searchterm) {
+  const searchResults = books.filter(book => {
+    return Object.values(book)
+      .join(" ")
+      .toLowerCase()
+      .split(" ")
+      .includes(searchterm);
+  });
+  console.log("Search term included in: ", searchResults);
+  await getBooks(searchResults);
+}
+
+// Search
+const search = event => {
+  event.preventDefault();
+  const searchValue = searchField.value.toLowerCase();
+  console.log("Searched for: ", searchValue);
+  getSearchResults(searchValue);
+};
+
+// Get random book from array
 const getRandomBook = () => {
   const randomIndex = Math.floor(Math.random() * (books.length - 1));
   return books[randomIndex];
 };
 
+// Create the DOM element for random book
 const createRandomBook = () => {
   randomBookContainer.innerHTML = "";
   const book = getRandomBook();
@@ -297,7 +321,6 @@ const filterBooks = event => {
       break;
   }
   console.log(filteredBooks);
-  bookListing.innerHTML = "";
   getBooks(filteredBooks);
 };
 
@@ -324,6 +347,8 @@ const createGenreFilter = () => {
 
 // Put books from object into DOM
 async function getBooks(bookArray) {
+  console.log("Clearing Book listing...");
+  bookListing.innerHTML = "";
   console.log("fetching books...");
   let fragment = document.createDocumentFragment();
   bookArray.forEach(book => {
@@ -369,3 +394,4 @@ sorting.addEventListener("change", sortListing);
 filterAuthor.addEventListener("change", filterBooks);
 filterGenre.addEventListener("change", filterBooks);
 randomBookBtn.addEventListener("click", createRandomBook);
+searchBtn.addEventListener("click", search);
