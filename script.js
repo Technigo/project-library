@@ -71,7 +71,7 @@ const books = [
     rating: 4.7,
     description:
       'The first book in the beloved Harry Potter series, it introduces readers to the magical world of Hogwarts and the young wizard Harry Potter.',
-    image: "./books-images/harry-potter-and-the-sorcerer'.jpg"
+    image: "./books-images/harry-potter-and-the-sorcerer.jpg"
   },
   {
     title: 'Moby-Dick',
@@ -186,12 +186,96 @@ const books = [
 ]
 
 //global variable
-/*let i = ''
+let i = ''
 
-const clickFiction = () => {
-  books[i].genre === "Fiction"
-  }
-document.getElementById("fiction").innerHTML= books.filter(clickFiction)*/
+//DOM
+const fictionButton = document.getElementById('filterFiction')
+const scienceButton = document.getElementById('filterScienceFiction')
+const fantasyButton = document.getElementById('filterFantasy')
+const adventureButton = document.getElementById('filterAdventure')
+const horrorButton = document.getElementById('filterHorror')
+const mysteryButton = document.getElementById('filterMystery')
+const dystopianButton = document.getElementById('filterDystopian')
+const bookSection = document.createElement('bookGallery')
+
+
+// display all books on page
+
+//genre type by filter for fiction
+const genreFiction = () => {
+  const filteredFicion = books.filter(book=>book.genre === 'Fiction')
+  console.log(filteredFicion)
+}
+fictionButton.addEventListener('click',genreFiction)
+
+// scienceFiction 
+const genreScience = () => {
+  const filteredScience = books.filter(book => book.genre === 'Science Fiction')
+  console.log(filteredScience)
+}
+scienceButton.addEventListener('click',genreScience)
+
+//fantasy
+const genreFantasy = () => {
+  const filteredFantasy = books.filter(book => book.genre === 'Fantasy')
+  console.log(filteredFantasy)
+}
+fantasyButton.addEventListener('click',genreFantasy)
+
+//adventure
+const genreAdventure = () => {
+  const filteredAdventure = books.filter(book=>book.genre==='Adventure')
+  console.log(filteredAdventure)
+}
+adventureButton.addEventListener('click',genreAdventure)
+
+//horror
+const genreHorror = () =>{
+  const filteredHorror = books.filter(book=>book.genre === 'Horror')
+  console.log(filteredHorror)
+}
+horrorButton.addEventListener('click',genreHorror)
+
+//Mystery
+const genreMystery = () =>{
+  const filteredMystery = books.filter(book=>book.genre === 'Mystery')
+  console.log(filteredMystery)
+}
+mysteryButton.addEventListener('click',genreMystery)
+
+//dystopian
+const genreDystopian = () =>{
+  const filteredDystopian = books.filter(book=>book.genre === 'Dystopian')
+  console.log(filteredDystopian)
+}
+dystopianButton.addEventListener('click',genreDystopian)
+//sort: from newest to oldest and vice versa. By if...else statement?
+
+//sort: from the highest to lowest rating and vice versa
+
+
+// all books display
+
+
+const displayBooks = () => {
+  books.forEach(book => {
+    const singleBook = document.createElement('singleCard')
+    singleBook.innerHTML+= `
+    <img src="${book.image}" alt="${book.title}" />
+        <h2>${book.title}</h2>
+        <p>Author:${book.author}</p>
+        <p>Year: ${book.year}</p>
+        <p>Genre: ${book.genre}</p>
+        <p>${book.description}</p>
+    `
+  bookSection.appendChild(singleBook)
+  })
+}
+displayBooks()
+
+
+
+
 
 // Define the click event handler function
 /*const clickFiction = () => {
