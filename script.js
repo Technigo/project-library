@@ -196,10 +196,30 @@ const adventureButton = document.getElementById('filterAdventure')
 const horrorButton = document.getElementById('filterHorror')
 const mysteryButton = document.getElementById('filterMystery')
 const dystopianButton = document.getElementById('filterDystopian')
+const ascendingButton = document.getElementById('ascending')
+const descendingButton = document.getElementById('descending')
 const bookSection = document.createElement('bookGallery')
 
 
-// display all books on page
+
+
+// display all books on page (not done yet)
+
+const displayBooks = () => {
+  books.forEach(book => {
+    const singleBook = document.createElement('singleCard')
+    singleBook.innerHTML+= `
+    <img src="${book.image}" alt="${book.title}" />
+        <h2>${book.title}</h2>
+        <p>Author:${book.author}</p>
+        <p>Year: ${book.year}</p>
+        <p>Genre: ${book.genre}</p>
+        <p>${book.description}</p>
+    `
+  bookSection.appendChild(singleBook)
+  })
+}
+displayBooks()
 
 //genre type by filter for fiction
 const genreFiction = () => {
@@ -249,29 +269,25 @@ const genreDystopian = () =>{
   console.log(filteredDystopian)
 }
 dystopianButton.addEventListener('click',genreDystopian)
+
 //sort: from newest to oldest and vice versa. By if...else statement?
+const fromOldest = () => {
+  const ascendingSort = books.sort((a,b)=>a.year - b.year)
+  console.log(ascendingSort)
+}
+fromOldest()
+ascendingButton.addEventListener('click',fromOldest)
 
 //sort: from the highest to lowest rating and vice versa
 
-
+const fromNewest = () =>{
+  const descendingSort = books.sort((a,b)=> b.year - a.year)
+  console.log (descendingSort)
+}
+descendingButton.addEventListener('click',fromNewest)
 // all books display
 
 
-const displayBooks = () => {
-  books.forEach(book => {
-    const singleBook = document.createElement('singleCard')
-    singleBook.innerHTML+= `
-    <img src="${book.image}" alt="${book.title}" />
-        <h2>${book.title}</h2>
-        <p>Author:${book.author}</p>
-        <p>Year: ${book.year}</p>
-        <p>Genre: ${book.genre}</p>
-        <p>${book.description}</p>
-    `
-  bookSection.appendChild(singleBook)
-  })
-}
-displayBooks()
 
 
 
