@@ -198,7 +198,12 @@ const mysteryButton = document.getElementById('filterMystery')
 const dystopianButton = document.getElementById('filterDystopian')
 const ascendingButton = document.getElementById('ascending')
 const descendingButton = document.getElementById('descending')
+const filterBar = document.getElementById('filterBar')
+
+//creat element
 const bookSection = document.createElement('bookGallery')
+const randomDiv = document.createElement('div')
+const bookRandomButton = document.createElement('button')
 
 
 
@@ -286,6 +291,23 @@ const fromNewest = () =>{
 }
 descendingButton.addEventListener('click',fromNewest)
 // all books display
+
+//random book
+const randomBook = ()=>{
+  bookRandomButton.id = 'random'
+  bookRandomButton.textContent = 'Random choice'
+  randomDiv.appendChild(bookRandomButton)
+  filterBar.appendChild(randomDiv)
+
+  const randomBookChoice = () =>{
+  const arrLen = books.length
+  const randomChoice = books[Math.floor(Math.random() * arrLen)]
+  console.log(randomChoice)
+}
+randomBookChoice()
+}
+randomBook()
+bookRandomButton.addEventListener('click',randomBook)
 
 
 
