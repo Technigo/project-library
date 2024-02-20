@@ -281,7 +281,6 @@ recipyStoryLoader(recipes[0]);
 
 // Function for loading and displaying recipes
 const recipyLoader = (recipes) => {
-  console.log(recipes);
   const recipyWrapper = document.getElementById("section__recipes");
 
   recipyWrapper.innerHTML = "";
@@ -322,48 +321,51 @@ const filterLoader = (recipes) => {
         cusineSet.add(cuisineType.toLowerCase());
       });
     });
+
+    // Sort cusine from a -> z
+    return [...cusineSet].sort();
   };
 
-  // Filter out all the cusines from recipies array
-  const filteredCusine = [];
+  // Function that will display all the cusine types in dropdown
+  const displayCusineFilters = (cusinesTypes) => {
+    const filterDropdown = document.getElementById("filterDropdown");
 
-  // Sort cusine from a -> z
-  const sortedCusine = filteredCusine.sort();
-
-  // Displaying all the cusine filters
-  const filterDropdown = document.getElementById("filterDropdown");
-  sortedCusine.forEach((cusine) => {
-    filterDropdown.innerHTML += `
-    <label>
-      <input type="checkbox" name="${cusine}" class="cuisine" value="${cusine}"/>
-      ${cusine}
-    </label> `;
-  });
-
-  // Get the cusineTitle and add eventlistener
-  const cusineTitle = document.getElementById("cusine");
-  // When clicking open the dropdown
-  cusineTitle.addEventListener("click", () => {
-    filterDropdown.classList.toggle("active");
-
-    // Get all cusines in the dropdown
-    const selectedCusines = document.querySelectorAll(
-      '#filterDropdown input[type="checkbox"]'
-    );
-    // Get the selected values
-    let cusineValue = Array.from(selectedCusines).map((cusine) => cusine.value);
-    console.log(cusineValue);
-
-    // create array with selected cusines and send it to recipyloader
-    let filteredCusines = [];
-    recipes.forEach((recipe) => {
-      if (recipe.cusineType === cusineValue) {
-        console.log("test");
-      }
+    cusinesTypes.forEach((cousine) => {
+      filterDropdown.innerHTML += `
+        <label>
+          <input type="checkbox" name="${cousine}" class="cuisine" value="${cousine}"/>
+          ${cousine}
+        </label> `;
     });
+  };
 
-    // recipyLoader(selectedCusines);
-  });
+  // // Get the cusineTitle and add eventlistener
+  // const cusineTitle = document.getElementById("cusine");
+  // // When clicking open the dropdown
+  // cusineTitle.addEventListener("click", () => {
+  //   filterDropdown.classList.toggle("active");
+
+  //   // Get all cusines in the dropdown
+  //   const selectedCusines = document.querySelectorAll(
+  //     '#filterDropdown input[type="checkbox"]'
+  //   );
+  //   // Get the selected values
+  //   let cusineValue = Array.from(selectedCusines).map((cusine) => cusine.value);
+  //   console.log(cusineValue);
+
+  //   // create array with selected cusines and send it to recipyloader
+  //   let filteredCusines = [];
+  //   recipes.forEach((recipe) => {
+  //     if (recipe.cusineType === cusineValue) {
+  //       console.log("test");
+  //     }
+  //   });
+
+  // });
+
+  // Initial setup
+  const cusinesTypes = getCuisineTypes();
+  displayCusineFilters(cusinesTypes);
 };
 
 filterLoader(recipes);
@@ -372,8 +374,3 @@ filterLoader(recipes);
 // random.sort((a, b) => a - b)
 
 // random.sort((a, b) => b - a)
-
-const notTheCs = (name) => {
-  // remove all pokemons that starts with C
-};
-notTheCs(pokemons);
