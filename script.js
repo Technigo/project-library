@@ -287,13 +287,15 @@ const fromOldest = () => {
 fromOldest()
 ascendingButton.addEventListener('click',fromOldest)
 
-//sort: from the highest to lowest rating and vice versa
-
 const fromNewest = () =>{
   const descendingSort = books.sort((a,b)=> b.year - a.year)
   console.log (descendingSort)
 }
 descendingButton.addEventListener('click',fromNewest)
+
+//sort: from the highest to lowest rating and vice versa
+
+
 
 //random book
 const randomBook = ()=>{
