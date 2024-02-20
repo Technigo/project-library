@@ -12,11 +12,12 @@ myFunction('Hello there you!!')
 // Kod från Technigo
 const books = [
   {
-    title: 'The Great Gatsby',
-    author: 'F. Scott Fitzgerald',
-    year: 1925,
-    genre: 'Fiction',
+    destination: 'High rocks',
+    country: 'USA',
+    language: 1925,
+    accessibility: 'Fiction',
     rating: 4.2,
+    temperature: '',
     description:
       'A classic novel set in the Roaring Twenties, it explores themes of wealth, love, and the American Dream through the enigmatic Jay Gatsby.',
     image: './books-images/the-great-gatsby.jpg'
@@ -192,6 +193,8 @@ const books = [
     image: './books-images/unknown.jpg'
   }
 ]
+
+/*
 
 const recipes = [
   {
@@ -412,3 +415,4 @@ const recipes = [
     image: './recipe-images/grilled.jpg'
   }
 ]
+*/
