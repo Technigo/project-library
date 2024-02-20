@@ -5,6 +5,7 @@ of the properties make sense to filter on, and some to sort on.*/
 const title = document.getElementById("head")
 const filters = document.getElementById("filters")
 const library = document.getElementById("library")
+const bookItem = document.getElementById("bookItem")
 
 const books = [
   {
@@ -188,6 +189,11 @@ const books = [
     image: './books-images/unknown.jpg'
   }
 ]
+
+bookItem.innerHTML = JSON.stringify(books[0]);
+
+
+ 
 
 const recipes = [
   {
