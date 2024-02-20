@@ -186,7 +186,7 @@ const gridContainer = document.getElementsByClassName("grid-container")[0];
 const randomBtn = document.getElementById("random-button");
 const allGenresBtn = document.getElementById("all-genres");
 const fictionBtn = document.getElementById("fiction");
-const sciFiBtn = document.getElementById("sci-fi");
+const sciFiBtn = document.getElementById("science-fiction");
 const fantasyBtn = document.getElementById("fantasy");
 const adventureBtn = document.getElementById("adventure");
 const horrorBtn = document.getElementById("horror");
@@ -252,12 +252,25 @@ const removeBooks = () => {
 // Display all books when page is loaded
 window.onload = (event) => {
   displayBooks(books);
+  allGenresBtn.classList.add("clicked-filter");
   nowDispBooks = books;
 };
 
 // Function that lets us filter by genre of book
 const filterByGenre = (arr, genre) => {
   return arr.filter((book) => book.genre === genre);
+};
+
+// Fuction that filters depending on which filter button is clicked
+const handleGenreFilterClick = (genre) => {
+  removeBooks();
+  filterButtons.forEach((btn) => btn.classList.remove("clicked-filter"));
+  const formattedGenre = genre.toLowerCase().replace(/\s+/g, "-");
+  const clickedButton = document.getElementById(`${formattedGenre}`);
+  clickedButton.classList.add("clicked-filter");
+  const filteredBooks = filterByGenre(books, genre);
+  displayBooks(filteredBooks, genre);
+  nowDispBooks = filteredBooks;
 };
 
 // Function to get a random number
@@ -269,7 +282,6 @@ const getRandomNum = (min, max) => {
 
 //////////////// Click the buttons to filter and sort ////////////////
 // All genres
-
 allGenresBtn.addEventListener("click", (event) => {
   removeBooks();
   filterButtons.forEach((btn) => btn.classList.remove("clicked-filter"));
@@ -280,72 +292,37 @@ allGenresBtn.addEventListener("click", (event) => {
 
 // Fiction
 fictionBtn.addEventListener("click", (event) => {
-  removeBooks();
-  filterButtons.forEach((btn) => btn.classList.remove("clicked-filter"));
-  fictionBtn.classList.add("clicked-filter");
-  const fictionBooks = filterByGenre(books, "Fiction");
-  displayBooks(fictionBooks);
-  nowDispBooks = fictionBooks;
+  handleGenreFilterClick("Fiction");
 });
 
 // Science Fiction
 sciFiBtn.addEventListener("click", (event) => {
-  removeBooks();
-  filterButtons.forEach((btn) => btn.classList.remove("clicked-filter"));
-  sciFiBtn.classList.add("clicked-filter");
-  const sciFiBooks = filterByGenre(books, "Science Fiction");
-  displayBooks(sciFiBooks);
-  nowDispBooks = sciFiBooks;
+  handleGenreFilterClick("Science Fiction");
 });
 
 // Fantasy
 fantasyBtn.addEventListener("click", (event) => {
-  removeBooks();
-  filterButtons.forEach((btn) => btn.classList.remove("clicked-filter"));
-  fantasyBtn.classList.add("clicked-filter");
-  const fantasyBooks = filterByGenre(books, "Fantasy");
-  displayBooks(fantasyBooks);
-  nowDispBooks = fantasyBooks;
+  handleGenreFilterClick("Fantasy");
 });
 
 // Adventure
 adventureBtn.addEventListener("click", (event) => {
-  removeBooks();
-  filterButtons.forEach((btn) => btn.classList.remove("clicked-filter"));
-  adventureBtn.classList.add("clicked-filter");
-  const adventureBooks = filterByGenre(books, "Adventure");
-  displayBooks(adventureBooks);
-  nowDispBooks = adventureBooks;
+  handleGenreFilterClick("Adventure");
 });
 
 // Horror
 horrorBtn.addEventListener("click", (event) => {
-  removeBooks();
-  filterButtons.forEach((btn) => btn.classList.remove("clicked-filter"));
-  horrorBtn.classList.add("clicked-filter");
-  const horrorBooks = filterByGenre(books, "Horror");
-  displayBooks(horrorBooks);
-  nowDispBooks = horrorBooks;
+  handleGenreFilterClick("Horror");
 });
 
 // Mystery
 mysteryBtn.addEventListener("click", (event) => {
-  removeBooks();
-  filterButtons.forEach((btn) => btn.classList.remove("clicked-filter"));
-  mysteryBtn.classList.add("clicked-filter");
-  const mysteryBooks = filterByGenre(books, "Mystery");
-  displayBooks(mysteryBooks);
-  nowDispBooks = mysteryBooks;
+  handleGenreFilterClick("Mystery");
 });
 
 // Dystopian
 dystopianBtn.addEventListener("click", (event) => {
-  removeBooks();
-  filterButtons.forEach((btn) => btn.classList.remove("clicked-filter"));
-  dystopianBtn.classList.add("clicked-filter");
-  const dystopianBooks = filterByGenre(books, "Dystopian");
-  displayBooks(dystopianBooks);
-  nowDispBooks = dystopianBooks;
+  handleGenreFilterClick("Dystopian");
 });
 
 // Newest
@@ -368,8 +345,8 @@ oldestBtn.addEventListener("click", (event) => {
 
 // Random book
 randomBtn.addEventListener("click", (event) => {
-  const randomNumber = getRandomNum(0, books.length - 1);
   removeBooks();
+  const randomNumber = getRandomNum(0, books.length - 1);
   filterButtons.forEach((btn) => btn.classList.remove("clicked-filter"));
   sortButtons.forEach((btn) => btn.classList.remove("clicked-sort"));
   createBookCard(books[randomNumber]);

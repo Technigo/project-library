@@ -74,6 +74,7 @@ button {
   max-width: 300px;
   padding: 1rem;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border-radius: 30px;
 }
 
 .grid-container:nth-child(1) {
