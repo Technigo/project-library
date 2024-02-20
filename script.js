@@ -2,7 +2,7 @@
 const recipes = [
   {
     name: "Avocado Toast with Egg",
-    cuisineType: ["italian"],
+    cuisineType: ["france"],
     ingredients: [
       "Avocado",
       "Eggs",
@@ -244,6 +244,39 @@ const recipes = [
   },
 ];
 
+const displayCuisineCheckboxes = (recipes) => {
+  const getCuisineTypes = () => {
+    // Get all unique cusine types
+    const cuisineSet = new Set();
+
+    recipes.forEach((recipe) => {
+      recipe.cuisineType.forEach((cuisineType) => {
+        cuisineSet.add(cuisineType.toLowerCase());
+      });
+    });
+
+    // Sort cusine from a -> z
+    return [...cuisineSet].sort();
+  };
+
+  // Function that will display all the cuisine types in dropdown
+  const displayCuisineCheckboxes = (cuisineTypes) => {
+    const filterCuisines = document.getElementById("filterCuisines");
+
+    cuisineTypes.forEach((cuisine) => {
+      filterCuisines.innerHTML += `
+        <label>
+          <input type="checkbox" name="cuisine" class="cuisine" value="${cuisine}"/>
+          ${cuisine}
+        </label> `;
+    });
+  };
+
+  // Get cuisine types and display cuisine checkboxes
+  const cuisinesTypes = getCuisineTypes();
+  displayCuisineCheckboxes(cuisinesTypes);
+};
+
 const recipyStoryLoader = (recipy) => {
   const recipyStory = document.getElementById("big-story");
 
@@ -294,7 +327,7 @@ const recipyLoader = (recipes) => {
         height="auto"
       />
       <h3>${recipy.name}</h3>
-        <p><span>Cuisine: Italian</span></p>
+        <p><span>Cuisine: ${recipy.cuisineType}</span></p>
         <p><span>Time: 1h 20min</span></p>
       <hr />
       <h3>Ingredients</h3>
@@ -312,16 +345,25 @@ recipyLoader(recipes);
 
 // Function to filter and display recipes based on cuisine and source
 const filterLoader = (recipes) => {
+  displayCuisineCheckboxes(recipes);
   const filterCuisines = document.querySelectorAll(".cuisine");
-
   // Funktion to filter recipes by cuisine
   const filterRecipesByCuisine = () => {
-    console.log("Funktion to filter recipes by cuisine");
+    const selectedCuisines = Array.from(filterCuisines)
+      .filter((cuisine) => cuisine.checked)
+      .map((cuisine) => cuisine.value);
+
+    // Filter recipes based on selected cuisines
+    const filteredRecipes = recipes.filter((recipy) =>
+      recipy.cuisineType.some((cuisine) => selectedCuisines.includes(cuisine))
+    );
+
+    recipyLoader(filteredRecipes.length ? filteredRecipes : recipes);
   };
 
   // Add eventlistner to each checkbox
-  filterCuisines.forEach((cuisines) => {
-    cuisines.addEventListener("change", filterRecipesByCuisine);
+  filterCuisines.forEach((cuisine) => {
+    cuisine.addEventListener("change", filterRecipesByCuisine);
   });
 };
 
