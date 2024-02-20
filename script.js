@@ -2,6 +2,14 @@
 If you choose to create your own arrays with elements, just make sure that some
 of the properties make sense to filter on, and some to sort on.*/
 
+///test av koppling i HTML
+const myFunction = (message) =>{
+console.log(message)
+}
+
+myFunction('Hello there you!!')
+
+// Kod från Technigo
 const books = [
   {
     title: 'The Great Gatsby',
