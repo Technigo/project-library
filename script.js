@@ -158,7 +158,7 @@ const recipes = [
   },
   {
     name: "Meat Stock",
-    cuisineType: "american",
+    cuisineType: ["american"],
     ingredients: [
       "2.5 pounds beef marrow bones",
       "1 large onion, quartered",
@@ -180,7 +180,7 @@ const recipes = [
   },
   {
     name: "Homemade Meat Broth",
-    cuisineType: "american",
+    cuisineType: ["american"],
     ingredients: [
       "1 teaspoon salt",
       "1 carrot, peeled",
@@ -198,7 +198,7 @@ const recipes = [
   },
   {
     name: "Spice-Rubbed Grilled Flap Meat (Sirloin Tip) Recipe",
-    cuisineType: "south-american",
+    cuisineType: ["south-american"],
     ingredients: [
       "1 tablespoon whole black peppercorns, toasted",
       "1 teaspoon coriander seed, toasted",
@@ -218,13 +218,18 @@ const recipes = [
   },
 ];
 
-// Function to capatilize the first letter of Cuisine type.
+/*
+// Function to capitilize the first letter of Cuisine type.
 
-function capitalizeFirstLetter(string) {
-  return string.charAt(0).toUpperCase() + string.slice(1);
+function capitalizeFirstLetter(recipes) {
+  for (let cuisineType of recipes) {
+    cuisineType = cuisineType.charAt(0).toUpperCase() + cuisineType.substr(1);
+    console.log(cuisineType);
 }
-
-// <p>Ingredients - Function to make a new array to put ingredients in the card. Martin & Mai
+  //string.charAt(0).toUpperCase() + string.slice(1);
+}
+capitalizeFirstLetter(recipes)
+*/
 
 
 // Display the cards
@@ -238,7 +243,7 @@ function addRecipeInformation(recipe) {
     <img src="${recipe.image}"></img>
     <p>Cooking time: ${recipe.totalTime}</p>
     <p>Cusine type: ${recipe.cuisineType}</p>
-    <p>Ingredients: ${recipe.ingredients}</p> 
+    <p>Ingredients: ${recipe.ingredients.join("<br/>")}</p> 
     <p>Source: ${recipe.source}</p>
     <a href="${recipe.url}">Link</a>
     </div>
@@ -253,6 +258,24 @@ recipes.forEach(addRecipeInformation);
 
 // Filter on cuisine types (Martin)
 // American, asian, italian, low carb etc.
+
+const filterCards = (type) => {
+
+
+  if (type === "American"){
+
+  }
+  else if (type === "Italian"){
+
+  }
+  else if (type === "Balanced"){
+    
+  }
+  else if (type === "Italian"){
+    
+  }
+
+}
 
 // Sort alphabetically and by cook time (Martin)
 
