@@ -10,7 +10,7 @@
   --border-radius-btn: 50px;
   --font-size: 16px;
   --shadow: 0px 0px 30px 0px #0018A433;
-  --transition: all .2s ease-in-out;
+  --transition: all .2s ease-in;
 
 }
 
@@ -25,6 +25,7 @@ body {
   max-width: 1400px;
   margin: 0 auto;
   background-color: var(--technigo-light-blue);
+  overflow-x: hidden;
 }
 
 header {
@@ -47,18 +48,29 @@ h2 {
   font-weight: 700;
 }
 
+form {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin-bottom: 2rem;
+  width: 100%;
+}
+
 fieldset {
   border: none;
-  margin: 1rem 0;
+  margin: 1rem;
 }
 
 button {
+  height: 40px;
+  min-width: 120px;
   border-radius: var(--border-radius-btn);
+  border: none;
   padding: .5rem 1rem;
   background-color: var(--technigo-blue);
   color: white;
   font-weight: 500;
-  border: none;
   transition: var(--transition);
 }
 
@@ -75,11 +87,44 @@ form button:hover {
   background-color: var(--technigo-light-pink);
 }
 
+select {
+  height: 40px;
+  border-radius: var(--border-radius-btn);
+  border: var(--technigo-blue) solid 1px;
+  padding: .5rem 1rem;
+  background-color: var(--technigo-turqoise);
+  color: var(--technigo-blue);
+  font-weight: 500;
+  transition: var(--transition);
+}
+select:hover {
+  background-color: var(--technigo-blue);
+  color: white;
+}
+
+select:focus {
+  box-shadow: var(--shadow);
+  border: none;
+}
+
+input {
+  border: none;
+  background-color: transparent;
+  padding: 0 1rem;
+  margin: 0 .5rem;
+  width: 100%;
+}
+
+input:focus-visible {
+  appearance: none;
+  border: none;
+}
+
 details {
   margin: 1rem 0;
 }
 
-.book-listing-bar {
+.adjustments-bar {
   width: 100%;
   padding-bottom: 2rem;
   display: flex;
@@ -88,12 +133,22 @@ details {
   row-gap: .5rem;
 }
 
+.search {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 40px;
+  width: 100%;
+  border-radius: var(--border-radius-btn);
+  background-color: var(--technigo-light-pink);
+}
+
 .book-listing {
   display: flex;
   gap: 1rem;
   overflow-x: hidden;
   flex-wrap: wrap;
-  justify-content: space;
+  justify-content: space-evenly;
   align-content: flex-start;
 }
 
@@ -145,15 +200,15 @@ details {
 
 
 @media screen and (min-width: 668px) {
-  .book-listing {
-    justify-content: flex-start;
-  }
     .book-item {
     max-width: 48%;
   }
 }
 
 @media screen and (min-width: 1025px) {
+  .book-listing {
+    justify-content: flex-start;
+  }
       .book-item {
       max-width: 24%;
     }

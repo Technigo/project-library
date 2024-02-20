@@ -241,8 +241,7 @@ const createRandomBook = () => {
   <time
     class="year"
     datetime=${book.year}
-    >${book.year}</time
-  >
+    >${book.year}</time>
   <p class="genre">${book.genre}</p>
   <p class="rating">${book.rating}</p>
   <details>
@@ -259,30 +258,26 @@ const sortListing = event => {
   let sortedBooks = [];
   switch (event.target.value) {
     case "by-author":
-      sortedBooks = books.toSorted((a, b) => (a.author > b.author ? 1 : -1));
-      bookListing.innerHTML = "";
+      sortedBooks = books.toSorted((a, b) => {
+        a.author > b.author ? 1 : -1;
+        console.log(a.author, b.author);
+      });
       getBooks(sortedBooks);
       break;
     case "by-year":
       sortedBooks = books.toSorted((a, b) => (a.year > b.year ? 1 : -1));
-      bookListing.innerHTML = "";
       getBooks(sortedBooks);
       break;
     case "by-title-az":
       sortedBooks = books.toSorted((a, b) => (a.title > b.title ? 1 : -1));
-      bookListing.innerHTML = "";
       getBooks(sortedBooks);
       break;
     case "by-title-za":
       sortedBooks = books.toSorted((a, b) => (a.title > b.title ? -1 : 1));
-      bookListing.innerHTML = "";
       getBooks(sortedBooks);
       break;
     case "by-rating":
-      sortedBooks = books
-        .toSorted((a, b) => (a.rating > b.rating ? 1 : -1))
-        .reverse();
-      bookListing.innerHTML = "";
+      sortedBooks = books.toSorted((a, b) => a.rating - b.rating).reverse();
       getBooks(sortedBooks);
       break;
   }
@@ -290,9 +285,7 @@ const sortListing = event => {
 
 // Function to extract authors to filter
 const getAuthors = () => {
-  books.forEach(book => {
-    authors.push(book.author);
-  });
+  books.forEach(book => authors.push(book.author));
   return authors.sort().filter((author, i) => author !== authors[i - 1]);
 };
 

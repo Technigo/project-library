@@ -17,60 +17,58 @@
     </header>
 
     <main>
-      <div class="book-listing-bar">
+      <div class="adjustments-bar">
         <form>
-          <label for="select-sort">
-            Sort order
-            <select
-              name="Sort"
-              id="select-sort">
-              <option
-                value="default"
-                disabled
-                selected>
-                --
-              </option>
-              <option value="by-author">By author</option>
-              <option value="by-year">By year</option>
-              <option value="by-title-az">By title A-Z</option>
-              <option value="by-title-za">By title Z-A</option>
-              <option value="by-rating">By Rating</option>
-            </select>
-          </label>
-          <fieldset>
-            <label for="select-filter-genre"> Filter by Genre </label>
-            <select
-              name="Filter"
-              id="select-filter-genre">
-              <option
-                value="default"
-                disabled
-                selected>
-                --
-              </option>
-            </select>
-
-            <label for="select-filter-author"> Filter by Author </label>
-            <select
-              name="Filter"
-              id="select-filter-author">
-              <option
-                value="default"
-                disabled
-                selected>
-                --
-              </option>
-            </select>
-          </fieldset>
           <fieldset class="search">
             <input
               id="search-field"
-              type="search" />
+              type="search"
+              placeholder="Enter a key word" />
             <button
               type="submit"
               id="search-btn">
               Search
             </button>
+          </fieldset>
+          <select
+            name="Sort"
+            id="select-sort">
+            <option
+              value="default"
+              disabled
+              selected>
+              Sort
+            </option>
+            <option value="by-author">By author</option>
+            <option value="by-year">By year</option>
+            <option value="by-title-az">By title A-Z</option>
+            <option value="by-title-za">By title Z-A</option>
+            <option value="by-rating">By Rating</option>
+          </select>
+
+          <fieldset class="filter">
+            <select
+              name="genre-filter"
+              id="select-filter-genre">
+              <option
+                value="default"
+                disabled
+                selected>
+                Filter by Genre
+              </option>
+            </select>
+
+            <!-- <label for="select-filter-author"> Filter by Author </label> -->
+            <select
+              name="author-filter"
+              id="select-filter-author">
+              <option
+                value="default"
+                disabled
+                selected>
+                Filter by Author
+              </option>
+            </select>
           </fieldset>
 
           <button
