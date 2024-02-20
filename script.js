@@ -182,7 +182,7 @@ const books = [
 ];
 
 // DOM selectors
-const gridContainer = document.getElementsByClassName("grid-container")[0];
+const flexContainer = document.getElementsByClassName("flex-container")[0];
 const randomBtn = document.getElementById("random-button");
 const allGenresBtn = document.getElementById("all-genres");
 const fictionBtn = document.getElementById("fiction");
@@ -196,6 +196,8 @@ const newestBtn = document.getElementById("sort-newest");
 const oldestBtn = document.getElementById("sort-oldest");
 const filterButtons = document.querySelectorAll(".filter");
 const sortButtons = document.querySelectorAll(".sort");
+const dropdownFilter = document.querySelector("#filter-dropdown");
+const dropdownSort = document.querySelector("#sort-dropdown");
 
 // Global variables
 let nowDispBooks = [];
@@ -217,7 +219,7 @@ const bookRating = books.map((book) => {
 });
 */
 
-///////////////////////////// Functions /////////////////////////////
+///////////////////// Functions and eventlisteners //////////////////////
 // Create a book card divs
 const createBookCard = (book) => {
   let bookDiv = document.createElement("div");
@@ -231,7 +233,7 @@ const createBookCard = (book) => {
     <h5>Rating: ${book.rating}</h5>
     <h4>Description</h4>
     <p>${book.description}</p>`;
-  gridContainer.appendChild(bookDiv);
+  flexContainer.appendChild(bookDiv);
 };
 
 // Display all of the book cards
@@ -243,7 +245,7 @@ const displayBooks = (bookArr) => {
 
 // Function that removes all books
 const removeBooks = () => {
-  const bookDelete = gridContainer.getElementsByClassName("book-display");
+  const bookDelete = flexContainer.getElementsByClassName("book-display");
   Array.from(bookDelete).forEach((book) => {
     book.remove();
   });
@@ -269,7 +271,7 @@ const handleGenreFilterClick = (genre) => {
   const clickedButton = document.getElementById(`${formattedGenre}`);
   clickedButton.classList.add("clicked-filter");
   const filteredBooks = filterByGenre(books, genre);
-  displayBooks(filteredBooks, genre);
+  displayBooks(filteredBooks);
   nowDispBooks = filteredBooks;
 };
 
@@ -280,8 +282,34 @@ const getRandomNum = (min, max) => {
   return getRandom;
 };
 
-//////////////// Click the buttons to filter and sort ////////////////
-// All genres
+//////////////// Use buttons and dropdown menus to filter and sort ////////////////
+// Event listener that filters depending on which dropdown option is selected
+dropdownFilter.addEventListener("change", () => {
+  removeBooks();
+  let selectedGenre = dropdownFilter.options[dropdownFilter.selectedIndex].text;
+  if (selectedGenre === "All") {
+    displayBooks(books);
+  } else {
+    const filteredBooks = filterByGenre(books, selectedGenre);
+    displayBooks(filteredBooks);
+    nowDispBooks = filteredBooks;
+  }
+});
+
+// Eventlistener that sorts based on the value in the dropdown menu
+dropdownSort.addEventListener("change", () => {
+  removeBooks();
+  let sortedBooks = [];
+  let selectedSort = dropdownSort.options[dropdownSort.selectedIndex].text;
+  if (selectedSort === "Newest") {
+    sortedBooks = nowDispBooks.sort((a, b) => b.year - a.year);
+  } else if (selectedSort === "Oldest") {
+    sortedBooks = nowDispBooks.sort((a, b) => a.year - b.year);
+  }
+  displayBooks(sortedBooks);
+});
+
+// Button for All genres
 allGenresBtn.addEventListener("click", (event) => {
   removeBooks();
   filterButtons.forEach((btn) => btn.classList.remove("clicked-filter"));
@@ -290,42 +318,42 @@ allGenresBtn.addEventListener("click", (event) => {
   nowDispBooks = books;
 });
 
-// Fiction
+// Button for Fiction
 fictionBtn.addEventListener("click", (event) => {
   handleGenreFilterClick("Fiction");
 });
 
-// Science Fiction
+// Button for Science Fiction
 sciFiBtn.addEventListener("click", (event) => {
   handleGenreFilterClick("Science Fiction");
 });
 
-// Fantasy
+// Button for Fantasy
 fantasyBtn.addEventListener("click", (event) => {
   handleGenreFilterClick("Fantasy");
 });
 
-// Adventure
+// Button for Adventure
 adventureBtn.addEventListener("click", (event) => {
   handleGenreFilterClick("Adventure");
 });
 
-// Horror
+// Button for Horror
 horrorBtn.addEventListener("click", (event) => {
   handleGenreFilterClick("Horror");
 });
 
-// Mystery
+// Button for Mystery
 mysteryBtn.addEventListener("click", (event) => {
   handleGenreFilterClick("Mystery");
 });
 
-// Dystopian
+// Button for Dystopian
 dystopianBtn.addEventListener("click", (event) => {
   handleGenreFilterClick("Dystopian");
 });
 
-// Newest
+// Button for Newest
 newestBtn.addEventListener("click", (event) => {
   removeBooks();
   sortButtons.forEach((btn) => btn.classList.remove("clicked-sort"));
@@ -334,7 +362,7 @@ newestBtn.addEventListener("click", (event) => {
   displayBooks(newBooks);
 });
 
-// Oldest
+// Button for Oldest
 oldestBtn.addEventListener("click", (event) => {
   removeBooks();
   sortButtons.forEach((btn) => btn.classList.remove("clicked-sort"));
@@ -343,7 +371,7 @@ oldestBtn.addEventListener("click", (event) => {
   displayBooks(oldBooks);
 });
 
-// Random book
+// Button for Random book
 randomBtn.addEventListener("click", (event) => {
   removeBooks();
   const randomNumber = getRandomNum(0, books.length - 1);
