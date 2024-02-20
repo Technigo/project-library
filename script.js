@@ -312,75 +312,17 @@ recipyLoader(recipes);
 
 // Function to filter and display recipes based on cuisine and source
 const filterLoader = (recipes) => {
-  const getCuisineTypes = () => {
-    // Get all unique cusine types
-    const cuisineSet = new Set();
+  const filterCuisines = document.querySelectorAll(".cuisine");
 
-    recipes.forEach((recipe) => {
-      recipe.cuisineType.forEach((cuisineType) => {
-        cuisineSet.add(cuisineType.toLowerCase());
-      });
-    });
-
-    // Sort cusine from a -> z
-    return [...cuisineSet].sort();
+  // Funktion to filter recipes by cuisine
+  const filterRecipesByCuisine = () => {
+    console.log("Funktion to filter recipes by cuisine");
   };
 
-  // Function that will display all the cusine types in dropdown
-  const displayCusineFilters = (cuisineTypes) => {
-    const filterDropdown = document.getElementById("filterDropdown");
-
-    cuisineTypes.forEach((cuisine) => {
-      filterDropdown.innerHTML += `
-        <label>
-          <input type="checkbox" name="cuisine" class="cuisine" value="${cuisine}"/>
-          ${cuisine}
-        </label> `;
-    });
-  };
-
-  const getCuisineValues = () => {
-    const allCuisines = document.querySelectorAll(
-      '#filterDropdown input[type="checkbox"]'
-    );
-
-    // Return all cuisines
-    return allCuisines;
-  };
-
-  // Function that gets the cuisineTitle and adds eventlistener for each cuisine
-  const cuisineTitleClickHandler = () => {
-    filterDropdown.classList.toggle("active");
-    const cuisineValues = getCuisineValues();
-
-    cuisineValues.forEach((cuisine) => {
-      console.log(cuisine);
-      cuisine.addEventListener("click", () => {
-        console.log(cuisine.value);
-
-        // Get the objects in the array containing the selected cuisine type
-      });
-    });
-
-    // Call your recipe loader function with the filtered cuisine values
-    // recipyLoader(cuisineValues);
-  };
-
-  // Constants
-  const filterDropdown = document.getElementById("filterDropdown");
-  const cuisineTitle = document.getElementById("cuisine");
-
-  // Initial setup
-  const cuisinesTypes = getCuisineTypes();
-  displayCusineFilters(cuisinesTypes);
-
-  // Eventlistner for cuisine title
-  cuisineTitle.addEventListener("click", cuisineTitleClickHandler);
+  // Add eventlistner to each checkbox
+  filterCuisines.forEach((cuisines) => {
+    cuisines.addEventListener("change", filterRecipesByCuisine);
+  });
 };
 
 filterLoader(recipes);
-
-// sort ascending
-// random.sort((a, b) => a - b)
-
-// random.sort((a, b) => b - a)
