@@ -196,7 +196,7 @@ const showBookContent = (arrayOfBooks) => {
     // iterates over each books
     libraryContainer.innerHTML += `
     <div class="image-container">
-    <img src=${book.image}/> </div>
+    <img src=${book.image}> </div>
     <div class="text-container">
     <p>${book.title}</p>
     <p>${book.author}</p>
