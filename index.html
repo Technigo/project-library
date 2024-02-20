@@ -1,15 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" type="text/css" href="style.css" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
 
-  <title>Martin and Mai's Recipe book</title>
-</head>
-<body>
-  <h1>Martin and Mai's Recipe book</h1>
-  <div id="container"></div>
-  <script src="script.js"></script>
-</body>
+    <title>Martin and Mai's Recipe book</title>
+  </head>
+  <body>
+    <h1>Martin and Mai's Recipe book</h1>
+    <div class="controlRow">
+      <div class="filterDiv">
+        <h2>Filter recipes</h2>
+        <div id="filterButtonDiv">
+          <button class="button active" id="all" onclick="filterSelection('all')">All</button>
+          <button class="button" id="american" onclick="filterSelection('american')">American</button>
+          <button class="button" id="asian" onclick="filterSelection('Asian')">Asian</button>
+          <button class="button" id="italian" onclick="filterSelection('Italian')">italian</button>
+        </div>
+      </div>
+      <div class="sortDiv">
+        <h2>Sort recipes</h2>
+        <div id="sortButtonDiv">
+          <button class="button" id="alphabetical">Alphabetical</button>
+          <button class="button" id="cooking-time">Cooking Time</button>
+        </div>
+      </div>
+    </div>
+    <div id="container"></div>
+    <script src="script.js"></script>
+  </body>
 </html>
