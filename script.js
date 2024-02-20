@@ -1,6 +1,36 @@
 /*Here we have created two different arrays that you can work with if you want.
 If you choose to create your own arrays with elements, just make sure that some
 of the properties make sense to filter on, and some to sort on.*/
+const vegetables = [
+  {
+    name: "carrot",
+    category:	"vegetable",
+    scientificName:	"Daucus carota",
+    
+Typ av jord:	Sand, Mull
+Förodling/direktsådd:	Direktsådd
+GrowingDagar sådd-skörd:	80
+Dagar grotid:	10-20
+
+
+Vattenbehov:	Mellan
+Näringsbehov:	Litet
+perennial: false 
+},
+  {
+    name: "zucchini",
+  },
+  {
+    name: "onion",
+  },
+  {
+    name: "garlic",
+  },
+  {
+    name: "carrot",
+  },
+]
+
 
 const books = [
   {
