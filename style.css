@@ -1,0 +1,39 @@
+html {
+    background-color: lavenderblush;
+}
+
+#wrapper {
+    
+}
+
+#container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+
+.boxes {
+    background-color: rosybrown;
+    width: 350px;
+    height: auto;
+    padding: 20px;
+}
+
+#book-rating {
+    font-size: 20px;
+    float: right;
+    padding-right: 25px;
+    margin-top: 20px;
+}
+
+.book-image {
+    width: 350px;
+    height: auto;
+}
+
+p {
+    font-size: 14px;
+}
