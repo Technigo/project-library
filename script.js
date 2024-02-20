@@ -259,28 +259,28 @@ const sortListing = event => {
   let sortedBooks = [];
   switch (event.target.value) {
     case "by-author":
-      sortedBooks = books.sort((a, b) => (a.author > b.author ? 1 : -1));
+      sortedBooks = books.toSorted((a, b) => (a.author > b.author ? 1 : -1));
       bookListing.innerHTML = "";
       getBooks(sortedBooks);
       break;
     case "by-year":
-      sortedBooks = books.sort((a, b) => (a.year > b.year ? 1 : -1));
+      sortedBooks = books.toSorted((a, b) => (a.year > b.year ? 1 : -1));
       bookListing.innerHTML = "";
       getBooks(sortedBooks);
       break;
     case "by-title-az":
-      sortedBooks = books.sort((a, b) => (a.title > b.title ? 1 : -1));
+      sortedBooks = books.toSorted((a, b) => (a.title > b.title ? 1 : -1));
       bookListing.innerHTML = "";
       getBooks(sortedBooks);
       break;
     case "by-title-za":
-      sortedBooks = books.sort((a, b) => (a.title > b.title ? -1 : 1));
+      sortedBooks = books.toSorted((a, b) => (a.title > b.title ? -1 : 1));
       bookListing.innerHTML = "";
       getBooks(sortedBooks);
       break;
     case "by-rating":
       sortedBooks = books
-        .sort((a, b) => (a.rating > b.rating ? 1 : -1))
+        .toSorted((a, b) => (a.rating > b.rating ? 1 : -1))
         .reverse();
       bookListing.innerHTML = "";
       getBooks(sortedBooks);
