@@ -1,15 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./style.css" />
-  <!-- Don't forget to change the title and connect the CSS file -->
-  <title>Project Library</title>
-</head>
-<body>
-  <h1>Project Library</h1>
-  <!-- Don't forget to connect the JavaScript file -->
-  <script src="./script.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <!-- Don't forget to change the title and connect the CSS file -->
+    <title>Project Library</title>
+  </head>
+  <body>
+    <h1>Project Recipe Library</h1>
+    <div class="header-buttons">
+      <form id="kitchen-form">
+        <p>Filter on Kitchen</p>
+        <button type="submit" value="All">All</button>
+        <button type="submit" value="Italy">Italy</button>
+        <button type="submit" value="american">USA</button>
+        <button type="submit" value="balanced">Balanced</button>
+        <button type="submit" value="high-fiber">High-fiber</button>
+      </form>
+      <form id="sorting-form">
+        <p>Sort on time</p>
+        <button type="submit" value="Descending">Descending</button>
+        <button type="submit" value="Ascending">Ascending</button>
+      </form>
+    </div>
+    <div id="recipes-container"></div>
+    <!-- Don't forget to connect the JavaScript file -->
+    <script src="./script.js"></script>
+  </body>
 </html>

@@ -1,0 +1,37 @@
+#kitchen-form,
+#sorting-form {
+  button {
+    border-radius: 40%;
+    background-color: #ba7ff5;
+    border: none;
+    transition-duration: 0.4s;
+    text-align: center;
+    font-size: 16px;
+    padding: 5px 10px;
+  }
+  button:hover {
+    background-color: #ba7ff5;
+    background-color: #7a7ffa;
+  }
+}
+
+#recipes-container {
+  display: flex;
+}
+
+.recipe-container {
+  img {
+    width: 100px;
+    height: auto;
+  }
+}
+
+.header-buttons {
+  display: flex;
+  flex-direction: row;
+  margin: 20px;
+}
+
+#sorting-form {
+  padding: 0 15% 0 15%;
+}
