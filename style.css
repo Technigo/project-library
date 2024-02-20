@@ -18,6 +18,7 @@ body {
 header {
   display: flex;
   justify-content: center;
+  text-align: center;
   background-color: #a2bb9d;
   padding: 0;
   margin: 0;
@@ -33,7 +34,7 @@ button {
   margin: 2px;
   font-weight: 600;
   line-height: 1;
-  padding: 0.5rem 1.2rem;
+  padding: 0.5rem 1rem;
   text-align: center;
 }
 
@@ -55,16 +56,16 @@ p {
   margin: 0;
 }
 
-#random-button:hover {
-  box-shadow: inset 0 0 0 2px #a96c97;
-}
-
 .filter:hover {
   box-shadow: inset 0 0 0 2px #729869;
 }
 
 .sort:hover {
   box-shadow: inset 0 0 0 2px #4a6445;
+}
+
+#random-button:hover {
+  box-shadow: inset 0 0 0 2px #a96c97;
 }
 
 .clicked-filter {
@@ -75,6 +76,29 @@ p {
 .clicked-sort {
   background-color: #4a6445;
   color: #fff;
+}
+
+.filter-sort-flex {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 5px 50px 5px 50px;
+  background-color: #c4d4c0;
+}
+
+.dropdown {
+  border: none;
+  border-radius: 4px;
+  color: #0d172a;
+  padding: 5px;
+  margin: 0 0 10px 0;
+  font-size: 0.8rem;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  font-weight: 600;
+  width: 100%;
+  cursor: pointer;
 }
 
 .flex-container {
@@ -108,16 +132,9 @@ p {
   box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
 }
 
-.filter-sort-flex {
-  display: flex;
-  justify-content: center;
-  padding: 5px 50px 5px 50px;
-  gap: 80px;
-  background-color: #c4d4c0;
-}
-
 #filter,
-#sort {
+#sort,
+#tablet-filter {
   display: none;
 }
 
@@ -127,10 +144,39 @@ p {
   align-items: center;
 }
 
+@media (min-width: 768px) and (max-width: 1023px) {
+  .filter-sort-flex {
+    flex-direction: row;
+    gap: 20px;
+    justify-content: center;
+    align-items: flex-end;
+  }
+
+  #filter-dropdown {
+    margin: 2px;
+    width: 200px;
+    height: 30px;
+  }
+
+  #sort-dropdown {
+    display: none;
+  }
+  #sort,
+  #tablet-filter {
+    display: block;
+  }
+}
+
 @media (min-width: 1024px) {
   .dropdown {
     display: none;
   }
+
+  .filter-sort-flex {
+    flex-direction: row;
+    gap: 30px;
+  }
+
   #filter,
   #sort {
     display: block;

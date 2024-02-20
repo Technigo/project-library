@@ -181,7 +181,8 @@ const books = [
   },
 ];
 
-// DOM selectors
+///////////////////////////// DOM selectors /////////////////////////////
+
 const flexContainer = document.getElementsByClassName("flex-container")[0];
 const randomBtn = document.getElementById("random-button");
 const allGenresBtn = document.getElementById("all-genres");
@@ -199,27 +200,12 @@ const sortButtons = document.querySelectorAll(".sort");
 const dropdownFilter = document.querySelector("#filter-dropdown");
 const dropdownSort = document.querySelector("#sort-dropdown");
 
-// Global variables
+/////////////////////////// Global Variables ///////////////////////////
+
 let nowDispBooks = [];
 
-/*
-// Creating a new array with only the book titles
-const bookTitles = books.map((book) => {
-  return book.title;
-});
+////////////////////////////// Functions ///////////////////////////////
 
-// Creating a new array with only the publishing dates
-const publishDate = books.map((book) => {
-  return book.year;
-});
-
-// Creating a new array with only the ratings
-const bookRating = books.map((book) => {
-  return book.rating;
-});
-*/
-
-///////////////////// Functions and eventlisteners //////////////////////
 // Create a book card divs
 const createBookCard = (book) => {
   let bookDiv = document.createElement("div");
@@ -227,6 +213,7 @@ const createBookCard = (book) => {
   bookDiv.innerHTML = `
     <img src="${book.image}" alt="${book.title}" />
     <h2>${book.title}</h2>
+    <hr>
     <h5>Author: ${book.author}</h5>
     <h5>Published: ${book.year}</h5>
     <h5>Genre: ${book.genre}</h5>
@@ -243,7 +230,7 @@ const displayBooks = (bookArr) => {
   });
 };
 
-// Function that removes all books
+// Function that removes all book cards
 const removeBooks = () => {
   const bookDelete = flexContainer.getElementsByClassName("book-display");
   Array.from(bookDelete).forEach((book) => {
@@ -267,6 +254,7 @@ const filterByGenre = (arr, genre) => {
 const handleGenreFilterClick = (genre) => {
   removeBooks();
   filterButtons.forEach((btn) => btn.classList.remove("clicked-filter"));
+  // Because one of the genres is Science Fiction, we need to replace the space between the words with a -
   const formattedGenre = genre.toLowerCase().replace(/\s+/g, "-");
   const clickedButton = document.getElementById(`${formattedGenre}`);
   clickedButton.classList.add("clicked-filter");
@@ -282,13 +270,15 @@ const getRandomNum = (min, max) => {
   return getRandom;
 };
 
-//////////////// Use buttons and dropdown menus to filter and sort ////////////////
+//////////////// Buttons and dropdown menus to filter and sort ////////////////
+
 // Event listener that filters depending on which dropdown option is selected
 dropdownFilter.addEventListener("change", () => {
   removeBooks();
   let selectedGenre = dropdownFilter.options[dropdownFilter.selectedIndex].text;
   if (selectedGenre === "All") {
     displayBooks(books);
+    nowDispBooks = books;
   } else {
     const filteredBooks = filterByGenre(books, selectedGenre);
     displayBooks(filteredBooks);
@@ -296,7 +286,7 @@ dropdownFilter.addEventListener("change", () => {
   }
 });
 
-// Eventlistener that sorts based on the value in the dropdown menu
+// Event listener that sorts based on which dropdown option is selected
 dropdownSort.addEventListener("change", () => {
   removeBooks();
   let sortedBooks = [];
