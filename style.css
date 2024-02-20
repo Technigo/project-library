@@ -1,0 +1,9 @@
+.card {
+  width: calc(33.33% - 10px);
+  margin-bottom: 24px;
+  padding: 10px;
+  border: 2px solid rgb(194, 12, 12);
+  box-sizing: border-box;
+  text-align: center;
+  margin: 5px;
+}
