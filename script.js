@@ -279,7 +279,9 @@ const sortListing = event => {
       getBooks(sortedBooks);
       break;
     case "by-rating":
-      sortedBooks = books.sort((a, b) => (a.rating > b.rating ? 1 : -1));
+      sortedBooks = books
+        .sort((a, b) => (a.rating > b.rating ? 1 : -1))
+        .reverse();
       bookListing.innerHTML = "";
       getBooks(sortedBooks);
       break;
