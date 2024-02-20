@@ -1,3 +1,4 @@
+// Array of objects
 const recipes = [
   {
     name: "Avocado Toast with Egg",
@@ -243,42 +244,48 @@ const recipes = [
   },
 ];
 
-// Function for loading and displaying recipes
-const recipyLoader = (recipes) => {
+const recipyStoryLoader = (recipy) => {
   const recipyStory = document.getElementById("big-story");
-  const recipyWrapper = document.getElementById("section__recipes");
 
   // Add first recipy to top stories
   recipyStory.innerHTML += `
-  <div class="content">
-    
-    <img
-    src=${recipes[0].image}
-    alt="Recipy Image"
-    height="auto"
-    />
+   <div class="content">
+     
+     <img
+     src=${recipy.image}
+     alt="Recipy Image"
+     height="auto"
+     />
+ 
+     <div class="description">
+       <h3>${recipy.name}</h3>
+       <hr />
+       <p><span>Cuisine:</span> ${recipy.cuisineType
+         .map((cuisine) => cuisine)
+         .join("")}</p>
+       <p><span>Time:</span> 2h 10min</p>
+     </div>
+   </div>
+ 
+   <div class="ingredients">
+     <h3>Ingredients</h3>
+     <ul>
+     ${recipy.ingredients
+       .map((ingredient) => `<li>${ingredient}</li>`)
+       .join("")}
+     </ul>
+   </div>
+   `;
+};
+recipyStoryLoader(recipes[0]);
 
-    <div class="description">
-      <h3>${recipes[0].name}</h3>
-      <hr />
-      <p><span>Cuisine:</span> ${recipes[0].cuisineType
-        .map((cuisine) => cuisine)
-        .join("")}</p>
-      <p><span>Time:</span> 2h 10min</p>
-    </div>
-  </div>
-
-  <div class="ingredients">
-    <h3>Ingredients</h3>
-    <ul>
-    ${recipes[0].ingredients
-      .map((ingredient) => `<li>${ingredient}</li>`)
-      .join("")}
-    </ul>
-  </div>
-  `;
+// Function for loading and displaying recipes
+const recipyLoader = (recipes) => {
+  console.log(recipes);
+  const recipyWrapper = document.getElementById("section__recipes");
 
   recipyWrapper.innerHTML = "";
+
   recipes.forEach((recipy) => {
     recipyWrapper.innerHTML += `
     <div class="recipy-wrapper">
@@ -305,31 +312,68 @@ const recipyLoader = (recipes) => {
 recipyLoader(recipes);
 
 // Function to filter and display recipes based on cuisine and source
-const filterRecipes = (recipes) => {
-  // Filter all the cousine filters
-  const filteredCousine = [];
-  recipes.forEach((recipe) => {
-    recipe.cuisineType.forEach((cuisine) => {
-      if (!filteredCousine.includes(cuisine)) {
-        filteredCousine.push(cuisine.toLowerCase());
-      }
-    });
-  });
+const filterLoader = (recipes) => {
+  const getCuisineTypes = () => {
+    // Get all unique cusine types
+    const cusineSet = new Set();
 
-  // Displaying all the cousine filters
+    recipes.forEach((recipe) => {
+      recipe.cuisineType.forEach((cuisineType) => {
+        cusineSet.add(cuisineType.toLowerCase());
+      });
+    });
+  };
+
+  // Filter out all the cusines from recipies array
+  const filteredCusine = [];
+
+  // Sort cusine from a -> z
+  const sortedCusine = filteredCusine.sort();
+
+  // Displaying all the cusine filters
   const filterDropdown = document.getElementById("filterDropdown");
-  filteredCousine.forEach((cousine) => {
+  sortedCusine.forEach((cusine) => {
     filterDropdown.innerHTML += `
     <label>
-      <input type="checkbox" name="${cousine}" class="cuisine" />
-      ${cousine}
+      <input type="checkbox" name="${cusine}" class="cuisine" value="${cusine}"/>
+      ${cusine}
     </label> `;
+  });
+
+  // Get the cusineTitle and add eventlistener
+  const cusineTitle = document.getElementById("cusine");
+  // When clicking open the dropdown
+  cusineTitle.addEventListener("click", () => {
+    filterDropdown.classList.toggle("active");
+
+    // Get all cusines in the dropdown
+    const selectedCusines = document.querySelectorAll(
+      '#filterDropdown input[type="checkbox"]'
+    );
+    // Get the selected values
+    let cusineValue = Array.from(selectedCusines).map((cusine) => cusine.value);
+    console.log(cusineValue);
+
+    // create array with selected cusines and send it to recipyloader
+    let filteredCusines = [];
+    recipes.forEach((recipe) => {
+      if (recipe.cusineType === cusineValue) {
+        console.log("test");
+      }
+    });
+
+    // recipyLoader(selectedCusines);
   });
 };
 
-const cousineH4 = document.getElementById("cousine");
-cousineH4.addEventListener("click", () => {
-  filterDropdown.classList.toggle("active");
-});
+filterLoader(recipes);
 
-filterRecipes(recipes);
+// sort ascending
+// random.sort((a, b) => a - b)
+
+// random.sort((a, b) => b - a)
+
+const notTheCs = (name) => {
+  // remove all pokemons that starts with C
+};
+notTheCs(pokemons);
