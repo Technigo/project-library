@@ -199,6 +199,7 @@ let genres = [];
 
 // Turn object values into arrays, then compare to searchValue
 async function getSearchResults(searchterm) {
+  console.log(books);
   const searchResults = books.filter(book => {
     return Object.values(book)
       .join(" ")
@@ -207,7 +208,9 @@ async function getSearchResults(searchterm) {
       .includes(searchterm);
   });
   console.log("Search term included in: ", searchResults);
-  await getBooks(searchResults);
+  searchResults.length > 0
+    ? getBooks(searchResults)
+    : (bookListing.innerHTML = `<p>Could not find any books like that...</p>`);
 }
 
 // Search

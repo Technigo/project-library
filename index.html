@@ -30,21 +30,6 @@
               Search
             </button>
           </fieldset>
-          <select
-            name="Sort"
-            id="select-sort">
-            <option
-              value="default"
-              disabled
-              selected>
-              Sort
-            </option>
-            <option value="by-author">By author</option>
-            <option value="by-year">By year</option>
-            <option value="by-title-az">By title A-Z</option>
-            <option value="by-title-za">By title Z-A</option>
-            <option value="by-rating">By Rating</option>
-          </select>
 
           <fieldset class="filter">
             <select
@@ -70,13 +55,29 @@
               </option>
             </select>
           </fieldset>
-
-          <button
-            type="reset"
-            value="Reset book list"
-            id="reset-btn">
-            Reset
-          </button>
+          <fieldset>
+            <select
+              name="Sort"
+              id="select-sort">
+              <option
+                value="default"
+                disabled
+                selected>
+                Sort
+              </option>
+              <option value="by-author">By author</option>
+              <option value="by-year">By year</option>
+              <option value="by-title-az">By title A-Z</option>
+              <option value="by-title-za">By title Z-A</option>
+              <option value="by-rating">By Rating</option>
+            </select>
+            <button
+              type="reset"
+              value="Reset book list"
+              id="reset-btn">
+              Reset
+            </button>
+          </fieldset>
         </form>
         <button
           type="button"
