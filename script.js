@@ -333,52 +333,41 @@ const filterLoader = (recipes) => {
     cuisineTypes.forEach((cuisine) => {
       filterDropdown.innerHTML += `
         <label>
-          <input type="checkbox" name="${cuisine}" class="cuisine" value="${cuisine}"/>
+          <input type="checkbox" name="cuisine" class="cuisine" value="${cuisine}"/>
           ${cuisine}
         </label> `;
     });
   };
 
   const getCuisineValues = () => {
-    const selectedCuisines = document.querySelectorAll(
+    const allCuisines = document.querySelectorAll(
       '#filterDropdown input[type="checkbox"]'
     );
-    return Array.from(selectedCuisines);
+
+    // Return all cuisines
+    return allCuisines;
   };
 
-  // Function that gets the cusineTitle and adds eventlistener for each cuisine
+  // Function that gets the cuisineTitle and adds eventlistener for each cuisine
   const cuisineTitleClickHandler = () => {
     filterDropdown.classList.toggle("active");
-    const cuisineValue = getCuisineValues();
+    const cuisineValues = getCuisineValues();
 
-    console.log(cuisineValue);
+    cuisineValues.forEach((cuisine) => {
+      console.log(cuisine);
+      cuisine.addEventListener("click", () => {
+        console.log(cuisine.value);
+
+        // Get the objects in the array containing the selected cuisine type
+      });
+    });
+
+    // Call your recipe loader function with the filtered cuisine values
+    // recipyLoader(cuisineValues);
   };
 
-  // // Get the cusineTitle and add eventlistener
-  // const cusineTitle = document.getElementById("cusine");
-  // // When clicking open the dropdown
-  // cusineTitle.addEventListener("click", () => {
-  //   filterDropdown.classList.toggle("active");
-
-  //   // Get all cusines in the dropdown
-  //   const selectedCusines = document.querySelectorAll(
-  //     '#filterDropdown input[type="checkbox"]'
-  //   );
-  //   // Get the selected values
-  //   let cusineValue = Array.from(selectedCusines).map((cusine) => cusine.value);
-  //   console.log(cusineValue);
-
-  //   // create array with selected cusines and send it to recipyloader
-  //   let filteredCusines = [];
-  //   recipes.forEach((recipe) => {
-  //     if (recipe.cusineType === cusineValue) {
-  //       console.log("test");
-  //     }
-  //   });
-
-  // });
-
   // Constants
+  const filterDropdown = document.getElementById("filterDropdown");
   const cuisineTitle = document.getElementById("cuisine");
 
   // Initial setup
