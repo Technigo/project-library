@@ -314,29 +314,44 @@ recipyLoader(recipes);
 const filterLoader = (recipes) => {
   const getCuisineTypes = () => {
     // Get all unique cusine types
-    const cusineSet = new Set();
+    const cuisineSet = new Set();
 
     recipes.forEach((recipe) => {
       recipe.cuisineType.forEach((cuisineType) => {
-        cusineSet.add(cuisineType.toLowerCase());
+        cuisineSet.add(cuisineType.toLowerCase());
       });
     });
 
     // Sort cusine from a -> z
-    return [...cusineSet].sort();
+    return [...cuisineSet].sort();
   };
 
   // Function that will display all the cusine types in dropdown
-  const displayCusineFilters = (cusinesTypes) => {
+  const displayCusineFilters = (cuisineTypes) => {
     const filterDropdown = document.getElementById("filterDropdown");
 
-    cusinesTypes.forEach((cousine) => {
+    cuisineTypes.forEach((cuisine) => {
       filterDropdown.innerHTML += `
         <label>
-          <input type="checkbox" name="${cousine}" class="cuisine" value="${cousine}"/>
-          ${cousine}
+          <input type="checkbox" name="${cuisine}" class="cuisine" value="${cuisine}"/>
+          ${cuisine}
         </label> `;
     });
+  };
+
+  const getCuisineValues = () => {
+    const selectedCuisines = document.querySelectorAll(
+      '#filterDropdown input[type="checkbox"]'
+    );
+    return Array.from(selectedCuisines);
+  };
+
+  // Function that gets the cusineTitle and adds eventlistener for each cuisine
+  const cuisineTitleClickHandler = () => {
+    filterDropdown.classList.toggle("active");
+    const cuisineValue = getCuisineValues();
+
+    console.log(cuisineValue);
   };
 
   // // Get the cusineTitle and add eventlistener
@@ -363,9 +378,15 @@ const filterLoader = (recipes) => {
 
   // });
 
+  // Constants
+  const cuisineTitle = document.getElementById("cuisine");
+
   // Initial setup
-  const cusinesTypes = getCuisineTypes();
-  displayCusineFilters(cusinesTypes);
+  const cuisinesTypes = getCuisineTypes();
+  displayCusineFilters(cuisinesTypes);
+
+  // Eventlistner for cuisine title
+  cuisineTitle.addEventListener("click", cuisineTitleClickHandler);
 };
 
 filterLoader(recipes);

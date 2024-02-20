@@ -159,7 +159,7 @@
   width: 100%;
   height: 0;
   overflow: hidden;
-  transition: height 0.3s ease;
+  transition: height 3s ease-out;
 }
 .section__recipes-container .section__filter .filter .filterDropdown label {
   text-transform: capitalize;
@@ -179,6 +179,7 @@
 .section__recipes-container #section__recipes .recipy-wrapper {
   background: #f0f0f0;
   padding: 0.5em;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
 }
 .section__recipes-container #section__recipes .recipy-wrapper img {
   height: 200px;
