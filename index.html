@@ -17,8 +17,18 @@
     </header>
 
     <main>
-      <div class="adjustments-bar">
-        <form>
+      <div class="header-bar">
+        <button
+          type="button"
+          id="random-book-btn">
+          Show me a random book
+        </button>
+        <button
+          type="button"
+          id="options-btn">
+          Options
+        </button>
+        <form class="hidden options">
           <fieldset class="search">
             <input
               id="search-field"
@@ -79,11 +89,6 @@
             </button>
           </fieldset>
         </form>
-        <button
-          type="button"
-          id="random-book-btn">
-          Show me a random book!
-        </button>
       </div>
       <section id="random-book-container"></section>
       <section class="book-listing"></section>

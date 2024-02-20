@@ -191,11 +191,15 @@ const randomBookBtn = document.getElementById("random-book-btn");
 const searchField = document.getElementById("search-field");
 const searchBtn = document.getElementById("search-btn");
 const form = document.querySelector("form");
+const optionsBtn = document.getElementById("options-btn");
 
 // Global variables
 const summarytext = "About the book";
 let authors = [];
 let genres = [];
+
+// Toggle hide/show
+const toggleHide = element => element.classList.toggle("hidden");
 
 // Turn object values into arrays, then compare to searchValue
 async function getSearchResults(searchterm) {
@@ -307,7 +311,6 @@ const createAuthorFilter = () => {
 
 // Filter books
 const filterBooks = event => {
-  console.log(event);
   let filteredBooks = [];
   switch (event.target.id) {
     case "select-filter-author":
@@ -320,7 +323,6 @@ const filterBooks = event => {
     default:
       break;
   }
-  console.log(filteredBooks);
   getBooks(filteredBooks);
 };
 
@@ -387,7 +389,7 @@ const loadContent = () => {
   createGenreFilter();
 };
 
-setTimeout(loadContent, 3000);
+loadContent();
 
 // Event listeners
 sorting.addEventListener("change", sortListing);
@@ -396,3 +398,4 @@ filterGenre.addEventListener("change", filterBooks);
 randomBookBtn.addEventListener("click", createRandomBook);
 searchBtn.addEventListener("click", search);
 form.addEventListener("reset", () => getBooks(books));
+optionsBtn.addEventListener("click", () => toggleHide(form));

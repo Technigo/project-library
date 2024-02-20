@@ -48,15 +48,6 @@ h2 {
   font-weight: 700;
 }
 
-form {
-  display: flex;
-  align-items: baseline;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  margin-bottom: 2rem;
-  width: 100%;
-}
-
 fieldset {
   border: none;
   margin: 1rem;
@@ -77,6 +68,10 @@ button {
 button:hover {
   background-color: var(--technigo-turqoise);
   color: var(--technigo-blue);
+}
+
+.header-bar > button {
+  margin: 0 .5rem;
 }
 
 form button {
@@ -124,13 +119,14 @@ details {
   margin: 1rem 0;
 }
 
-.adjustments-bar {
+.header-bar {
   width: 100%;
-  padding-bottom: 2rem;
+  padding: 1rem 0;
   display: flex;
   align-items: flex-end;
   flex-wrap: wrap;
   row-gap: .5rem;
+  border-bottom: var(--light-grey) 1px solid;
 }
 
 .search {
@@ -141,6 +137,17 @@ details {
   width: 100%;
   border-radius: var(--border-radius-btn);
   background-color: var(--technigo-light-pink);
+}
+
+.options {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  width: 100%;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  margin: 1rem 0 ;
 }
 
 .book-listing {
@@ -197,6 +204,9 @@ details {
   font-style: italic;
 }
 
+.hidden {
+  display: none;
+}
 
 
 @media screen and (min-width: 668px) {

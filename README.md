@@ -26,6 +26,8 @@ If I have time, I will try
 
 - Making the filters work together, and to apply sorting to the filtered list.
 
+- Get the search function to accept multiple words
+
 - Adding further styling.
 
 ## View it live
