@@ -68,7 +68,7 @@ const books = [
     rating: 4.7,
     description:
       "The first book in the beloved Harry Potter series, it introduces readers to the magical world of Hogwarts and the young wizard Harry Potter.",
-    image: "./books-images/harry-potter-and-the-sorcerer'.jpg",
+    image: "./books-images/harry-potter-and-the-sorcerer.jpg",
   },
   {
     title: "Moby-Dick",
@@ -185,28 +185,29 @@ const books = [
 // basic requirements
 // DOM elements
 const libraryContainer = document.getElementById("library-container");
-/*const headerContainer = document.getElementById("header-container");
-const contentContainer = document.getElementsByClassName("content-container");*/
+const dropdownGenre = document.getElementById("filter-genre");
 
-//function to display the content of the books
+// display books
 const showBookContent = (arrayOfBooks) => {
   // takes an array of book objects as a parameter
   libraryContainer.innerHTML = ""; //clears the content of the library container
   arrayOfBooks.forEach((book) => {
     // iterates over each books
     libraryContainer.innerHTML += `
-    <div class="image-container">
-    <img src=${book.image}> </div>
-    <div class="text-container">
-    <p>${book.title}</p>
+    <div class=card>
+    <img src=${book.image}>
+    <h2>${book.title}</h2>
     <p>${book.author}</p>
     <p>${book.year}</p>
     <p>${book.genre}</p>
     <p>${book.rating}</p>
-    <p>${book.description}</p></div>
+    <p>${book.description}</p>
   </div>`;
   });
 };
 
 //call the function
 showBookContent(books);
+
+//filter by genre
+const filterGenre = () => {};
