@@ -250,7 +250,7 @@ const createRandomBook = () => {
     datetime=${book.year}
     >${book.year}</time>
   <p class="genre">${book.genre}</p>
-  <p class="rating">${book.rating}</p>
+  <p class="rating">${book.rating} ${book.stars}</p>
   <details>
     <summary>${summarytext}</summary>
     <span class="description">
@@ -347,12 +347,29 @@ const createGenreFilter = () => {
   filterGenre.appendChild(fragment);
 };
 
+// ratings
+const showRating = () => {
+  books.forEach(book => {
+    book.stars = "";
+    if (book.rating < 2) {
+      book.stars = "⭐️";
+    } else if (book.rating < 3) {
+      book.stars = "⭐️⭐️";
+    } else if (book.rating < 4) {
+      book.stars = "⭐️⭐️⭐️";
+    } else if (book.rating < 5) {
+      book.stars = "⭐️⭐️⭐️⭐️";
+    } else book.stars = "⭐️⭐️⭐️⭐️⭐️";
+  });
+};
+
 // Put books from object into DOM
 async function getBooks(bookArray) {
   console.log("Clearing Book listing...");
   bookListing.innerHTML = "";
   console.log("fetching books...");
   let fragment = document.createDocumentFragment();
+  showRating();
   bookArray.forEach(book => {
     const article = document.createElement("article");
     article.classList.add("book-item");
@@ -369,7 +386,7 @@ async function getBooks(bookArray) {
     >${book.year}</time
   >
   <p class="genre">${book.genre}</p>
-  <p class="rating">${book.rating}</p>
+  <p class="rating">${book.rating} ${book.stars}</p>
   <details>
     <summary>${summarytext}</summary>
     <span class="description">

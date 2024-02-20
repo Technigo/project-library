@@ -119,6 +119,10 @@ details {
   margin: 1rem 0;
 }
 
+summary {
+  border-bottom: var(--light-grey) 1px solid;
+}
+
 .header-bar {
   width: 100%;
   padding: 1rem 0;
@@ -196,6 +200,11 @@ details {
   content: "by ";
   font-size: x-small;
   font-style: italic;
+}
+
+.genre {
+  color: var(--technigo-pink);
+  font-weight: 700;
 }
 
 .rating::before {
