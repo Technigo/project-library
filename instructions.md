@@ -2,7 +2,7 @@
 
 ## Navigating this repository
 
-We have provided a starter kit for your project in the GitHub repo. It includes an HTML file, a CSS file, and a JS file. Don't forget to connect the files.
+DONE! We have provided a starter kit for your project in the GitHub repo. It includes an HTML file, a CSS file, and a JS file. Don't forget to connect the files.
 
 ### index.html
 
@@ -16,8 +16,8 @@ In order to simplify the execution of this project, we have provided you with tw
 
 
 ## Requirements
-- Your page should display all of the elements (and their information) in the chosen array when the website is loaded
-- Your page should have at least one `filter`, e.g. on genre or cuisine type
+- DONE!! Your page should display all of the elements (and their information) in the chosen array when the website is loaded 
+- DONE! Your page should have at least one `filter`, e.g. on genre or cuisine type
 - Your page should be able to `sort` on at least one property, e.g.:
   - *for books*:
     - from newest to oldest and vice versa

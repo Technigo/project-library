@@ -1,14 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./style.css" />
-  <title>Project Library</title>
-</head>
-<body>
-  <h1>Project Library</h1>
-  <script src="script.js"></script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <title>Project Library</title>
+  </head>
+  <body>
+    <h1 id="listOfClassics">Classic books</h1>
 
-</body>
+    <p>
+      <label for="genre">Genre</label>
+      <!--Select is the drop-down menu-->
+      <select id="genre">
+        <option selected>All</option>
+        <option>Fiction</option>
+        <option>Horror</option>
+      </select>
+    </p>
+
+    <div id="books"></div>
+
+    <script src="script.js"></script>
+  </body>
 </html>
