@@ -245,6 +245,9 @@ const recipes = [
 ];
 
 const displayCuisineCheckboxes = (recipes) => {
+  const filterCuisines = document.getElementById("filterCuisines");
+  const cuisineTitle = document.getElementById("cuisine");
+
   const getCuisineTypes = () => {
     // Get all unique cusine types
     const cuisineSet = new Set();
@@ -260,9 +263,7 @@ const displayCuisineCheckboxes = (recipes) => {
   };
 
   // Function that will display all the cuisine types in dropdown
-  const displayCuisineCheckboxes = (cuisineTypes) => {
-    const filterCuisines = document.getElementById("filterCuisines");
-
+  const createCuisineCheckboxes = (cuisineTypes) => {
     cuisineTypes.forEach((cuisine) => {
       filterCuisines.innerHTML += `
         <label>
@@ -274,7 +275,12 @@ const displayCuisineCheckboxes = (recipes) => {
 
   // Get cuisine types and display cuisine checkboxes
   const cuisinesTypes = getCuisineTypes();
-  displayCuisineCheckboxes(cuisinesTypes);
+  createCuisineCheckboxes(cuisinesTypes);
+
+  // Eventlistner for cuisine dropdown
+  cuisineTitle.addEventListener("click", () => {
+    filterCuisines.classList.toggle("active");
+  });
 };
 
 const recipyStoryLoader = (recipy) => {
@@ -343,8 +349,7 @@ const recipyLoader = (recipes) => {
 };
 recipyLoader(recipes);
 
-// Function to filter and display recipes based on cuisine and source
-const filterLoader = (recipes) => {
+const cuisineLoader = () => {
   displayCuisineCheckboxes(recipes);
   const filterCuisines = document.querySelectorAll(".cuisine");
   // Funktion to filter recipes by cuisine
@@ -367,6 +372,11 @@ const filterLoader = (recipes) => {
   filterCuisines.forEach((cuisine) => {
     cuisine.addEventListener("change", filterRecipesByCuisine);
   });
+};
+
+// Function to filter and display recipes based on cuisine and source
+const filterLoader = (recipes) => {
+  cuisineLoader(recipes);
 };
 
 filterLoader(recipes);
