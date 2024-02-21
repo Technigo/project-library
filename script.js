@@ -52,7 +52,7 @@ const recipes = [
   },
   {
     name: "Cheat’s cheesy focaccia",
-    cuisineType: ["Italian"],
+    cuisineType: ["italian"],
     ingredients: [
       "500g pack bread mix",
       "2 tbsp olive oil , plus a little extra for drizzling",
@@ -272,3 +272,22 @@ const renderRecipes = () => {
 
 // Call the renderRecipes function when the website is loaded
 window.onload = renderRecipes;
+
+//We should listen for a click or similar on the filter-buttons and that should show the expected cuisine-element as a result
+//cuisineType: "Italian"
+
+//------------------------------------------
+
+//CHAT-GPT GAVE US THIS THAT SHOWS US THE FILTERED CUISINE TYPE IN THE LOG
+// // Example: Filter recipes by cuisine type "south-american"
+// const filteredRecipes = recipes.filter((recipe) =>
+//   recipe.cuisineType.includes("italian")
+// );
+
+// console.log(filteredRecipes);
+
+// const filteredRecipes = recipes.filter((recipe) =>
+//   recipe.cuisineType.includes("Italian")
+// );
+
+// console.log(filteredRecipes);
