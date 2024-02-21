@@ -21,3 +21,7 @@ img {
   width: 100%;
   max-width: 300px;
 }
+
+#sorting-button {
+  max-width: 40px;
+}
