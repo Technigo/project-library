@@ -225,7 +225,7 @@ genreDropDown.addEventListener("change", () => {
     //this is where to filter out the genres.
     //pipe symbol option 7. || means OR.
     //Here we are filtering out all, we render all the book, if user choose horror or other genre we filter that.
-    if (genreDropDown.value == "All" || book.genre == genreDropDown.value) {
+    if (genreDropDown.value == "All genres" || book.genre == genreDropDown.value) {
       booksDiv.innerHTML += renderBook(book);
     }
   }
