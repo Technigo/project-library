@@ -234,18 +234,26 @@ const renderRecipes = () => {
 
     const recipeImage = document.createElement("img");
     recipeImage.src = recipe.image;
+    recipeDiv.appendChild(recipeImage);
 
     const recipeHeading = document.createElement("h2");
     recipeHeading.textContent = recipe.name;
+    recipeDiv.appendChild(recipeHeading);
 
     const recipeCuisineType = document.createElement("p");
     recipeCuisineType.textContent = `Cuisine: ${recipe.cuisineType}`;
+    recipeDiv.appendChild(recipeCuisineType);
 
-    const recipeTotalTime = document.createElement("p");
-    recipeTotalTime.textContent = `Time: ${recipe.totalTime}`;
+    // only add time when not null
+    if (recipe.totalTime !== null) {
+      const recipeTotalTime = document.createElement("p");
+      recipeTotalTime.textContent = `Time: ${recipe.totalTime}`;
+      recipeDiv.appendChild(recipeTotalTime);
+    }
 
     const recipeIngredientsHeading = document.createElement("h3");
     recipeIngredientsHeading.textContent = "Ingredients";
+    recipeDiv.appendChild(recipeIngredientsHeading);
 
     // Create an unordered list for ingredients
     const recipeIngredientsList = document.createElement("ul");
@@ -256,14 +264,8 @@ const renderRecipes = () => {
       ingredientItem.textContent = ingredient;
       recipeIngredientsList.appendChild(ingredientItem);
     });
-
-    // Append elements to recipeDiv
-    recipeDiv.appendChild(recipeImage);
-    recipeDiv.appendChild(recipeHeading);
-    recipeDiv.appendChild(recipeCuisineType);
-    recipeDiv.appendChild(recipeTotalTime);
-    recipeDiv.appendChild(recipeIngredientsHeading);
     recipeDiv.appendChild(recipeIngredientsList);
+
 
     // Append recipeDiv to container
     recipeSection.appendChild(recipeDiv);
