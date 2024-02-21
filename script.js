@@ -244,8 +244,21 @@ const recipes = [
   },
 ];
 
+const filterCuisines = document.getElementById("filterCuisines");
+
+const appendClosingButton = () => {
+  filterCuisines.innerHTML += `
+  <button id="close-dropdown">Close</button>
+  `;
+
+  const closingButton = document.getElementById("close-dropdown");
+
+  closingButton.addEventListener("click", () => {
+    filterCuisines.classList.toggle("active");
+  });
+};
+
 const displayCuisineCheckboxes = (recipes) => {
-  const filterCuisines = document.getElementById("filterCuisines");
   const cuisineTitle = document.getElementById("cuisine");
 
   const getCuisineTypes = () => {
@@ -276,6 +289,9 @@ const displayCuisineCheckboxes = (recipes) => {
   // Get cuisine types and display cuisine checkboxes
   const cuisinesTypes = getCuisineTypes();
   createCuisineCheckboxes(cuisinesTypes);
+
+  // Append closing button
+  appendClosingButton();
 
   // Eventlistner for cuisine dropdown
   cuisineTitle.addEventListener("click", () => {

@@ -179,7 +179,7 @@
         width: 100%;
         height: 0;
         overflow: hidden;
-        transition: height 0.3s ease;
+        transition: height 3s ease-out;
 
         label {
           text-transform: capitalize;
@@ -187,8 +187,13 @@
           font-size: 0.9rem;
           border-bottom: 1px solid #d0d0d0;
         }
+
         &.active {
           height: auto;
+        }
+
+        a {
+          color: $black;
         }
       }
     }
@@ -203,6 +208,7 @@
     .recipy-wrapper {
       background: #f0f0f0;
       padding: 0.5em;
+      box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
       // height: fit-content;
 
       img {

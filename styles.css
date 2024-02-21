@@ -170,6 +170,9 @@
 .section__recipes-container .section__filter .filter .filterDropdown.active {
   height: auto;
 }
+.section__recipes-container .section__filter .filter .filterDropdown a {
+  color: #000;
+}
 .section__recipes-container #section__recipes {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
