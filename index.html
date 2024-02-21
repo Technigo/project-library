@@ -1,13 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Don't forget to change the title and connect the CSS file -->
-  <title>Project Library</title>
-</head>
-<body>
-  <h1>Project Library</h1>
-  <!-- Don't forget to connect the JavaScript file -->
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Recipe Library</title>
+  </head>
+
+  <body>
+    <header>
+      <h1>Recipe Library</h1>
+      <div class="filter">
+        <h2>Filter by kitchen</h2>
+        <div class="buttons">
+          <button class="active">All</button>
+          <button>Italian</button>
+          <button>American</button>
+          <button>Korean</button>
+        </div>
+      </div>
+      <div class="sort">
+        <h2>Sort on time</h2>
+        <div class="buttons">
+          <button>Descending</button>
+          <button>Ascending</button>
+        </div>
+      </div>
+      <div class="random">
+        <h2>Randomize recipe</h2>
+        <div class="buttons">
+          <button>Click here</button>
+        </div>
+      </div>
+    </header>
+
+    <div class="grid-parent">
+      <div class="grid-child" onclick="handleClick(this)">
+        <img src="recipe-images/Focaccia.jpg" alt="Focaccia" />
+        <h3>Rosemary Garlic Focaccia</h3>
+        <h4>Cuisine: <span>Italian</span></h4>
+        <h4>Time: <span>1 h + 50 min</span></h4>
+        <h5>Ingredients</h5>
+        <span>
+          500 g - Strong white bread flour 
+          2 x 7 g - Dried yeast sachets 
+          1 tbsp - Sugar
+          3 tbsp - Olive Olive
+          1 bulb - Garlic, top sliced off 
+          150g - Cherry tomatoes 
+          1 handful - Rosemary sprigs
+        </span>
+        <button class="show-more-btn">Show more</button>
+      </div>
+      <div class="grid-child" onclick="handleClick(this)">
+        <img src="recipe-images/Korean-Stew.jpg" alt="Korean Stew" />
+        <h3>Fermented-Soybean Stew</h3>
+        <h4>Cuisine: <span>Korean</span></h4>
+        <h4>Time: <span>40 min</span></h4>
+        <h5>Ingredients</h5>
+        <span>
+          4 cups - Dashi (Japanese broth)
+          ¼ cup - Doenjang (Korean fermented soybean paste)
+          1 tbsp - Gochujang (Korean red chili paste)
+          1 tbsp - Gochugaru (Korean red chili flakes)
+          6 - Garlic cloves, minced
+          2 tbsp - Soy sauce
+        </span>
+        <button class="show-more-btn">Show more</button>
+      </div>
+      <div class="grid-child" onclick="handleClick(this)">
+        <img
+          src="recipe-images/Beef-Brisket.jpg"
+          alt="Texas-Style Beef Brisket"
+        />
+        <h3>Texas-Style Beef Brisket</h3>
+        <h4>Cuisine: <span>American</span></h4>
+        <h4>Time: <span>16 h + 30 min</span></h4>
+        <h5>Ingredients</h5>
+        <span>
+          6 pounds - Fresh beef brisket
+          3 tbsp - Worcestershire sauce 
+          2 - Garlic cloves, minced 
+          2 - Bay leaves 
+          1/2 cup - Beef broth 
+          1 tbsp - Chili powder
+          1 tsp - Celery salt
+        </span>
+        <button class="show-more-btn">Show more</button>
+      </div>
+      <div class="grid-child" onclick="handleClick(this)">
+        <img src="recipe-images/Rotolo.jpg" alt="Rotolo" />
+        <h3>Ham Hock Rotolo</h3>
+        <h4>Cuisine: <span>Italian</span></h4>
+        <h4>Time: <span>1 h + 15 min </span></h4>
+        <h5>Ingredients</h5>
+        <span>
+          6 sheets - Fresh egg lasagne 
+          50 g - Grana Padano 
+          300 g - Spinach 
+          500 g - Mascarpone 
+          200 g Ham Hock 
+          2 - Garlic cloves, crushed 
+          1 - Lemon, zested and juiced
+        </span>
+        <button class="show-more-btn">Show more</button>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
 </html>

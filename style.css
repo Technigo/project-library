@@ -1,0 +1,156 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Jost&display=swap");
+
+/* Body */
+body {
+  background-color: #f0f0f0;
+  margin-left: 40px;
+  margin-right: 40px;
+}
+
+/* Header */
+header {
+  padding: 20px;
+  background-color: #f0f0f0;
+}
+
+h1 {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 50px;
+  color: #0018a4;
+  letter-spacing: 1px;
+}
+
+.filter,
+.sort,
+.random {
+  display: inline-block;
+  margin-right: 60px;
+}
+
+.filter h2,
+.sort h2,
+.random h2 {
+  font-family: "Jost", sans-serif;
+  font-size: 18px;
+  letter-spacing: 0.5px;
+  margin-bottom: 10px;
+}
+
+/* Buttons within header */
+.buttons {
+  display: flex;
+  justify-content: center;
+  margin-left: -5px;
+}
+
+button {
+  margin: 0 3px;
+  padding: 8px 16px;
+  border: none;
+  background-color: #97efc2;
+  font-family: "Jost", sans-serif;
+  font-size: 15px;
+  color: #0018a4;
+  cursor: pointer;
+  border-radius: 20px;
+}
+
+button.active {
+  background-color: #0018a4;
+  color: #ffffff;
+}
+
+.buttons button:hover {
+  background-color: #0018a4;
+  color: #ffffff;
+}
+
+.random button {
+  margin-right: 55px;
+}
+
+/* Layout for recipe boxes */
+.grid-parent {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 10px;
+  justify-content: center;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.grid-child {
+  position: relative;
+  grid-column: span 2;
+  text-align: left;
+  padding: 10px;
+  height: auto;
+  border-radius: 10px;
+  border: 1px solid #a7a7a7;
+}
+
+.grid-child:hover {
+  box-shadow: 0 0 3px 3px #a7a7a7;
+}
+
+.grid-child img {
+  width: 100%;
+  height: 210px;
+}
+
+/* Text styling for recipe boxes */
+h3 {
+  font-family: "Jost", sans-serif;
+  font-size: 15px;
+  letter-spacing: 0.5px;
+  border-bottom: 1px solid #a7a7a7;
+  padding-bottom: 15px;
+}
+
+h4 {
+  font-family: "Jost", sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.5px;
+}
+
+h4 + h4 {
+  margin-top: -15px;
+}
+
+h5 {
+  font-family: "Jost", sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.5px;
+  border-top: 1px solid #a7a7a7;
+  padding-top: 15px;
+  margin: 0;
+}
+
+span {
+  font-family: "Jost", sans-serif;
+  font-weight: 100;
+  font-size: 12px;
+  letter-spacing: 0.5px;
+  white-space: pre-line;
+}
+
+/* "Show more"-button for recipe boxes */
+.show-more-btn {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background-color: #97efc2;
+  color: #0018a4;
+  padding: 5px 5px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-family: "Jost", sans-serif;
+  font-size: 12px;
+}
+
+.show-more-btn:hover {
+  background-color: #0018a4;
+  color: #ffffff;
+}

@@ -17,15 +17,15 @@ In order to simplify the execution of this project, we have provided you with tw
 
 ## Requirements
 - Your page should display all of the elements (and their information) in the chosen array when the website is loaded
-- Your page should have at least one `filter`, e.g. on genre or cuisine type
-- Your page should be able to `sort` on at least one property, e.g.
+- Your page should have at least one `filter`, e.g. on genre or cuisine type ## Klart, måste få den att funka
+- Your page should be able to `sort` on at least one property, e.g. ## Klart, måste få den att funka
   for books:
     - from newest to oldest and vice versa
     - from the highest to lowest rating and vice versa
   for recipes:
     - from most to least ingredients and vice versa
     - from longest to shortest cooking time and vice versa
-- Your page should feature a button that selects a random book/recipe, and your page should display the selected item
+- Your page should feature a button that selects a random book/recipe, and your page should display the selected item ## Klart, måste få den att funka
 
 ## Stretch Goals
 
