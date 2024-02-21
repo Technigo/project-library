@@ -1,59 +1,3 @@
-// const filterCuisines = document.getElementById("filterCuisines");
-// const filterSource = document.getElementById("filterSource");
-
-// const appendClosingButton = () => {
-//   filterCuisines.innerHTML += `
-//   <button id="close-dropdown">Close</button>
-//   `;
-
-//   const closingButton = document.getElementById("close-dropdown");
-
-//   closingButton.addEventListener("click", () => {
-//     filterCuisines.classList.toggle("active");
-//   });
-// };
-
-// const displayCuisineCheckboxes = (recipes) => {
-//   const cuisineTitle = document.getElementById("cuisine");
-
-//   const getCuisineTypes = () => {
-//     // Get all unique cusine types
-//     const cuisineSet = new Set();
-
-//     recipes.forEach((recipe) => {
-//       recipe.cuisineType.forEach((cuisineType) => {
-//         cuisineSet.add(cuisineType.toLowerCase());
-//       });
-//     });
-
-//     // Sort cusine from a -> z
-//     return [...cuisineSet].sort();
-//   };
-
-//   // Function that will display all the cuisine types in dropdown
-//   const createCuisineCheckboxes = (cuisineTypes) => {
-//     cuisineTypes.forEach((cuisine) => {
-//       filterCuisines.innerHTML += `
-//         <label>
-//           <input type="checkbox" name="cuisine" class="cuisine" value="${cuisine}"/>
-//           ${cuisine}
-//         </label> `;
-//     });
-//   };
-
-//   // Get cuisine types and display cuisine checkboxes
-//   const cuisinesTypes = getCuisineTypes();
-//   createCuisineCheckboxes(cuisinesTypes);
-
-//   // Append closing button
-//   appendClosingButton();
-
-//   // Eventlistner for cuisine dropdown
-//   cuisineTitle.addEventListener("click", () => {
-//     filterCuisines.classList.toggle("active");
-//   });
-// };
-
 const recipyStoryLoader = (recipy) => {
   const recipyStory = document.getElementById("big-story");
 
@@ -120,9 +64,12 @@ const recipyLoader = (recipes) => {
 };
 recipyLoader(recipes);
 
-const cuisineLoader = () => {
+const filterLoader = () => {
   displayCuisineCheckboxes(recipes);
+  displayAuthorCheckboxes(recipes);
   const filterCuisines = document.querySelectorAll(".cuisine");
+  const filterAuthors = document.querySelectorAll(".author");
+
   // Funktion to filter recipes by cuisine
   const filterRecipesByCuisine = () => {
     const selectedCuisines = Array.from(filterCuisines)
@@ -139,20 +86,35 @@ const cuisineLoader = () => {
     recipyLoader(filteredRecipes.length ? filteredRecipes : recipes);
   };
 
-  // Add eventlistner to each checkbox
+  const filterRecipesByAuthor = () => {
+    const selectedAuthors = Array.from(filterAuthors)
+      .filter((author) => author.checked)
+      .map((author) => author.value);
+
+    console.log(selectedAuthors);
+
+    // Filter recipes based on selected cuisines
+    const filteredRecipes2 = recipes.filter((recipy) =>
+      selectedAuthors.includes(recipy.author.toLowerCase())
+    );
+
+    recipyLoader(filteredRecipes2.length ? filteredRecipes2 : recipes);
+  };
+
+  // Add eventlistners
   filterCuisines.forEach((cuisine) => {
     cuisine.addEventListener("change", filterRecipesByCuisine);
   });
+
+  filterAuthors.forEach((author) => {
+    author.addEventListener("change", filterRecipesByAuthor);
+  });
 };
 
-const authorLoader = (recipes) => {
-  console.log("tes");
-};
+// Function to filter and display recipes based on cuisine and author
+// const filterLoader = (recipes) => {
+//   cuisineLoader(recipes);
+//   authorLoader(recipes);
+// };
 
-// Function to filter and display recipes based on cuisine and source
-const filterLoader = (recipes) => {
-  cuisineLoader(recipes);
-  authorLoader(recipes);
-};
-
-filterLoader(recipes);
+filterLoader();
