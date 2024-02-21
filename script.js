@@ -341,6 +341,8 @@ function sortListName() {
   }
 }
 
+
+// Sort cooking time. Not working right.
 function sortListTime() {
   var list, i, switching, b, shouldSwitch;
   list = document.getElementById("container");
