@@ -7,14 +7,7 @@ const filters = document.getElementById("filters")
 const genre = document.getElementById("genre")
 const sort = document.getElementById("sort")
 const library = document.getElementById("library")
-const bookItem = document.getElementById("bookItem")
-/* const bookImage = document.getElementById("bookImage")
-const bookTitle = document.getElementById("bookTitle")
-const bookType = document.getElementById("bookType")
-const bookDetails = document.getElementById("bookDetails") */
 
-genre.innerHTML = "Filter on genre";
-sort.innerHTML = "Sort";
 
 const books = [
   {
@@ -243,7 +236,7 @@ const printBooks = () => {
       <div class="bookItem">
         <div class="bookChild">
         <img src="${book.image}" class="bookImage" alt="${book.title}" />
-          <h3 class="bookTitle">${book.title}</h3>
+          <h2 class="bookTitle">${book.title}</h2>
         </div>
         <div class="bookChild">
           <p class="bookGenre">Genre: ${book.genre}</p>
@@ -260,6 +253,37 @@ const printBooks = () => {
 };
 printBooks();
 
+
+ 
+/*   const sortBooks1 = () =>{
+    const ratingBooks = books.sort((a,b)=>(a.rating-b.rating))
+    console.log(ratingBooks)
+    printBooks(ratingBooks)
+  }
+  sortBooks1();
+}
+ */
+
+
+
+sort.innerHTML +=`
+  <div class="sortTitle" id="sortTitle" >Sort</div>
+  <div class="sortButton" id="sortButton">
+    <button id="rating" >rating</button>
+    <button id="year" >year</button>
+    <button id="name" >name</button>
+  </div>
+`
+genre.innerHTML +=`
+  <div class="sortTitle" id="sortTitle" >Filter on genre</div>
+  <div class="genreButton" id="genreButton">
+    <button id="all" >All</button>
+    <button id="fiction" >Fiction</button>
+    <button id="fantasy" >Fantasy</button>
+    <button id="adventure">Adventure</button>
+    <button id="more" >More ></button>
+  </div>
+`
 
 
 
