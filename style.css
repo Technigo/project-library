@@ -33,9 +33,27 @@ button {
 
 .recipe-section {
   border: 1px black solid;
-  padding: 10px;
   display: flex;
+  background-color: green;
+  flex-wrap: wrap;
 }
 
-.recipe-card {
+/* #recipe-card {
+  background-color: aqua;
+  border: 3px pink solid;
+  /* display: flex;
+  flex-direction: row; */
+
+.recipe {
+  border: 1px black solid;
+  background-color: grey;
+  /* width: 200px; */
+  width: 100%;
+}
+
+img {
+  width: 100%;
+
+  object-fit: cover;
+  object-position: 50% 50%;
 }

@@ -224,13 +224,21 @@ const recipes = [
 
 // Function to render recipes
 const renderRecipes = () => {
-  const container = document.getElementById("recipe-card");
+  const container = document.getElementById("recipe-section");
 
   // Loop through each recipe in the recipes array
   recipes.forEach((recipe) => {
     // Create HTML elements to display recipe information
     const recipeDiv = document.createElement("div");
     recipeDiv.classList.add("recipe");
+
+    const recipeImage = document.createElement("img");
+    recipeImage.src = recipe.image;
+
+//     recipeImage.src = "path/to/image.jpg";
+// recipeImage.alt = "Recipe Image";
+// recipeImage.width = 200;
+// recipeImage.height = 150;
 
     const recipeHeading = document.createElement("h2");
     recipeHeading.textContent = recipe.name;
@@ -239,6 +247,7 @@ const renderRecipes = () => {
     recipeSource.textContent = `Source: ${recipe.source}`;
 
     // Append elements to recipeDiv
+    recipeDiv.appendChild(recipeImage);
     recipeDiv.appendChild(recipeHeading);
     recipeDiv.appendChild(recipeSource);
 
