@@ -355,7 +355,9 @@ const filterLoader = (recipes) => {
 
     // Filter recipes based on selected cuisines
     const filteredRecipes = recipes.filter((recipy) =>
-      recipy.cuisineType.some((cuisine) => selectedCuisines.includes(cuisine))
+      recipy.cuisineType.some((cuisine) =>
+        selectedCuisines.includes(cuisine.toLowerCase())
+      )
     );
 
     recipyLoader(filteredRecipes.length ? filteredRecipes : recipes);
