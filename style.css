@@ -37,7 +37,8 @@ body {
     margin-left: 10%;
     display: flex;
     justify-content: center;
-    font-size: 0.3em;
+    font-size: 0.28em;
+    text-align:center;
 }
 
 .img-section {
@@ -50,31 +51,44 @@ body {
 
 
 .img-section img{
-    width: 80%;
+    width: 90%;
     height: auto;
 }
 
 .blue-section {
     background-color: #57D7FF;
-    width: 100%;
+    width: 90%;
+    margin: 0 auto;
     height: auto;
     min-height: 500px;
-    margin-top: 2rem;
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    padding: 1em 0 5em 0;
 }
 
-.all-dest {
-    width: 70%;
+.filter-sort{
+    width: 100%;
+    margin: 0 auto;
+    padding-left:1em;
+}
+
+.first-destinations, .second-destinations {
+    width: 90%;
     margin: 0 auto;
     display: flex;
     flex-direction: row;
-    gap: 2em;
+    flex-wrap: wrap;
     justify-content: space-around;
-    padding-top: 2em;
 }
 
 .img-container{
-    width: 250px;
-    height: 350px;
+    display: flex;
+    flex-direction: column;
+    padding-top: 3em;
+}
+#img-conatiner-1{
+    padding-top: 1em;
 }
 
 .img-container img{
@@ -96,8 +110,57 @@ body {
         width: 35px;
         margin: 1em 3em 0 0;
     }
+    .slogan{
+        font-size: 0.3em;
+    }
+    
+    main {
+        padding-top:2em;
+    }
 
     .img-section img{
         width: 70%;
+    }
+    .blue-section {
+        background-color: #57D7FF;
+        width: 70%;
+        margin: 0 auto;
+        height: auto;
+        min-height: 500px;
+        margin-top: 2rem;
+        display: flex;
+        flex-direction: column;
+        padding: 3em 0 5em 0;
+    }
+    
+    .filter-sort{
+        width: 100%;
+        margin: 0 auto;
+        padding-left:1em;
+    }
+    
+    .first-destinations, .second-destinations {
+        width: 100%;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        padding-top: 2em;
+    }
+    
+    .img-container{
+        max-width: 220px;
+        max-height: 350px;
+        display: flex;
+        flex-direction: column;
+        padding-top: 1em;
+    }
+    
+    .img-container img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+       
     }
 }
