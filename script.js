@@ -51,7 +51,7 @@ const books = [
     rating: 4,
     description:
       "Narrated by the teenage Holden Caulfield, the novel explores themes of alienation and the search for authenticity.",
-    image: "./books-images/unknown.jpg",
+    image: "./books-images/the-catcher-in-the-rye.jpg",
   },
   {
     title: "The Hobbit",
@@ -71,7 +71,7 @@ const books = [
     rating: 4.7,
     description:
       "The first book in the beloved Harry Potter series, it introduces readers to the magical world of Hogwarts and the young wizard Harry Potter.",
-    image: "./books-images/harry-potter-and-the-sorcerer'.jpg",
+    image: "./books-images/harry-potter-and-the-sorcerer.jpg",
   },
   {
     title: "Moby-Dick",
@@ -101,7 +101,7 @@ const books = [
     rating: 4.3,
     description:
       "A psychological horror novel that tells the story of the Torrance family's terrifying experiences at the haunted Overlook Hotel.",
-    image: "./books-images/unknown.jpg",
+    image: "./books-images/the-shining.jpeg",
   },
   {
     title: "The Chronicles of Narnia: The Lion, the Witch and the Wardrobe",
@@ -121,7 +121,7 @@ const books = [
     rating: 3.8,
     description:
       "A gripping mystery thriller that follows Harvard symbologist Robert Langdon as he unravels the secrets of the Da Vinci Code.",
-    image: "./books-images/unknown.jpg",
+    image: "./books-images/the-da-vinci-code.jpg",
   },
   {
     title: "The Alchemist",
@@ -184,3 +184,55 @@ const books = [
     image: "./books-images/unknown.jpg",
   },
 ];
+
+// DOM Selectors
+const genreBtns = document.getElementsByClassName("genre-btn");
+console.log(genreBtns);
+const cardCollection = document.getElementById("card-grid");
+console.log(cardCollection);
+console.log(cardCollection.innerHTML);
+const fictionBtn = document.getElementById("fiction");
+// Global Variables
+
+// Functions
+const showBooks = (arr) => {
+  cardCollection.innerHTML = "";
+  arr.forEach((obj) => {
+    cardCollection.innerHTML += `<div class="card">
+    <div class="img-container">
+      <img src=${obj.image} alt="book ${obj.title}">
+    </div>
+    <h3>${obj.title}</h3>
+    <p>Author: ${obj.author}</p>
+    <p>Year: ${obj.year}</p>
+    <p>Genre: ${obj.genre}</p>
+    <p>Rating: ${obj.rating}</p>
+    <p>
+      Description: ${obj.description}
+    </p>
+  </div>
+  `;
+  });
+};
+
+showBooks(books);
+
+for (let btn of genreBtns) {
+  btn.addEventListener("click", (event) => {
+    let filteredBooks = books.filter((obj) => {
+      return obj.genre === event.target.value;
+    });
+    showBooks(filteredBooks);
+  });
+}
+
+//Eventlisteners
+
+// genreBtns.forEach((btn) => {
+//   btn.addEventListener("click", (event) => {
+//     let filteredBooks = books.filter((obj) => {
+//       return obj.genre === event.target.value;
+//     });
+//     showBooks(filteredBooks);
+//   });
+// });

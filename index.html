@@ -4,94 +4,54 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./style.css" />
-    <title>Book Library</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Roboto+Slab:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Gelasio:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Roboto+Slab:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <title>Lagom Book Library</title>
   </head>
   <body>
-    <h1>Book Library</h1>
-    <div>
+    <header>
+      <h1>Lagom Book Library</h1>
+    </header>
+    <blockquote
+      class="blockquote"
+      cite="https://parade.com/1167905/marynliles/quotes-about-reading-books/"
+    >
+      <p class="blockquote-text">
+        A good library will never be too neat, or too dusty, because somebody
+        will always be in it, taking books off the shelves and staying up late
+        reading them.
+      </p>
+      <p class="blockquote-text blockquote-text-credit">Lemony Snicket</p>
+    </blockquote>
+    <div class="filter-container">
       <p>Filter on genre</p>
       <div class="btn-filter">
-        <button>Fiction</button>
-        <button>Science Fiction</button>
-        <button>Fantasy</button>
-        <button>Adventure</button>
-        <button>Horror</button>
-        <button>Mystery</button>
-        <button>Dystopian</button>
+        <button class="genre-btn" value="Fiction" id="fiction">Fiction</button>
+        <button class="genre-btn" value="Science Fiction">
+          Science Fiction
+        </button>
+        <button class="genre-btn" value="Fantasy">Fantasy</button>
+        <button class="genre-btn" value="Adventure">Adventure</button>
+        <button class="genre-btn" value="Horror">Horror</button>
+        <button class="genre-btn" value="Mystery">Mystery</button>
+        <button class="genre-btn" value="Dystopian">Dystopian</button>
       </div>
       <p>Sort on rating</p>
-      <div class="btn-filter">
+      <div class="btn-sort">
         <button>Descending</button>
         <button>Ascending</button>
       </div>
     </div>
-    <h2>Here are the books you selected:</h2>
-    <div class="card-grid">
-      <div class="card">
-        <div class="img-container">
-          <img src="books-images/1984.jpg" alt="book 1984" />
-        </div>
-        <h3>1984</h3>
-        <p>Author: George Orwell</p>
-        <p>Year: 1949</p>
-        <p>Genre: Science Fiction</p>
-        <p>Rating: 4.4</p>
-        <p>
-          description: A dystopian classic that explores totalitarianism and the
-          consequences of a surveillance state in a bleak future.
-        </p>
-      </div>
-      <div class="card">
-        <div class="img-container">
-          <img
-            src="./books-images/pride-and-prejudice.jpg"
-            alt="book pride and prejudice"
-          />
-        </div>
-        <h3>Pride and Prejudice</h3>
-        <p>Author: Jane Austen</p>
-        <p>Year: 1813</p>
-        <p>Genre: Fiction</p>
-        <p>Rating: 4.25</p>
-        <p>
-          description: A timeless romance novel that examines societal
-          expectations and the misunderstandings that can arise from pride and
-          prejudice.
-        </p>
-      </div>
-      <div class="card">
-        <div class="img-container">
-          <img src="books-images/1984.jpg" alt="book 1984" />
-        </div>
-        <h3>1984</h3>
-        <p>Author: George Orwell</p>
-        <p>Year: 1949</p>
-        <p>Genre: Science Fiction</p>
-        <p>Rating: 4.4</p>
-        <p>
-          description: A dystopian classic that explores totalitarianism and the
-          consequences of a surveillance state in a bleak future.
-        </p>
-      </div>
-      <div class="card">
-        <div class="img-container">
-          <img
-            src="./books-images/pride-and-prejudice.jpg"
-            alt="book pride and prejudice"
-          />
-        </div>
-        <h3>Pride and Prejudice</h3>
-        <p>Author: Jane Austen</p>
-        <p>Year: 1813</p>
-        <p>Genre: Fiction</p>
-        <p>Rating: 4.25</p>
-        <p>
-          description: A timeless romance novel that examines societal
-          expectations and the misunderstandings that can arise from pride and
-          prejudice.
-        </p>
-      </div>
-    </div>
+    <h2>Sit back, relax and enjoy reading 📖</h2>
+    <div id="card-grid" class="card-grid"></div>
     <footer>
       <p>© created by Wen & Linda</p>
     </footer>

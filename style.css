@@ -1,22 +1,106 @@
 body {
   box-sizing: border-box;
   margin: 0;
+  padding: 0;
+  font-family: "Libre Baskerville", serif;
+  font-weight: 400;
+  font-style: normal;
+  background-color: #e7e0cf;
 }
 
-.btn-filter {
+header {
+  margin: 0;
+  padding: 0;
+  background-color: #12372a;
+  height: 150px;
+  width: 100%;
+}
+
+.blockquote {
+  margin: 30px 30px;
+  padding: 25px;
+  background: #fbfada;
+  border: 2px solid #adbc9f;
+  color: #12372a;
+  border-left-width: 10px;
+}
+
+.blockquote::before {
+  content: "\201c";
+  font-size: 80px;
+  color: #436850;
+  display: block;
+  margin-bottom: -60px;
+  margin-top: -20px;
+}
+
+.blockquote-text {
+  font-family: "Gelasio", serif;
+  font-style: italic;
+  font-size: 1rem;
+  line-height: 1.5;
+  margin: 0;
+  text-align: center;
+}
+
+.blockquote-text-credit {
+  font-weight: bold;
+  font-style: normal;
+  text-align: right;
+  font-size: 0.8rem;
+  margin-top: 10px;
+}
+
+.blockquote-text-credit::before {
+  content: "\2014\0020";
+}
+
+h1 {
+  margin: 0;
+  padding: 50px 0;
+  text-align: center;
+  color: #fbfada;
+}
+
+h2 {
+  text-align: center;
+}
+
+.filter-container p {
+  margin-left: 5vw;
+}
+
+.btn-filter,
+.btn-sort {
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
+  margin-left: 4vw;
 }
 
 button {
   margin: 5px 10px;
   border-radius: 10px;
-  background-color: burlywood;
+  background-color: #fbfada;
+  border: 2px solid transparent;
+  font-family: "Libre Baskerville", serif !important;
+  padding: 8px;
 }
 
 button:hover {
-  background-color: darkolivegreen;
+  border: 2px solid #12372a;
+  cursor: pointer;
+}
+
+.btn-filter button:active,
+.btn-filter button:focus {
+  background-color: #adbc9f;
+  color: white;
+}
+
+.btn-sort button:active,
+.btn-sort button:focus {
+  background-color: #436850;
   color: white;
 }
 
@@ -45,9 +129,8 @@ button:hover {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  border: 5px solid grey;
+  border: 5px solid #436850;
   border-radius: 15px;
-  background-color: lightgray;
   width: 80%;
   padding: 10px;
 }
@@ -57,13 +140,15 @@ p {
 }
 
 .card:hover {
-  border: 10px solid darkolivegreen;
-  box-shadow: 10px 5px 5px rgb(157, 168, 41, 0.8);
+  border: 5px solid #12372a;
+  background-color: #fbfada;
+  box-shadow: 8px 5px 5px rgb(18, 55, 42, 0.8);
 }
 
 footer {
   text-align: center;
-  background-color: rgb(97, 138, 37);
+  background-color: #12372a;
+  color: #fbfada;
   height: 50px;
   margin-top: 50px;
 }
@@ -81,6 +166,16 @@ footer p {
   .card {
     width: auto;
   }
+  .blockquote::before {
+    font-size: 100px;
+    margin-bottom: -40px;
+  }
+  .blockquote-text {
+    font-size: 1.5rem;
+  }
+  .blockquote-text-credit {
+    font-size: 1.2rem;
+  }
 }
 
 @media (min-width: 1024px) {
@@ -90,9 +185,10 @@ footer p {
     margin: 0 2rem;
   }
   footer {
-    position: fixed;
     bottom: 0;
     left: 0;
     width: 100%;
+    height: 60px;
+    padding: 20px;
   }
 }
