@@ -7,7 +7,7 @@ const searchInput = document.getElementById("search-input");
 
 const recipes = [
   {
-    name: "Individual vegetarian lasagnes",
+    name: "Individual Vegetarian Lasagnes",
     cuisineType: ["italian"],
     ingredients: [
       "1.2 kg cherry tomatoes",
@@ -204,7 +204,7 @@ const recipes = [
     image: "./recipe-images/meat.jpg",
   },
   {
-    name: "Spice-Rubbed Grilled Flap Meat (Sirloin Tip) Recipe",
+    name: "Spice-Rubbed Grilled Flap Meat (Sirloin Tip)",
     cuisineType: "south-american",
     ingredients: [
       "1 tablespoon whole black peppercorns, toasted",
@@ -226,10 +226,10 @@ const recipes = [
 ];
 
 //Function to show the recipes
-const addRecipe = (recipe) => {
+const showRecipes = (recipesToShow) => {
   container.innerHTML = ""
-  
-  recipes.forEach((recipe) => {
+
+  recipesToShow.forEach((recipe) => {
     container.innerHTML +=`
     <div class="recipe-card">
       <img src="${recipe.image}" 
@@ -242,12 +242,36 @@ const addRecipe = (recipe) => {
       </div>
     </div>
     `
-  })
-  
-  
+  }) 
 };
 
-recipes.forEach((recipe) => addRecipe(recipe));
+//Initial rendering of all recipes
+showRecipes(recipes)
+
+//Function to filter on cuisineType
+const filterRecipesByCuisine = (cuisineType) => {
+  const filteredRecipes = recipes.filter((recipe) => recipe.cuisineType.includes(cuisineType))
+  //Call the addRecipes funciton with the filtered recipes
+  showRecipes(filteredRecipes)
+}
+
+//Event listeners for the filter dropdown
+filterRecipes.addEventListener("change", (event) => {
+  const selectedCuisine = event.target.value
+
+  // if selected value = all -> then show all recipes otherwise filter by cuisine type
+  if (selectedCuisine === "all") {
+    showRecipes(recipes)
+  } else {
+    filterRecipesByCuisine(selectedCuisine)
+  }
+  console.log(selectedCuisine)
+})
+
+
+
+
+//Below is our old code from 21/2
 
 // Sorting and filtering functions
 
