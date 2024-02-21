@@ -178,7 +178,19 @@ const books = [
 
 
 const container = document.getElementById("container");
+const allBooksButton = document.getElementById("all");
+const filterButton = document.getElementsByClassName("filter-btn");
+const sortButton = document.getElementsByClassName("sort-btn");
+const azButton = document.getElementById("az");
+const zaButton = document.getElementById("za");
+const yearNewButton = document.getElementById("yearnew");
+const yearOldButton = document.getElementById("yearold");
+const ratingHighButton = document.getElementById("ratinghigh");
+const ratingLowButton = document.getElementById("ratinglow");
+const searchInput = document.getElementById("search-input");
 
+
+//Boxes created to showcase all books
 let createBookBoxes = (book) => {
   return `
   <div class="boxes">
@@ -203,7 +215,70 @@ let showBooks = (booksToDisplay) => {
 }
 
 
+//Filter function added to filter via buttons
 
+for (let button of filterButton) {
+  button.addEventListener("click", (event) => {
+    let filteredBooks = books.filter((object) => object.genre === event.target.value);
+    showBooks(filteredBooks);
+  });
+}
+
+allBooksButton.addEventListener("click", () => {
+  showBooks(books);
+});
+
+
+//Sorting function added to sort via buttons
+
+azButton.addEventListener("click", (event) => {
+  const azBooks = books.sort((a, b) => (a.title > b.title ? 1 : -1));
+  showBooks(azBooks);
+});
+
+zaButton.addEventListener("click", (event) => {
+  const zaBooks = books.sort((a, b) => (a.title > b.title ? -1 : 1));
+  showBooks(zaBooks);
+});
+
+yearNewButton.addEventListener("click", (event) => {
+  const newBooks = books.sort((a, b) => b.year - a.year);
+  showBooks(newBooks);
+});
+
+yearOldButton.addEventListener("click", (event) => {
+  const oldBooks = books.sort((a, b) => a.year - b.year);
+  showBooks(oldBooks);
+});
+
+ratingHighButton.addEventListener("click", (event) => {
+  const highRating = books.sort((a, b) => b.rating - a.rating);
+  showBooks(highRating);
+});
+
+ratingLowButton.addEventListener("click", (event) => {
+  const lowRating = books.sort((a, b) => a.rating - b.rating);
+  showBooks(lowRating);
+});
+
+
+//Search function
+
+let searchResult = () => {
+const searchTerm = searchInput.value.trim().toLowerCase();
+const matchingBooks = books.filter((books) => {
+    const { title, author, genre, } = books;
+    return (
+      title.toLowerCase().includes(searchTerm) ||
+      author.toLowerCase().includes(searchTerm) ||
+      genre.toLowerCase().includes(searchTerm)
+    );
+  });
+  if (matchingBooks.length > 0) {
+    showBooks(matchingBooks);
+}
+}
+searchInput.addEventListener("input", searchResult);
 
 // First show of books
-showBooks (books)
+showBooks(books)
