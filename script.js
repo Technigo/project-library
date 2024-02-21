@@ -171,7 +171,7 @@ const books = [
     rating: 4.35,
     description:
       "A comedic science fiction series that follows the misadventures of Arthur Dent after Earth's destruction.",
-    image: './books-images/unknown.jpg'
+    image: './books-images/'
   },
   {
     title: 'The Giver',
@@ -181,7 +181,7 @@ const books = [
     rating: 4.12,
     description:
       'A dystopian novel set in a seemingly perfect society where young Jonas discovers the dark truth beneath the surface.',
-    image: './books-images/unknown.jpg'
+    image: './books-images/.jpg'
   }
 ]
 
@@ -191,17 +191,18 @@ const container = document.getElementById("container");
 
 
 //Display all the books
-let makeBoxes = (book) => {
-  return `
-  <div class = "book-boxes">
-  </div>`
-}
-
-let showBooks = (viewbooks) => {
+let displayBooks = (bookBoxes) => {
   container.innerHTML = "";
-  viewbooks.forEach((listOfBooks) => {
-    container.innerHTML += makeBoxes(listOfBooks);
-  });
-}
 
-showBooks(books)
+  bookBoxes.forEach((books) => {
+    container.innerHTML += 
+    `
+    <div class="book-boxes">
+      <img src="${books.image}">
+      <p class="book-test">${books.title}</p>
+    </div>
+    `
+  });
+};
+
+displayBooks(books);
