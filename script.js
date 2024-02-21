@@ -187,6 +187,7 @@ const books = [
 
 //global variable
 let i = ''
+let bookArry = []
 
 //DOM
 const fictionButton = document.getElementById('filterFiction')
@@ -208,9 +209,7 @@ const galleryWrapperDiv = document.createElement('div')
 
 
 
-
-// display all books on page (not done yet)
-
+// all books display
 const displayBooks = () => {
   books.forEach(book => {
     const singleCard = document.createElement('div')
@@ -226,10 +225,14 @@ const displayBooks = () => {
     document.body.appendChild(bookSection)
     bookSection.appendChild(galleryWrapperDiv)
     galleryWrapperDiv.appendChild(singleCard)
+    
+    singleCard.style.colums = '300px 4'
     console.log(singleCard)
   })
 }
 displayBooks()
+
+
 
 //genre type by filter for fiction
 const genreFiction = () => {
@@ -237,6 +240,7 @@ const genreFiction = () => {
   console.log(filteredFicion)
 }
 fictionButton.addEventListener('click',genreFiction)
+
 
 // scienceFiction 
 const genreScience = () => {
@@ -295,7 +299,10 @@ const fromNewest = () =>{
 descendingButton.addEventListener('click',fromNewest)
 
 //sort: from the highest to lowest rating and vice versa
+const bookRate = () => {
+  
 
+}
 
 
 //random book
@@ -315,7 +322,6 @@ randomBookChoice()
 randomBook()
 bookRandomButton.addEventListener('click',randomBook)
 
-// all books display
 
 
 
