@@ -49,12 +49,12 @@ const recipes = [
       "1/4 teaspoon ground white pepper",
     ],
     source: "Red Cook",
-    totalTime: null,
+    totalTime: 100,
     url: "http://redcook.net/2010/06/16/garlic-scape-an-off-menu-treat/",
     image: "./recipe-images/vegetarian-stir-fried-garlic-s.jpg",
   },
   {
-    name: "Cheat’s cheesy focaccia",
+    name: "Cheat's cheesy focaccia",
     cuisineType: ["italian"],
     ingredients: [
       "500g pack bread mix",
