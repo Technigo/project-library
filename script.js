@@ -182,11 +182,11 @@ const container = document.getElementById("container");
 let createBookBoxes = (book) => {
   return `
   <div class="boxes">
-  <h4 class="box-item" id="book-rating">⭐ ${book.rating}</h4>
-  <h2 class="box-item" id="book-title">${book.title}</h2>
-  <h3 class="box-item" id="book-author">by ${book.author}</h3>
     <img class="book-image" src="${book.image}">
     <div class="book-info">
+    <h4 class="box-item" id="book-rating">⭐ ${book.rating}</h4>
+    <h2 class="box-item" id="book-title">${book.title}</h2>
+    <h3 class="box-item" id="book-author">by ${book.author}</h3>
     <p class="box-item"><b>Genre: </b>${book.genre}</p>
     <p class="box-item"><b>Year: </b>${book.year}</p>
     <p class="box-item"><b>Description: </b>${book.description}</p>
