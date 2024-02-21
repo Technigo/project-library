@@ -269,8 +269,9 @@ ratingButton.addEventListener("click", (event) => {
 });
 
 randomButton.addEventListener("click", (event) => {
-  //Here we are creating a varible
+  //Here we are creating a varible for do random books. books.length uses all the books to work with
   const numberBook = Math.floor(Math.random() * books.length);
   booksDiv.innerHTML = "";
+  //Here we run all the books, and then chose one with [numberBook]
   booksDiv.innerHTML += renderBook(books[numberBook]);
 });
