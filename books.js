@@ -189,8 +189,15 @@ const bookCards = () => {
   books.forEach((book) => {
     bookDisplay.innerHTML += `
     <div class="book-card">
-    <img src="${book.image}" alt="${book.title}"/>
-    <h4>${book.title}</h4>
+      <img src="${book.image}" alt="${book.title}"/>
+      <div className="book-infomation">
+        <h4>${book.title}</h4>
+        <p>${book.author}</p>
+        <p>${book.year}</p>
+        <p>${book.genre}</p>
+        <p>${book.rating}</p>
+        <p>${book.description}</p>
+      </div>
     </div>
     `;
   });

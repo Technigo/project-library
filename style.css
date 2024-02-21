@@ -61,12 +61,18 @@ li#sci-fi {
   margin-top: 85px;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-auto-rows: 400px;
+  grid-row: 400px;
   gap: 2rem;
 }
 
 .book-card {
-  border: #0018a4 2px solid;
+  border: #e9e9e9 2px solid;
+  border-radius: 16px;
+  padding: 16px 16px 24px 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
 }
 
 img {
@@ -74,4 +80,30 @@ img {
   height: 268px;
   object-fit: cover;
   border-radius: 12px;
+}
+
+/* Media queries */
+@media only screen and (min-width: 1024px) and (max-width: 1440px) {
+  .book-display {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+@media only screen and (min-width: 481px) and (max-width: 1024px) {
+  .book-display {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .filter-bar {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    font-weight: 700;
+  }
+
+  nav {
+    margin-top: 16px;
+  }
 }
