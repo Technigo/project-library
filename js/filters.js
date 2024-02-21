@@ -13,6 +13,7 @@ const appendClosingButton = () => {
   });
 };
 
+// Display cuisine
 const displayCuisineCheckboxes = (recipes) => {
   const cuisineTitle = document.getElementById("cuisine");
 
@@ -54,6 +55,7 @@ const displayCuisineCheckboxes = (recipes) => {
   });
 };
 
+// Display author
 const displayAuthorCheckboxes = (recipes) => {
   const authorTitle = document.getElementById("author");
 

@@ -50,6 +50,7 @@ const recipyLoader = (recipes) => {
       <h3>${recipy.name}</h3>
         <p><span>Cuisine: ${recipy.cuisineType}</span></p>
         <p><span>Time: 1h 20min</span></p>
+        <p>${recipy.author}</p>
       <hr />
       <h3>Ingredients</h3>
       <ul>
@@ -64,50 +65,54 @@ const recipyLoader = (recipes) => {
 };
 recipyLoader(recipes);
 
+const getSelectedFilter = (filterName, selectedFilters, recipes) => {
+  const filteredRecipes = recipes.filter((recipe) => {
+    if (filterName === "cuisine") {
+      return recipe.cuisineType.some((cuisine) =>
+        selectedFilters.includes(cuisine.toLowerCase())
+      );
+    } else {
+      return selectedFilters.includes(recipe.author.toLowerCase());
+    }
+  });
+
+  recipyLoader(filteredRecipes.length ? filteredRecipes : recipes);
+};
+
 const filterLoader = () => {
+  // get all the checkboxes
   displayCuisineCheckboxes(recipes);
   displayAuthorCheckboxes(recipes);
   const filterCuisines = document.querySelectorAll(".cuisine");
   const filterAuthors = document.querySelectorAll(".author");
 
   // Funktion to filter recipes by cuisine
-  const filterRecipesByCuisine = () => {
-    const selectedCuisines = Array.from(filterCuisines)
-      .filter((cuisine) => cuisine.checked)
-      .map((cuisine) => cuisine.value);
+  const filterRecipesByCuisine = (filterName) => {
+    console.log(filterName);
+    const selectedFilters = Array.from(
+      filterName === "cuisine" ? filterCuisines : filterAuthors
+    )
+      .filter((filter) => filter.checked)
+      .map((filter) => filter.value);
 
-    // Filter recipes based on selected cuisines
-    const filteredRecipes = recipes.filter((recipy) =>
-      recipy.cuisineType.some((cuisine) =>
-        selectedCuisines.includes(cuisine.toLowerCase())
-      )
-    );
-
-    recipyLoader(filteredRecipes.length ? filteredRecipes : recipes);
+    getSelectedFilter(filterName, selectedFilters, recipes);
   };
 
-  const filterRecipesByAuthor = () => {
-    const selectedAuthors = Array.from(filterAuthors)
-      .filter((author) => author.checked)
-      .map((author) => author.value);
-
-    console.log(selectedAuthors);
-
-    // Filter recipes based on selected cuisines
-    const filteredRecipes2 = recipes.filter((recipy) =>
-      selectedAuthors.includes(recipy.author.toLowerCase())
-    );
-
-    recipyLoader(filteredRecipes2.length ? filteredRecipes2 : recipes);
-  };
+  let filterName = "";
 
   // Add eventlistners
   filterCuisines.forEach((cuisine) => {
-    cuisine.addEventListener("change", filterRecipesByCuisine);
+    cuisine.addEventListener("click", (e) => {
+      filterName = e.target.name;
+      filterRecipesByCuisine(filterName);
+    });
   });
 
   filterAuthors.forEach((author) => {
-    author.addEventListener("change", filterRecipesByAuthor);
+    author.addEventListener("click", (e) => {
+      filterName = e.target.name;
+      filterRecipesByCuisine(filterName);
+    });
   });
 };
 
