@@ -1,8 +1,9 @@
-/*Here we have created two different arrays that you can work with if you want.
-If you choose to create your own arrays with elements, just make sure that some
-of the properties make sense to filter on, and some to sort on.*/
-
+// Get references to HTML elements using their IDs.
 const container = document.getElementById("recipes-container");
+const filterRecipes = document.getElementById("filter-recipes");
+const sortingForm = document.getElementById("sorting-form");
+const searchForm = document.getElementById("search-form");
+const searchInput = document.getElementById("search-input");
 
 const recipes = [
   {
@@ -31,7 +32,7 @@ const recipes = [
   },
   {
     name: "Vegetarian Stir-Fried Garlic Scape",
-    cuisineType: ["Balanced"],
+    cuisineType: ["balanced"],
     ingredients: [
       "8 oz. garlic scapes",
       "3 oz. baby corn",
@@ -54,7 +55,7 @@ const recipes = [
   },
   {
     name: "Cheat’s cheesy focaccia",
-    cuisineType: ["Italian"],
+    cuisineType: ["italian"],
     ingredients: [
       "500g pack bread mix",
       "2 tbsp olive oil , plus a little extra for drizzling",
@@ -68,7 +69,7 @@ const recipes = [
   },
   {
     name: "Vegetarian Shepherd's Pie",
-    cuisineType: ["Balanced", "High-Fiber"],
+    cuisineType: ["balanced", "high-fiber"],
     ingredients: [
       "2 tablespoons extra-virgin olive oil",
       "1 large onion, finely diced",
@@ -93,7 +94,7 @@ const recipes = [
   },
   {
     name: "Chicken Paprikash",
-    cuisineType: ["Low-Carb"],
+    cuisineType: ["low-carb"],
     ingredients: [
       "640 grams chicken - drumsticks and thighs ( 3 whole chicken legs cut apart)",
       "1/2 teaspoon salt",
@@ -128,7 +129,7 @@ const recipes = [
   },
   {
     name: "Deep Fried Fish Bones",
-    cuisineType: ["south east asian"],
+    cuisineType: ["asian"],
     ingredients: ["8 small whiting fish or smelt", "4 cups vegetable oil"],
     source: "Serious Eats",
     totalTime: 31,
@@ -137,7 +138,7 @@ const recipes = [
   },
   {
     name: "Burnt-Scallion Fish",
-    cuisineType: ["chinese"],
+    cuisineType: ["asian"],
     ingredients: [
       "2 bunches scallions",
       "8 tbsp. butter",
@@ -150,7 +151,7 @@ const recipes = [
   },
   {
     name: "Curry-Crusted Fish",
-    cuisineType: ["south east asian"],
+    cuisineType: ["asian"],
     ingredients: [
       "3 slices bread , about 85g/3oz in total",
       "1 lime",
@@ -224,19 +225,38 @@ const recipes = [
   },
 ];
 
+//Function to show the recipes
 const addRecipe = (recipe) => {
   container.innerHTML += `
     <div class="recipe-container">
       <img src="${recipe.image}" />
-      <p>${recipe.name}</p>
+      <h3>${recipe.name}</h3>
+      <p><b>Cuisine</b>: ${recipe.cuisineType}</p>
+      <p><b>Time</b>: ${recipe.totalTime} minutes</p>
+
     </div>
   `;
 };
 
+addRecipe(recipes);
 recipes.forEach((recipe) => addRecipe(recipe));
 
-// Function that convers minutes to hours and minutes
-
 // Sorting and filtering functions
+const sortRecipes = () => {
+  const value = filterRecipes.value;
+  let selectedRecipes = recipes.map((recipe) => recipe);
 
-// On submit listeners
+  if (value === "all") {
+    addRecipe(recipes);
+  } else if (value === "italian") {
+    selectedRecipes = recipes.filter(
+      (recipe = recipe.cuisineType === "italian")
+    );
+    addRecipe(selectedRecipes);
+  }
+};
+
+sortRecipes();
+
+// Listeners
+filterRecipes.addEventListener("change", filterRecipes);
