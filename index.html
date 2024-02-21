@@ -4,11 +4,42 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
   <title>Project Library</title>
 </head>
 <body>
-  <h1>Project Library</h1>
-  <div id="wrapper">
+  <div class="header">
+    <h1>Project Library</h1>
+    <div class="searchbox">
+      <input
+        type="text"
+        class="search-input"
+        placeholder="Search... 🔍"
+      />
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="filter">
+      <h4>Filter by genre:</h4>
+	    <button id="all" type="button" class="filter-btn">All books</button>
+	    <button id="adventure" type="button" class="filter-btn">Adventure</button>
+	    <button id="dystopian" type="button" class="filter-btn">Dystopian</button>
+	    <button id="fantasy" type="button" class="filter-btn">Fantasy</button>	
+	    <button id="fiction" type="button" class="filter-btn">Fiction</button>
+	    <button id="scifi" type="button" class="filter-btn">Science fiction</button>
+    </div>
+    <div id="sorting">
+      <h4>Sort by:</h4>
+	    <button id="az" type="button" class="sort-btn">Title A-Z</button>
+	    <button id="za" type="button" class="sort-btn">Title Z-A</button>
+	    <button id="yearnew" type="button" class="sort-btn">Oldest-newest</button>
+	    <button id="yearold" type="button" class="sort-btn">Newest-Oldest</button>
+      <button id="ratinghigh" type="button" class="sort-btn">Rating high-low</button>
+	    <button id="ratinglow" type="button" class="sort-btn">Rating low-high</button>		
+    </div>
+  
   </div>
   <div id="container">
   </div>
