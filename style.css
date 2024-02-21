@@ -1,0 +1,77 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  margin: 64px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 900;
+}
+
+.shop-title {
+  color: #0018a4;
+}
+
+.filter-bar {
+  max-width: 1300px;
+  margin-top: 5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 700;
+}
+
+ul {
+  font-weight: 500;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  list-style-type: none;
+  margin-top: 1rem;
+  gap: 1rem;
+  font-size: 1rem;
+}
+
+li {
+  color: black;
+  height: 40px;
+  background-color: #ccffe2;
+  border-radius: 50px;
+  padding: 8px 16px;
+  text-align: center;
+  margin: auto;
+  line-height: 23px;
+}
+
+li#sci-fi {
+  text-wrap: nowrap;
+}
+
+.hover {
+  background-color: #0018a4;
+  color: white;
+}
+
+.book-display {
+  margin-top: 85px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 400px;
+  gap: 2rem;
+}
+
+.book-card {
+  border: #0018a4 2px solid;
+}
+
+img {
+  width: 250px;
+  height: 268px;
+  object-fit: cover;
+  border-radius: 12px;
+}
