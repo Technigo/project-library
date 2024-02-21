@@ -17,7 +17,7 @@ const books = [
     title: "To Kill a Mockingbird",
     author: "Harper Lee",
     year: 1960,
-    genre: "Fiction",
+    genre: "Fiction", 
     rating: 4.5,
     description:
       "Set in the American South, this novel tackles issues of racism and injustice through the eyes of young Scout Finch.",
@@ -185,6 +185,7 @@ const books = [
   },
 ];
 
+//Here we sort out the content of all books
 function renderBook(book) {
   return `<div class="book">
   <img src="${book.image}" class="book-image" />
@@ -204,7 +205,7 @@ const booksDiv = document.querySelector("#books");
 for (const book of books) {
   booksDiv.innerHTML += renderBook(book);
 
-  // The renderbook deletes all the code below comment out, not to repeat previous typing. 
+  // The renderbook deletes all the code below comment out, not to repeat previous typing.
   // <img src="${book.image}" class="book-image" />
   //   <span class="book-title">${book.title}</span>
   //   <span class="book-author">${book.author}</span>
@@ -226,14 +227,23 @@ genreDropDown.addEventListener("change", () => {
   for (const book of books) {
     //this is where to filter out the genres.
     //pipe symbol option 7. || means OR.
-    //Here we are filtering out all, we render all the book, if user choose horror or other genre we filter that. 
+    //Here we are filtering out all, we render all the book, if user choose horror or other genre we filter that.
     if (genreDropDown.value == "All" || book.genre == genreDropDown.value) {
       booksDiv.innerHTML += renderBook(book);
-      
-     
     }
   }
 });
+
+
+
+
+
+
+
+
+
+
+
 
 /*
 
