@@ -8,6 +8,10 @@ const genre = document.getElementById("genre")
 const sort = document.getElementById("sort")
 const library = document.getElementById("library")
 const bookItem = document.getElementById("bookItem")
+/* const bookImage = document.getElementById("bookImage")
+const bookTitle = document.getElementById("bookTitle")
+const bookType = document.getElementById("bookType")
+const bookDetails = document.getElementById("bookDetails") */
 
 genre.innerHTML = "Filter on genre";
 sort.innerHTML = "Sort";
@@ -195,10 +199,78 @@ const books = [
   }
 ]
 
-bookItem0.innerHTML = JSON.stringify(books[0]);
+
+
+bookItem.innerHTML +=`
+    <img src="./books-images/the-great-gatsby.jpg" class="bookImage" alt="gatsby" />
+    
+    <div class="bookChild">
+      <p id="bookTitle"></p>
+    </div>
+
+    <div class="bookChild">
+      <p id="bookGenre"></p>
+      <p id="bookRating"></p>
+    </div>
+
+    <div class="bookChild">
+      <p id="bookAuthor"></p>
+      <p id="bookYear"></p>
+      <p id="bookDescription"></p>
+    </div>
+`
+bookTitle.innerHTML = "Title: " +JSON.stringify(books[0].title)
+bookGenre.innerHTML = "Genre: " +JSON.stringify(books[0].genre)
+bookRating.innerHTML = "Rating: " +JSON.stringify(books[0].rating)
+bookAuthor.innerHTML = "Author: " +JSON.stringify(books[0].author)
+bookYear.innerHTML = "Year: " +JSON.stringify(books[0].year)
+bookDescription.innerHTML = "Description:<br />" + JSON.stringify(books[0].description)
+
+
+const printBooks=()=>{
+  for(let i=0;i<4;i++){
+    bookItem.innerHTML +=`
+      <div class="bookChild">
+        <p id="bookTitle"></p>
+      </div>
+
+      <div class="bookChild">
+        <p id="bookGenre"></p>
+        <p id="bookRating"></p>
+      </div>
+
+      <div class="bookChild">
+        <p id="bookAuthor"></p>
+        <p id="bookYear"></p>
+        <p id="bookDescription"></p>
+      </div>
+    `
+    bookTitle.innerHTML = JSON.stringify(books[0].title)
+    bookGenre.innerHTML = JSON.stringify(books[0].genre)
+    bookRating.innerHTML = JSON.stringify(books[0].rating)
+    bookAuthor.innerHTML = JSON.stringify(books[0].author)
+    bookYear.innerHTML = JSON.stringify(books[0].year)
+    bookDescription.innerHTML = JSON.stringify(books[0].description)
+      
+  };
+
+}
+
+
+
+ 
+
+
+
+
 bookItem1.innerHTML = JSON.stringify(books[1]);
 bookItem2.innerHTML = JSON.stringify(books[2]);
 bookItem3.innerHTML = JSON.stringify(books[3]);
+
+bookImage.innerHTML= JSON.stringify(books[0].image);
+bookTitle.innerHTML = JSON.stringify(books[0].title);
+  
+ 
 
 
  
