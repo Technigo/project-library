@@ -230,13 +230,14 @@ const books = [
 printBooks() */
 
 
-const printBooks = () => {
-  books.forEach(book => {
+const printBooks = (booksArray) => {
+  library.innerHTML = '';
+  booksArray.forEach(book => {
     library.innerHTML  += `
       <div class="bookItem">
         <div class="bookChild">
         <img src="${book.image}" class="bookImage" alt="${book.title}" />
-          <h2 class="bookTitle">${book.title}</h2>
+          <h3 class="bookTitle">${book.title}</h3>
         </div>
         <div class="bookChild">
           <p class="bookGenre">Genre: ${book.genre}</p>
@@ -251,19 +252,7 @@ const printBooks = () => {
     `;
   });
 };
-printBooks();
-
-
- 
-/*   const sortBooks1 = () =>{
-    const ratingBooks = books.sort((a,b)=>(a.rating-b.rating))
-    console.log(ratingBooks)
-    printBooks(ratingBooks)
-  }
-  sortBooks1();
-}
- */
-
+printBooks(books);
 
 
 sort.innerHTML +=`
@@ -274,6 +263,18 @@ sort.innerHTML +=`
     <button id="name" >name</button>
   </div>
 `
+document.getElementById("rating").addEventListener("click",()=>{
+  const ratingBooks = books.sort((a,b)=>(a.rating-b.rating))
+  printBooks(ratingBooks)  
+})
+
+document.getElementById("year").addEventListener("click",()=>{
+  const yearBooks = books.sort((a,b)=>(a.year-b.year))
+  printBooks(yearBooks)  
+})
+
+
+
 genre.innerHTML +=`
   <div class="sortTitle" id="sortTitle" >Filter on genre</div>
   <div class="genreButton" id="genreButton">
@@ -284,7 +285,15 @@ genre.innerHTML +=`
     <button id="more" >More ></button>
   </div>
 `
+document.getElementById("fiction").addEventListener("click",()=>{
+  const fictionBooks = books.filter((book)=>book.genre==="Fiction")
+  printBooks(fictionBooks)  
+})
 
+document.getElementById("fantasy").addEventListener("click",()=>{
+  const fantasyBooks = books.filter((book)=>book.genre==="Fantasy")
+  printBooks(fantasyBooks)  
+})
 
 
 
