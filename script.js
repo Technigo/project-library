@@ -224,7 +224,7 @@ const recipes = [
 
 // Function to render recipes
 const renderRecipes = () => {
-  const container = document.getElementById("recipe-section");
+  const recipeSection = document.getElementById("recipe-section");
 
   // Loop through each recipe in the recipes array
   recipes.forEach((recipe) => {
@@ -235,24 +235,38 @@ const renderRecipes = () => {
     const recipeImage = document.createElement("img");
     recipeImage.src = recipe.image;
 
-//     recipeImage.src = "path/to/image.jpg";
-// recipeImage.alt = "Recipe Image";
-// recipeImage.width = 200;
-// recipeImage.height = 150;
-
     const recipeHeading = document.createElement("h2");
     recipeHeading.textContent = recipe.name;
 
-    const recipeSource = document.createElement("p");
-    recipeSource.textContent = `Source: ${recipe.source}`;
+    const recipeCuisineType = document.createElement("p");
+    recipeCuisineType.textContent = `Cuisine: ${recipe.cuisineType}`;
+
+    const recipeTotalTime = document.createElement("p");
+    recipeTotalTime.textContent = `Time: ${recipe.totalTime}`;
+
+    const recipeIngredientsHeading = document.createElement("h3");
+    recipeIngredientsHeading.textContent = "Ingredients";
+
+    // Create an unordered list for ingredients
+    const recipeIngredientsList = document.createElement("ul");
+
+    // Loop through each ingredient and create list items
+    recipe.ingredients.forEach((ingredient) => {
+      const ingredientItem = document.createElement("li");
+      ingredientItem.textContent = ingredient;
+      recipeIngredientsList.appendChild(ingredientItem);
+    });
 
     // Append elements to recipeDiv
     recipeDiv.appendChild(recipeImage);
     recipeDiv.appendChild(recipeHeading);
-    recipeDiv.appendChild(recipeSource);
+    recipeDiv.appendChild(recipeCuisineType);
+    recipeDiv.appendChild(recipeTotalTime);
+    recipeDiv.appendChild(recipeIngredientsHeading);
+    recipeDiv.appendChild(recipeIngredientsList);
 
     // Append recipeDiv to container
-    container.appendChild(recipeDiv);
+    recipeSection.appendChild(recipeDiv);
   });
 };
 

@@ -48,12 +48,12 @@ button {
   border: 1px black solid;
   background-color: grey;
   /* width: 200px; */
-  width: 100%;
+  width: 268px;
 }
 
 img {
-  width: 100%;
-
+  width: 268px;
+  height: 200px; /* Set a fixed height for consistent size */
   object-fit: cover;
-  object-position: 50% 50%;
+  /* object-position: 50% 50%; */
 }
