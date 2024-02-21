@@ -1,9 +1,113 @@
 html {
     background-color: lavenderblush;
+    font-family: lato;
 }
 
-#wrapper {
-    
+.header {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/*Media query for very big screens to make sure the title and search box works well together*/
+@media (min-width: 601px){
+    .header {
+        justify-content: space-between;
+    }
+
+    h1 {
+        padding-left: 30px;
+        padding-top: 30px;
+        
+    }
+
+    .searchbox {
+        float: right;
+        margin-top: 20px;
+        padding-right: 90px;
+    }
+}
+
+
+/*Media query for big screens to make sure the title and search box works well together*/
+@media (min-width: 521px) AND (max-width: 600px){
+    .header {
+        justify-content: space-between;
+    }
+
+    h1 {
+        padding-left: 30px;
+        padding-top: 30px;
+        
+    }
+
+    .searchbox {
+        float: right;
+        margin-top: 20px;
+        padding-right: 30px;
+    }
+}
+
+/*Media query for medium screens to make sure the title and search box works well together*/
+@media (min-width: 450px) AND (max-width: 520px){
+    .header {
+        padding-left: 40px;
+        padding-right: 40px;
+        
+    }
+}
+
+
+h1 {
+    padding-right:auto;
+    padding-left: auto;
+    text-align:center;
+    font-size: 40px;
+    font-family: Lato;
+    color:rgb(101, 72, 72);
+}
+
+.search-input {
+    border-radius: 30px;
+    border: none;
+    padding: 8px;
+}
+
+
+
+.wrapper {
+    display: flex;
+}
+.filter {
+    padding-right: 40px;
+    padding-left: 30px;
+}
+button {
+    border-radius: 30px;
+    background-color:bisque;
+    color: darkmagenta;
+    padding: 10px;
+    margin: 3px;
+    border: none;
+    margin-top: -40px;
+    font-family: 'Lato';
+    font-weight: bold;
+    font-size: 11px;
+    margin-bottom: 13px;
+}
+
+button:hover{
+    border-radius: 30px;
+    border: solid;
+    border-color:darkmagenta;
+    padding: 7px;
+}
+
+button:focus {
+     background-color:darkmagenta;
+     color:bisque;
 }
 
 #container {
@@ -16,24 +120,38 @@ html {
 
 
 .boxes {
-    background-color: rosybrown;
-    width: 350px;
+    background-color: rgb(228, 183, 173);
+    width: 250px;
     height: auto;
     padding: 20px;
+    margin: 20px;
+    border-radius: 20px;
+    box-shadow: 7px 7px 7px rgba(38, 36, 36, 0.3);
+}
+
+h2 {
+    font-size: 21px;
+}
+
+h3 {
+    font-size: 14px;
+    margin-top: -15px;
+    color: rgb(164, 115, 89);
 }
 
 #book-rating {
     font-size: 20px;
     float: right;
-    padding-right: 25px;
-    margin-top: 20px;
+    padding-right: 5px;
+    margin-top: 3px;
 }
 
 .book-image {
-    width: 350px;
+    width: 250px;
     height: auto;
+    border-radius: 20px;
 }
 
 p {
-    font-size: 14px;
+    font-size: 12px;
 }
