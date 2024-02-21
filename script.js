@@ -43,15 +43,15 @@ const books = [
       'A timeless romance novel that examines societal expectations and the misunderstandings that can arise from pride and prejudice.',
     image: './books-images/pride-and-prejudice.jpg'
   },
-  {
-    title: 'The Catcher in the Rye',
-    author: 'J.D. Salinger',
-    year: 1951,
+   {
+    title: "Looking for Alaska",
+    author: 'John Green',
+    year: 2005,
     genre: 'Fiction',
-    rating: 4,
+    rating: 4.35,
     description:
-      'Narrated by the teenage Holden Caulfield, the novel explores themes of alienation and the search for authenticity.',
-    image: './books-images/unknown.jpg'
+      "The story follows Miles Halter's journey as he navigates the complexities of teenage life, friendship, love, and loss at a boarding school in Alabama, particularly his obsession with the enigmatic Alaska Young.",
+    image: './books-images/lookingforalaska.jpg'
   },
   {
     title: 'The Hobbit',
@@ -64,14 +64,14 @@ const books = [
     image: './books-images/the-hobbit.jpg'
   },
   {
-    title: "Harry Potter and the Sorcerer's Stone",
+    title: 'Harry Potter',
     author: 'J.K. Rowling',
     year: 1997,
     genre: 'Fantasy',
     rating: 4.7,
     description:
       'The first book in the beloved Harry Potter series, it introduces readers to the magical world of Hogwarts and the young wizard Harry Potter.',
-    image: "./books-images/harry-potter-and-the-sorcerer.jpg"
+    image: './books-images/harry-potter-and-the-sorcerer.jpg'
   },
   {
     title: 'Moby-Dick',
@@ -84,7 +84,7 @@ const books = [
     image: './books-images/moby-dick.jpg'
   },
   {
-    title: 'The Lord of the Rings: The Fellowship of the Ring',
+    title: 'The Lord of the Rings',
     author: 'J.R.R. Tolkien',
     year: 1954,
     genre: 'Fantasy',
@@ -94,17 +94,78 @@ const books = [
     image: './books-images/the-lord-of-the-rings.jpg'
   },
   {
-    title: 'The Shining',
-    author: 'Stephen King',
-    year: 1977,
-    genre: 'Horror',
+    title: 'Dracula',
+    author: 'Bram Stoker',
+    year: 1897,
+    genre: 'Fantasy',
     rating: 4.3,
     description:
-      "A psychological horror novel that tells the story of the Torrance family's terrifying experiences at the haunted Overlook Hotel.",
-    image: './books-images/unknown.jpg'
+      "A story following Professor Van Helsing as he tries to stop the centuries-old vampire Count Dracula, as he seeks to spread his undead curse across Victorian England.",
+    image: './books-images/dracula.jpg'
   },
   {
-    title: 'The Chronicles of Narnia: The Lion, the Witch and the Wardrobe',
+    title: 'King of Scars',
+    author: 'Leigh Bardugo',
+    year: 2019,
+    genre: 'Fantasy',
+    rating: 3.8,
+    description:
+      'Tells the tale of Nikolai Lantsov as he grapples with newfound powers and political intrigue in a kingdom plagued by dark magic.',
+    image: './books-images/kingofscars.jpg'
+  },
+  {
+    title: 'Never Let Me Go',
+    author: 'Kazuo Ishiguro',
+    year: 2005,
+    genre: 'Science Fiction',
+    rating: 4.25,
+    description:
+      'Follows the poignant lives of clones raised for organ donation as they navigate love, friendship, and the meaning of their existence.',
+    image: './books-images/neverletmego.jpg'
+  },
+  {
+    title: 'Frankenstein',
+    author: 'Mary Shelley',
+    year: 1818,
+    genre: 'Fantasy',
+    rating: 4.3,
+    description:
+      "Delves into themes of creation, ambition, and the consequences of playing god through the story of Victor Frankenstein and his monstrous creation.",
+    image: './books-images/frankenstein.jpg'
+  },
+  {
+    title: 'A Little Princess',
+    author: 'Frances Hodgson Burnett',
+    year: 1905,
+    genre: 'Fiction',
+    rating: 4.1,
+    description:
+      'A gripping story following Sara Crewe, a young girl who maintains her dignity and kindness despite facing adversity and hardship after her father´s fortune is lost.',
+    image: './books-images/alittleprincess.jpg'
+  },
+  {
+    title: 'Winnie the Pooh',
+    author: 'A. A. Milne',
+    year: 1926,
+    genre: 'Adventure',
+    rating: 4,
+    description:
+      "In the Hundred Acre Wood, Winnie the Pooh and his friends embark on whimsical adventures filled with friendship, discovery, and a touch of silliness.",
+    image: './books-images/winniethepooh.jpg'
+  },
+
+  {
+    title: 'The Picture of Dorian Gray',
+    author: 'Oscar Wilde',
+    year: 1890,
+    genre: 'Fiction',
+    rating: 4.12,
+    description:
+      'Examines the corrupting influence of vanity and hedonism as a portrait ages while its subject remains youthful.',
+    image: './books-images/doriangray.jpg'
+  },
+  {
+    title: 'The Chronicles of Narnia',
     author: 'C.S. Lewis',
     year: 1950,
     genre: 'Fantasy',
@@ -112,76 +173,6 @@ const books = [
     description:
       'The first book in the Chronicles of Narnia series, it follows the adventures of children who discover the magical land of Narnia.',
     image: './books-images/the-chronicles-of-narnia.jpg'
-  },
-  {
-    title: 'The Da Vinci Code',
-    author: 'Dan Brown',
-    year: 2003,
-    genre: 'Mystery',
-    rating: 3.8,
-    description:
-      'A gripping mystery thriller that follows Harvard symbologist Robert Langdon as he unravels the secrets of the Da Vinci Code.',
-    image: './books-images/unknown.jpg'
-  },
-  {
-    title: 'The Alchemist',
-    author: 'Paulo Coelho',
-    year: 1988,
-    genre: 'Fiction',
-    rating: 4.25,
-    description:
-      'A philosophical novel that tells the story of Santiago, a shepherd boy, on his quest to discover his personal legend.',
-    image: './books-images/unknown.jpg'
-  },
-  {
-    title: 'The Hunger Games',
-    author: 'Suzanne Collins',
-    year: 2008,
-    genre: 'Science Fiction',
-    rating: 4.3,
-    description:
-      "In a dystopian future, Katniss Everdeen becomes a symbol of rebellion when she volunteers to take her sister's place in the brutal Hunger Games.",
-    image: './books-images/unknown.jpg'
-  },
-  {
-    title: 'The Girl with the Dragon Tattoo',
-    author: 'Stieg Larsson',
-    year: 2005,
-    genre: 'Mystery',
-    rating: 4.1,
-    description:
-      'A gripping mystery novel featuring investigative journalist Mikael Blomkvist and the enigmatic hacker Lisbeth Salander.',
-    image: './books-images/unknown.jpg'
-  },
-  {
-    title: 'The Road',
-    author: 'Cormac McCarthy',
-    year: 2006,
-    genre: 'Dystopian',
-    rating: 4,
-    description:
-      "Set in a post-apocalyptic world, it follows a father and son's harrowing journey to survive and find safety.",
-    image: './books-images/unknown.jpg'
-  },
-  {
-    title: "The Hitchhiker's Guide to the Galaxy",
-    author: 'Douglas Adams',
-    year: 1979,
-    genre: 'Science Fiction',
-    rating: 4.35,
-    description:
-      "A comedic science fiction series that follows the misadventures of Arthur Dent after Earth's destruction.",
-    image: './books-images/unknown.jpg'
-  },
-  {
-    title: 'The Giver',
-    author: 'Lois Lowry',
-    year: 1993,
-    genre: 'Dystopian',
-    rating: 4.12,
-    description:
-      'A dystopian novel set in a seemingly perfect society where young Jonas discovers the dark truth beneath the surface.',
-    image: './books-images/unknown.jpg'
   }
 ]
 
