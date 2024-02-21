@@ -1,0 +1,10 @@
+body {
+background-color: bisque;    
+font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+h1{
+    display: flex;
+    padding: 10px;
+
+}

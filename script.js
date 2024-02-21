@@ -200,12 +200,12 @@ document.addEventListener("DOMContentLoaded", function () {
       const bookElement = document.createElement("div");
       bookElement.innerHTML = `
     <img src="${book.image}" alt="${book.title}">
-    <h3 class="book-titel">${book.title}</h3>
-    <h3 class="author">${book.author}</h3>
-    <h3 class="year">${book.year}</h3>
-    <h3 class="genre">${book.genre}</h3>
-    <h3 class="rating">${book.rating}</h3>
-    <h3 class="description">${book.description}</h3>
+    <h2 class="book-titel">${book.title}</h2>
+    <p class="author">${book.author}</p>
+    <p class="year">${book.year}</p>
+    <p class="genre">${book.genre}</p>
+    <p class="rating">${book.rating}</p>
+    <p class="description">${book.description}</p>
     `;
 
       booksContainer.appendChild(bookElement);
