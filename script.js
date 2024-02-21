@@ -247,6 +247,7 @@ oldestButton.addEventListener("click", (event) => {
   books.sort(function (a, b) {
     return a.year - b.year;
   });
+  //The innerHTML empty the div, so we can put them back in the right order 
   booksDiv.innerHTML = "";
   for (const book of books) {
     booksDiv.innerHTML += renderBook(book);
