@@ -8,27 +8,64 @@
     <title>Martin and Mai's Recipe book</title>
   </head>
   <body>
+    <img href="assets/marcin-galusz-Xq0lte4P7rQ-unsplash.jpg">
     <h1>Martin and Mai's Recipe book</h1>
     <div class="controlRow">
       <div class="filterDiv">
         <h2>Filter recipes</h2>
         <div id="filterButtonDiv">
-          <button class="button active" id="all" onclick="filterSelection('all')">All</button>
-          <button class="button" id="american" onclick="filterSelection('american')">American</button>
-          <button class="button" id="asian" onclick="filterSelection('south east asian')">Asian</button>
-          <button class="button" id="italian" onclick="filterSelection('Italian')">italian</button>
+          <button
+            class="button active"
+            id="all"
+            onclick="filterSelection('all')"
+          >
+            All
+          </button>
+          <button
+            class="button"
+            id="american"
+            onclick="filterSelection('american')"
+          >
+            American
+          </button>
+          <button
+            class="button"
+            id="asian"
+            onclick="filterSelection('south east asian')"
+          >
+            Asian
+          </button>
+          <button
+            class="button"
+            id="italian"
+            onclick="filterSelection('Italian')"
+          >
+            italian
+          </button>
         </div>
       </div>
       <div class="sortDiv">
         <h2>Sort recipes</h2>
         <div id="sortButtonDiv">
-          <button class="button" id="alphabetical" onclick="sortListName()">Alphabetical</button>
-          <button class="button" id="cooking-time" onclick="sortListTime()">Cooking Time</button>
+          <button class="button" id="alphabetical" onclick="sortListName()">
+            Alphabetical
+          </button>
+          <button class="button" id="cooking-time" onclick="sortListTime()">
+            Cooking Time
+          </button>
         </div>
       </div>
     </div>
-    <input type="text" id="search-input" placeholder="Search a recipe">
-    <button id="search-button">Search</button>
+    <div class="searchDiv">
+        <input
+          type="text"
+          class="search"
+          id="search-input"
+          placeholder="Search a recipe"
+        />
+        <button class="search button" id="search-button">Search</button>
+      </div>
+
     <div id="container"></div>
     <script src="script.js"></script>
   </body>

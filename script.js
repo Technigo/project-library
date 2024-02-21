@@ -218,17 +218,18 @@ const recipes = [
   },
 ];
 
-/*
 // Function to capitilize the first letter of Cuisine type.
-
+/*
 function capitalizeFirstLetter(recipes) {
-  for (let cuisineType of recipes) {
-    cuisineType = cuisineType.charAt(0).toUpperCase() + cuisineType.substr(1);
+  console.log(recipes)
+
+  for (let i = 0; i < recipes.length; i++) {
+    recipes.cuisineType = recipes.cuisineType.charAt(0).toUpperCase() + recipes.cuisine.substr(1);
     console.log(cuisineType);
 }
   //string.charAt(0).toUpperCase() + string.slice(1);
 }
-capitalizeFirstLetter(recipes)
+capitalizeFirstLetter(recipes);
 */
 
 // Display the cards
@@ -395,14 +396,16 @@ searchButton.addEventListener("click", function () {
 
   if (matchedRecipes.length > 0) {
     matchedRecipes.forEach(addRecipeInformation);
+    // Checking for card-divs
     const y = document.getElementsByClassName("card");
-    console.log(y[1]);
+    // For each card-div add the show class.
     for (i = 0; i < y.length; i++) {
       y[i].classList.add("show");
     }
   } else {
     container.innerHTML = `<p>There is no recipe with "${searchInput.value}".</p>`;
   }
-
-
 });
+
+//1. instead of button, change it to form
+//2. show all recipes  back when the search input is cleared 
