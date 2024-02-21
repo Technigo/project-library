@@ -201,7 +201,7 @@ const descendingButton = document.getElementById('descending')
 const filterBar = document.getElementById('filterBar')
 
 //creat element
-const bookSection = document.createElement('bookGallery')
+const bookSection = document.createElement('div')
 const randomDiv = document.createElement('div')
 const bookRandomButton = document.createElement('button')
 const galleryWrapperDiv = document.createElement('div')
@@ -212,7 +212,6 @@ const galleryWrapperDiv = document.createElement('div')
 // display all books on page (not done yet)
 
 const displayBooks = () => {
-  
   books.forEach(book => {
     const singleCard = document.createElement('div')
     singleCard.classList.add('card-wrapper')
@@ -224,6 +223,8 @@ const displayBooks = () => {
         <p>Genre: ${book.genre}</p>
         <p>${book.description}</p>
     `
+    document.body.appendChild(bookSection)
+    bookSection.appendChild(galleryWrapperDiv)
     galleryWrapperDiv.appendChild(singleCard)
     console.log(singleCard)
   })
