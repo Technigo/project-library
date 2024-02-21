@@ -200,37 +200,6 @@ const books = [
 ]
 
 
-
-/* bookItem.innerHTML +=`
-    <img src="./books-images/the-great-gatsby.jpg" class="bookImage" alt="gatsby" />
-    
-    <div class="bookChild">
-      <p id="bookTitle"></p>
-    </div>
-
-    <div class="bookChild">
-      <p id="bookGenre"></p>
-      <p id="bookRating"></p>
-    </div>
-
-    <div class="bookChild">
-      <p id="bookAuthor"></p>
-      <p id="bookYear"></p>
-      <p id="bookDescription"></p>
-    </div>
-`
-
-bookTitle.innerHTML = "Title: " + books[0].title
-bookGenre.innerHTML = "Genre: " + books[0].genre
-bookRating.innerHTML = "Rating: " +books[0].rating
-bookAuthor.innerHTML = "Author: " + books[0].author
-bookYear.innerHTML = "Year: " +books[0].year
-bookDescription.innerHTML = "Description:<br />" + books[0].description */
-
-
-
-
-
 /* const printBooks=()=>{
   books.forEach(book=>{
     library.innerHTML +=`
@@ -269,13 +238,11 @@ printBooks() */
 
 
 const printBooks = () => {
-  let booksHTML = '';
-
   books.forEach(book => {
-    booksHTML += `
+    library.innerHTML  += `
       <div class="bookItem">
         <div class="bookChild">
-          <img src="${book.image}" class="bookImage" alt="${book.title}" />
+        <img src="${book.image}" class="bookImage" alt="${book.title}" />
           <h3 class="bookTitle">${book.title}</h3>
         </div>
         <div class="bookChild">
@@ -290,12 +257,9 @@ const printBooks = () => {
       </div>
     `;
   });
-
-  // Set the innerHTML of the library element to the generated HTML for all books
-  library.innerHTML = booksHTML;
 };
-
 printBooks();
+
 
 
 
