@@ -22,10 +22,7 @@ In order to simplify the execution of this project, we have provided you with tw
   - *for books*:
     - from newest to oldest and vice versa
     - from the highest to lowest rating and vice versa
-  - *for recipes*:
-    - from most to least ingredients and vice versa
-    - from longest to shortest cooking time and vice versa
-- Your page should feature a button that selects a random book/recipe, and your page should display the selected item
+- Your page should feature a button that selects a random book, and your page should display the selected item
 
 ## Stretch Goals
 

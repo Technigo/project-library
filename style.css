@@ -1,0 +1,13 @@
+h1 {
+  color: black;
+}
+
+.book-boxes {
+  color: black;
+}
+
+#container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
