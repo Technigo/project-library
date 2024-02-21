@@ -245,6 +245,7 @@ const recipes = [
 ];
 
 const filterCuisines = document.getElementById("filterCuisines");
+const filterSource = document.getElementById("filterSource");
 
 const appendClosingButton = () => {
   filterCuisines.innerHTML += `
@@ -390,9 +391,14 @@ const cuisineLoader = () => {
   });
 };
 
+const authorLoader = (recipes) => {
+  console.log("tes");
+};
+
 // Function to filter and display recipes based on cuisine and source
 const filterLoader = (recipes) => {
   cuisineLoader(recipes);
+  authorLoader(recipes);
 };
 
 filterLoader(recipes);

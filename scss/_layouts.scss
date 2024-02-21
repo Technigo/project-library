@@ -152,8 +152,12 @@
     margin: 2rem 0;
     border-bottom: 1px solid #d0d0d0;
 
-    .filter {
+    .filter-container {
       position: relative;
+
+      .filter-wrapper {
+        display: flex;
+      }
 
       h4 {
         position: relative;
@@ -164,11 +168,15 @@
           background-size: cover;
           top: 4px;
           position: absolute;
-          right: 60px;
+          right: -20px;
           height: 10px;
           width: 10px;
           z-index: 2222;
         }
+      }
+
+      .filter-box {
+        margin-right: 60px;
       }
 
       .filterDropdown {

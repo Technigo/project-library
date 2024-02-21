@@ -133,25 +133,31 @@
   margin: 2rem 0;
   border-bottom: 1px solid #d0d0d0;
 }
-.section__recipes-container .section__filter .filter {
+.section__recipes-container .section__filter .filter-container {
   position: relative;
 }
-.section__recipes-container .section__filter .filter h4 {
+.section__recipes-container .section__filter .filter-container .filter-wrapper {
+  display: flex;
+}
+.section__recipes-container .section__filter .filter-container h4 {
   position: relative;
   cursor: pointer;
 }
-.section__recipes-container .section__filter .filter h4::after {
+.section__recipes-container .section__filter .filter-container h4::after {
   content: "";
   background: url("../assets/arrow-down.svg") no-repeat;
   background-size: cover;
   top: 4px;
   position: absolute;
-  right: 60px;
+  right: -20px;
   height: 10px;
   width: 10px;
   z-index: 2222;
 }
-.section__recipes-container .section__filter .filter .filterDropdown {
+.section__recipes-container .section__filter .filter-container .filter-box {
+  margin-right: 60px;
+}
+.section__recipes-container .section__filter .filter-container .filterDropdown {
   position: absolute;
   display: flex;
   flex-direction: column;
@@ -161,16 +167,16 @@
   overflow: hidden;
   transition: height 3s ease-out;
 }
-.section__recipes-container .section__filter .filter .filterDropdown label {
+.section__recipes-container .section__filter .filter-container .filterDropdown label {
   text-transform: capitalize;
   padding: 0.7rem 0;
   font-size: 0.9rem;
   border-bottom: 1px solid #d0d0d0;
 }
-.section__recipes-container .section__filter .filter .filterDropdown.active {
+.section__recipes-container .section__filter .filter-container .filterDropdown.active {
   height: auto;
 }
-.section__recipes-container .section__filter .filter .filterDropdown a {
+.section__recipes-container .section__filter .filter-container .filterDropdown a {
   color: #000;
 }
 .section__recipes-container #section__recipes {
