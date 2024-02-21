@@ -220,12 +220,12 @@ bookItem.innerHTML +=`
     </div>
 `
 
-bookTitle.innerHTML = "Title: " + Object.values(books[0])[0]
-bookGenre.innerHTML = "Genre: " +Object.values(books[0])[3]
-bookRating.innerHTML = "Rating: " +JSON.stringify(books[0].rating)
-bookAuthor.innerHTML = "Author: " +Object.values(books[0])[1]
-bookYear.innerHTML = "Year: " +JSON.stringify(books[0].year)
-bookDescription.innerHTML = "Description:<br />" + Object.values(books[0])[5]
+bookTitle.innerHTML = "Title: " + books[0].title
+bookGenre.innerHTML = "Genre: " + books[0].genre
+bookRating.innerHTML = "Rating: " +books[0].rating
+bookAuthor.innerHTML = "Author: " + books[0].author
+bookYear.innerHTML = "Year: " +books[0].year
+bookDescription.innerHTML = "Description:<br />" + books[0].description
 
 
 const printBooks=()=>{
