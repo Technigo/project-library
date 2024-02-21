@@ -1,0 +1,32 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+}
+
+h1 {
+  margin: 50px;
+}
+
+.filter-section {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.filter,
+.sort {
+  margin: 0 0 10px 50px;
+}
+
+.filter-buttons,
+.sort-buttons {
+  padding: 10px 0 0 0;
+}
+
+button {
+  padding: 7px;
+  margin: 0 5px 0 0;
+}
