@@ -188,6 +188,7 @@ const yearOldButton = document.getElementById("yearold");
 const ratingHighButton = document.getElementById("ratinghigh");
 const ratingLowButton = document.getElementById("ratinglow");
 const searchInput = document.getElementById("search-input");
+const randomButton = document.getElementById("randomizer");
 
 
 //Boxes created to showcase all books
@@ -279,6 +280,14 @@ const matchingBooks = books.filter((books) => {
 }
 }
 searchInput.addEventListener("input", searchResult);
+
+
+// Function to randomize a book
+randomButton.addEventListener("click", () => {
+  let randomNum = Math.floor(Math.random() * 17);
+  showBooks([books[randomNum]]);
+});
+
 
 // First show of books
 showBooks(books)
