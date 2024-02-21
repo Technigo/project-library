@@ -229,8 +229,8 @@ const sortBooksByTitle = () => {
 	showBookContent(books);
 	const sortButton = document.getElementById("sorting-button");
 	sortButton.src = sortAscending
-		? "icons/aufsteigend-sortieren.png"
-		: "icons/absteigend-sortieren.png";
+		? "icons/absteigend-sortieren.png"
+		: "icons/aufsteigend-sortieren.png";
 };
 
 sortButton.addEventListener("click", sortBooksByTitle);
