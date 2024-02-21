@@ -194,7 +194,7 @@ const randomButton = document.getElementById("randomButton");
 //Here I use the querySelector instead of get element by id.
 //Books is the array. The for loop let us go through the array to get the information we need.
 
-//Here we declare function for rendering all books
+//Here we declare function for rendering all books. And we need all the classes when doing styling
 function renderBook(book) {
   return `<div class="book">
   <img src="${book.image}" class="book-image" />
@@ -208,18 +208,21 @@ function renderBook(book) {
   `;
 }
 
-//Here I use the querySelector instead of get element by id.
-//Books is the array. The for loop let us go through the array to get the information we need.
-const booksDiv = document.querySelector("#books");
+
+//Books is the array. The for loop let us go through the array to get the information we need. 
+//Here is where we start the function to filter by genre.
+// the booksdiv is in the html 
+const booksDiv = document.getElementById("books");
+//we loop through one book at the time, therefor "for book of books"
 for (const book of books) {
+  //here we have all the books to work with
   booksDiv.innerHTML += renderBook(book);
 }
 
-const genreDropDown = document.querySelector("#genre");
+const genreDropDown = document.getElementById("genre");
 //change(eventtype) is for making changes of genres.
 genreDropDown.addEventListener("change", () => {
-  //Use the console log to see if the drop down menu works
-  //console.log(genreDropDown.value);
+  
   //We are here filtering the genres
   booksDiv.innerHTML = "";
   for (const book of books) {
@@ -227,9 +230,11 @@ genreDropDown.addEventListener("change", () => {
     //pipe symbol option 7. || means OR.
     //Here we are filtering out all, we render all the book, if user choose horror or other genre we filter that.
     if (
+      //value checks which book is selected by the user
       genreDropDown.value == "All genres" ||
       book.genre == genreDropDown.value
     ) {
+      //This is the reslut of the filtering 
       booksDiv.innerHTML += renderBook(book);
     }
   }
