@@ -5,12 +5,7 @@
 body {
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
-  background: rgb(217, 232, 215);
-  background: linear-gradient(
-    0deg,
-    rgba(217, 232, 215, 0.5626983215161064) 0%,
-    rgba(245, 240, 224, 1) 100%
-  );
+  background: rgb(245, 240, 224, 1);
   padding: 0;
   margin: 0;
 }
@@ -42,18 +37,29 @@ h1,
 h3 {
   font-family: "Permanent Marker";
   color: #404a41;
+  text-shadow: 1px 1px 2px snow;
 }
 
 h2 {
   font-family: "Courier New", Courier, monospace;
+  padding: 5px 0 5px 0;
+  margin: 0;
 }
 
-h3,
 h4,
+h3,
 h5,
 p {
   padding: 2px;
   margin: 0;
+}
+
+hr {
+  width: 98%;
+  border: 0;
+  height: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .filter:hover {
@@ -121,8 +127,12 @@ p {
   border-radius: 20px;
 }
 
+.book-display h2 {
+  text-align: center;
+}
+
 .book-display img {
-  max-height: 200px;
+  max-height: 180px;
   object-fit: cover;
   margin: 0 0 10px 0;
   border-radius: 10px;

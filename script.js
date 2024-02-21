@@ -213,11 +213,12 @@ const createBookCard = (book) => {
   bookDiv.innerHTML = `
     <img src="${book.image}" alt="${book.title}" />
     <h2>${book.title}</h2>
-    <hr>
+    <hr />
     <h5>Author: ${book.author}</h5>
     <h5>Published: ${book.year}</h5>
     <h5>Genre: ${book.genre}</h5>
     <h5>Rating: ${book.rating}</h5>
+    <hr />  
     <h4>Description</h4>
     <p>${book.description}</p>`;
   flexContainer.appendChild(bookDiv);
