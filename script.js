@@ -189,6 +189,7 @@ const books = [
 const newestButton = document.getElementById("newestButton");
 const oldestButton = document.getElementById("oldestButton");
 const ratingButton = document.getElementById("ratingButton");
+const randomButton = document.getElementById("randomButton");
 
 //Here I use the querySelector instead of get element by id.
 //Books is the array. The for loop let us go through the array to get the information we need.
@@ -225,7 +226,10 @@ genreDropDown.addEventListener("change", () => {
     //this is where to filter out the genres.
     //pipe symbol option 7. || means OR.
     //Here we are filtering out all, we render all the book, if user choose horror or other genre we filter that.
-    if (genreDropDown.value == "All genres" || book.genre == genreDropDown.value) {
+    if (
+      genreDropDown.value == "All genres" ||
+      book.genre == genreDropDown.value
+    ) {
       booksDiv.innerHTML += renderBook(book);
     }
   }
@@ -247,7 +251,7 @@ oldestButton.addEventListener("click", (event) => {
   books.sort(function (a, b) {
     return a.year - b.year;
   });
-  //The innerHTML empty the div, so we can put them back in the right order 
+  //The innerHTML empty the div, so we can put them back in the right order
   booksDiv.innerHTML = "";
   for (const book of books) {
     booksDiv.innerHTML += renderBook(book);
@@ -264,5 +268,9 @@ ratingButton.addEventListener("click", (event) => {
   }
 });
 
-
- 
+randomButton.addEventListener("click", (event) => {
+  //Here we are creating a varible
+  const numberBook = Math.floor(Math.random() * books.length);
+  booksDiv.innerHTML = "";
+  booksDiv.innerHTML += renderBook(books[numberBook]);
+});
