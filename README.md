@@ -4,5 +4,7 @@ The goal of this project is to get familiar with arrays and objects. The require
 
 ## The problem
 
+We try to figure out how to implement the JS information and display it accordingly in the HTML.
+
 ## View it live
 We will add the deployed page here.
