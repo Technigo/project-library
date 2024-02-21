@@ -92,16 +92,12 @@ body {
     }
     
     .button:hover, .filter-dropdown:hover {
-      background-color: #fff;
+      background-color: #fff2ec;
     }
     
     .button:active, .filter-dropdown:active {
       box-shadow: #422800 2px 2px 0 0;
       transform: translate(2px, 2px);
-    }
-
-    .filter-dropdown:hover:after{
-    border-color: black;
     }
 
 h4 {
@@ -176,6 +172,16 @@ h4 {
         flex-direction: column;
         padding: 3em 0 5em 0;
     }
+
+    .destination-top{
+        width: 95%;
+        display: flex;
+        flex-direction: row;
+    }
+
+    .destination-top h4 {
+      align-self: flex-end;
+    }
     
     .filter-sort{
         width: 100%;
@@ -190,8 +196,9 @@ h4 {
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
+        flex-grow: 1;
         justify-content: space-around;
-        padding-top: 2em;
+        padding-top: 1em;
     }
     
     .img-container{
