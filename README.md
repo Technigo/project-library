@@ -13,3 +13,5 @@ The next step was to start working on the funcions. Once the main functions were
 If I had had more time I would have tried out adding the search bar, as well as being able to sort alphabetically.
 
 ## View it live
+
+https://main--sparkling-cajeta-657abb.netlify.app/
