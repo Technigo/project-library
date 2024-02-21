@@ -85,7 +85,7 @@ const books = [
     rating: 4.7,
     description:
       'The first book in the beloved Harry Potter series, it introduces readers to the magical world of Hogwarts and the young wizard Harry Potter.',
-    image: "./books-images/harry-potter-and-the-sorcerer'.jpg"
+    image: "./books-images/harry-potter-and-the-sorcerer.jpg"
   },
   {
     title: 'Moby-Dick',
@@ -231,16 +231,15 @@ bookDescription.innerHTML = "Description:<br />" + books[0].description */
 
 
 
-const printBooks=()=>{
+/* const printBooks=()=>{
   books.forEach(book=>{
     library.innerHTML +=`
     <div class="bookItem1" id="bookItem1">  
     </div>
     `
-
     bookItem1.innerHTML +=`
     <div class="bookChild">
-      <img src="./books-images/the-great-gatsby.jpg" class="bookImage" alt="gatsby" />
+      <img src="${book.image}" class="bookImage" alt="gatsby" />
       <h3 id="bookTitle"></h3>
     </div>
 
@@ -266,8 +265,38 @@ const printBooks=()=>{
   })
 }   
 
+printBooks() */
 
-printBooks()
+
+const printBooks = () => {
+  let booksHTML = '';
+
+  books.forEach(book => {
+    booksHTML += `
+      <div class="bookItem">
+        <div class="bookChild">
+          <img src="${book.image}" class="bookImage" alt="${book.title}" />
+          <h3 class="bookTitle">${book.title}</h3>
+        </div>
+        <div class="bookChild">
+          <p class="bookGenre">Genre: ${book.genre}</p>
+          <p class="bookRating">Rating: ${book.rating}</p>
+        </div>
+        <div class="bookChild">
+          <p class="bookAuthor">Author: ${book.author}</p>
+          <p class="bookYear">Year: ${book.year}</p>
+          <p class="bookDescription">Description:<br />${book.description}</p>
+        </div>
+      </div>
+    `;
+  });
+
+  // Set the innerHTML of the library element to the generated HTML for all books
+  library.innerHTML = booksHTML;
+};
+
+printBooks();
+
 
 
 
