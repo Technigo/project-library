@@ -237,7 +237,7 @@ let container = document.getElementById("container");
 // For every recipe: add recipe information to the container
 function addRecipeInformation(recipe) {
   container.innerHTML += `
-    <div class = "card ${recipe.cuisineType}">
+    <div class="card ${recipe.cuisineType}">
     <h2>${recipe.name}</h2>
     <img src="${recipe.image}"></img>
     <p class="time">Cooking time: ${recipe.totalTime}</p>
@@ -252,17 +252,14 @@ function addRecipeInformation(recipe) {
 // Show recipes in HTML
 recipes.forEach(addRecipeInformation);
 
-//    CSS for the cards
-//    Some CSS done.
-
+const card = document.getElementsByClassName("card");
 // Filter on cuisine types (Martin)
-// American, asian, italian, low carb etc.
 
 const filterSelection = (cuisine) => {
   // Declare variables for later use in this function.
-  let x, i;
+  let i;
   // card is the
-  card = document.getElementsByClassName("card");
+
   if (cuisine == "all") cuisine = "";
   // Add the "show" class (display:block) to the filtered elements, and remove the "show" class from the elements that are not selected
   for (i = 0; i < card.length; i++) {
@@ -379,11 +376,11 @@ function sortListTime() {
 /* RNG to pick an index and display that.*/
 
 // Search bar
-
 // 1.When a user click "search button", this function will triggered
 const searchButton = document.getElementById("search-button");
-// when user clicks, browser calls Eventlistener (function), Eventlistner = function () {XXX}
+// when user clicks, browser calls Eventlistener (function)
 searchButton.addEventListener("click", function () {
+  let i;
   const searchInput = document.getElementById("search-input");
   // Search user's input to all lower case
   const searchValue = searchInput.value.toLowerCase();
@@ -398,8 +395,14 @@ searchButton.addEventListener("click", function () {
 
   if (matchedRecipes.length > 0) {
     matchedRecipes.forEach(addRecipeInformation);
+    const y = document.getElementsByClassName("card");
+    console.log(y[1]);
+    for (i = 0; i < y.length; i++) {
+      y[i].classList.add("show");
+    }
   } else {
     container.innerHTML = `<p>There is no recipe with "${searchInput.value}".</p>`;
   }
-});
 
+
+});
