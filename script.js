@@ -1,5 +1,5 @@
 // Get references to HTML elements using their IDs.
-const container = document.getElementById("recipes-container");
+const container = document.getElementById("recipe-container");
 const filterRecipes = document.getElementById("filter-recipes");
 const sortingForm = document.getElementById("sorting-form");
 const searchForm = document.getElementById("search-form");
@@ -99,14 +99,14 @@ const recipes = [
       "640 grams chicken - drumsticks and thighs ( 3 whole chicken legs cut apart)",
       "1/2 teaspoon salt",
       "1/4 teaspoon black pepper",
-      "1 tablespoon butter – cultured unsalted (or olive oil)",
+      "1 tablespoon butter - cultured unsalted (or olive oil)",
       "240 grams onion sliced thin (1 large onion)",
       "70 grams Anaheim pepper chopped (1 large pepper)",
       "25 grams paprika (about 1/4 cup)",
       "1 cup chicken stock",
       "1/2 teaspoon salt",
       "1/2 cup sour cream",
-      "1 tablespoon flour – all-purpose",
+      "1 tablespoon flour - all-purpose",
     ],
     source: "No Recipes",
     totalTime: 80,
@@ -227,22 +227,31 @@ const recipes = [
 
 //Function to show the recipes
 const addRecipe = (recipe) => {
-  container.innerHTML += `
-    <div class="recipe-container">
-      <img src="${recipe.image}" />
-      <h3>${recipe.name}</h3>
-      <p><b>Cuisine</b>: ${recipe.cuisineType}</p>
-      <p><b>Time</b>: ${recipe.totalTime} minutes</p>
-
+  container.innerHTML = ""
+  
+  recipes.forEach((recipe) => {
+    container.innerHTML +=`
+    <div class="recipe-card">
+      <img src="${recipe.image}" 
+      width="200px"/>
+      <div class="recipe-text">
+        <h3>${recipe.name}</h3>
+        <p><b>Cuisine</b>: ${recipe.cuisineType}</p>
+        <p><b>Time</b>: ${recipe.totalTime} minutes</p>
+        <p><b>Ingredients:</b>: ${recipe.ingredients}</p>
+      </div>
     </div>
-  `;
+    `
+  })
+  
+  
 };
 
-addRecipe(recipes);
 recipes.forEach((recipe) => addRecipe(recipe));
 
 // Sorting and filtering functions
-const sortRecipes = () => {
+
+/*const sortRecipes = () => {
   const value = filterRecipes.value;
   let selectedRecipes = recipes.map((recipe) => recipe);
 
@@ -254,9 +263,7 @@ const sortRecipes = () => {
     );
     addRecipe(selectedRecipes);
   }
-};
-
-sortRecipes();
+};*/
 
 // Listeners
-filterRecipes.addEventListener("change", filterRecipes);
+//filterRecipes.addEventListener("change", filterRecipes);

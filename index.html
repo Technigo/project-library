@@ -8,8 +8,8 @@
   </head>
   <body>
     <h1>Project Recipe Library</h1>
-    <div class="header-buttons">
-      <form id="kitchen-form">
+    <div class="forms-header">
+      <form class="kitchen-form" id="kitchen-form">
         <p>Filter on Kitchen</p>
         <select id="filter-recipes">
           <option value="all">All</option>
@@ -22,19 +22,19 @@
           <option value="low-carb">Low-Carb</option>
         </select>
       </form>
-      <form id="sorting-form">
+      <form class="sorting-form" id="sorting-form">
         <p>Sort on time</p>
         <button type="submit" value="Descending">Descending</button>
         <button type="submit" value="Ascending">Ascending</button>
       </form>
-      <form id="search-form">
-        <label for="search-input">Search</label>
-        <input id="search-input" type="text" />
-        <button class="send-btn" type="submit">Send</button>
+      <form class="search-form" id="search-form">
+        <!-- <label for="search-input">Search</label> -->
+        <input id="search-input" type="text" placeholder="Search by keyword"/>
+        <button class="send-btn" type="submit">Search</button>
       </form>
     </div>
 
-    <div id="recipes-container"></div>
+    <div class="recipe-container" id="recipe-container"></div>
     <script src="./script.js"></script>
   </body>
 </html>
