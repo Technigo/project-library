@@ -232,15 +232,15 @@ const renderRecipes = () => {
     const recipeDiv = document.createElement("div");
     recipeDiv.classList.add("recipe");
 
-    const nameHeading = document.createElement("h2");
-    nameHeading.textContent = recipe.name;
+    const recipeHeading = document.createElement("h2");
+    recipeHeading.textContent = recipe.name;
 
-    const sourceParagraph = document.createElement("p");
-    sourceParagraph.textContent = `Source: ${recipe.source}`;
+    const recipeSource = document.createElement("p");
+    recipeSource.textContent = `Source: ${recipe.source}`;
 
     // Append elements to recipeDiv
-    recipeDiv.appendChild(nameHeading);
-    recipeDiv.appendChild(sourceParagraph);
+    recipeDiv.appendChild(recipeHeading);
+    recipeDiv.appendChild(recipeSource);
 
     // Append recipeDiv to container
     container.appendChild(recipeDiv);

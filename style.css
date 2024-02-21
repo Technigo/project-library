@@ -30,3 +30,12 @@ button {
   padding: 7px;
   margin: 0 5px 0 0;
 }
+
+.recipe-section {
+  border: 1px black solid;
+  padding: 10px;
+  display: flex;
+}
+
+.recipe-card {
+}
