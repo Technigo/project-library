@@ -1,13 +1,14 @@
 /*Here we have created two different arrays that you can work with if you want.
 If you choose to create your own arrays with elements, just make sure that some
 of the properties make sense to filter on, and some to sort on.*/
+const destinationDiv = document.getElementById('load-destinations')
 
 
 const destinations = [
   {
-    destination: 'Isle of Skye',
+    name: 'Isle of Skye',
     country: 'Scotland',
-    language: English,
+    language: 'English',
     accessibility: 'Difficult',
     rating: 4.2,
     temperature: 7,
@@ -16,9 +17,9 @@ const destinations = [
     image: './destinations-images/isle-of-skye-scottland.jpg'
   },
   {
-    destination: 'Taormina',
+    name: 'Taormina',
     country: 'Italy',
-    language: Italian,
+    language: 'Italian',
     accessibility: 'Easy',
     rating: 4.2,
     temperature: 25,
@@ -27,7 +28,7 @@ const destinations = [
     image: './destinations-images/Taormina-italy.jpg'
   },
   {
-    destination: 'Purnululu',
+    name: 'Purnululu',
     country: 'Australia',
     language: 'English',
     accessibility: 'Difficult',
@@ -38,7 +39,7 @@ const destinations = [
     image: './destinations-images/purnululu-aus.jpg'
   },
   {
-    destination: 'Xochimilco lake',
+    name: 'Xochimilco lake',
     country: 'Mexico',
     language: 'spanish',
     accessibility: 'easy',
@@ -49,7 +50,7 @@ const destinations = [
     image: './destinations-images/xochimilco-lake-mexico.jpg'
   },
   {
-    destination: 'Uluru',
+    name: 'Uluru',
     country: 'Australia',
     language: 'English',
     accessibility: 'Difficult',
@@ -60,7 +61,7 @@ const destinations = [
     image: './destinations-images/Uluru-australia.jpg'
   },
   {
-    destination: 'Marble Cathedral',
+    name: 'Marble Cathedral',
     country: 'Chile',
     language: 'Spanish',
     accessibility: 'Difficult',
@@ -71,7 +72,7 @@ const destinations = [
     image: './destinations-images/marble-cathedral-chile.jpg'
   },
   {
-    destination: 'Danxia Landform',
+    name: 'Danxia Landform',
     country: 'China',
     language: 'Chinese',
     accessibility: 'Moderate',
@@ -82,7 +83,7 @@ const destinations = [
     image: './destinations-images/danxia landform geological park china.jpg'
   },
   {
-    destination: 'Abisko',
+    name: 'Abisko',
     country: 'Sweden',
     language: 'Swedish',
     accessibility: 'Moderate',
@@ -93,7 +94,7 @@ const destinations = [
     image: './destinations-images/abisko-national-park-sweden.jpg'
   },
   {
-    destination: 'Larung gar',
+    name: 'Larung gar',
     country: 'Tibet',
     language: 'Tibetan',
     accessibility: 'Moderate',
@@ -104,7 +105,7 @@ const destinations = [
     image: './destinations-images/Larung-gar-Tibet.jpg'
   },
   {
-    destination: 'Wangxian Valley',
+    name: 'Wangxian Valley',
     country: 'China',
     language: 'Chinese',
     accessibility: 'Fiction',
@@ -116,3 +117,56 @@ const destinations = [
   },
 ]
 
+//Skapa funktion som laddar array in i html
+const loadDestinations = (destinations) => {
+    destinationDiv.innerHTML = ""
+    destinations.forEach((x) => {
+    destinationDiv.innerHTML += `
+    <div class="container">
+      <h4>"${x.name}"<span>"${x.country}</span></h4>
+      <img src="${x.image}">
+      <div class="description-text"><p>"${x.description}"</p></div>
+      </div>
+    `
+    console.log(destinations)
+    console.log(destinationDiv.innerHTML)
+    })
+}
+
+loadDestinations(destinations)
+
+
+   
+
+
+
+/*
+const loadPokemons = (pokemons) => {  
+  pokeCard.innerHTML = ''
+  favorites.innerHTML = ''
+//Structure of the Pokémon library
+  pokemons.forEach((pokemon) => {
+    pokeCard.innerHTML += `
+    <div class="card">
+    <h3>${pokemon.name}</h3>
+            <span>${pokemon.type}</span>
+    <div class="content-container">
+      <div class="image-container">
+        <img src="${pokemon.image}" alt="${pokemon.name}" class="poke-img"/>
+      </div>
+      <div class="text-container">
+      <span>Category: ${pokemon.category}</span>
+        <p>${pokemon.description}</p>
+        <ul class="list">
+          <li>HP: ${pokemon.HP}</li>
+          <li>Attack: ${pokemon.attack}</li>
+          <li>Defense: ${pokemon.defense}</li>
+          <li>Speed: ${pokemon.speed}</li>
+        </ul>
+      </div>
+      </div>
+      `
+  })
+}
+      
+      */
