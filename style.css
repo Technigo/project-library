@@ -1,6 +1,5 @@
 body {
     background-color: rgb(73, 143, 73);
-    
 }
 
 .btn {
@@ -54,20 +53,31 @@ body {
   .dropdown:hover .dropbtn {background-color: #82e285;}
 
   .card-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 15px;
   }
 
   .card {
-    width: 150px;
-    margin-bottom: 20px;
-    border: 1px solid whitesmoke;
-    padding: 20px;
+    border: 2px solid #344e41;
+    border-radius: 10px;
+    padding: 15px;
     text-align: center;
+    background: #a3b18a;
+  }
+
+  .card h2 {
+    text-transform: uppercase;
+  }
+
+  .card p {
+    font-weight: 600;
+    text-transform: capitalize;
   }
 
   img {
-    height: 150px;
-    width: 90%;
+    height: 200px;
+    width: 80%;
+    object-fit: cover;
+    border-radius: 10px;
   }

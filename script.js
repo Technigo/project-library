@@ -1,5 +1,5 @@
 //DOM selectors
-const mainContent = document.getElementById("main-content");
+const cardContainer = document.getElementById("card-container");
 const navbar = document.getElementById("navbar");
 //const btnAllName = document.getElementById("btnAllName")
 const btnPickRandom = document.getElementById("btnPickRandom");
@@ -185,7 +185,7 @@ const showACard = (onePlant) => {
   plantNutritionalNeeds = plants[plants.indexOf(onePlant)]["nutritionalNeeds"];
   plantPerennial = plants[plants.indexOf(onePlant)]["perennial"];
   plantImageLink = plants[plants.indexOf(onePlant)]["img"];
-  mainContent.innerHTML += `<div class="card">
+  cardContainer.innerHTML += `<div class="card">
     <h2>${plantName}</h2>
     <p class="scientific-name">${plantScientificName}</p>
     <img src="${plantImageLink}" alt="">
