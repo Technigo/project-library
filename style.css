@@ -1,0 +1,9 @@
+:root {
+  --headingFont: "FF Nexus Sans";
+  --textFont: "FF Nexus Serif";
+}
+
+h1 {
+  text-align: center;
+  font-family: var(--headingFont);
+}
