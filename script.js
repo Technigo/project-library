@@ -194,6 +194,7 @@ console.log(cardCollection.innerHTML);
 const ascendingBtn = document.getElementById("ascending");
 const descendingBtn = document.getElementById("descending");
 const randomBtn = document.getElementById("random");
+const allBooksBtn = document.getElementById("all-genres-btn");
 // Global Variables
 
 // Functions
@@ -219,12 +220,14 @@ const showBooks = (arr) => {
 
 showBooks(books);
 
+allBooksBtn.addEventListener("click", () => showBooks(books));
 for (let btn of genreBtns) {
   btn.addEventListener("click", (event) => {
     let filteredBooks = books.filter((obj) => obj.genre === event.target.value);
     showBooks(filteredBooks);
   });
 }
+
 ascendingBtn.addEventListener("click", () => {
   const ascendingBooks = books.sort((a, b) => a.rating - b.rating);
   showBooks(ascendingBooks);

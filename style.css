@@ -112,6 +112,7 @@ button:hover {
 }
 
 .img-container {
+  align-self: center;
   width: 200px;
   height: 200px;
   overflow: hidden;
