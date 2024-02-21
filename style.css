@@ -100,8 +100,14 @@ body {
       transform: translate(2px, 2px);
     }
 
-h4 {
+h3 {
     color: white;
+}
+
+h4{
+    color: white;
+    padding-bottom: 0.5em;
+
 }
 
 .filter-sort{
@@ -179,7 +185,7 @@ h4 {
         flex-direction: row;
     }
 
-    .destination-top h4 {
+    .destination-top h3 {
       align-self: flex-end;
     }
     
@@ -215,8 +221,13 @@ h4 {
         object-fit: cover;
        
     }
-    .button-74 {
-        min-width: 120px;
+    .button {
+        min-width: 110px;
         padding: 0 25px;
       }
+    
+    .description{
+        padding-top: 0.5em;
+        padding-bottom: 1em;
+    }
 }
