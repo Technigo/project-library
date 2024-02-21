@@ -1,36 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Cultivation guide</title>
-  <link rel="stylesheet" type="text/css" href="style.css">
-</head>
-<body>
+    <title>Cultivation guide</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+  <body>
+    <header class="header" id="header">
+      <img src="">
+      <h1 class="h1">Welcome to our cultivation guide!</h1>
+    </header>
 
-<header class="header" id="header">
-  <img src="">
-  <h1 class="h1">Welcome to our cultivation guide!</h1>
-</header>
-
-<div class="navbar" id="navbar">
- <button class="btn" id="btnAllName">Show all</button>
-  <button class="btn" id="btnPickRandom">Pick randomly!</button>
-   <div class="dropdown"  id="dropDownMenu">
-    <button class="dropbtn" id="dropBtn">Sort by...</button>
-     <div class="dropdown-content">
-      <a href="#" id="typeCategory">Type/category</a>
-       <a href="#" id="latinName">Latin name</a>
-      <a href="#" id="timeToSow">Time to sow</a>
-     <a href="#" id="developmentTime">Development time</a>
-    <a href="#" id="waterDemand">Water demand</a>
-   <a href="#" id="nutritionalNeeds">Nutritional needs</a>
-  <a href="#" id="lifeLength">Life length</a>
- </div>
-</div>
-
-
-<script src="./script.js"></script>
-</body>
+    <section class="navbar" id="navbar">
+      <button class="btn" id="btnAllName">Show all</button>
+      <button class="btn" id="btnPickRandom">Pick randomly!</button>
+      <div class="dropdown"  id="dropDownMenu">
+        <button class="dropbtn" id="dropBtn">Show...</button>
+        <div class="dropdown-content">
+          <a href="#" id="typeCategory">Vegetables</a>
+          <a href="#" id="typeCategory">Herbs</a>
+          <a href="#" id="typeCategory">Fruits and berries</a>
+        </div>
+      </div>
+      <div class="dropdown" id="dropDownSortMenu">
+        <button class="dropbtn" id="dropBtnTwo">Sort by...</button>
+        <div class="dropdown-content">
+          <a href="#" id="latinName">Latin name</a> 
+          <a href="#" id="timeToSow">Time to sow</a>
+          <a href="#" id="developmentTime">Development time</a>
+          <a href="#" id="waterDemand">Water demand</a>
+          <a href="#" id="nutritionalNeeds">Nutritional needs</a>
+          <a href="#" id="lifeLength">Life length</a>
+        </div>
+      </div>
+    </section>
+    <main class="main-content" id="main-content">
+      <div class="card-container" id="card-container"></div>
+    </main>
+    <script src="./script.js"></script>
+  </body>
 </html>

@@ -1,4 +1,32 @@
-const vegetables = [
+//DOM selectors
+const mainContent = document.getElementById("main-content");
+const navbar = document.getElementById("navbar");
+//const btnAllName = document.getElementById("btnAllName")
+const btnPickRandom = document.getElementById("btnPickRandom");
+const dropDownMenu = document.getElementById("dropDownMenu");
+const dropBtn = document.getElementById("dropBtn");
+const dropDownSortMenu = document.getElementById("dropDownSortMenu");
+const dropBtnTwo = document.getElementById("dropBtnTwo");
+const typeCategory = document.getElementById("typeCategory");
+const latinName = document.getElementById("latinName");
+const timeToSow = document.getElementById("timeToSow");
+const developmentTime = document.getElementById("developmentTime");
+const waterDemand = document.getElementById("waterDemand");
+const nutritionalNeeds = document.getElementById("nutritionalNeeds");
+const lifeLength = document.getElementById("lifeLength");
+
+let plantName = [];
+let plantCategory = [];
+let plantScientificName = [];
+let plantTimeToSow = [];
+let plantDirectSowing = [];
+let plantDevelopmentTime = [];
+let plantWaterDemand = [];
+let plantNutritionalNeeds = [];
+let plantPerennial = [];
+let plantImageLink = [];
+
+const plants = [
   {
     name: "Carrot",
     category: "vegetables",
@@ -47,9 +75,6 @@ const vegetables = [
     perennial: false,
     img: "./assets/garlic.jpg",
   },
-];
-
-const herbs = [
   {
     name: "Parsley",
     category: "herbs",
@@ -98,9 +123,6 @@ const herbs = [
     perennial: false,
     img: "./assets/basil.jpg",
   },
-];
-
-const berriesAndFruit = [
   {
     name: "Apple",
     category: "fruits/berries",
@@ -147,6 +169,93 @@ const berriesAndFruit = [
     waterDemand: "medium",
     nutritionalNeeds: "medium",
     perennial: true,
-    img: "./assets/wild-strawberries.jpg",
+    img: "./assets/blackberries.jpg",
   },
 ];
+
+//Shows a card containing the inputted plant
+const showACard = (onePlant) => {
+  plantName = plants[plants.indexOf(onePlant)]["name"];
+  plantCategory = plants[plants.indexOf(onePlant)]["category"];
+  plantScientificName = plants[plants.indexOf(onePlant)]["scientificName"];
+  plantTimeToSow = plants[plants.indexOf(onePlant)]["timeToSow"];
+  plantDirectSowing = plants[plants.indexOf(onePlant)]["directSowing"];
+  plantDevelopmentTime = plants[plants.indexOf(onePlant)]["developmentTime"];
+  plantWaterDemand = plants[plants.indexOf(onePlant)]["waterDemand"];
+  plantNutritionalNeeds = plants[plants.indexOf(onePlant)]["nutritionalNeeds"];
+  plantPerennial = plants[plants.indexOf(onePlant)]["perennial"];
+  plantImageLink = plants[plants.indexOf(onePlant)]["img"];
+  mainContent.innerHTML += `<div class="card">
+    <h2>${plantName}</h2>
+    <p class="scientific-name">${plantScientificName}</p>
+    <img src="${plantImageLink}" alt="">
+    <p>Category: ${plantCategory}</p>
+    <p>Time to sow: ${plantTimeToSow}</p>
+    <p>Direct sowing: ${plantDirectSowing}</p>
+    <p>Development time: ${plantDevelopmentTime}</p>
+    <p>Water demand: ${plantWaterDemand}</p>
+    <p>Nutritional needs: ${plantNutritionalNeeds}</p>
+    <p>Perennial: ${plantPerennial}</p>
+  </div>`;
+};
+
+//Writes the scientific names in an array
+const onlyScientificNamesUnsorted = [];
+const writeTheScientificNames = () => {
+  plants.forEach((onePlant) => {
+    onlyScientificNamesUnsorted.push(onePlant.scientificName);
+  });
+};
+//Make a new array with the scientific names sorted
+const onlyScientificNamesToSort = [];
+const sortTheScientificNames = () => {
+  onlyScientificNamesUnsorted.forEach((name) => {
+    onlyScientificNamesToSort.push(name);
+  });
+  onlyScientificNamesToSort.sort();
+  onlyScientificNamesToSort.forEach((name) => {
+    showACard(plants[onlyScientificNamesUnsorted.indexOf(name)]);
+  });
+};
+writeTheScientificNames();
+sortTheScientificNames();
+
+//Picks a random plant to show
+let randomObject = "";
+const pickRandom = () => {
+  randomObject = Math.floor(Math.random() * 12);
+  showACard(plants[randomObject]);
+};
+
+const showAll = () => {
+  plants.forEach(showACard);
+};
+
+/*
+const sortByTimeToSow = () => {
+//if "spring"
+// else if "autumn"
+}
+
+const sortByDevelopmentTime = () => {
+//sort by days of devtime
+}
+
+const sortByWaterDemand = () => {
+//
+}
+
+const sortByNutritionalNeeds = () => {
+ // 
+}
+
+const sortByLifeLength = () => {
+//if perennial = true
+}
+*/
+
+//Eventlisteners:
+//const btnAllName = document.querySelector("button")
+
+//btnAllName.addEventlistener("click" , (onClick))
+//console.log

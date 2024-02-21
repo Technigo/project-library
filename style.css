@@ -52,3 +52,22 @@ body {
   
   /* Change the background color of the dropdown button when the dropdown content is shown */
   .dropdown:hover .dropbtn {background-color: #82e285;}
+
+  .card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .card {
+    width: 150px;
+    margin-bottom: 20px;
+    border: 1px solid whitesmoke;
+    padding: 20px;
+    text-align: center;
+  }
+
+  img {
+    height: 150px;
+    width: 90%;
+  }
