@@ -221,3 +221,31 @@ const recipes = [
     image: "./recipe-images/grilled.jpg",
   },
 ];
+
+// Function to render recipes
+const renderRecipes = () => {
+  const container = document.getElementById("recipe-card");
+
+  // Loop through each recipe in the recipes array
+  recipes.forEach((recipe) => {
+    // Create HTML elements to display recipe information
+    const recipeDiv = document.createElement("div");
+    recipeDiv.classList.add("recipe");
+
+    const nameHeading = document.createElement("h2");
+    nameHeading.textContent = recipe.name;
+
+    const sourceParagraph = document.createElement("p");
+    sourceParagraph.textContent = `Source: ${recipe.source}`;
+
+    // Append elements to recipeDiv
+    recipeDiv.appendChild(nameHeading);
+    recipeDiv.appendChild(sourceParagraph);
+
+    // Append recipeDiv to container
+    container.appendChild(recipeDiv);
+  });
+};
+
+// Call the renderRecipes function when the website is loaded
+window.onload = renderRecipes;
