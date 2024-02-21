@@ -183,7 +183,32 @@ const books = [
 
 const bookDisplay = document.querySelector(".book-display");
 
-console.log(bookDisplay);
+const all = document.querySelector("#all");
+const fiction = document.querySelector("#fiction");
+const scifi = document.querySelector("#sci-fi");
+const fantasy = document.querySelector("#fantasy");
+const adventure = document.querySelector("#adventure");
+const horror = document.querySelector("#horror");
+const mystery = document.querySelector("#mystery");
+const dystopian = document.querySelector("#dystopian");
+
+const descending = document.querySelector("#descending");
+const ascending = document.querySelector("#ascending");
+
+const genreBtns = [
+  all,
+  fiction,
+  scifi,
+  fantasy,
+  adventure,
+  horror,
+  mystery,
+  dystopian,
+];
+
+const sortBtns = [descending, ascending];
+
+const toggleSelected = () => {};
 
 const bookCards = () => {
   books.forEach((book) => {
@@ -204,3 +229,41 @@ const bookCards = () => {
 };
 
 bookCards();
+
+genreBtns.forEach((genreBtn) => {
+  genreBtn.addEventListener("mouseover", () => {
+    if (!genreBtn.classList.contains("selected")) {
+      genreBtn.classList.add("hover");
+    }
+  });
+
+  genreBtn.addEventListener("mouseout", () => {
+    genreBtn.classList.remove("hover");
+  });
+
+  genreBtn.addEventListener("click", () => {
+    genreBtn.classList.remove("hover");
+    genreBtn.classList.toggle("selected");
+  });
+});
+
+sortBtns.forEach((sortBtn) => {
+  sortBtn.addEventListener("mouseover", () => {
+    if (!sortBtn.classList.contains("selected")) {
+      sortBtn.classList.add("hover");
+    }
+  });
+
+  sortBtn.addEventListener("mouseout", () => {
+    sortBtn.classList.remove("hover");
+  });
+
+  sortBtn.addEventListener("click", () => {
+    sortBtn.classList.add("selected");
+    sortBtn.classList.remove("hover");
+  });
+});
+
+all.addEventListener("click", () => {
+  bookCards();
+});
