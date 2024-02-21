@@ -185,6 +185,15 @@ const books = [
   },
 ];
 
+
+//Declare variables that refer to HTML elements 
+const sortButtonGrade = document.getElementById('sortButtonGrade')
+const sortButtonAz = document.getElementById('sortButtonAz')
+const showFavoritesButton = document.getElementById('showFavoriteButton')
+
+
+
+
 //Here we sort out the content of all books
 function renderBook(book) {
   return `<div class="book">
@@ -237,9 +246,43 @@ genreDropDown.addEventListener("change", () => {
 
 
 
+/*
+
+// Functions goes here 👇
+// This function inserts the animal option buttons into the html
+const addAnimalButtons = () => {
+  inputWrapper.innerHTML = `
+    <button class="send-btn" id="cat">Cat</button>
+    <button class="send-btn" id="dog">Dog</button>
+    <button class="send-btn" id="horse">Horse</button>`;
+};
+
+
+/// The user is asked to choose between different animals by clicking buttons
+const chooseAnimal = () => {
+  showMessage(
+    `Happy to meet you, ${userName}! What type of animal are you interested in adopting?`,
+    "bot"
+  );
+  // Animal choice buttons are added to the html
+  addAnimalButtons();
+  // Depending on which button is clicked, the id of the clicked button is added to the animalChoice variable
+  const animalButton = document.querySelectorAll(".send-btn");
+  console.log(animalButton);
+  animalButton.forEach((animalButton) => {
+    animalButton.addEventListener("click", (event) => {
+      animalChoice = event.target.id;
+      console.log(animalChoice);
+      showMessage(`I'd like a ${animalChoice}.`, "user");
+      // We then move on to choosing a type of the chosen animal
+      setTimeout(chooseType, 1000);
+    });
+  });
+};
 
 
 
+*/
 
 
 
