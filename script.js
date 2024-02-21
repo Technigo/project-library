@@ -231,7 +231,6 @@ function capitalizeFirstLetter(recipes) {
 capitalizeFirstLetter(recipes)
 */
 
-
 // Display the cards
 // Find container from HTML
 let container = document.getElementById("container");
@@ -241,59 +240,40 @@ function addRecipeInformation(recipe) {
     <div class = "card ${recipe.cuisineType}">
     <h2>${recipe.name}</h2>
     <img src="${recipe.image}"></img>
-    <p>Cooking time: ${recipe.totalTime}</p>
+    <p class="time">Cooking time: ${recipe.totalTime}</p>
     <p>Cusine type: ${recipe.cuisineType}</p>
     <p>Ingredients: ${recipe.ingredients.join("<br/>")}</p> 
     <p>Source: ${recipe.source}</p>
     <a href="${recipe.url}">Link</a>
     </div>
   `;
-} 
+}
 
 // Show recipes in HTML
 recipes.forEach(addRecipeInformation);
 
-
 //    CSS for the cards
+//    Some CSS done.
 
 // Filter on cuisine types (Martin)
 // American, asian, italian, low carb etc.
 
-const filterCards = (type) => {
-
-
-  if (type === "American"){
-
-  }
-  else if (type === "Italian"){
-
-  }
-  else if (type === "Balanced"){
-    
-  }
-  else if (type === "Italian"){
-    
-  }
-
-}
-
-
-// Filter
-filterSelection("all")
-function filterSelection(c) {
+const filterSelection = (cuisine) => {
+  // Declare variables for later use in this function.
   let x, i;
-  x = document.getElementsByClassName("card");
-  if (c == "all") c = "";
+  // card is the
+  card = document.getElementsByClassName("card");
+  if (cuisine == "all") cuisine = "";
   // Add the "show" class (display:block) to the filtered elements, and remove the "show" class from the elements that are not selected
-  for (i = 0; i < x.length; i++) {
-    removeClass(x[i], "show");
-    if (x[i].className.indexOf(c) > -1) addClass(x[i], "show");
+  for (i = 0; i < card.length; i++) {
+    removeClass(card[i], "show");
+    if (card[i].className.indexOf(cuisine) > -1) addClass(card[i], "show");
   }
-}
+};
 
 // Show filtered elements
-function addClass(element, name) {
-  var i, arr1, arr2;
+const addClass = (element, name) => {
+  let i, arr1, arr2;
   arr1 = element.className.split(" ");
   arr2 = name.split(" ");
   for (i = 0; i < arr2.length; i++) {
@@ -301,10 +281,10 @@ function addClass(element, name) {
       element.className += " " + arr2[i];
     }
   }
-}
+};
 
 // Hide elements that are not selected
-function removeClass(element, name) {
+const removeClass = (element, name) => {
   let i, arr1, arr2;
   arr1 = element.className.split(" ");
   arr2 = name.split(" ");
@@ -314,23 +294,112 @@ function removeClass(element, name) {
     }
   }
   element.className = arr1.join(" ");
-}
+};
 
 // Add active class to the current control button (highlight it)
 const btnContainer = document.getElementById("filterButtonDiv");
 const btns = btnContainer.getElementsByClassName("button");
 for (let i = 0; i < btns.length; i++) {
-  btns[i].addEventListener("click", function() {
+  btns[i].addEventListener("click", function () {
     let current = document.getElementsByClassName("active");
     current[0].className = current[0].className.replace(" active", "");
     this.className += " active";
   });
 }
 
+filterSelection("all");
+
 // Sort alphabetically and by cook time (Martin)
+
+function sortListName() {
+  var list, i, switching, b, shouldSwitch;
+  list = document.getElementById("container");
+  switching = true;
+  /* Make a loop that will continue until
+  no switching has been done: */
+  while (switching) {
+    // Start by saying: no switching is done:
+    switching = false;
+    b = list.getElementsByClassName("card");
+    // Loop through all list items:
+    for (i = 0; i < b.length - 1; i++) {
+      // Start by saying there should be no switching:
+      shouldSwitch = false;
+      /* Check if the next item should
+      switch place with the current item: */
+      if (b[i].innerHTML.toLowerCase() > b[i + 1].innerHTML.toLowerCase()) {
+        /* If next item is alphabetically lower than current item,
+        mark as a switch and break the loop: */
+        shouldSwitch = true;
+        break;
+      }
+    }
+    if (shouldSwitch) {
+      /* If a switch has been marked, make the switch
+      and mark the switch as done: */
+      b[i].parentNode.insertBefore(b[i + 1], b[i]);
+      switching = true;
+    }
+  }
+}
+
+function sortListTime() {
+  var list, i, switching, b, shouldSwitch;
+  list = document.getElementById("container");
+  switching = true;
+  /* Make a loop that will continue until
+  no switching has been done: */
+  while (switching) {
+    // Start by saying: no switching is done:
+    switching = false;
+    b = list.getElementsByClassName("time");
+    // Loop through all list items:
+    for (i = 0; i < b.length - 1; i++) {
+      // Start by saying there should be no switching:
+      shouldSwitch = false;
+      /* Check if the next item should
+      switch place with the current item: */
+      if (b[i].innerHTML.toLowerCase() > b[i + 1].innerHTML.toLowerCase()) {
+        /* If next item is alphabetically lower than current item,
+        mark as a switch and break the loop: */
+        shouldSwitch = true;
+        break;
+      }
+    }
+    if (shouldSwitch) {
+      /* If a switch has been marked, make the switch
+      and mark the switch as done: */
+      b[i].parentNode.insertBefore(b[i + 1], b[i]);
+      switching = true;
+    }
+  }
+}
 
 // Random Recipe (Martin)
 /* RNG to pick an index and display that.*/
 
-// Search bar (Mai)
+// Search bar
+
+// 1.When a user click "search button", this function will triggered
+const searchButton = document.getElementById("search-button");
+// when user clicks, browser calls Eventlistener (function), Eventlistner = function () {XXX}
+searchButton.addEventListener("click", function () {
+  const searchInput = document.getElementById("search-input");
+  // Search user's input to all lower case
+  const searchValue = searchInput.value.toLowerCase();
+  // 2. search user's input from all recipes in array and Find a recipe that includes user's input text
+  // Check if the recipe name (converted to lowercase) contains the search text
+  const matchedRecipes = recipes.filter((recipe) =>
+    recipe.name.toLowerCase().includes(searchValue)
+  );
+  // 3. Show those recipes only
+  // Clear existing recipes from the container before loading new ones
+  container.innerHTML = "";
+
+  if (matchedRecipes.length > 0) {
+    matchedRecipes.forEach(addRecipeInformation);
+  } else {
+    container.innerHTML = `<p>There is no recipe with "${searchInput.value}".</p>`;
+  }
+});
 

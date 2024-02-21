@@ -15,18 +15,21 @@
         <div id="filterButtonDiv">
           <button class="button active" id="all" onclick="filterSelection('all')">All</button>
           <button class="button" id="american" onclick="filterSelection('american')">American</button>
-          <button class="button" id="asian" onclick="filterSelection('Asian')">Asian</button>
+          <button class="button" id="asian" onclick="filterSelection('south east asian')">Asian</button>
           <button class="button" id="italian" onclick="filterSelection('Italian')">italian</button>
         </div>
       </div>
       <div class="sortDiv">
         <h2>Sort recipes</h2>
         <div id="sortButtonDiv">
-          <button class="button" id="alphabetical">Alphabetical</button>
-          <button class="button" id="cooking-time">Cooking Time</button>
+          <button class="button" id="alphabetical" onclick="sortListName()">Alphabetical</button>
+          <button class="button" id="cooking-time" onclick="sortListTime()">Cooking Time</button>
         </div>
       </div>
     </div>
+    <!--Search bar-->
+    <input type="text" id="search-input" placeholder="Search a recipe">
+    <button id="search-button">Search</button>
     <div id="container"></div>
     <script src="script.js"></script>
   </body>

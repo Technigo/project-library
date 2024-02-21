@@ -63,10 +63,9 @@ h1 {
   margin-bottom: 24px;
   padding: 10px;
   background-color: var(--clr_card);
-  border: 2px solid rgb(126, 126, 126);
   border-radius: 5px;
   box-sizing: border-box;
-  box-shadow: 0px 5px 5px rgb(132, 132, 132);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
   text-align: left;
   margin: 5px;
 }
