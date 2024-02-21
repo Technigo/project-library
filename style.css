@@ -1,5 +1,5 @@
 html {
-    background-color: lavenderblush;
+    background-color: #fbf5eb;
     font-family: lato;
 }
 
@@ -26,7 +26,7 @@ html {
     .searchbox {
         float: right;
         margin-top: 20px;
-        padding-right: 90px;
+        padding-right: 50px;
     }
 }
 
@@ -66,13 +66,14 @@ h1 {
     text-align:center;
     font-size: 40px;
     font-family: Lato;
-    color:rgb(101, 72, 72);
+    color:#00AFB9;
 }
 
 #search-input {
     border-radius: 30px;
     border: none;
     padding: 8px;
+
 }
 
 
@@ -85,10 +86,26 @@ h1 {
     padding-right: 40px;
     padding-left: 30px;
 }
-button {
+
+
+.filter-btn {
     border-radius: 30px;
-    background-color:bisque;
-    color: darkmagenta;
+    background-color:#FED9B7;
+    color: #b42465;
+    padding: 10px;
+    margin: 3px;
+    border: none;
+    margin-top: -40px;
+    font-family: 'Lato';
+    font-weight: bold;
+    font-size: 11px;
+    margin-bottom: 13px;
+}
+
+.sort-btn {
+    border-radius: 30px;
+    background-color:#FED9B7;
+    color: #b42465;
     padding: 10px;
     margin: 3px;
     border: none;
@@ -102,13 +119,16 @@ button {
 button:hover{
     border-radius: 30px;
     border: solid;
-    border-color:darkmagenta;
-    padding: 7px;
+    border-color:#00AFB9;
+    margin-left: 1px;
+    margin-right: 1px;
+    transition: all 0.2s ease;
 }
 
 button:focus {
-     background-color:darkmagenta;
-     color:bisque;
+    background-color:#00AFB9;
+    color:bisque;
+    transition: all 0.8s ease;
 }
 
 #container {
@@ -117,12 +137,13 @@ button:focus {
     flex-wrap: wrap;
     gap: 15px;
     margin-top: 30px;
+   
 }
 
 
 .boxes {
-    background-color: rgb(228, 183, 173);
-    width: 250px;
+    background-color: #e2b49d;
+    width: 280px;
     height: auto;
     padding: 20px;
     margin: 20px;
@@ -131,28 +152,74 @@ button:focus {
 }
 
 h2 {
-    font-size: 21px;
+    font-size: 20px;
+
 }
 
 h3 {
     font-size: 14px;
     margin-top: -15px;
-    color: rgb(164, 115, 89);
+    color: #9d4943;
+}
+
+h4 {
+    color: #0081A7;
 }
 
 #book-rating {
-    font-size: 20px;
+    font-size: 17px;
     float: right;
     padding-right: 5px;
-    margin-top: 3px;
+    margin-top: 1px;
 }
 
 .book-image {
-    width: 250px;
+    width: 280px;
     height: auto;
     border-radius: 20px;
 }
 
 p {
     font-size: 12px;
+}
+
+#footer {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background-color: rosybrown;
+    padding-top: 25px;
+    margin: 40px -7px -7px -7px;  
+}
+
+#footer-text {
+    font-size: 14px;
+    text-align: center;
+    font-weight: bold;
+    
+}
+#random-button{
+    color:#b42465;
+    background-color: #FED9B7;
+    border-radius: 30px;
+    padding: 17px;
+    border: none;
+    font-family: 'Lato';
+    font-weight: bold;
+    font-size: 15px;
+    margin-left: 10px;
+    margin-top: 15px;
+}
+
+#random-button:hover{
+    border-radius: 30px;
+    border: solid;
+    border-color:#00AFB9;
+    transition: all 0.2s ease;
+}
+
+#random-button:focus{
+    background-color:#00AFB9;
+    color:#FED9B7;
+    transition: all 0.8s ease;
 }
