@@ -19,6 +19,10 @@ body {
   margin-left: 5%;
 }
 
+h3 {
+  text-align: center;
+}
+
 .recipe-container {
   display: grid;
   grid-template-columns: repeat(1, 1fr);
@@ -39,6 +43,7 @@ body {
   border: 0.5px solid black;
   border-radius: 30px;
   width: 90%;
+  padding-top: 2px;
 }
 
 .forms-header {
@@ -77,6 +82,8 @@ body {
 @media (min-width: 1000px) {
   .recipe-container {
     grid-template-columns: repeat(4, 1fr);
+    margin-left: 40px;
+    margin-right: 40px;
   }
   .forms-header {
     flex-direction: row;
@@ -84,5 +91,8 @@ body {
   }
   img {
     border-radius: 20px;
+  }
+  h1 {
+    margin-left: 40px;
   }
 }
