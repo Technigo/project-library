@@ -71,7 +71,8 @@ h2 {
 }
 
 .btn-filter,
-.btn-sort {
+.btn-sort,
+.btn-random {
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
@@ -101,6 +102,12 @@ button:hover {
 .btn-sort button:active,
 .btn-sort button:focus {
   background-color: #436850;
+  color: white;
+}
+
+.btn-random button:active,
+.btn-random button:focus {
+  background-color: #12372a;
   color: white;
 }
 

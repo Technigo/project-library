@@ -191,7 +191,9 @@ console.log(genreBtns);
 const cardCollection = document.getElementById("card-grid");
 console.log(cardCollection);
 console.log(cardCollection.innerHTML);
-const fictionBtn = document.getElementById("fiction");
+const ascendingBtn = document.getElementById("ascending");
+const descendingBtn = document.getElementById("descending");
+const randomBtn = document.getElementById("random");
 // Global Variables
 
 // Functions
@@ -219,20 +221,23 @@ showBooks(books);
 
 for (let btn of genreBtns) {
   btn.addEventListener("click", (event) => {
-    let filteredBooks = books.filter((obj) => {
-      return obj.genre === event.target.value;
-    });
+    let filteredBooks = books.filter((obj) => obj.genre === event.target.value);
     showBooks(filteredBooks);
   });
 }
+ascendingBtn.addEventListener("click", () => {
+  const ascendingBooks = books.sort((a, b) => a.rating - b.rating);
+  showBooks(ascendingBooks);
+});
+descendingBtn.addEventListener("click", () => {
+  const descendingBooks = books.sort((a, b) => b.rating - a.rating);
+  showBooks(descendingBooks);
+});
 
-//Eventlisteners
+// index 0 - 17
+console.log(books.length);
 
-// genreBtns.forEach((btn) => {
-//   btn.addEventListener("click", (event) => {
-//     let filteredBooks = books.filter((obj) => {
-//       return obj.genre === event.target.value;
-//     });
-//     showBooks(filteredBooks);
-//   });
-// });
+randomBtn.addEventListener("click", () => {
+  let randomNum = Math.floor(Math.random() * 18);
+  showBooks([books[randomNum]]);
+});
