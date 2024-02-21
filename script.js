@@ -223,8 +223,10 @@ const recipes = [
 ];
 
 // Function to render recipes
-const renderRecipes = () => {
+const renderRecipes = (recipes) => {
   const recipeSection = document.getElementById("recipe-section");
+  // Clear recipe section before adding recipes
+  recipeSection.innerHTML = "";
 
   // Loop through each recipe in the recipes array
   recipes.forEach((recipe) => {
@@ -266,14 +268,37 @@ const renderRecipes = () => {
     });
     recipeDiv.appendChild(recipeIngredientsList);
 
-
     // Append recipeDiv to container
     recipeSection.appendChild(recipeDiv);
   });
 };
 
+// Function to filter recipes by cuisine type
+const filterRecipes = (cuisineType) => {
+  const filteredRecipes = recipes.filter((recipe) => {
+    return recipe.cuisineType.includes(cuisineType);
+  });
+  renderRecipes(filteredRecipes);
+};
+
+const allBtn = document.getElementById("all-btn");
+allBtn.onclick = () => renderRecipes(recipes);
+
+const italyBtn = document.getElementById("italy-btn");
+italyBtn.onclick = () => filterRecipes("italian");
+
+const usaBtn = document.getElementById("usa-btn");
+usaBtn.onclick = () => filterRecipes("american");
+
+const chinaBtn = document.getElementById("china-btn");
+chinaBtn.onclick = () => filterRecipes("chinese");
+
 // Call the renderRecipes function when the website is loaded
-window.onload = renderRecipes;
+// window.onload = () => {
+//   renderRecipes(recipes);
+// };
+
+window.onload = () => renderRecipes(recipes);
 
 //We should listen for a click or similar on the filter-buttons and that should show the expected cuisine-element as a result
 //cuisineType: "Italian"
@@ -293,3 +318,19 @@ window.onload = renderRecipes;
 // );
 
 // console.log(filteredRecipes);
+
+// renderRecipes(alla recept)
+// klickar på filter knapp
+// Filtrera recept
+// renderRecipes(filterarde recept)
+
+// klicka på filter knapp
+// filtrera recept
+// spara filtrerade recept i global variabel
+// renderRecipes
+
+// Globalt:
+// let renderedRecipes;
+//
+// I renderRecipes:
+// renderedRecipes = recipes;
