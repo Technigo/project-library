@@ -201,7 +201,7 @@ const books = [
 
 
 
-bookItem.innerHTML +=`
+/* bookItem.innerHTML +=`
     <img src="./books-images/the-great-gatsby.jpg" class="bookImage" alt="gatsby" />
     
     <div class="bookChild">
@@ -225,37 +225,49 @@ bookGenre.innerHTML = "Genre: " + books[0].genre
 bookRating.innerHTML = "Rating: " +books[0].rating
 bookAuthor.innerHTML = "Author: " + books[0].author
 bookYear.innerHTML = "Year: " +books[0].year
-bookDescription.innerHTML = "Description:<br />" + books[0].description
+bookDescription.innerHTML = "Description:<br />" + books[0].description */
+
+
+
 
 
 const printBooks=()=>{
-  for(let i=0;i<4;i++){
-    bookItem.innerHTML +=`
-      <div class="bookChild">
-        <p id="bookTitle"></p>
-      </div>
-
-      <div class="bookChild">
-        <p id="bookGenre"></p>
-        <p id="bookRating"></p>
-      </div>
-
-      <div class="bookChild">
-        <p id="bookAuthor"></p>
-        <p id="bookYear"></p>
-        <p id="bookDescription"></p>
-      </div>
+  books.forEach(book=>{
+    library.innerHTML +=`
+    <div class="bookItem1" id="bookItem1">  
+    </div>
     `
-    bookTitle.innerHTML = JSON.stringify(books[0].title)
-    bookGenre.innerHTML = JSON.stringify(books[0].genre)
-    bookRating.innerHTML = JSON.stringify(books[0].rating)
-    bookAuthor.innerHTML = JSON.stringify(books[0].author)
-    bookYear.innerHTML = JSON.stringify(books[0].year)
-    bookDescription.innerHTML = JSON.stringify(books[0].description)
-      
-  };
 
-}
+    bookItem1.innerHTML +=`
+    <div class="bookChild">
+      <img src="./books-images/the-great-gatsby.jpg" class="bookImage" alt="gatsby" />
+      <h3 id="bookTitle"></h3>
+    </div>
+
+    <div class="bookChild">
+      <p id="bookGenre"></p>
+      <p id="bookRating"></p>
+    </div>
+
+    <div class="bookChild">
+      <p id="bookAuthor"></p>
+      <p id="bookYear"></p>
+      <p id="bookDescription"></p>
+    </div>
+    `
+    
+    bookTitle.innerHTML = book.title
+    bookGenre.innerHTML = "Genre: " + book.genre
+    bookRating.innerHTML = "Rating: " +book.rating
+    bookAuthor.innerHTML = "Author: " + book.author
+    bookYear.innerHTML = "Year: " +book.year
+    bookDescription.innerHTML = "Description:<br />" + book.description
+
+  })
+}   
+
+
+printBooks()
 
 
 
@@ -263,13 +275,6 @@ const printBooks=()=>{
 
 
 
-
-bookItem1.innerHTML = JSON.stringify(books[1]);
-bookItem2.innerHTML = JSON.stringify(books[2]);
-bookItem3.innerHTML = JSON.stringify(books[3]);
-
-bookImage.innerHTML= JSON.stringify(books[0].image);
-bookTitle.innerHTML = JSON.stringify(books[0].title);
   
  
 
