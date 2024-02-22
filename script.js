@@ -374,7 +374,7 @@ sortAZBtn.addEventListener("click", (event) => {
 sortZABtn.addEventListener("click", (event) => {
   removeBooks();
   sortButtons.forEach((btn) => btn.classList.remove("clicked-sort"));
-  sortAZBtn.classList.add("clicked-sort");
+  sortZABtn.classList.add("clicked-sort");
   const sortedBooks = nowDispBooks.sort((a, b) =>
     b.title.localeCompare(a.title)
   );
