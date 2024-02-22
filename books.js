@@ -287,9 +287,11 @@ genreBtns.forEach((genreBtn) => {
 });
 //
 //Genre Filter Function
-fiction.addEventListener("click", (event) => {
-  const filteredBooks = getGenre(event.target.innerHTML);
-  bookCards(filteredBooks);
+genreBtns.slice(1, 7).forEach((genreBtn) => {
+  genreBtn.addEventListener("click", (event) => {
+    const filteredBooks = getGenre(event.target.innerHTML);
+    bookCards(filteredBooks);
+  });
 });
 
 sortBtns.forEach((sortBtn) => {
