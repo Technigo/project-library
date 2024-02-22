@@ -264,12 +264,12 @@ sort.innerHTML +=`
   </div>
 `
 document.getElementById("rating").addEventListener("click",()=>{
-  const ratingBooks = books.sort((a,b)=>(a.rating-b.rating))
+  const ratingBooks = books.sort((a,b)=>(b.rating-a.rating))
   printBooks(ratingBooks)  
 })
 
 document.getElementById("year").addEventListener("click",()=>{
-  const yearBooks = books.sort((a,b)=>(a.year-b.year))
+  const yearBooks = books.sort((a,b)=>(b.year-a.year))
   printBooks(yearBooks)  
 })
 
@@ -278,32 +278,72 @@ document.getElementById("year").addEventListener("click",()=>{
 genre.innerHTML +=`
   <div class="sortTitle" id="sortTitle" >Filter on genre</div>
   <div class="genreButton" id="genreButton">
-    <button id="all" >All</button>
-    <button id="fiction" >Fiction</button>
-    <button id="fantasy" >Fantasy</button>
-    <button id="adventure">Adventure</button>
-    <button id="more" >More ></button>
+    <button id="all" value="all">All</button>
+    <button id="fiction" value="Fiction">Fiction</button>
+    <button id="fantasy" value="Fantasy" >Fantasy</button>
+    <button id="adventure" value="Adventure">Adventure</button>
+    <select id="more">
+      <option value="More">More</option>
+      <option id="sciFi" value="Science Fiction">Science Fiction</option>
+      <option id="horror" value="Horror">Horror</option>
+      <option id="mystery" value="Mystery">Mystery</option>
+      <option id="dystopian" value="Dystopian">Dystopian</option>
+    </select>
   </div>
 `
-document.getElementById("all").addEventListener("click",()=>{
+
+// use a event.target.value instead of creating each filter.
+document.getElementById("genreButton").addEventListener("click",(event)=>{
+  const filteredBooks = event.target.value
+  if (filteredBooks==="all"){
+    document.getElementById("all").addEventListener("click",()=>{
+      const allBooks = books
+      printBooks(allBooks)  
+    })
+  } else {
+    console.log(filteredBooks)
+    const filteredButtonBooks = books.filter((book)=>book.genre===filteredBooks)
+    printBooks(filteredButtonBooks) 
+  }    
+})
+
+/* document.getElementById("all").addEventListener("click",()=>{
   const allBooks = books
   printBooks(allBooks)  
-})
-
-document.getElementById("fantasy").addEventListener("click",()=>{
-  const fantasyBooks = books.filter((book)=>book.genre==="Fantasy")
-  printBooks(fantasyBooks)  
-})
-
-document.getElementById("adventure").addEventListener("click",()=>{
-  const adventureBooks = books.filter((book)=>book.genre==="Adventure")
-  printBooks(adventureBooks)  
 })
 
 document.getElementById("fiction").addEventListener("click",()=>{
   const fictionBooks = books.filter((book)=>book.genre==="Fiction")
   printBooks(fictionBooks)  
 })
+
+document.getElementById("fantasy").addEventListener("click",()=>{
+  const fantasyBooks = books.filter((book)=>book.genre==="Fantasy")
+  printBooks(fantasyBooks)  
+}) 
+
+document.getElementById("adventure").addEventListener("click",()=>{
+  const adventureBooks = books.filter((book)=>book.genre==="Adventure")
+  printBooks(adventureBooks)  
+}) */
+
+
+
+document.getElementById("more").addEventListener("change",(event)=>{
+  const genreFilter = event.target.value;
+  if(genreFilter==="More"){
+    const alBooks = books;
+    printBooks(alBooks);
+  } else {
+    const filterSelectedBooks = books.filter((book)=>book.genre===genreFilter);
+    printBooks(filterSelectedBooks); 
+  } 
+})
+
+
+
+
+
 
 
 
