@@ -7,26 +7,30 @@
     <title>Project Library</title>
   </head>
   <body>
-    <section class="box">
-      <h1>Project Library</h1>
-      <label for="genre-filter">Filter by genre:</label>
-      <select id="genre-filter">
-        <option value="all">All</option>
-        <option value="fiction">Fiction</option>
-        <option value="science fiction">Science fiction</option>
-        <option value="fantasy">Fantasy</option>
-        <option value="horror">Horror</option>
-        <option value="mystery">Mystery</option>
-        <option value="dystopian">Dystopian</option>
-      </select>
-    </section>
-    <button id="random-book-btn">Random book</button>
+    <div class="container">
+      <section class="box">
+        <h1>Library February</h1>
+        <label for="genre-filter">Filter by genre:</label>
+        <select id="genre-filter">
+          <option value="all">All</option>
+          <option value="fiction">Fiction</option>
+          <option value="science fiction">Science fiction</option>
+          <option value="fantasy">Fantasy</option>
+          <option value="horror">Horror</option>
+          <option value="mystery">Mystery</option>
+          <option value="dystopian">Dystopian</option>
+        </select>
+      </section>
+    </div>
 
-    <button id="sortYearDescendingButton">Sort by year (newest first)</button>
-    <button id="sortYearAscendingButton">Sort by year (oldest first)</button>
-
-    <div id="books-container"></div>
-
+    <div class="button-container">
+      <button id="random-book-btn">Random book</button>
+      <button id="sortYearDescendingButton">Sort by year (newest first)</button>
+      <button id="sortYearAscendingButton">Sort by year (oldest first)</button>
+    </div>
+    
+      <div id="books-container"></div>
+    </div>
     <script src="script.js"></script>
   </body>
 </html>

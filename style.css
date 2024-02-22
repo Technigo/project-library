@@ -1,10 +1,89 @@
 body {
-background-color: bisque;    
-font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-}
+    background-color: beige; 
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    }
+    
+    .container {
+        background-color: rgb(56, 70, 55);
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows:auto auto auto;
+    }
+    
+    .box {
+        background-color: rgb(27, 56, 22);
+        color: white;
+        padding: 10px;
+        text-align: center;
+        height: 200px;
+    }
+   
+    h1{
+        font-size: 50px;
+        color: white;
+    }
 
-h1{
+    h2{
+       color: white; 
+    }
+
+    h3{
+        color: white;
+    }
+
+    p{
+        color: white;
+    }
+
+    label {
+        font-size: 20px;
+        padding: 15px;
+    }
+
+    select{
+        font-size: 15px;
+        max-width: 100%;
+        border-radius: 10px;
+        margin: 5px; 
+        
+    }
+    
+    option{
+        font-size: 20px;
+        max-width: 100%;
+    }
+
+
+  button {
+        border-radius: 10px;
+        margin: 5px;
+        
+  }
+  .button-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100px;
+
+  }
+
+
+  #books-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 10px;
+    background-color: rgb(160, 172, 152);
+    padding-top: 30px;
+    padding-left: 20px;
+    padding-right: 20px;
+    
+  }
+
+  #books-container img{
+    max-width: 200px;
+    height: 200px;
+    border-radius: 5px;
     display: flex;
-    padding: 10px;
-
-}
+    flex-wrap: wrap;
+    margin-top: 10px;
+  }

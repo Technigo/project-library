@@ -1,5 +1,5 @@
 //DOM
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", () => {
   const genreFilter = document.getElementById("genre-filter");
   const randomBookBtn = document.getElementById("random-book-btn");
   const booksContainer = document.getElementById("books-container");
@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const sortYearAscendingButton = document.getElementById(
     "sortYearAscendingButton"
   );
-
+  // Book objects
   const books = [
     {
       title: "The Great Gatsby",
@@ -192,7 +192,7 @@ document.addEventListener("DOMContentLoaded", function () {
       image: "./books-images/unknown.jpg",
     },
   ];
-
+  // Book information
   function displayBooks(books) {
     booksContainer.innerHTML = "";
 
@@ -212,8 +212,8 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
   displayBooks(books);
-
-  genreFilter.addEventListener("change", function () {
+  // Filter for book genre
+  genreFilter.addEventListener("change", () => {
     const selectedGenre = genreFilter.value;
     let filteredBooks = [];
     if (selectedGenre === "all") {
@@ -225,12 +225,13 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     displayBooks(filteredBooks);
   });
-  randomBookBtn.addEventListener("click", function () {
+  // Button for chosing random book
+  randomBookBtn.addEventListener("click", () => {
     const randomIndex = Math.floor(Math.random() * books.length);
     const randomBook = books[randomIndex];
     displayRandomBook(randomBook);
   });
-
+  // Information about random book
   function displayRandomBook(book) {
     const randomBookElement = document.createElement("div");
     randomBookElement.innerHTML = `
@@ -242,12 +243,11 @@ document.addEventListener("DOMContentLoaded", function () {
     <h3 class="genre">${book.genre}</h3>
     <h3 class="rating">${book.rating}</h3>
     <h3 class="description">${book.description}</h3>
-  
   `;
     booksContainer.innerHTML = "";
     booksContainer.appendChild(randomBookElement);
   }
-
+  // Sort book by year
   function sortByYearDescending(books) {
     return books.slice().sort((a, b) => b.year - a.year);
   }
@@ -255,12 +255,12 @@ document.addEventListener("DOMContentLoaded", function () {
   function sortByYearAscending(books) {
     return books.slice().sort((a, b) => a.year - b.year);
   }
-
-  sortYearDescendingButton.addEventListener("click", function () {
+  // Button for sort books by year
+  sortYearDescendingButton.addEventListener("click", () => {
     const sortedBooks = sortByYearDescending(books);
     displayBooks(sortedBooks);
   });
-  sortYearAscendingButton.addEventListener("click", function () {
+  sortYearAscendingButton.addEventListener("click", () => {
     const sortedBooks = sortByYearAscending(books);
     displayBooks(sortedBooks);
   });
