@@ -1,0 +1,233 @@
+html {
+    background-color: #fbf5eb;
+    font-family: 'Kumbh Sans';
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/*Media query for very big screens to make sure the title and search box works well together*/
+@media (min-width: 601px){
+    .header {
+        justify-content: space-between;
+    }
+
+    h1 {
+        padding-left: 30px;
+        padding-top: 30px;  
+    }
+
+    .searchbox {
+        float: right;
+        margin-top: 20px;
+        padding-right: 50px;
+    }
+}
+
+
+/*Media query for big screens to make sure the title and search box works well together*/
+@media (min-width: 533px) AND (max-width: 600px){
+    .header {
+        justify-content: space-between;
+    }
+
+    h1 {
+        padding-left: 30px;
+        padding-top: 30px;  
+    }
+
+    .searchbox {
+        float: right;
+        margin-top: 20px;
+        padding-right: 30px;
+    }
+}
+
+
+/*Media query for medium screens to make sure the title and search box works well together*/
+@media (min-width: 450px) AND (max-width: 532px){
+    .header {
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+}
+
+
+h1 {
+    padding-right:auto;
+    padding-left: auto;
+    text-align:center;
+    font-size: 40px;
+    color:#00AFB9;
+}
+
+#search-input {
+    border-radius: 30px;
+    border: none;
+    padding: 8px 8px 8px 25px;
+    font-family: 'Kumbh Sans';
+}
+
+.wrapper {
+    display: flex;
+}
+
+#filter {
+    padding-right: 40px;
+    padding-left: 30px;
+}
+
+.filter-btn {
+    border-radius: 30px;
+    background-color:#ffe5b3;
+    color: #b42465;
+    padding: 10px;
+    margin: 3px;
+    border: none;
+    margin-top: -40px;
+    font-family: 'Kumbh Sans';
+    font-weight: bold;
+    font-size: 11px;
+    margin-bottom: 13px;
+    box-shadow: 2px 2px 2px rgba(0, 162, 255, 0.2);
+}
+
+.sort-btn {
+    border-radius: 30px;
+    background-color:#ffe5b3;
+    color: #b42465;
+    padding: 10px;
+    margin: 3px;
+    border: none;
+    margin-top: -40px;
+    font-family: 'Kumbh Sans';
+    font-weight: bold;
+    font-size: 11px;
+    margin-bottom: 13px;
+    box-shadow: 2px 2px 2px #00a2ff33;
+}
+
+button:hover {
+    border-radius: 30px;
+    border: solid;
+    border-color:#00AFB9;
+    margin-left: 1px;
+    margin-right: 1px;
+    transition: all 0.2s ease;
+}
+
+button:focus {
+    background-color:#00AFB9;
+    color:#ffe5b3;
+    transition: all 0.8s ease;
+}
+
+#container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+
+.boxes {
+    background-color: #e2b49d;
+    width: 280px;
+    height: auto;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 20px;
+    box-shadow: 7px 7px 7px rgba(38, 36, 36, 0.3);
+    
+}
+
+.boxes:hover {
+    border-radius: 20px;
+    border: solid;
+    border-width: 4px;
+    border-color:rosybrown;
+    transition: all 0.2s ease;
+    box-shadow: 13px 13px 13px rgba(38, 36, 36, 0.4);
+}
+
+h2 {
+    font-size: 20px;
+}
+
+h3 {
+    font-size: 15px;
+    margin-top: -15px;
+    color: #9d4943;
+}
+
+h4 {
+    color: #0081A7;
+}
+
+#book-rating {
+    font-size: 17px;
+    float: right;
+    padding-right: 5px;
+    margin-top: 1px;
+    color: #1888a4;
+}
+
+.book-image {
+    width: 280px;
+    height: auto;
+    border-radius: 20px;
+}
+
+p {
+    font-size: 13px;
+}
+
+#footer {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background-color: rosybrown;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    margin: 40px -7px -7px -7px;  
+}
+
+#footer-text {
+    font-size: 14px;
+    text-align: center;
+    font-weight: bold;
+}
+
+#random-button {
+    color:#b42465;
+    background-color: #ffe5b3;
+    border-radius: 30px;
+    padding: 17px;
+    border: none;
+    font-family: 'Kumbh Sans';
+    font-weight: bold;
+    font-size: 14px;
+    margin-left: 10px;
+    margin-top: 15px;
+    box-shadow: 3px 3px 3px rgba(159, 49, 58, 0.4);
+}
+
+#random-button:hover {
+    border-radius: 30px;
+    border: solid;
+    border-color:#00AFB9;
+    transition: all 0.2s ease;
+}
+
+#random-button:focus {
+    background-color:#00AFB9;
+    color:#FED9B7;
+    transition: all 0.8s ease;
+}

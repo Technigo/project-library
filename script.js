@@ -1,7 +1,4 @@
-/*Here we have created two different arrays that you can work with if you want.
-If you choose to create your own arrays with elements, just make sure that some
-of the properties make sense to filter on, and some to sort on.*/
-
+// Array with books
 const books = [
   {
     title: 'The Great Gatsby',
@@ -43,15 +40,15 @@ const books = [
       'A timeless romance novel that examines societal expectations and the misunderstandings that can arise from pride and prejudice.',
     image: './books-images/pride-and-prejudice.jpg'
   },
-  {
-    title: 'The Catcher in the Rye',
-    author: 'J.D. Salinger',
-    year: 1951,
+   {
+    title: "Looking for Alaska",
+    author: 'John Green',
+    year: 2005,
     genre: 'Fiction',
-    rating: 4,
+    rating: 4.35,
     description:
-      'Narrated by the teenage Holden Caulfield, the novel explores themes of alienation and the search for authenticity.',
-    image: './books-images/unknown.jpg'
+      "The story follows Miles Halter's journey as he navigates the complexities of teenage life, friendship, love, and loss at a boarding school in Alabama, particularly his obsession with the enigmatic Alaska Young.",
+    image: './books-images/lookingforalaska.jpg'
   },
   {
     title: 'The Hobbit',
@@ -64,14 +61,14 @@ const books = [
     image: './books-images/the-hobbit.jpg'
   },
   {
-    title: "Harry Potter and the Sorcerer's Stone",
+    title: 'Harry Potter',
     author: 'J.K. Rowling',
     year: 1997,
     genre: 'Fantasy',
     rating: 4.7,
     description:
       'The first book in the beloved Harry Potter series, it introduces readers to the magical world of Hogwarts and the young wizard Harry Potter.',
-    image: "./books-images/harry-potter-and-the-sorcerer'.jpg"
+    image: './books-images/harry-potter-and-the-sorcerer.jpg'
   },
   {
     title: 'Moby-Dick',
@@ -84,7 +81,7 @@ const books = [
     image: './books-images/moby-dick.jpg'
   },
   {
-    title: 'The Lord of the Rings: The Fellowship of the Ring',
+    title: 'The Lord of the Rings',
     author: 'J.R.R. Tolkien',
     year: 1954,
     genre: 'Fantasy',
@@ -94,17 +91,87 @@ const books = [
     image: './books-images/the-lord-of-the-rings.jpg'
   },
   {
-    title: 'The Shining',
-    author: 'Stephen King',
-    year: 1977,
-    genre: 'Horror',
-    rating: 4.3,
-    description:
-      "A psychological horror novel that tells the story of the Torrance family's terrifying experiences at the haunted Overlook Hotel.",
-    image: './books-images/unknown.jpg'
+    title: "The Catcher in the Rye",
+    author: "J.D. Salinger",
+    year: 1951,
+    genre: "Fiction",
+    rating: 4.0,
+    description: "Narrated by the teenage Holden Caulfield, the novel explores themes of alienation and the search for authenticity.",
+    image: './books-images/catcherintherye.jpg'
   },
   {
-    title: 'The Chronicles of Narnia: The Lion, the Witch and the Wardrobe',
+    title: 'Dracula',
+    author: 'Bram Stoker',
+    year: 1897,
+    genre: 'Fantasy',
+    rating: 4.3,
+    description:
+      "A story following Professor Van Helsing as he tries to stop the centuries-old vampire Count Dracula, as he seeks to spread his undead curse across Victorian England.",
+    image: './books-images/dracula.jpg'
+  },
+  {
+    title: 'King of Scars',
+    author: 'Leigh Bardugo',
+    year: 2019,
+    genre: 'Fantasy',
+    rating: 3.8,
+    description:
+      'Tells the tale of Nikolai Lantsov as he grapples with newfound powers and political intrigue in a kingdom plagued by dark magic.',
+    image: './books-images/kingofscars.jpg'
+  },
+  {
+    title: 'Never Let Me Go',
+    author: 'Kazuo Ishiguro',
+    year: 2005,
+    genre: 'Science Fiction',
+    rating: 4.25,
+    description:
+      'Follows the poignant lives of clones raised for organ donation as they navigate love, friendship, and the meaning of their existence.',
+    image: './books-images/neverletmego.jpg'
+  },
+  {
+    title: 'Frankenstein',
+    author: 'Mary Shelley',
+    year: 1818,
+    genre: 'Fantasy',
+    rating: 4.3,
+    description:
+      "Delves into themes of creation, ambition, and the consequences of playing god through the story of Victor Frankenstein and his monstrous creation.",
+    image: './books-images/frankenstein.jpg'
+  },
+  {
+    title: 'A Little Princess',
+    author: 'Frances Hodgson Burnett',
+    year: 1905,
+    genre: 'Fiction',
+    rating: 4.1,
+    description:
+      'A gripping story following Sara Crewe, a young girl who maintains her dignity and kindness despite facing adversity and hardship after her father´s fortune is lost.',
+    image: './books-images/alittleprincess.jpg'
+  },
+  {
+    title: 'Winnie the Pooh',
+    author: 'A. A. Milne',
+    year: 1926,
+    genre: 'Adventure',
+    rating: 4,
+    description:
+      "In the Hundred Acre Wood, Winnie the Pooh and his friends embark on whimsical adventures filled with friendship, discovery, and a touch of silliness.",
+    image: './books-images/winniethepooh.jpg'
+  },
+
+  {
+    title: 'The Picture of Dorian Gray',
+    author: 'Oscar Wilde',
+    year: 1890,
+    genre: 'Fiction',
+    rating: 4.12,
+    description:
+      'Examines the corrupting influence of vanity and hedonism as a portrait ages while its subject remains youthful.',
+    image: './books-images/doriangray.jpg'
+  },
+  {
+    title: 'The Chronicles of Narnia',
     author: 'C.S. Lewis',
     year: 1950,
     genre: 'Fantasy',
@@ -112,295 +179,130 @@ const books = [
     description:
       'The first book in the Chronicles of Narnia series, it follows the adventures of children who discover the magical land of Narnia.',
     image: './books-images/the-chronicles-of-narnia.jpg'
-  },
-  {
-    title: 'The Da Vinci Code',
-    author: 'Dan Brown',
-    year: 2003,
-    genre: 'Mystery',
-    rating: 3.8,
-    description:
-      'A gripping mystery thriller that follows Harvard symbologist Robert Langdon as he unravels the secrets of the Da Vinci Code.',
-    image: './books-images/unknown.jpg'
-  },
-  {
-    title: 'The Alchemist',
-    author: 'Paulo Coelho',
-    year: 1988,
-    genre: 'Fiction',
-    rating: 4.25,
-    description:
-      'A philosophical novel that tells the story of Santiago, a shepherd boy, on his quest to discover his personal legend.',
-    image: './books-images/unknown.jpg'
-  },
-  {
-    title: 'The Hunger Games',
-    author: 'Suzanne Collins',
-    year: 2008,
-    genre: 'Science Fiction',
-    rating: 4.3,
-    description:
-      "In a dystopian future, Katniss Everdeen becomes a symbol of rebellion when she volunteers to take her sister's place in the brutal Hunger Games.",
-    image: './books-images/unknown.jpg'
-  },
-  {
-    title: 'The Girl with the Dragon Tattoo',
-    author: 'Stieg Larsson',
-    year: 2005,
-    genre: 'Mystery',
-    rating: 4.1,
-    description:
-      'A gripping mystery novel featuring investigative journalist Mikael Blomkvist and the enigmatic hacker Lisbeth Salander.',
-    image: './books-images/unknown.jpg'
-  },
-  {
-    title: 'The Road',
-    author: 'Cormac McCarthy',
-    year: 2006,
-    genre: 'Dystopian',
-    rating: 4,
-    description:
-      "Set in a post-apocalyptic world, it follows a father and son's harrowing journey to survive and find safety.",
-    image: './books-images/unknown.jpg'
-  },
-  {
-    title: "The Hitchhiker's Guide to the Galaxy",
-    author: 'Douglas Adams',
-    year: 1979,
-    genre: 'Science Fiction',
-    rating: 4.35,
-    description:
-      "A comedic science fiction series that follows the misadventures of Arthur Dent after Earth's destruction.",
-    image: './books-images/unknown.jpg'
-  },
-  {
-    title: 'The Giver',
-    author: 'Lois Lowry',
-    year: 1993,
-    genre: 'Dystopian',
-    rating: 4.12,
-    description:
-      'A dystopian novel set in a seemingly perfect society where young Jonas discovers the dark truth beneath the surface.',
-    image: './books-images/unknown.jpg'
   }
 ]
 
-const recipes = [
-  {
-    name: 'Individual vegetarian lasagnes',
-    cuisineType: ['italian'],
-    ingredients: [
-      '1.2 kg cherry tomatoes',
-      '5 sprigs of fresh thyme',
-      'extra virgin olive oil',
-      '2 shallots',
-      '2 cloves of garlic',
-      '500 g baby spinach',
-      '8-12 fresh or dried lasagne sheets',
-      '350 g ricotta cheese',
-      'WHITE SAUCE',
-      '600 ml milk',
-      '25 g unsalted butter',
-      '2 heaped tablespoons flour',
-      '150 g vegetarian sharp, mature cheese',
-      '100 g mozzarella'
-    ],
-    source: 'Jamie Oliver',
-    totalTime: 130,
-    url: 'http://www.jamieoliver.com/recipes/vegetables-recipes/individual-vegetarian-lasagnes/',
-    image: './recipe-images/individual-vegetarian-lasagnes.jpg'
-  },
-  {
-    name: 'Vegetarian Stir-Fried Garlic Scape',
-    cuisineType: ['Balanced'],
-    ingredients: [
-      '8 oz. garlic scapes',
-      '3 oz. baby corn',
-      '3 oz. carrots',
-      '1 oz. dried shiitake mushrooms',
-      '1 clove of garlic sliced thinly',
-      '3 slices of fresh ginger root',
-      '2 tablespoons vegetable oil',
-      '1/4 cup shaoxing cooking wine',
-      '1/4 vegetarian stock or water',
-      '1 tablespoon light soy sauce',
-      '1 teaspoon sugar',
-      '1 teaspoon cornstarch',
-      '1/4 teaspoon ground white pepper'
-    ],
-    source: 'Red Cook',
-    totalTime: null,
-    url: 'http://redcook.net/2010/06/16/garlic-scape-an-off-menu-treat/',
-    image: './recipe-images/vegetarian-stir-fried-garlic-s.jpg'
-  },
-  {
-    name: 'Cheat’s cheesy focaccia',
-    cuisineType: ['Italian'],
-    ingredients: [
-      '500g pack bread mix',
-      '2 tbsp olive oil , plus a little extra for drizzling',
-      '25g parmesan (or vegetarian alternative), grated',
-      '75g dolcelatte cheese (or vegetarian alternative)'
-    ],
-    source: 'BBC Good Food',
-    totalTime: 40,
-    url: 'https://www.bbcgoodfood.com/recipes/cheats-cheesy-focaccia',
-    image: './recipe-images/cheat’s-cheesy-focaccia.jpg'
-  },
-  {
-    name: "Vegetarian Shepherd's Pie",
-    cuisineType: ['Balanced', 'High-Fiber'],
-    ingredients: [
-      '2 tablespoons extra-virgin olive oil',
-      '1 large onion, finely diced',
-      '2 carrots, peeled and thinly sliced',
-      '2 celery stalks, thinly sliced',
-      '10 ounces cremini mushrooms, trimmed and sliced',
-      '1 tablespoon tomato paste',
-      "1 tablespoon vegetarian Worcestershire sauce, such as Annie's Naturals",
-      '1 dried bay leaf',
-      '1 cup French green lentils, picked over',
-      'Kosher salt and freshly ground pepper',
-      '1 cup frozen peas',
-      '2 pounds Yukon Gold potatoes, scrubbed and cut into 1 1/2-inch pieces',
-      '4 cloves garlic',
-      '4 tablespoons unsalted butter',
-      '1/2 cup whole milk, warmed'
-    ],
-    source: 'Martha Stewart',
-    totalTime: 120,
-    url: 'https://www.marthastewart.com/1535235/vegetarian-shepherds-pie',
-    image: "./recipe-images/vegetarian-shepherd's-pie.jpg"
-  },
-  {
-    name: 'Chicken Paprikash',
-    cuisineType: ['Low-Carb'],
-    ingredients: [
-      '640 grams chicken - drumsticks and thighs ( 3 whole chicken legs cut apart)',
-      '1/2 teaspoon salt',
-      '1/4 teaspoon black pepper',
-      '1 tablespoon butter – cultured unsalted (or olive oil)',
-      '240 grams onion sliced thin (1 large onion)',
-      '70 grams Anaheim pepper chopped (1 large pepper)',
-      '25 grams paprika (about 1/4 cup)',
-      '1 cup chicken stock',
-      '1/2 teaspoon salt',
-      '1/2 cup sour cream',
-      '1 tablespoon flour – all-purpose'
-    ],
-    source: 'No Recipes',
-    totalTime: 80,
-    url: 'http://norecipes.com/recipe/chicken-paprikash/',
-    image: './recipe-images/chicken-paprikash.jpg'
-  },
-  {
-    name: 'Baked Chicken',
-    cuisineType: ['american'],
-    ingredients: [
-      '6 bone-in chicken breast halves, or 6 chicken thighs and wings, skin-on',
-      '1/2 teaspoon coarse salt',
-      '1/2 teaspoon Mrs. Dash seasoning',
-      '1/4 teaspoon freshly ground black pepper'
-    ],
-    source: 'Martha Stewart',
-    totalTime: 90,
-    url: 'http://www.marthastewart.com/318981/baked-chicken',
-    image: './recipe-images/baked-chicken.jpg'
-  },
-  {
-    name: 'Deep Fried Fish Bones',
-    cuisineType: ['south east asian'],
-    ingredients: ['8 small whiting fish or smelt', '4 cups vegetable oil'],
-    source: 'Serious Eats',
-    totalTime: 31,
-    url: 'http://www.seriouseats.com/recipes/2011/03/deep-fried-fish-bones-recipe.html',
-    image: './recipe-images/deep-fried-fish-bones.jpg'
-  },
-  {
-    name: 'Burnt-Scallion Fish',
-    cuisineType: ['chinese'],
-    ingredients: [
-      '2 bunches scallions',
-      '8 tbsp. butter',
-      '2 8-oz. fish filets'
-    ],
-    source: 'Saveur',
-    totalTime: 70,
-    url: 'http://www.saveur.com/article/Recipes/Burnt-Scallion-Fish',
-    image: './recipe-images/fish-dish.jpg'
-  },
-  {
-    name: 'Curry-Crusted Fish',
-    cuisineType: ['south east asian'],
-    ingredients: [
-      '3 slices bread , about 85g/3oz in total',
-      '1 lime',
-      '1.0 tbsp Korma curry paste',
-      '4 thick white fish fillets'
-    ],
-    source: 'BBC Good Food',
-    totalTime: 80,
-    url: 'http://www.bbcgoodfood.com/recipes/4717/',
-    image: './recipe-images/fish-dish.jpg'
-  },
-  {
-    name: 'Meat Stock',
-    cuisineType: 'american',
-    ingredients: [
-      '2.5 pounds beef marrow bones',
-      '1 large onion, quartered',
-      '2 carrots, sliced',
-      '1 leek, cleaned and sliced',
-      '2 celery stalks, sliced',
-      '2.5 pounds organic beef stew meat, cubed',
-      '2 tablespoons tomato paste',
-      '5 cloves garlic',
-      '2 bay leaves',
-      '3 sprigs thyme',
-      '3 sprigs Italian parsley',
-      '1/2 teaspoon black peppercorns'
-    ],
-    source: 'Food52',
-    totalTime: 60,
-    url: 'https://food52.com/recipes/3712-meat-stock',
-    image: './recipe-images/meat.jpg'
-  },
-  {
-    name: 'Homemade Meat Broth',
-    cuisineType: 'american',
-    ingredients: [
-      '1 teaspoon salt',
-      '1 carrot, peeled',
-      '1 medium onion, peeled',
-      '2 or 3 celery stalks',
-      '¼ red or yellow bell pepper, stripped of all its seeds',
-      '1 small boiling potato, peeled',
-      '1 ripe, fresh tomato, or 1 canned Italian plum tomato, drained of juice',
-      '5 pounds assorted pieces of meat and bones (see meat suggestions above), of which no less than 1½ pounds is all meat'
-    ],
-    source: 'Cookstr',
-    totalTime: 60,
-    url: 'http://www.cookstr.com/recipes/il-brodo-homemade-meat-broth',
-    image: './recipe-images/meat.jpg'
-  },
-  {
-    name: 'Spice-Rubbed Grilled Flap Meat (Sirloin Tip) Recipe',
-    cuisineType: 'south-american',
-    ingredients: [
-      '1 tablespoon whole black peppercorns, toasted',
-      '1 teaspoon coriander seed, toasted',
-      '1 teaspoon fennel seed, toasted',
-      '1 teaspoon cumin pods, toasted',
-      '1 teaspoon red pepper flakes',
-      '1/2 teaspoon dried oregano',
-      '2 medium cloves garlic, minced (about 2 teaspoons)',
-      '2 tablespoons vegetable or canola oil',
-      '1 whole flap meat steak, 2 to 2 1/2 pounds',
-      'Kosher salt'
-    ],
-    source: 'Serious Eats',
-    totalTime: 240,
-    url: 'http://www.seriouseats.com/recipes/2012/05/spice-rubbed-grilled-flap-meat-sirloin-tip-recipe.html',
-    image: './recipe-images/grilled.jpg'
-  }
-]
+
+// Global variables
+const container = document.getElementById("container");
+const allGenresButton = document.getElementById("all");
+const filterButton = document.getElementsByClassName("filter-btn");
+const sortButton = document.getElementsByClassName("sort-btn");
+const azButton = document.getElementById("az");
+const zaButton = document.getElementById("za");
+const yearNewButton = document.getElementById("yearnew");
+const yearOldButton = document.getElementById("yearold");
+const ratingHighButton = document.getElementById("ratinghigh");
+const ratingLowButton = document.getElementById("ratinglow");
+const searchInput = document.getElementById("search-input");
+const randomButton = document.getElementById("randomizer");
+
+
+// Boxes created to showcase books with images and info
+let createBookBoxes = (book) => {
+  return `
+  <div class="boxes">
+    <img class="book-image" src="${book.image}">
+    <div class="book-info">
+    <h4 class="box-item" id="book-rating">⭐ ${book.rating}</h4>
+    <h2 class="box-item" id="book-title">${book.title}</h2>
+    <h3 class="box-item" id="book-author">by ${book.author}</h3>
+    <p class="box-item"><b>Genre: </b>${book.genre}</p>
+    <p class="box-item"><b>Year: </b>${book.year}</p>
+    <p class="box-item"><b>Description: </b>${book.description}</p>
+    </div>
+  </div>
+  `
+}
+
+
+// Function to create book boxes in the DOM
+let showBooks = (booksToDisplay) => {
+  container.innerHTML = "";
+  booksToDisplay.forEach((bookList) => {
+    container.innerHTML += createBookBoxes(bookList);
+  })
+}
+
+
+// Filter function added to filter via buttons
+for (let button of filterButton) {
+  button.addEventListener("click", (event) => {
+    let filteredBooks = books.filter((object) => object.genre === event.target.value);
+    showBooks(filteredBooks);
+  });
+}
+
+//Filter button for "All genres"
+allGenresButton.addEventListener("click", () => {
+  showBooks(books);
+});
+
+
+
+// Sorting function added to sort via buttons
+
+//Sort title A-Z
+azButton.addEventListener("click", (event) => {
+  const azBooks = books.sort((a, b) => (a.title > b.title ? 1 : -1));
+  showBooks(azBooks);
+});
+
+//Sort title Z-A
+zaButton.addEventListener("click", (event) => {
+  const zaBooks = books.sort((a, b) => (a.title > b.title ? -1 : 1));
+  showBooks(zaBooks);
+});
+
+//Sort year new-old
+yearNewButton.addEventListener("click", (event) => {
+  const newBooks = books.sort((a, b) => b.year - a.year);
+  showBooks(newBooks);
+});
+
+//Sort year new-old
+yearOldButton.addEventListener("click", (event) => {
+  const oldBooks = books.sort((a, b) => a.year - b.year);
+  showBooks(oldBooks);
+});
+
+//Sort rating high-low
+ratingHighButton.addEventListener("click", (event) => {
+  const highRating = books.sort((a, b) => b.rating - a.rating);
+  showBooks(highRating);
+});
+
+//Sort rating low-hig
+ratingLowButton.addEventListener("click", (event) => {
+  const lowRating = books.sort((a, b) => a.rating - b.rating);
+  showBooks(lowRating);
+});
+
+
+// Search function
+let searchResult = () => {
+const searchTerm = searchInput.value.trim().toLowerCase();
+const matchingBooks = books.filter((books) => {
+    const { title, author, genre, } = books;
+    return (
+      title.toLowerCase().includes(searchTerm) ||
+      author.toLowerCase().includes(searchTerm) ||
+      genre.toLowerCase().includes(searchTerm)
+    );
+  });
+  if (matchingBooks.length > 0) {
+    showBooks(matchingBooks);
+}
+}
+searchInput.addEventListener("input", searchResult);
+
+
+// Function to randomize a book
+randomButton.addEventListener("click", () => {
+  let randomNum = Math.floor(Math.random() * 18);
+  showBooks([books[randomNum]]);
+});
+
+
+// Function to fetch all books
+showBooks(books)
