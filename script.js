@@ -207,8 +207,6 @@ function renderBook(book) {
   `;
 }
 
-
-
 //Here is where we start the function to filter by genre.
 // the booksdiv is in the html 
 const booksDiv = document.getElementById("books");
@@ -297,3 +295,4 @@ randomButton.addEventListener("click", (event) => {
   //Here we run all the books, and then chose one with [numberBook]
   booksDiv.innerHTML += renderBook(books[numberBook]);
 });
+

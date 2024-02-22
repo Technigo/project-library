@@ -19,6 +19,11 @@ h1 {
 h2 {
   font-family: "Fira Sans";
 }
+
+
+
+
+
 .book {
   display: flex;
   flex-direction: column;
@@ -27,6 +32,7 @@ h2 {
 
 .book-image {
   width: 200px;
+
 }
 
 .book-title {
@@ -34,7 +40,7 @@ h2 {
 }
 
 select {
-  background-color: #e01a1a;
+  background-color: #e36262;
   color: white;
   border: none;
   border-radius: 30px;
@@ -55,7 +61,7 @@ button {
   border: none;
   border-radius: 30px;
   padding: 16px 20px;
-  margin-right: 4px;
+  margin-right: 25px;
   font-size: 16px;
   line-height: 26px;
   font-family: "Fira Sans";
@@ -65,39 +71,25 @@ button {
 }
 
 button:hover {
-  background-color: #04aa6d;
+  background-color: #7abfa6;
   color: white;
 }
 /* This is called Specificity, and menas an element needs to be added to active, in order to treat the button.hover style equally important */
 button.active {
-  background-color:  #04aa6d;
+  background-color:  #66b095;
 }
 
 .controls {
   display: flex;
   flex-direction: row;
-  column-gap: 150px;
+  column-gap: 210px;
 }
 
 
-.flex-child-0 {
-  width: 1312px;
-  height: 621px;
-  background: #868188;
-  top: 362px;
-  left: 64px;
-  justify-content: space-between;
-  display: flex;
-  align-items: center;
-}
+
+/*This styling make all the images the same size */
 img {
   width: 268px;
   height: 200px;
 }
-.flex-parent {
-  width: 1440px;
-  height: 1047px;
-  top: -2614px;
-  left: -1343px;
-  border: 2px #000000;
-}
+
