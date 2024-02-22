@@ -181,6 +181,10 @@ const books = [
   },
 ];
 
+//
+//
+//DOM selectors
+//
 const bookDisplay = document.querySelector(".book-display");
 
 const all = document.querySelector("#all");
@@ -195,6 +199,10 @@ const dystopian = document.querySelector("#dystopian");
 const descending = document.querySelector("#descending");
 const ascending = document.querySelector("#ascending");
 
+//
+//
+//Button Arrays
+//
 const genreBtns = [
   all,
   fiction,
@@ -208,10 +216,14 @@ const genreBtns = [
 
 const sortBtns = [descending, ascending];
 
-const toggleSelected = () => {};
+//
+//
+//Functions
+//
+const bookCards = (bookArray) => {
+  bookDisplay.innerHTML = "";
 
-const bookCards = () => {
-  books.forEach((book) => {
+  bookArray.forEach((book) => {
     bookDisplay.innerHTML += `
     <div class="book-card">
       <img src="${book.image}" alt="${book.title}"/>
@@ -228,8 +240,35 @@ const bookCards = () => {
   });
 };
 
-bookCards();
+//Have all the books displayed when the page is loaded
+bookCards(books);
 
+const toggleGenreSelected = (Btn) => {
+  genreBtns.forEach((genreBtn) => {
+    genreBtn.classList.remove("selected");
+  });
+  Btn.classList.add("selected");
+};
+
+const toggleSortSelected = (Btn) => {
+  sortBtns.forEach((sortBtn) => {
+    sortBtn.classList.remove("selected");
+  });
+  Btn.classList.add("selected");
+};
+
+const getGenre = (genre) => {
+  const result = books.filter((book) => book.genre === genre);
+  console.log(result);
+  return result;
+};
+
+//
+//
+//Add event listeners
+//
+//
+//Genre Style
 genreBtns.forEach((genreBtn) => {
   genreBtn.addEventListener("mouseover", () => {
     if (!genreBtn.classList.contains("selected")) {
@@ -243,8 +282,14 @@ genreBtns.forEach((genreBtn) => {
 
   genreBtn.addEventListener("click", () => {
     genreBtn.classList.remove("hover");
-    genreBtn.classList.toggle("selected");
+    toggleGenreSelected(genreBtn);
   });
+});
+//
+//Genre Filter Function
+fiction.addEventListener("click", (event) => {
+  const filteredBooks = getGenre(event.target.innerHTML);
+  bookCards(filteredBooks);
 });
 
 sortBtns.forEach((sortBtn) => {
@@ -259,11 +304,11 @@ sortBtns.forEach((sortBtn) => {
   });
 
   sortBtn.addEventListener("click", () => {
-    sortBtn.classList.add("selected");
+    toggleSortSelected(sortBtn);
     sortBtn.classList.remove("hover");
   });
 });
 
 all.addEventListener("click", () => {
-  bookCards();
+  bookCards(books);
 });
