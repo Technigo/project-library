@@ -1,7 +1,4 @@
-/*Here we have created two different arrays that you can work with if you want.
-If you choose to create your own arrays with elements, just make sure that some
-of the properties make sense to filter on, and some to sort on.*/
-
+//Books arry that contain each book as an object
 const books = [
   {
     title: "The Great Gatsby",
@@ -185,47 +182,41 @@ const books = [
   },
 ];
 
-//README: DOM Objects
-//TODO: Creat DOM object for input area
-const genreBtns = document.getElementsByClassName("genre-btn");
-console.log("Genre buttons DOM objects collection:", genreBtns);
-const cardCollection = document.getElementById("card-grid");
-console.log("card grid DOM objects collection", cardCollection);
-console.log("card grid inner HTML", cardCollection.innerHTML);
-const ascendingBtn = document.getElementById("ascending");
-const descendingBtn = document.getElementById("descending");
-const randomBtn = document.getElementById("random");
-const allBooksBtn = document.getElementById("all-genres-btn");
-const filterBtns = document.querySelectorAll(".filter-btn");
+/////////////////////Dom Objects/////////////////////
 const searchInput = document.getElementById("search-txt");
 const searchBtn = document.getElementById("search-btn");
+const filterBtns = document.querySelectorAll(".filter-btn");
+const allBooksBtn = document.getElementById("all-genres-btn");
+const genreBtns = document.getElementsByClassName("genre-btn");
+const ascendingBtn = document.getElementById("ascending");
+const descendingBtn = document.getElementById("descending");
 const subHeading = document.querySelector("h2");
+const cardCollection = document.getElementById("card-grid");
+const randomBtn = document.getElementById("random");
 
-//README: Global Variables
-
-//README: Functions
+/////////////////////Functions/////////////////////
+//Function that accepts a books array and show books
 const showBooks = (arr) => {
-  subHeading.textContent = `Sit back, relax and enjoy reading 📖
-  `;
+  subHeading.textContent = "Sit back, relax and enjoy reading 📖";
   cardCollection.innerHTML = "";
   arr.forEach((obj) => {
     cardCollection.innerHTML += `<div class="card">
-    <div class="img-container">
-      <img src=${obj.image} alt="book ${obj.title}">
-    </div>
-    <h3>${obj.title}</h3>
-    <p>Author: ${obj.author}</p>
-    <p>Year: ${obj.year}</p>
-    <p>Genre: ${obj.genre}</p>
-    <p>Rating: ${obj.rating}</p>
-    <p>
-      Description: ${obj.description}
-    </p>
-  </div>
-  `;
+      <div class="img-container">
+        <img src=${obj.image} alt="book ${obj.title}">
+      </div>
+      <h3>${obj.title}</h3>
+      <p>Author: ${obj.author}</p>
+      <p>Year: ${obj.year}</p>
+      <p>Genre: ${obj.genre}</p>
+      <p>Rating: ${obj.rating}</p>
+      <p>
+        Description: ${obj.description}
+      </p>
+    </div>`;
   });
 };
 
+//Function that add event listeners to sorting buttons so it sorts based on a given array and display the books
 const triggerSortBtns = (arr) => {
   ascendingBtn.addEventListener("click", () => {
     const ascendingBooks = [...arr].sort((a, b) => a.rating - b.rating);
@@ -237,16 +228,20 @@ const triggerSortBtns = (arr) => {
   });
 };
 
-//README: Event listners are added to differenct DOM objects below
-//FIXME: make the sorting logic based on filter, e.g. Horror (filter) -> Descending (sort)
-//Add event listner to all books button
+/////////////////////Event Listners/////////////////////
+//Add event listner to all books button (one single button that display all books), function wise is the same as below
 allBooksBtn.addEventListener("click", () => {
   filterBtns.forEach((button) => button.classList.remove("active"));
   allBooksBtn.classList.add("active");
   showBooks(books);
   triggerSortBtns(books);
 });
-//Add event listner to all books button
+
+// Add event listner to genre buttons
+// 1. Remove any active highlights in the filter section;
+// 2. filter books based on the button value, i.e. genre;
+// 3. show the filtered books;
+// 4. override the event listner on sort buttons to trigger actions based on filtered books
 for (let btn of genreBtns) {
   btn.addEventListener("click", (event) => {
     filterBtns.forEach((button) => button.classList.remove("active"));
@@ -258,14 +253,19 @@ for (let btn of genreBtns) {
 }
 
 // Add Event Listener to random generator button
-console.log("The length of Books array", books.length);
-
+// 1. Generate a random number;
+// 2. Use the random number as an index to access the books array
+// 3. Display a random book
 randomBtn.addEventListener("click", () => {
   filterBtns.forEach((button) => button.classList.remove("active"));
   let randomNum = Math.floor(Math.random() * 18);
   showBooks([books[randomNum]]);
 });
 
+// Add Event Listner to search button:
+// 1. Compare the search result with all the books' titles within our data library;
+// 2. Show the result of matched books
+// 3. Manipulate the h2 so it customise the message we want to delivery for different types of search result (empty or non-empty)
 searchBtn.addEventListener("click", () => {
   const searchResult = books.filter((book) =>
     book.title.toLowerCase().includes(searchInput.value.toLowerCase())
@@ -276,16 +276,10 @@ searchBtn.addEventListener("click", () => {
     Your search result "${searchInput.value}" matches the following books:`;
   } else {
     subHeading.textContent = `
-  Sorry your search "${searchInput.value}" is not in our library yet. Please try to search for something else.`;
+    Sorry your search "${searchInput.value}" is not in our library yet. Please try to search for something else.`;
   }
-  console.log(searchResult);
 });
 
-//for each loop -> get object.title
-//compare object title with the search value -> check a string matched another string "the" -> "the " "t" "Hello".includes("el") -> true false
-// "object.title".includes(search.value)
-// case-insensitive align casing
-
-//Call the function - display all the books when landing
+//Call the function - display all the books when landing and add event listener to sorting buttons to sort based on all the books
 showBooks(books);
 triggerSortBtns(books);

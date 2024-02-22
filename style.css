@@ -146,6 +146,7 @@ button:not(.search-btn):hover {
   margin-left: 4vw;
 }
 
+/* "active" class will be added through JS */
 button.active {
   background-color: #adbc9f;
   color: white;
