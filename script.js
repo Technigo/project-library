@@ -16,7 +16,7 @@ const cookingTimeButton = document.getElementById("cookingTimeButton");
 const recipes = [
   {
     name: "Individual vegetarian lasagnes",
-    cuisineType: ["italian"],
+    cuisineType: ["Vegetarian"],
     ingredients: [
       "1.2 kg cherry tomatoes",
       "5 sprigs of fresh thyme",
@@ -40,7 +40,7 @@ const recipes = [
   },
   {
     name: "Vegetarian Stir-Fried Garlic Scape",
-    cuisineType: ["Balanced"],
+    cuisineType: ["Vegetarian"],
     ingredients: [
       "8 oz. garlic scapes",
       "3 oz. baby corn",
@@ -63,7 +63,7 @@ const recipes = [
   },
   {
     name: "Cheat’s cheesy focaccia",
-    cuisineType: ["Italian"],
+    cuisineType: ["Vegetarian"],
     ingredients: [
       "500g pack bread mix",
       "2 tbsp olive oil , plus a little extra for drizzling",
@@ -77,7 +77,7 @@ const recipes = [
   },
   {
     name: "Vegetarian Shepherd's Pie",
-    cuisineType: ["Balanced", "High-Fiber"],
+    cuisineType: ["Vegetarian"],
     ingredients: [
       "2 tablespoons extra-virgin olive oil",
       "1 large onion, finely diced",
@@ -102,7 +102,7 @@ const recipes = [
   },
   {
     name: "Chicken Paprikash",
-    cuisineType: ["Low-Carb"],
+    cuisineType: ["Chicken"],
     ingredients: [
       "640 grams chicken - drumsticks and thighs ( 3 whole chicken legs cut apart)",
       "1/2 teaspoon salt",
@@ -123,7 +123,7 @@ const recipes = [
   },
   {
     name: "Baked Chicken",
-    cuisineType: ["american"],
+    cuisineType: ["Chicken"],
     ingredients: [
       "6 bone-in chicken breast halves, or 6 chicken thighs and wings, skin-on",
       "1/2 teaspoon coarse salt",
@@ -137,7 +137,7 @@ const recipes = [
   },
   {
     name: "Deep Fried Fish Bones",
-    cuisineType: ["south east asian"],
+    cuisineType: ["Fish"],
     ingredients: ["8 small whiting fish or smelt", "4 cups vegetable oil"],
     source: "Serious Eats",
     totalTime: 31,
@@ -146,7 +146,7 @@ const recipes = [
   },
   {
     name: "Burnt-Scallion Fish",
-    cuisineType: ["chinese"],
+    cuisineType: ["Fish"],
     ingredients: ["2 bunches scallions", "8 tbsp. butter", "2 8-oz. fish filets"],
     source: "Saveur",
     totalTime: 70,
@@ -155,7 +155,7 @@ const recipes = [
   },
   {
     name: "Curry-Crusted Fish",
-    cuisineType: ["south east asian"],
+    cuisineType: ["Fish"],
     ingredients: [
       "3 slices bread , about 85g/3oz in total",
       "1 lime",
@@ -169,7 +169,7 @@ const recipes = [
   },
   {
     name: "Meat Stock",
-    cuisineType: "american",
+    cuisineType: ["Meat"],
     ingredients: [
       "2.5 pounds beef marrow bones",
       "1 large onion, quartered",
@@ -191,7 +191,7 @@ const recipes = [
   },
   {
     name: "Homemade Meat Broth",
-    cuisineType: "american",
+    cuisineType: ["Meat"],
     ingredients: [
       "1 teaspoon salt",
       "1 carrot, peeled",
@@ -209,7 +209,7 @@ const recipes = [
   },
   {
     name: "Spice-Rubbed Grilled Flap Meat (Sirloin Tip) Recipe",
-    cuisineType: "south-american",
+    cuisineType: ["Meat"],
     ingredients: [
       "1 tablespoon whole black peppercorns, toasted",
       "1 teaspoon coriander seed, toasted",
@@ -233,6 +233,7 @@ const displayRecipes = (recipes) => {
   recipeContainer.innerHTML = "";
   recipes.forEach((recipe) => {
     const recipeDiv = document.createElement("div");
+    recipeDiv.setAttribute("id", "card");
     recipeDiv.innerHTML = `
       <h3>${recipe.name}</h3>
       <img src="${recipe.image}" alt="${recipe.name}" />
@@ -249,12 +250,30 @@ const displayRecipes = (recipes) => {
 
 displayRecipes(recipes);
 
-/*
-const filterRecipes = () => {
-const value = buttons.value
+/*const checkFish = (cuisineType) => {
+  if (cuisineType === "Fish") return true;
+  else return false;
+};
 
-if ( value === "all"){
-loadRecipes ()}
+const fishRecipes = recipes.filter(checkFish);*/
 
-}
-*/
+/*const filterRecipes = () => {
+  const value = button.value;
+  if (value === "all") {
+    displayRecipes(recipes);
+  } else if (value === "fish") {
+    const filterList = recipes.filter(showFishRecipe(recipe) => recipe.cuisineType === value);
+  }
+};*/
+
+/*const showFishRecipe = () => {
+  const fishRecipes = recipes.filter(recipe => recipe.cuisineType.includes("Fish"));
+  displayRecipes(fishRecipes);
+};*/
+
+allButton.addEventListener("click", displayRecipes);
+fishButton.addEventListener("click", checkFish);
+meatButton.addEventListener("click", showMeatRecipe);
+chickenButton.addEventListener("click", showChickenRecipe);
+vegetarianButton.addEventListener("click", showVegetarianRecipe);
+surpriseButton.addEventListener("click", showSurpriseRecipe);

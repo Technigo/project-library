@@ -10,7 +10,7 @@
   --textFont: "Quicksand";
   --primaryColor: #432e36;
   --secondaryColor: #edbfc6;
-  --thirdColor: #af8d86;
+  --thirdColor: #d5bdaf;
 }
 
 header {
@@ -26,6 +26,15 @@ h1 {
   text-align: center;
   font-size: 40px;
   margin: 0;
+}
+
+h3 {
+  text-align: center;
+  font-weight: 700;
+}
+
+ul {
+  margin-bottom: 5px;
 }
 
 .logo-image {
@@ -76,12 +85,10 @@ button:hover {
 }
 
 .recipe-container {
-  background-color: lightblue;
   display: grid;
   grid-template-columns: 1fr;
   justify-content: center;
   /* gap: 20px; */
-  border: solid black;
 }
 
 .recipe-container img {
@@ -90,8 +97,19 @@ button:hover {
   object-fit: cover;
 }
 
-.recipe-box {
-  background-color: black;
+#card {
+  display: flex;
+  flex-direction: column;
+  box-shadow: #000;
+  margin: 15px;
+  padding: 15px 10px;
+  background-color: var(--thirdColor);
+}
+
+#card img,
+h3 {
+  align-self: center;
+  margin-bottom: 10px;
 }
 
 /* Media query for tablet*/
