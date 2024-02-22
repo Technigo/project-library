@@ -19,6 +19,13 @@ h2 {
   margin: 1rem 0;
 }
 
+#title-image {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+  opacity: 0.5;
+}
+
 h1 {
   font-size: 3rem;
   margin: 4% 10%;
@@ -53,16 +60,18 @@ h1 {
 #container {
   display: flex;
   flex-wrap: wrap;
+  /*
   justify-content: center;
+  */
   gap: 1rem;
   width: 80%;
-  margin: 0 10%;
+  margin: 0 auto;
+  padding: 2rem;
 }
 .card {
   display: none;
   flex-direction: column;
   position: relative;
-  width: 350px;
   margin-bottom: 24px;
   padding: 2rem;
   background-color: var(--clr_card);

@@ -8,19 +8,19 @@
     <title>Martin and Mai's Recipe book</title>
   </head>
   <body>
-    <img href="assets/marcin-galusz-Xq0lte4P7rQ-unsplash.jpg">
+    <img id="title-image" src="assets/kitchen.jpg"></img>
     <h1>Martin and Mai's Recipe book</h1>
 
-<div class="mobileFilter">
-  <select id="mobileFilterSelect">
-    <option value="all">Filter Recipes</option>
-    <option value="american">American</option>
-    <option value="asian">Asian</option>
-    <option value="italian">Italian</option>
-    <option value="random">Random</option>
-  </select>
-</div>
-</div>
+    <div class="mobileFilter">
+      <select id="mobileFilterSelect">
+        <option value="all">Filter Recipes</option>
+        <option value="american">American</option>
+        <option value="asian">Asian</option>
+        <option value="italian">Italian</option>
+        <option value="random">Random</option>
+      </select>
+    </div>
+    </div>
     <div class="controlRow">
       <div class="filterDiv">
         <h2>Filter recipes</h2>
@@ -51,15 +51,37 @@
             id="italian"
             onclick="filterSelection('Italian')"
           >
-            italian
+            Italian
           </button>
           <button
           class="button"
-          id="random"
-          onclick="filterSelectionIndex('all')"
+          id="balanced"
+          onclick="filterSelection('Balanced')"
+          
         >
-          Random
+          Balanced
         </button>
+        <button
+        class="button"
+        id="high-fiber"
+        onclick="filterSelection('High-Fiber')"
+      >
+        High-fiber
+      </button>
+      <button
+      class="button"
+      id="low-carb"
+      onclick="filterSelection('Low-Carb')"
+    >
+      Low-Carb
+    </button>
+          <button
+            class="button"
+            id="random"
+            onclick="filterSelectionIndex('all')"
+          >
+            Random
+          </button>
         </div>
       </div>
       <div class="sortDiv">
@@ -74,20 +96,22 @@
         </div>
       </div>
     </div>
+
     <div class="searchDiv">
+      <form id="search-form">
         <input
           type="text"
           class="search"
           id="search-input"
           placeholder="Search a recipe"
         />
-        <button class="search button" id="search-button">Search</button>
-      </div>
+        <button type="submit" class="search button" id="search-button">
+          Search
+        </button>
+      </form>
+    </div>
 
     <div id="container"></div>
     <script src="script.js"></script>
   </body>
 </html>
-
-
-

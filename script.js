@@ -241,7 +241,7 @@ function addRecipeInformation(recipe) {
     <div class="card ${recipe.cuisineType}">
     <h2>${recipe.name}</h2>
     <img src="${recipe.image}"></img>
-    <p class="time">Cooking time: ${recipe.totalTime}</p>
+    <p>Cooking time: <span class="time">${recipe.totalTime}</span></p>
     <p>Cusine type: ${recipe.cuisineType}</p>
     <p>Ingredients: ${recipe.ingredients.join("<br/>")}</p> 
     <p>Source: ${recipe.source}</p>
@@ -274,7 +274,6 @@ const filterSelectionIndex = (cuisine) => {
   // Add the "show" class (display:block) to the filtered elements, and remove the "show" class from the elements that are not selected
   for (i = 0; i < card.length; i++) {
     removeClass(card[i], "show");
-
   }
   addClass(card[randomRecipe()], "show");
 };
@@ -358,7 +357,6 @@ function sortListName() {
   }
 }
 
-
 // Sort cooking time. Not working right.
 function sortListTime() {
   var list, i, switching, b, shouldSwitch;
@@ -370,13 +368,18 @@ function sortListTime() {
     // Start by saying: no switching is done:
     switching = false;
     b = list.getElementsByClassName("time");
+    c = list.getElementsByClassName("card")
     // Loop through all list items:
-    for (i = 0; i < b.length - 1; i++) {
+    for (i = 0; i < b.length; i++) {
       // Start by saying there should be no switching:
       shouldSwitch = false;
+
+      if (b[i].innerHTML === null){
+        b[i].innerHTML = `0`;
+      }
       /* Check if the next item should
       switch place with the current item: */
-      if (b[i].innerHTML.toLowerCase() > b[i + 1].innerHTML.toLowerCase()) {
+      if (parseInt(b[i].innerHTML) > parseInt(b[i + 1].innerHTML)) {
         /* If next item is alphabetically lower than current item,
         mark as a switch and break the loop: */
         shouldSwitch = true;
@@ -386,7 +389,7 @@ function sortListTime() {
     if (shouldSwitch) {
       /* If a switch has been marked, make the switch
       and mark the switch as done: */
-      b[i].parentNode.insertBefore(b[i + 1], b[i]);
+      c[i].parentNode.insertBefore(c[i + 1], c[i]);
       switching = true;
     }
   }
@@ -400,13 +403,15 @@ const randomRecipe = () => {
   let randomNumber = Math.floor(Math.random() * recipes.length);
   console.log(randomNumber);
   return randomNumber;
-}
+};
 
 // Search bar
-// 1.When a user click "search button", this function will triggered
-const searchButton = document.getElementById("search-button");
-// when user clicks, browser calls Eventlistener (function)
-searchButton.addEventListener("click", function () {
+// 1.When a user submit "search", this function will triggered
+const searchForm = document.getElementById("search-form");
+// Add an event listener for the 'submit' event
+searchForm.addEventListener("submit", function (event) {
+  // Prevent the form from submitting in the traditional way
+  event.preventDefault();
   let i;
   const searchInput = document.getElementById("search-input");
   // Search user's input to all lower case
@@ -432,6 +437,3 @@ searchButton.addEventListener("click", function () {
     container.innerHTML = `<p>There is no recipe with "${searchInput.value}".</p>`;
   }
 });
-
-//1. instead of button, change it to form
-//2. show all recipes  back when the search input is cleared
