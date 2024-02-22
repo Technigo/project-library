@@ -64,9 +64,11 @@ h1 {
 }
 
 #container {
-display: flex;
+  display: flex;
   flex-wrap: wrap;
+  /*
   justify-content: center;
+  */
   gap: 1rem;
   width: 80%;
   margin: 0 auto;
@@ -167,6 +169,4 @@ display: flex;
       Less padding on cards
       Center the Search bar.
   */
-
-  
 }
