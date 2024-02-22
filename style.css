@@ -1,3 +1,19 @@
+@import url("https://fonts.googleapis.com/css2?family=Kosugi+Maru&display=swap");
+body {
+  background-color: #eeb3c4;
+  margin: 20px;
+}
+
+h1 {
+  font-family: "Kosugi Maru";
+  color: #000000;
+  font-size: 70px;
+  margin: 50px;
+  display: flex;
+  letter-spacing: .1,5rem;
+  justify-content: center;
+}
+
 .book {
   display: flex;
   flex-direction: column;
@@ -10,4 +26,40 @@
 
 .book-title {
   font-weight: bold;
+}
+
+select {
+  background-color: #bc86dd;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 16px 20px;
+  margin-right: 4px;
+  font-size: 16px;
+  line-height: 26px;
+  font-family: "Montserrat";
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button {
+  background-color: #bc86dd;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 16px 20px;
+  margin-right: 4px;
+  font-size: 16px;
+  line-height: 26px;
+  font-family: "Montserrat";
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.controls {
+  display: flex;
+  flex-direction:row;
+  column-gap: 20px;
 }

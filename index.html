@@ -7,13 +7,14 @@
     <title>Project Library</title>
   </head>
   <body>
-    <h1 id="listOfClassics">Classic books</h1>
+    <h1 id="listOfClassics">Great books</h1>
 
 
     <!---This div puts the dropdown menu and the buttons so they have the same 
       parents and therefore end up being on the same row-->
     <div class="controls">
-      
+      <div>
+      <h2>Filter books by genre</h2>
       
       <!--Select is the drop-down menu-->
       <select id="genre">
@@ -26,11 +27,16 @@
         <option>Mystery</option>
         <option>Dystopian</option>
       </select> 
-   
+    </div>
+    <div> 
+      <h2>Sort books</h2>
+      
     <button id="newestButton">Sort by newest</button>
     <button id="oldestButton">Sort by oldest</button>
     <button id="ratingButton">Sort by rating</button>
     <button id="randomButton">Random</button>
+
+  </div>
     </div>
     <div id="books"></div>
 
