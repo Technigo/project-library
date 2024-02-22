@@ -3,14 +3,15 @@ If you choose to create your own arrays with elements, just make sure that some
 of the properties make sense to filter on, and some to sort on.*/
 const destinationDiv = document.getElementById('load-destinations')
 const buttonTemp = document.getElementById('button-temp')
-const buttonRate = document.getElementById('button.rate')
+const buttonRate = document.getElementById('button-rate')
 const dropDown = document.getElementById('filter-dropdown')
+
 
 
 const destinations = [
   {
     name: 'Isle of Skye',
-    country: 'Scotland',
+    country: 'scotland',
     language: 'English',
     accessibility: 'Difficult',
     rating: 4.2,
@@ -21,7 +22,7 @@ const destinations = [
   },
   {
     name: 'Taormina',
-    country: 'Italy',
+    country: 'italy',
     language: 'Italian',
     accessibility: 'Easy',
     rating: 4.2,
@@ -32,7 +33,7 @@ const destinations = [
   },
   {
     name: 'Purnululu',
-    country: 'Australia',
+    country: 'australia',
     language: 'English',
     accessibility: 'Difficult',
     rating: 4.4,
@@ -43,7 +44,7 @@ const destinations = [
   },
   {
     name: 'Xochimilco lake',
-    country: 'Mexico',
+    country: 'mexico',
     language: 'spanish',
     accessibility: 'easy',
     rating: 4.0,
@@ -54,7 +55,7 @@ const destinations = [
   },
   {
     name: 'Uluru',
-    country: 'Australia',
+    country: 'australia',
     language: 'English',
     accessibility: 'Difficult',
     rating: 5.0,
@@ -65,7 +66,7 @@ const destinations = [
   },
   {
     name: 'Marble Cathedral',
-    country: 'Chile',
+    country: 'chile',
     language: 'Spanish',
     accessibility: 'Difficult',
     rating: 4.6,
@@ -76,7 +77,7 @@ const destinations = [
   },
   {
     name: 'Danxia Landform',
-    country: 'China',
+    country: 'china',
     language: 'Chinese',
     accessibility: 'Moderate',
     rating: 5.0,
@@ -87,7 +88,7 @@ const destinations = [
   },
   {
     name: 'Abisko',
-    country: 'Sweden',
+    country: 'sweden',
     language: 'Swedish',
     accessibility: 'Moderate',
     rating: 4.5,
@@ -98,7 +99,7 @@ const destinations = [
   },
   {
     name: 'Larung gar',
-    country: 'Tibet',
+    country: 'tibet',
     language: 'Tibetan',
     accessibility: 'Moderate',
     rating: 4.9,
@@ -109,7 +110,7 @@ const destinations = [
   },
   {
     name: 'Wangxian Valley',
-    country: 'China',
+    country: 'china',
     language: 'Chinese',
     accessibility: 'Moderate',
     rating: 4.1,
@@ -147,10 +148,10 @@ let lowToHigh = true
 
 const tempToggle = () => {
   lowToHigh = !lowToHigh
-  sortBy()
+  sortByTemp()
 }
 
-const sortBy = () => {
+const sortByTemp = () => {
   if (lowToHigh) {
   destinations.sort((a, b) => {
       return b.temperature - a.temperature
@@ -163,18 +164,54 @@ const sortBy = () => {
 loadDestinations(destinations)
 }
 
+const rateToggle = () => {
+  lowToHigh = !lowToHigh
+  sortByRate()
+}
+
+const sortByRate = () => {
+  if (lowToHigh) {
+    destinations.sort((a, b) => {
+      return b.rating - a.rating
+   })
+  } else {
+    destinations.sort((a, b) => {
+      return a.rating - b.rating
+    })
+  }
+  loadDestinations(destinations)
+  console.log()
+} 
+
+//const scotland = destinations.filter((object) => object.country === "scotland")
+
+//const country = destinations.filter((object) => object.country === `${country}`)
+/*
+const filterCountry = () => {
+  destinations.country.filter((country) => country === dropDown.value )
+  loadDestinations(destinations)
+}*/
+
+const filterCountry = () => {
+const countryValue = dropDown.value
+  if (countryValue === 'all'){
+    loadDestinations(destinations)
+    return
+  }
+  const filteredList = destinations.filter((object) => {
+    const matchesType = object.country.includes(countryValue)
+    return matchesType 
+  })
+  destinationDiv.classList.replace('filtered-destinations')
+  loadDestinations(filteredList)
+}
+
 // alla addEventListeners tillsammans på botten sen
 buttonTemp.addEventListener("click", tempToggle)
+buttonRate.addEventListener("click", rateToggle)
+dropDown.addEventListener("change", filterCountry)
 
 
 
 
-/*
 
-const sortBy = (temperature)
-  destinations.sort(function(a, b) => {
-    if (temperature(a) < temperature(b))
-    return b - a;
-  })
-  
-*/

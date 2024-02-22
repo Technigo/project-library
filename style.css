@@ -42,7 +42,6 @@ body {
 }
 
 .img-section {
-    
     width: 100%;
     display: flex;
     justify-content: center;
@@ -127,7 +126,7 @@ h4 span {
     width: 90%;
     margin: 0 auto;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: wrap;
     justify-content: space-around;
 }
@@ -219,13 +218,23 @@ ul {
 
     .load-destinations {
         width: 100%;
-        margin: 0 auto;
+        margin: 0;
         display: flex;
         flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: space-around;
+        justify-content: none;
         gap: 0.5em;
         padding-top: 1em;
+    }
+
+    .filtered-destinations {
+        width: 100%;
+        margin: 0;
+        display: flex;
+        flex-direction: row;
+        justify-content: left;
+        gap: 0.5em;
+        padding-top: 1em;
+        padding-left: 2em;
     }
     
     .container{
