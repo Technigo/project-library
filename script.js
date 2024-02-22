@@ -295,6 +295,10 @@ dropdownSort.addEventListener("change", () => {
     sortedBooks = nowDispBooks.sort((a, b) => b.year - a.year);
   } else if (selectedSort === "Oldest") {
     sortedBooks = nowDispBooks.sort((a, b) => a.year - b.year);
+  } else if (selectedSort === "A-Z") {
+    sortedBooks = nowDispBooks.sort((a, b) => a.title.localeCompare(b.title));
+  } else if (selectedSort === "Z-A") {
+    sortedBooks = nowDispBooks.sort((a, b) => b.title.localeCompare(a.title));
   }
   displayBooks(sortedBooks);
 });
