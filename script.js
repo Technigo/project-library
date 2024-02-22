@@ -1,7 +1,7 @@
 //DOM selectors
 const cardContainer = document.getElementById("card-container");
 const navbar = document.getElementById("navbar");
-//const btnAllName = document.getElementById("btnAllName")
+const btnAllName = document.getElementById("btnAllName")
 const btnPickRandom = document.getElementById("btnPickRandom");
 const dropDownMenu = document.getElementById("dropDownMenu");
 const dropBtn = document.getElementById("dropBtn");
@@ -231,11 +231,11 @@ const showAll = () => {
   plants.forEach(showACard);
 };
 
-/*
-const sortByTimeToSow = () => {
-//if "spring"
-// else if "autumn"
-}
+
+/*const sortByTimeToSow = () =>{
+    }
+
+
 
 const sortByDevelopmentTime = () => {
 //sort by days of devtime
@@ -247,12 +247,20 @@ const sortByWaterDemand = () => {
 
 const sortByNutritionalNeeds = () => {
  // 
-}
+}*/
 
-const sortByLifeLength = () => {
-//if perennial = true
+const sortByLifeLength = (perennial) => {
+  if (perennial === true){
+   return "Yes";
+  } else {
+  return "No";
+  }
 }
-*/
+sortByLifeLength()
+console.log(sortByLifeLength(true))
+console.log(sortByLifeLength(false))
+
+
 
 //Eventlisteners:
 //const btnAllName = document.querySelector("button")
