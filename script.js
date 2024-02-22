@@ -241,7 +241,7 @@ function addRecipeInformation(recipe) {
     <div class="card ${recipe.cuisineType}">
     <h2>${recipe.name}</h2>
     <img src="${recipe.image}"></img>
-    <p class="time">Cooking time: ${recipe.totalTime}</p>
+    <p>Cooking time: <span class="time">${recipe.totalTime}</span></p>
     <p>Cusine type: ${recipe.cuisineType}</p>
     <p>Ingredients: ${recipe.ingredients.join("<br/>")}</p> 
     <p>Source: ${recipe.source}</p>
@@ -361,13 +361,18 @@ function sortListTime() {
     // Start by saying: no switching is done:
     switching = false;
     b = list.getElementsByClassName("time");
+    c = list.getElementsByClassName("card")
     // Loop through all list items:
-    for (i = 0; i < b.length - 1; i++) {
+    for (i = 0; i < b.length; i++) {
       // Start by saying there should be no switching:
       shouldSwitch = false;
+
+      if (b[i].innerHTML === null){
+        b[i].innerHTML = `0`;
+      }
       /* Check if the next item should
       switch place with the current item: */
-      if (b[i].innerHTML.toLowerCase() > b[i + 1].innerHTML.toLowerCase()) {
+      if (parseInt(b[i].innerHTML) > parseInt(b[i + 1].innerHTML)) {
         /* If next item is alphabetically lower than current item,
         mark as a switch and break the loop: */
         shouldSwitch = true;
@@ -377,7 +382,7 @@ function sortListTime() {
     if (shouldSwitch) {
       /* If a switch has been marked, make the switch
       and mark the switch as done: */
-      b[i].parentNode.insertBefore(b[i + 1], b[i]);
+      c[i].parentNode.insertBefore(c[i + 1], c[i]);
       switching = true;
     }
   }
