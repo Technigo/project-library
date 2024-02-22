@@ -200,7 +200,7 @@ const showBookContent = (arrayOfBooks, genreFilter = "all") => {
     genreFilter === "all"
       ? arrayOfBooks
       : arrayOfBooks.filter(
-          (book) => book.genre.toLowerCase() === genreFilter.toLowerCase()
+          (book) => book.genre.toLowerCase() === genreFilter.toLowerCase(),
         );
 
   //Display filtered books
@@ -252,39 +252,24 @@ const sortBooksByTitle = () => {
     : "icons/aufsteigend-sortieren.png";
 };
 
-//random button
-const randomBook = (books) => {
-  Math.floor(Math.random() * books.length);
-  return randomBook, books[randomBook];
+//random button calculations
+const randomBook = () => {
+  const randomIndex = Math.floor(Math.random() * books.length);
+  const selectedBook = books[randomIndex];
+
+  //to display the random book
+  randomBookContainer.innerHTML = ` 
+		<div class="card">
+			<img src="${selectedBook.image}">
+			<h2>${selectedBook.title}</h2>
+			<p>${selectedBook.author}</p>
+			<p>${selectedBook.year}</p>
+			<p>${selectedBook.genre}</p>
+			<p>${selectedBook.rating}</p>
+			<p>${selectedBook.description}</p>
+		</div>`;
 };
-
-arrayOfBooks((book) => {
-  // iterates over each book
-  randomBookContainer.innerHTML += `
-
-  <div class=card>
-  <img src=${book.image}>
-  <h2>${book.title}</h2>
-  <p>${book.author}</p>
-  <p>${book.year}</p>
-  <p>${book.genre}</p>
-  <p>${book.rating}</p>
-  <p>${book.description}</p>
-</div>`;
-});
 
 //Eventlistener
 sortButton.addEventListener("click", sortBooksByTitle);
 randomBookButton.addEventListener("click", randomBook);
-
-// // Random book function
-// const randomBook = () => {
-//   const randomIndex = Math.floor(Math.random() * books.length-1);
-//   return books[randomIndex];
-// };
-
-// // Event listener for random book button
-// randomBookButton.addEventListener("click", () => {
-//   const randomBookResult = randomBook();
-//   showBookContent([randomBookResult]);
-// });
