@@ -91,6 +91,15 @@ const books = [
     image: './books-images/the-lord-of-the-rings.jpg'
   },
   {
+    title: "The Catcher in the Rye",
+    author: "J.D. Salinger",
+    year: 1951,
+    genre: "Fiction",
+    rating: 4.0,
+    description: "Narrated by the teenage Holden Caulfield, the novel explores themes of alienation and the search for authenticity."
+    image: './books-images/catcher.jpg'
+  },
+  {
     title: 'Dracula',
     author: 'Bram Stoker',
     year: 1897,
@@ -290,7 +299,7 @@ searchInput.addEventListener("input", searchResult);
 
 // Function to randomize a book
 randomButton.addEventListener("click", () => {
-  let randomNum = Math.floor(Math.random() * 17);
+  let randomNum = Math.floor(Math.random() * 18);
   showBooks([books[randomNum]]);
 });
 
