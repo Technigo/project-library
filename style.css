@@ -20,23 +20,41 @@ h2 {
   font-family: "Fira Sans";
 }
 
+/*hashtag on books because its an ID */
+#books {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-top: 50px;
+  column-gap: 70px;
+  row-gap: 40px;
+}
 
-
-
+.book:hover {
+  box-shadow: -1px 0px 11px 1px rgba(138, 31, 222, 0.75);
+}
 
 .book {
   display: flex;
   flex-direction: column;
   margin-bottom: 10px;
+  max-width: 200px;
+  font-family: "Fira Sans";
+  background-color: rgb(251, 251, 206);
+  border-radius: 20px;
+  /* Overflow hidden stops the image from popping out from the borders */
+  overflow: hidden;
+  padding: 11px;
 }
 
 .book-image {
   width: 200px;
-
 }
 
 .book-title {
   font-weight: bold;
+  margin-top: 20px;
+  font-family: "Fira Sans";
 }
 
 select {
@@ -71,12 +89,13 @@ button {
 }
 
 button:hover {
-  background-color: #7abfa6;
+  border: 2px solid #66b095;
   color: white;
 }
+
 /* This is called Specificity, and menas an element needs to be added to active, in order to treat the button.hover style equally important */
 button.active {
-  background-color:  #66b095;
+  background-color: #66b095;
 }
 
 .controls {
@@ -85,11 +104,8 @@ button.active {
   column-gap: 210px;
 }
 
-
-
 /*This styling make all the images the same size */
 img {
   width: 268px;
   height: 200px;
 }
-
