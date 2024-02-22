@@ -258,20 +258,35 @@ printBooks(books);
 sort.innerHTML +=`
   <div class="sortTitle" id="sortTitle" >Sort</div>
   <div class="sortButton" id="sortButton">
-    <button id="rating" >rating</button>
-    <button id="year" >year</button>
+    <button id="rating" value="rating" >rating</button>
+    <button id="year" value="rating">year</button>
     <button id="name" >name</button>
   </div>
 `
+let isDescending = false;
 document.getElementById("rating").addEventListener("click",()=>{
-  const ratingBooks = books.sort((a,b)=>(b.rating-a.rating))
-  printBooks(ratingBooks)  
+  isDescending = !isDescending;
+  if(isDescending){
+    const ratingBooks = books.sort((a,b)=>(b.rating-a.rating))
+    printBooks(ratingBooks) 
+  } else {
+    const ratingBooks = books.sort((a,b)=>(a.rating-b.rating))
+    printBooks(ratingBooks)  
+  }
 })
 
+
 document.getElementById("year").addEventListener("click",()=>{
-  const yearBooks = books.sort((a,b)=>(b.year-a.year))
-  printBooks(yearBooks)  
+  isDescending = !isDescending;
+  if(isDescending){
+    const yearBooks = books.sort((a,b)=>(b.year-a.year))
+    printBooks(yearBooks)
+  } else {
+    const yearBooks = books.sort((a,b)=>(a.year-b.year))
+    printBooks(yearBooks)
+  }
 })
+
 
 
 
@@ -301,11 +316,12 @@ document.getElementById("genreButton").addEventListener("click",(event)=>{
       printBooks(allBooks)  
     })
   } else {
-    console.log(filteredBooks)
     const filteredButtonBooks = books.filter((book)=>book.genre===filteredBooks)
     printBooks(filteredButtonBooks) 
   }    
 })
+
+
 
 /* document.getElementById("all").addEventListener("click",()=>{
   const allBooks = books
@@ -339,6 +355,8 @@ document.getElementById("more").addEventListener("change",(event)=>{
     printBooks(filterSelectedBooks); 
   } 
 })
+
+
 
 
 
