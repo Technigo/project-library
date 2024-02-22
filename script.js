@@ -279,7 +279,7 @@ const createRandomBook = () => {
     </details>
   </div>`;
   randomBookContainer.append(article);
-  scrollToElement(bookListing);
+  scrollToElement(randomBookContainer);
 };
 
 // Sort book listing
