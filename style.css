@@ -1,7 +1,6 @@
-
 button {
   border-radius: 20px;
-  background-color: #ba7ff5;
+  background-color: #eb84f5;
   border: none;
   transition-duration: 0.4s;
   text-align: center;
@@ -10,23 +9,39 @@ button {
 }
 
 button:hover {
-  background-color: #ba7ff5;
-  background-color: #7a7ffa;
+  background-color: #eb84f5;
+  background-color: #ae62b5;
 }
 
 body {
   font-family: "Rubik";
   margin-left: 5%;
+  color: #361f2e;
+}
+
+h1 {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  padding: 3%;
+  background-image: url('./header-image.jpg');
+  background-size: cover;
 }
 
 h3 {
   text-align: center;
 }
 
+p {
+  color: #39253b;
+}
+
 .recipe-container {
   display: grid;
-  grid-template-columns: repeat(1, 1fr);
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center
   row-gap: 20px;
+  justify-content: center;
   /* border: solid blue; */
 }
 
@@ -43,12 +58,16 @@ h3 {
   border: 0.5px solid black;
   border-radius: 30px;
   width: 90%;
-  padding-top: 2px;
+  padding-top: 16px;
+  margin: 10px;
 }
 
 .forms-header {
   display: flex;
   flex-direction: column;
+  background-color: #e8a16b;
+  color: #fff;
+  
   /* border: solid red; */
 }
 
@@ -71,6 +90,8 @@ h3 {
 .footer {
   display: flex;
   justify-content: center;
+  background-color: #e8a16b;
+  color: #39253b;
 }
 
 /* Media query for viewports larger than 767px*/

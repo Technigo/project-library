@@ -3,29 +3,29 @@ const container = document.getElementById("recipe-container");
 const filterRecipes = document.getElementById("filter-recipes");
 const searchForm = document.getElementById("search-form");
 const searchInput = document.getElementById("search-input");
-const descendingButtonForm = document.getElementById("descending")
-const ascendingButtonForm = document.getElementById("ascending")
-const random = document.getElementById("random")
+const descendingButtonForm = document.getElementById("descending");
+const ascendingButtonForm = document.getElementById("ascending");
+const random = document.getElementById("random");
 
 const recipes = [
   {
     name: "Individual Vegetarian Lasagnes",
     cuisineType: ["italian"],
     ingredients: [
-      "1.2 kg cherry tomatoes",
-      "5 sprigs of fresh thyme",
-      "extra virgin olive oil",
-      "2 shallots",
-      "2 cloves of garlic",
-      "500 g baby spinach",
-      "8-12 fresh or dried lasagne sheets",
-      "350 g ricotta cheese",
-      "WHITE SAUCE",
-      "600 ml milk",
-      "25 g unsalted butter",
-      "2 heaped tablespoons flour",
-      "150 g vegetarian sharp, mature cheese",
-      "100 g mozzarella",
+      `1.2 kg cherry tomatoes`,
+      `5 sprigs of fresh thyme`,
+      `extra virgin olive oil`,
+      `2 shallots`,
+      `2 cloves of garlic`,
+      `500 g baby spinach`,
+      `8-12 fresh or dried lasagne sheets`,
+      `350 g ricotta cheese`,
+      `WHITE SAUCE`,
+      `600 ml milk`,
+      `25 g unsalted butter`,
+      `2 heaped tablespoons flour`,
+      `150 g vegetarian sharp, mature cheese`,
+      `100 g mozzarella`,
     ],
     source: "Jamie Oliver",
     totalTime: 130,
@@ -240,7 +240,12 @@ const showRecipes = (recipesToShow) => {
         <h3>${recipe.name}</h3>
         <p><b>Cuisine</b>: ${recipe.cuisineType}</p>
         <p><b>Time</b>: ${recipe.totalTime} minutes</p>
-        <p><b>Ingredients:</b>: ${recipe.ingredients}</p>
+        <p><b>Ingredients:</b></p>
+        <ul>
+          ${recipe.ingredients
+            .map((ingredient) => `<li>${ingredient}</li>`)
+            .join("")}
+        </ul>
       </div>
     </div>
     `;
@@ -248,14 +253,14 @@ const showRecipes = (recipesToShow) => {
 };
 
 //Initial rendering of all recipes
-showRecipes(recipes)
+showRecipes(recipes);
 
 //Function random
 const getRandomValue = () => {
-  container.innerHTML = ""
+  container.innerHTML = "";
 
-  recipes[Math.floor(Math.random() * recipes.length)]
-  const recipe = recipes[Math.floor(Math.random() * recipes.length)]
+  recipes[Math.floor(Math.random() * recipes.length)];
+  const recipe = recipes[Math.floor(Math.random() * recipes.length)];
   container.innerHTML += `
   <div class="recipe-card">
     <img src="${recipe.image}" 
@@ -264,23 +269,28 @@ const getRandomValue = () => {
       <h3>${recipe.name}</h3>
       <p><b>Cuisine</b>: ${recipe.cuisineType}</p>
       <p><b>Time</b>: ${recipe.totalTime} minutes</p>
-      <p><b>Ingredients:</b>: ${recipe.ingredients}</p>
+      <p><b>Ingredients:</b></p>
+      <ul>
+        ${recipe.ingredients
+          .map((ingredient) => `<li>${ingredient}</li>`)
+          .join("")}
+      </ul>
     </div>
   </div>
-  `
-}
+  `;
+};
 
 //Function to sorting descending
 const filteredRecipesByDescending = () => {
-recipes.sort((a, b) => parseFloat(a.totalTime) - parseFloat(b.totalTime));
-showRecipes(recipes)
-}
+  recipes.sort((a, b) => parseFloat(a.totalTime) - parseFloat(b.totalTime));
+  showRecipes(recipes);
+};
 
 //Function to sorting ascending
 const filteredRecipesByAscending = () => {
   recipes.sort((a, b) => parseFloat(b.totalTime) - parseFloat(a.totalTime));
-  showRecipes(recipes)
-  }
+  showRecipes(recipes);
+};
 
 //Function to filter on search input
 const filterRecipesBySearchInput = (searchInputValue) => {
@@ -313,8 +323,8 @@ filterRecipes.addEventListener("change", (event) => {
 
 //Event listener for random
 random.addEventListener("click", (event) => {
- event.preventDefault();
- getRandomValue();
+  event.preventDefault();
+  getRandomValue();
 });
 
 //Event listener for searchform
@@ -330,8 +340,8 @@ descendingButtonForm.addEventListener("click", (event) => {
   filteredRecipesByDescending();
 });
 
-//Event listener for sorting on ascending 
+//Event listener for sorting on ascending
 ascendingButtonForm.addEventListener("click", (event) => {
   event.preventDefault();
   filteredRecipesByAscending();
-})
+});

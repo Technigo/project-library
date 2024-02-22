@@ -4,15 +4,22 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./style.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/x-icon" href="./recipe-images/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/x-icon" href="./recipe-images/favicon.png" />
     <title>Recipe Library</title>
   </head>
   <body>
     <h1>Project Recipe Library</h1>
     <div class="forms-header">
+      <form class="search-form" id="search-form">
+        <input id="search-input" type="text" placeholder="Search by keyword" />
+        <button class="send-btn" type="submit">Search</button>
+      </form>
       <form class="kitchen-form" id="kitchen-form">
         <p>Filter on Kitchen</p>
         <select id="filter-recipes">
@@ -31,17 +38,16 @@
         <button id="descending">Descending</button>
         <button id="ascending">Ascending</button>
       </form>
-      <form class="search-form" id="search-form">
-        <input id="search-input" type="text" placeholder="Search by keyword"/>
-        <button class="send-btn" type="submit">Search</button>
-      </form>
     </div>
 
     <div class="recipe-container" id="recipe-container"></div>
-    
+
     <footer>
       <div class="footer">
-        <p>Still haven't decided? Pick a random recipe here: <button id="random">Give me a recipe!</button></p>
+        <p>
+          Still haven't decided? Pick a random recipe here:
+          <button id="random">Give me a recipe!</button>
+        </p>
       </div>
     </footer>
     <script src="./script.js"></script>
