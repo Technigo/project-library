@@ -1,9 +1,11 @@
 // Get references to HTML elements using their IDs.
 const container = document.getElementById("recipe-container");
 const filterRecipes = document.getElementById("filter-recipes");
-const sortingForm = document.getElementById("sorting-form");
 const searchForm = document.getElementById("search-form");
 const searchInput = document.getElementById("search-input");
+const descendingButtonForm = document.getElementById("descending")
+const ascendingButtonForm = document.getElementById("ascending")
+
 
 const recipes = [
   {
@@ -54,7 +56,7 @@ const recipes = [
     image: "./recipe-images/vegetarian-stir-fried-garlic-s.jpg",
   },
   {
-    name: "Cheat's cheesy focaccia",
+    name: "Cheat's Cheesy Focaccia",
     cuisineType: ["italian"],
     ingredients: [
       "500g pack bread mix",
@@ -246,14 +248,19 @@ const showRecipes = (recipesToShow) => {
 };
 
 //Initial rendering of all recipes
-showRecipes(recipes);
+showRecipes(recipes)
 
 //Function to sorting descending
 const filteredRecipesByDescending = () => {
-  recipes.sort(function (a, b) {
-    return a - b;
-  });
-};
+recipes.sort((a, b) => parseFloat(a.totalTime) - parseFloat(b.totalTime));
+showRecipes(recipes)
+}
+
+//Function to sorting ascending
+const filteredRecipesByAscending = () => {
+  recipes.sort((a, b) => parseFloat(b.totalTime) - parseFloat(a.totalTime));
+  showRecipes(recipes)
+  }
 
 //Function to filter on search input
 const filterRecipesBySearchInput = (searchInputValue) => {
@@ -282,7 +289,6 @@ filterRecipes.addEventListener("change", (event) => {
   } else {
     filterRecipesByCuisine(selectedCuisine);
   }
-  console.log(selectedCuisine);
 });
 
 //Event listener for searchform
@@ -292,28 +298,14 @@ searchForm.addEventListener("submit", (event) => {
   filterRecipesBySearchInput(searchInput.value);
 });
 
-//Event listener for sort on time
-sortingForm.addEventListener("submit", (event) => {
+//Event listener for sort on descending
+descendingButtonForm.addEventListener("click", (event) => {
   event.preventDefault();
+  filteredRecipesByDescending();
 });
 
-//Below is our old code from 21/2
-
-// Sorting and filtering functions
-
-/*const sortRecipes = () => {
-  const value = filterRecipes.value;
-  let selectedRecipes = recipes.map((recipe) => recipe);
-
-  if (value === "all") {
-    addRecipe(recipes);
-  } else if (value === "italian") {
-    selectedRecipes = recipes.filter(
-      (recipe = recipe.cuisineType === "italian")
-    );
-    addRecipe(selectedRecipes);
-  }
-};*/
-
-// Listeners
-//filterRecipes.addEventListener("change", filterRecipes);
+//Event listener for sorting on ascending 
+ascendingButtonForm.addEventListener("click", (event) => {
+  event.preventDefault();
+  filteredRecipesByAscending();
+})
