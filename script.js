@@ -187,25 +187,26 @@ const books = [
 const libraryContainer = document.getElementById("library-container");
 const dropdownGenre = document.getElementById("filter-genre");
 const sortButton = document.getElementById("sorting-button");
-
+const randomBookButton = document.getElementById("random-book");
+const randomBookContainer = document.getElementById("random-book-container");
 
 // display books (with an optional genre filter)
 const showBookContent = (arrayOfBooks, genreFilter = "all") => {
-  // takes an array of book objects and an optional genre filter as parameters
-  libraryContainer.innerHTML = ""; //clears the content of the library container
+	// takes an array of book objects and an optional genre filter as parameters
+	libraryContainer.innerHTML = ""; //clears the content of the library container
 
-  // Filter books based on the genre if the filter is not 'all'
-  const filteredBooks =
-    genreFilter === "all"
-      ? arrayOfBooks
-      : arrayOfBooks.filter(
-          (book) => book.genre.toLowerCase() === genreFilter.toLowerCase()
-        );
+	// Filter books based on the genre if the filter is not 'all'
+	const filteredBooks =
+		genreFilter === "all"
+			? arrayOfBooks
+			: arrayOfBooks.filter(
+					(book) => book.genre.toLowerCase() === genreFilter.toLowerCase()
+			  );
 
-  //Display filtered books
-  filteredBooks.forEach((book) => {
-    // iterates over each book
-    libraryContainer.innerHTML += `
+	//Display filtered books
+	filteredBooks.forEach((book) => {
+		// iterates over each book
+		libraryContainer.innerHTML += `
 
     <div class=card>
     <img src=${book.image}>
@@ -221,8 +222,8 @@ const showBookContent = (arrayOfBooks, genreFilter = "all") => {
 
 // Event listener for dropdown change
 dropdownGenre.addEventListener("change", (event) => {
-  const selectedGenre = event.target.value; // Get the selected genre
-  showBookContent(books, selectedGenre); // Display books based on the selected genre
+	const selectedGenre = event.target.value; // Get the selected genre
+	showBookContent(books, selectedGenre); // Display books based on the selected genre
 });
 
 //call the function - displays all books initially
@@ -246,10 +247,44 @@ const sortBooksByTitle = () => {
 
 	sortAscending = !sortAscending;
 	showBookContent(books);
-	const sortButton = document.getElementById("sorting-button");
 	sortButton.src = sortAscending
 		? "icons/absteigend-sortieren.png"
 		: "icons/aufsteigend-sortieren.png";
 };
 
+//random button
+const randomBook = (books) => {
+	Math.floor(Math.random() * books.length);
+	return randomBook, books[randomBook];
+};
+
+arrayOfBooks((book) => {
+	// iterates over each book
+	randomBookContainer.innerHTML += `
+
+  <div class=card>
+  <img src=${book.image}>
+  <h2>${book.title}</h2>
+  <p>${book.author}</p>
+  <p>${book.year}</p>
+  <p>${book.genre}</p>
+  <p>${book.rating}</p>
+  <p>${book.description}</p>
+</div>`;
+});
+
+//Eventlistener
 sortButton.addEventListener("click", sortBooksByTitle);
+randomBookButton.addEventListener("click", randomBook);
+
+// // Random book function
+// const randomBook = () => {
+//   const randomIndex = Math.floor(Math.random() * books.length-1);
+//   return books[randomIndex];
+// };
+
+// // Event listener for random book button
+// randomBookButton.addEventListener("click", () => {
+//   const randomBookResult = randomBook();
+//   showBookContent([randomBookResult]);
+// });
