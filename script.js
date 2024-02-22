@@ -185,6 +185,12 @@ const container = document.getElementById("container")
 const sortAtoZ = document.getElementById("az")
 const sortZtoA = document.getElementById("za")
 const sortByRate = document.getElementById("btnRate")
+      /* genere buttons*/
+const sortByFantasy = document.getElementById("btnFantasy")
+const sortByFiction = document.getElementById("btnFiction")
+const sortByDystopia = document.getElementById("btnDystopia")
+const sortByHorror = document.getElementById("btnHorror")
+const sortByMystery = document.getElementById("btnMystery")
 
 // loadBooks function, this will clear any previous object inside the html container
 // and then it will show up the new html elements depending on their sorting function. 
@@ -195,9 +201,11 @@ const loadBooks = (bookArray) =>{
     container.innerHTML += `
        <div class="card">
         <img src=${book.image} alt="">
-        <h2>${book.title} - ${book.rating}</h2>
-        <h3>by ${book.author}, ${book.year}, genre ${book.genre}</h3>
-        <p>${book.description}</p>
+        <div>
+          <h2>${book.title} - ${book.rating}</h2>
+          <h3>by ${book.author}, ${book.year}, genre ${book.genre}</h3>
+          <p>${book.description}</p>
+        </div>
       </div>
     `
   });
@@ -209,7 +217,43 @@ const sortBooksByRate = () => {
   loadBooks(ratedBooks)  
 }
 
-sortByRate.addEventListener("click", sortBooksByRate)
+// GENRE SORTING
+//Fantacy
+const sortBooksByFantasy = () => {
+  const fantasyBooks = BOOKS.filter(book => book.genre === 'Fantasy')
+  loadBooks(fantasyBooks)
+}
+//Fiction
+const sortBooksByFiction = () => {
+  const fictionBooks = BOOKS.filter(book => book.genre === 'Fiction')
+  loadBooks(fictionBooks)
+}
+
+//Dystopian
+const sortBooksByDystopia = () => {
+  const dystopiaBooks = BOOKS.filter(book => book.genre === 'Dystopian')
+  loadBooks(dystopiaBooks)
+}
+
+//Horror
+const sortBooksByHorror = () => {
+  const horrorBooks = BOOKS.filter(book => book.genre === 'Horror')
+  loadBooks(horrorBooks)
+}
+
+//Mystery
+const sortBooksByMystery = () => {
+  const misteryBooks = BOOKS.filter(book => book.genre === 'Mystery')
+  loadBooks(misteryBooks)
+}
+
 
 loadBooks(BOOKS)
 
+// Event Listeners go here:
+sortByRate.addEventListener("click", sortBooksByRate)
+sortByFantasy.addEventListener("click", sortBooksByFantasy)
+sortByFiction.addEventListener("click", sortBooksByFiction)
+sortByDystopia.addEventListener("click", sortBooksByDystopia)
+sortByHorror.addEventListener("click", sortBooksByHorror)
+sortByMystery.addEventListener("click", sortBooksByMystery)

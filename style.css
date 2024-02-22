@@ -77,7 +77,21 @@ body {
   padding: 5px;
 }
 
-#container
+img{
+  width: 100%;
+  height: auto;
+
+}
+
+.responsive {
+  padding: 0 6px;
+  float: left;
+  width: 24.99999%;
+}
+
+#container{
+  padding: 10px;
+}
 @media (max-width: 768px) {
   .column {
       width: calc(100% - 20px);
