@@ -197,8 +197,12 @@ const header = document.querySelector("header");
 
 // Global variables
 const summarytext = "About the book";
+const errorText = `<p>Could not find any books like that...</p>`;
 let authors = [];
 let genres = [];
+let activeList = books;
+let activeFilter = "";
+let sortedBooks = [];
 
 // Scroll to element
 const scrollToElement = element =>
@@ -211,14 +215,25 @@ const scrollToElement = element =>
 // Toggle hide/show
 const toggleHide = element => element.classList.toggle("hidden");
 
-// Turn object values into arrays, then compare to searchValue
+// Reset
+const reset = () => {
+  activeList = books;
+  getBooks(activeList);
+  activeFilter = "";
+  sortedBooks = [];
+};
+
+// Handle search
 async function getSearchResults(searchterm) {
   const searchResults = books.filter(book => {
     return Object.values(book).join(" ").toLowerCase().includes(searchterm);
   });
-  searchResults.length > 0
-    ? getBooks(searchResults)
-    : (bookListing.innerHTML = `<p>Could not find any books like that...</p>`);
+  if (searchResults.length > 0) {
+    getBooks(searchResults);
+    scrollToElement(bookListing);
+  } else {
+    bookListing.innerHTML = errorText;
+  }
 }
 
 // Search
@@ -264,36 +279,83 @@ const createRandomBook = () => {
     </details>
   </div>`;
   randomBookContainer.append(article);
+  scrollToElement(bookListing);
 };
 
 // Sort book listing
 const sortListing = event => {
   randomBookContainer.innerHTML = "";
-  let sortedBooks = [];
+  // let sortedBooks = [];
   switch (event.target.value) {
     case "by-author":
-      sortedBooks = books.toSorted((a, b) => {
+      sortedBooks = activeList.toSorted((a, b) => {
         a.author > b.author ? 1 : -1;
-        console.log(a.author, b.author);
       });
       getBooks(sortedBooks);
       break;
     case "by-year":
-      sortedBooks = books.toSorted((a, b) => (a.year > b.year ? 1 : -1));
+      sortedBooks = activeList.toSorted((a, b) => (a.year > b.year ? 1 : -1));
       getBooks(sortedBooks);
       break;
     case "by-title-az":
-      sortedBooks = books.toSorted((a, b) => (a.title > b.title ? 1 : -1));
+      sortedBooks = activeList.toSorted((a, b) => (a.title > b.title ? 1 : -1));
       getBooks(sortedBooks);
       break;
     case "by-title-za":
-      sortedBooks = books.toSorted((a, b) => (a.title > b.title ? -1 : 1));
+      sortedBooks = activeList.toSorted((a, b) => (a.title > b.title ? -1 : 1));
       getBooks(sortedBooks);
       break;
     case "by-rating":
-      sortedBooks = books.toSorted((a, b) => a.rating - b.rating).reverse();
+      sortedBooks = activeList
+        .toSorted((a, b) => a.rating - b.rating)
+        .reverse();
       getBooks(sortedBooks);
       break;
+  }
+  activeList = sortedBooks;
+};
+
+// Check if same filter is already applied
+const checkFilter = filter => {
+  if (activeFilter === filter && sortedBooks.length > 0) {
+    return sortedBooks;
+  } else if (activeFilter === filter) {
+    return books;
+  } else {
+    return activeList;
+  }
+};
+
+// Filter books
+const filterBooks = event => {
+  let filteredBooks = [];
+  randomBookContainer.innerHTML = "";
+  // let filteredBooks = [];
+  activeList = checkFilter(event.target.id);
+  switch (event.target.id) {
+    case "select-filter-author":
+      activeFilter = event.target.id;
+      filteredBooks = activeList.filter(
+        book => book.author === event.target.value
+      );
+      break;
+    case "select-filter-genre":
+      activeFilter = event.target.id;
+      filteredBooks = activeList.filter(
+        book => book.genre === event.target.value
+      );
+      break;
+
+    default:
+      break;
+  }
+  activeList = filteredBooks;
+
+  if (filteredBooks.length > 0) {
+    getBooks(filteredBooks);
+  } else {
+    bookListing.innerHTML = errorText;
+    setTimeout(reset, 3000);
   }
 };
 
@@ -313,24 +375,6 @@ const createAuthorFilter = () => {
     fragment.appendChild(option);
   });
   filterAuthor.appendChild(fragment);
-};
-
-// Filter books
-const filterBooks = event => {
-  randomBookContainer.innerHTML = "";
-  let filteredBooks = [];
-  switch (event.target.id) {
-    case "select-filter-author":
-      filteredBooks = books.filter(book => book.author === event.target.value);
-      break;
-    case "select-filter-genre":
-      filteredBooks = books.filter(book => book.genre === event.target.value);
-      break;
-
-    default:
-      break;
-  }
-  getBooks(filteredBooks);
 };
 
 // Function to extract genre to filter
@@ -371,7 +415,6 @@ const showRating = () => {
 
 // Put books from object into DOM
 async function getBooks(bookArray) {
-  scrollToElement(bookListing);
   bookListing.innerHTML = "";
   let fragment = document.createDocumentFragment();
   showRating();
@@ -420,6 +463,6 @@ filterAuthor.addEventListener("change", filterBooks);
 filterGenre.addEventListener("change", filterBooks);
 randomBookBtn.addEventListener("click", createRandomBook);
 searchBtn.addEventListener("click", search);
-form.addEventListener("reset", () => getBooks(books));
+form.addEventListener("reset", () => reset);
 optionsBtn.addEventListener("click", () => toggleHide(form));
 topBtn.addEventListener("click", () => scrollToElement(header));
