@@ -274,7 +274,7 @@ const filterSelectionIndex = (cuisine) => {
   // Add the "show" class (display:block) to the filtered elements, and remove the "show" class from the elements that are not selected
   for (i = 0; i < card.length; i++) {
     removeClass(card[i], "show");
- 
+
   }
   addClass(card[randomRecipe()], "show");
 };
@@ -316,6 +316,13 @@ for (let i = 0; i < btns.length; i++) {
 }
 
 filterSelection("all");
+
+// mobile dropdown
+document
+  .getElementById("mobileFilterSelect")
+  .addEventListener("change", function () {
+    filterSelection(this.value);
+  });
 
 // Sort alphabetically and by cook time (Martin)
 
@@ -427,4 +434,4 @@ searchButton.addEventListener("click", function () {
 });
 
 //1. instead of button, change it to form
-//2. show all recipes  back when the search input is cleared 
+//2. show all recipes  back when the search input is cleared
