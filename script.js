@@ -227,10 +227,10 @@ const recipes = [
 
 //Function to show the recipes
 const showRecipes = (recipesToShow) => {
-  container.innerHTML = ""
+  container.innerHTML = "";
 
   recipesToShow.forEach((recipe) => {
-    container.innerHTML +=`
+    container.innerHTML += `
     <div class="recipe-card">
       <img src="${recipe.image}" 
       width="200px"/>
@@ -241,35 +241,61 @@ const showRecipes = (recipesToShow) => {
         <p><b>Ingredients:</b>: ${recipe.ingredients}</p>
       </div>
     </div>
-    `
-  }) 
+    `;
+  });
 };
 
 //Initial rendering of all recipes
-showRecipes(recipes)
+showRecipes(recipes);
+
+//Function to sorting descending
+const filteredRecipesByDescending = () => {
+  recipes.sort(function (a, b) {
+    return a - b;
+  });
+};
+
+//Function to filter on search input
+const filterRecipesBySearchInput = (searchInputValue) => {
+  const filteredRecipes = recipes.filter((recipe) =>
+    recipe.name.toLowerCase().includes(searchInputValue)
+  );
+  showRecipes(filteredRecipes);
+};
 
 //Function to filter on cuisineType
 const filterRecipesByCuisine = (cuisineType) => {
-  const filteredRecipes = recipes.filter((recipe) => recipe.cuisineType.includes(cuisineType))
+  const filteredRecipes = recipes.filter((recipe) =>
+    recipe.cuisineType.includes(cuisineType)
+  );
   //Call the addRecipes funciton with the filtered recipes
-  showRecipes(filteredRecipes)
-}
+  showRecipes(filteredRecipes);
+};
 
 //Event listeners for the filter dropdown
 filterRecipes.addEventListener("change", (event) => {
-  const selectedCuisine = event.target.value
+  const selectedCuisine = event.target.value;
 
   // if selected value = all -> then show all recipes otherwise filter by cuisine type
   if (selectedCuisine === "all") {
-    showRecipes(recipes)
+    showRecipes(recipes);
   } else {
-    filterRecipesByCuisine(selectedCuisine)
+    filterRecipesByCuisine(selectedCuisine);
   }
-  console.log(selectedCuisine)
-})
+  console.log(selectedCuisine);
+});
 
+//Event listener for searchform
+searchForm.addEventListener("submit", (event) => {
+  event.preventDefault();
 
+  filterRecipesBySearchInput(searchInput.value);
+});
 
+//Event listener for sort on time
+sortingForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+});
 
 //Below is our old code from 21/2
 
