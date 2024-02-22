@@ -191,17 +191,18 @@ const container = document.getElementById("container");
 
 
 //Display all the books
-let makeBoxes = (book) => {
-  return `
-  <div class = "book-boxes">
-  </div>`
-}
-
-let showBooks = (viewbooks) => {
+let displayBooks = (bookBoxes) => {
   container.innerHTML = "";
-  viewbooks.forEach((listOfBooks) => {
-    container.innerHTML += makeBoxes(listOfBooks);
-  });
-}
 
-showBooks(books)
+  bookBoxes.forEach((books) => {
+    container.innerHTML +=
+      `
+    <div class="book-boxes">
+      <img src="${books.image}">
+      <p class="book-test">${books.title}</p>
+    </div>
+    `
+  });
+};
+
+displayBooks(books);
