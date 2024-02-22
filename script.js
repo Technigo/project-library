@@ -49,7 +49,7 @@ const plants = [
     waterDemand: "medium",
     nutritionalNeeds: "medium",
     perennial: false,
-    img: "./assets/zucchini-1.jpg",
+    img: "./assets/zucchini-2.jpg",
   },
   {
     name: "Onion",
@@ -180,12 +180,22 @@ const showACard = (onePlant) => {
   plantScientificName = plants[plants.indexOf(onePlant)]["scientificName"];
   plantTimeToSow = plants[plants.indexOf(onePlant)]["timeToSow"];
   plantDirectSowing = plants[plants.indexOf(onePlant)]["directSowing"];
+   if (onePlant.directSowing === true){
+    plantDirectSowing = "Yes"
+  } else {
+    plantDirectSowing = "No"
+  }
   plantDevelopmentTime = plants[plants.indexOf(onePlant)]["developmentTime"];
   plantWaterDemand = plants[plants.indexOf(onePlant)]["waterDemand"];
   plantNutritionalNeeds = plants[plants.indexOf(onePlant)]["nutritionalNeeds"];
   plantPerennial = plants[plants.indexOf(onePlant)]["perennial"];
   plantImageLink = plants[plants.indexOf(onePlant)]["img"];
-  cardContainer.innerHTML += `<div class="card">
+  if (onePlant.perennial === true){
+    plantPerennial = "Yes"
+  } else {
+    plantPerennial = "No"
+  }
+  cardContainer.innerHTML += `<div class="card" id="card">
     <h2>${plantName}</h2>
     <p class="scientific-name">${plantScientificName}</p>
     <img src="${plantImageLink}" alt="">
@@ -217,8 +227,8 @@ const sortTheScientificNames = () => {
     showACard(plants[onlyScientificNamesUnsorted.indexOf(name)]);
   });
 };
-writeTheScientificNames();
-sortTheScientificNames();
+//writeTheScientificNames();
+//sortTheScientificNames();
 
 //Picks a random plant to show
 let randomObject = "";
@@ -230,15 +240,24 @@ const pickRandom = () => {
 const showAll = () => {
   plants.forEach(showACard);
 };
+//showAll()
 
+const showMeSpring = (onePlant) => {
+  plantTimeToSow = onePlant.timeToSow
+  if (plantTimeToSow === "spring") {
+    showACard(plants[plants.indexOf(onePlant)])
+  } else {
+  }
+  //plants.sort (sortByTimeToSow (a, b){return b-a})
+}
 
-/*const sortByTimeToSow = () =>{
-    }
+plants.forEach(showMeSpring)
+//showMeSpring ()
 
-
-
+/*
 const sortByDevelopmentTime = () => {
 //sort by days of devtime
+//numbersArray.map 
 }
 
 const sortByWaterDemand = () => {
@@ -246,24 +265,13 @@ const sortByWaterDemand = () => {
 }
 
 const sortByNutritionalNeeds = () => {
- // 
 }*/
 
-const sortByLifeLength = (perennial) => {
-  if (perennial === true){
-   return "Yes";
-  } else {
-  return "No";
-  }
-}
-sortByLifeLength()
-console.log(sortByLifeLength(true))
-console.log(sortByLifeLength(false))
+//sort by perennial
 
 
 
 //Eventlisteners:
-//const btnAllName = document.querySelector("button")
 
-//btnAllName.addEventlistener("click" , (onClick))
+//showAll.addEventlistener("click" ,)
 //console.log
