@@ -196,8 +196,8 @@ let displayBooks = (bookBoxes) => {
   container.innerHTML = "";
 
   bookBoxes.forEach((books) => {
-    container.innerHTML += 
-    `
+    container.innerHTML +=
+      `
     <div class="book-boxes">
       <img src="${books.image}">
       <h3>${books.title}</h3>
@@ -213,6 +213,30 @@ let displayBooks = (bookBoxes) => {
 
 //Filter on genre
 
+const filterBooks = () => {
+
+  const value = filterBooks.value
+
+  if (value === "all") {
+    displayBooks(books)
+  } else {
+    const filterButton = books.filter((book) => book.genre === value)
+
+    displayBooks(filterButton)
+  }
+}
+
+
+// .addEventListener("click", filterBooks)
+
+
+
+
+// const bookGenre = books.filter(function(bookGenres) {
+//   return bookGenres.genre ==="Fantasy";
+// });
+
+// console.log(bookGenre)
 // let bookGenre = books.filter(function(bookGenres) {
 //   return bookGenres.genre ==="Fantasy";
 // });
