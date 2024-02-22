@@ -1,7 +1,4 @@
-/*Here we have created two different arrays that you can work with if you want.
-If you choose to create your own arrays with elements, just make sure that some
-of the properties make sense to filter on, and some to sort on.*/
-
+// Array with books
 const books = [
   {
     title: 'The Great Gatsby',
@@ -177,8 +174,9 @@ const books = [
 ]
 
 
+// Global variables
 const container = document.getElementById("container");
-const allBooksButton = document.getElementById("all");
+const allGenresButton = document.getElementById("all");
 const filterButton = document.getElementsByClassName("filter-btn");
 const sortButton = document.getElementsByClassName("sort-btn");
 const azButton = document.getElementById("az");
@@ -191,7 +189,7 @@ const searchInput = document.getElementById("search-input");
 const randomButton = document.getElementById("randomizer");
 
 
-//Boxes created to showcase all books
+// Boxes created to showcase books with images and info
 let createBookBoxes = (book) => {
   return `
   <div class="boxes">
@@ -208,6 +206,8 @@ let createBookBoxes = (book) => {
   `
 }
 
+
+// Function to create book boxes in the DOM
 let showBooks = (booksToDisplay) => {
   container.innerHTML = "";
   booksToDisplay.forEach((bookList) => {
@@ -216,8 +216,7 @@ let showBooks = (booksToDisplay) => {
 }
 
 
-//Filter function added to filter via buttons
-
+// Filter function added to filter via buttons
 for (let button of filterButton) {
   button.addEventListener("click", (event) => {
     let filteredBooks = books.filter((object) => object.genre === event.target.value);
@@ -225,46 +224,53 @@ for (let button of filterButton) {
   });
 }
 
-allBooksButton.addEventListener("click", () => {
+//Filter button for "All genres"
+allGenresButton.addEventListener("click", () => {
   showBooks(books);
 });
 
 
-//Sorting function added to sort via buttons
 
+// Sorting function added to sort via buttons
+
+//Sort title A-Z
 azButton.addEventListener("click", (event) => {
   const azBooks = books.sort((a, b) => (a.title > b.title ? 1 : -1));
   showBooks(azBooks);
 });
 
+//Sort title Z-A
 zaButton.addEventListener("click", (event) => {
   const zaBooks = books.sort((a, b) => (a.title > b.title ? -1 : 1));
   showBooks(zaBooks);
 });
 
+//Sort year new-old
 yearNewButton.addEventListener("click", (event) => {
   const newBooks = books.sort((a, b) => b.year - a.year);
   showBooks(newBooks);
 });
 
+//Sort year new-old
 yearOldButton.addEventListener("click", (event) => {
   const oldBooks = books.sort((a, b) => a.year - b.year);
   showBooks(oldBooks);
 });
 
+//Sort rating high-low
 ratingHighButton.addEventListener("click", (event) => {
   const highRating = books.sort((a, b) => b.rating - a.rating);
   showBooks(highRating);
 });
 
+//Sort rating low-hig
 ratingLowButton.addEventListener("click", (event) => {
   const lowRating = books.sort((a, b) => a.rating - b.rating);
   showBooks(lowRating);
 });
 
 
-//Search function
-
+// Search function
 let searchResult = () => {
 const searchTerm = searchInput.value.trim().toLowerCase();
 const matchingBooks = books.filter((books) => {
@@ -289,5 +295,5 @@ randomButton.addEventListener("click", () => {
 });
 
 
-// First show of books
+// Function to fetch all books
 showBooks(books)

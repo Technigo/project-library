@@ -3,14 +3,6 @@ html {
     font-family: 'Kumbh Sans';
 }
 
-.header {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-left: auto;
-    margin-right: auto;
-}
-
 /*Media query for very big screens to make sure the title and search box works well together*/
 @media (min-width: 601px){
     .header {
@@ -19,8 +11,7 @@ html {
 
     h1 {
         padding-left: 30px;
-        padding-top: 30px;
-        
+        padding-top: 30px;  
     }
 
     .searchbox {
@@ -39,8 +30,7 @@ html {
 
     h1 {
         padding-left: 30px;
-        padding-top: 30px;
-        
+        padding-top: 30px;  
     }
 
     .searchbox {
@@ -50,22 +40,28 @@ html {
     }
 }
 
+
 /*Media query for medium screens to make sure the title and search box works well together*/
 @media (min-width: 450px) AND (max-width: 532px){
     .header {
         padding-left: 40px;
         padding-right: 40px;
-        
     }
 }
 
+.header {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-left: auto;
+    margin-right: auto;
+}
 
 h1 {
     padding-right:auto;
     padding-left: auto;
     text-align:center;
     font-size: 40px;
-
     color:#00AFB9;
 }
 
@@ -73,12 +69,8 @@ h1 {
     border-radius: 30px;
     border: none;
     padding: 8px 8px 8px 25px;
-    font-family: "Kumbh Sans"
-    
-
+    font-family: 'Kumbh Sans';
 }
-
-
 
 .wrapper {
     display: flex;
@@ -88,7 +80,6 @@ h1 {
     padding-right: 40px;
     padding-left: 30px;
 }
-
 
 .filter-btn {
     border-radius: 30px;
@@ -118,7 +109,7 @@ h1 {
     box-shadow: 2px 2px 2px rgba(0, 162, 255, 0.2);
 }
 
-button:hover{
+button:hover {
     border-radius: 30px;
     border: solid;
     border-color:#00AFB9;
@@ -129,7 +120,7 @@ button:hover{
 
 button:focus {
     background-color:#00AFB9;
-    color:bisque;
+    color:#ffe5b3;
     transition: all 0.8s ease;
 }
 
@@ -139,7 +130,6 @@ button:focus {
     flex-wrap: wrap;
     gap: 15px;
     margin-top: 30px;
-   
 }
 
 
@@ -155,7 +145,6 @@ button:focus {
 
 h2 {
     font-size: 20px;
-
 }
 
 h3 {
@@ -199,9 +188,9 @@ p {
     font-size: 14px;
     text-align: center;
     font-weight: bold;
-    
 }
-#random-button{
+
+#random-button {
     color:#b42465;
     background-color: #ffe5b3;
     border-radius: 30px;
@@ -214,14 +203,14 @@ p {
     box-shadow: 3px 3px 3px rgba(159, 49, 58, 0.4);
 }
 
-#random-button:hover{
+#random-button:hover {
     border-radius: 30px;
     border: solid;
     border-color:#00AFB9;
     transition: all 0.2s ease;
 }
 
-#random-button:focus{
+#random-button:focus {
     background-color:#00AFB9;
     color:#FED9B7;
     transition: all 0.8s ease;
