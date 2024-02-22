@@ -291,17 +291,33 @@ usaBtn.onclick = () => filterRecipes("american");
 const chinaBtn = document.getElementById("china-btn");
 chinaBtn.onclick = () => filterRecipes("chinese");
 
-// Call the renderRecipes function when the website is loaded
-// window.onload = () => {
-//   renderRecipes(recipes);
-// };
+/* const sortRecipesByAscendingTime = () => {
+  const sortedRecipes = recipes.slice().sort((a, b) => (a.totalTime || Infinity) - (b.totalTime || Infinity));
+  renderRecipes(sortedRecipes);
+}
+ */
+const sortRecipesAscending = () => {
+  const sortRecipes = recipes.sort((a, b) => a.totalTime - b.totalTime);
+  renderRecipes(sortRecipes);
+};
 
+// // ascending
+// let numbers = [10, 5, 8, 20, 3];
+// numbers.sort((a, b) => a - b);
+// console.log(numbers); // Output: [3, 5, 8, 10, 20]
+
+// // descending
+// numbers.sort((a, b) => b - a);
+// console.log(numbers); // Output: [20, 10, 8, 5, 3]
+
+// recipes.totalTime.sort((a, b) => a.totalTime - b.totalTime);
+// console.log(recipes);
+
+//Call the renderRecipes function when the website is loaded
 window.onload = () => renderRecipes(recipes);
 
 //We should listen for a click or similar on the filter-buttons and that should show the expected cuisine-element as a result
 //cuisineType: "Italian"
-
-//------------------------------------------
 
 //CHAT-GPT GAVE US THIS THAT SHOWS US THE FILTERED CUISINE TYPE IN THE LOG
 // // Example: Filter recipes by cuisine type "south-american"
