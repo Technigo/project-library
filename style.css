@@ -58,11 +58,8 @@ h1 {
 }
 
 #container {
-  display: flex;
-  flex-wrap: wrap;
-  /*
-  justify-content: center;
-  */
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 1rem;
   width: 80%;
   margin: 0 auto;
@@ -110,11 +107,16 @@ h1 {
   border: none;
   border-radius: 5px;
   text-indent: 10px;
-  width: 30%;
+  width: 300px;
 }
 
 #search-input::placeholder {
   color: var(--clr_accent);
+}
+
+#search-form {
+  display: flex;
+  width: 100%;
 }
 
 /* Filter and Sort as dropdown */
@@ -135,6 +137,10 @@ h1 {
 @media only screen and (max-width: 768px) {
   h1 {
     font-size: 2rem;
+  }
+
+  #container {
+    grid-template-columns: 1fr;
   }
 
   /* Less padding on cards */
