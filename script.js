@@ -71,7 +71,7 @@ const books = [
     rating: 4.7,
     description:
       'The first book in the beloved Harry Potter series, it introduces readers to the magical world of Hogwarts and the young wizard Harry Potter.',
-    image: "./books-images/harry-potter-and-the-sorcerer'.jpg"
+    image: "./books-images/harry-potter-and-the-sorcerer.jpg"
   },
   {
     title: 'Moby-Dick',
@@ -186,6 +186,7 @@ const books = [
 ]
 
 
+
 //DOM selector
 const container = document.getElementById("container");
 
@@ -195,14 +196,27 @@ let displayBooks = (bookBoxes) => {
   container.innerHTML = "";
 
   bookBoxes.forEach((books) => {
-    container.innerHTML +=
-      `
+    container.innerHTML += 
+    `
     <div class="book-boxes">
       <img src="${books.image}">
-      <p class="book-test">${books.title}</p>
+      <h3>${books.title}</h3>
+      <p>${books.author}</p>
+      <p>${books.year}</p>
+      <p>${books.genre}</p>
+      <p>${books.rating}⚡️</p>
+      <p>${books.description}</p>
     </div>
     `
   });
 };
+
+//Filter on genre
+
+// let bookGenre = books.filter(function(bookGenres) {
+//   return bookGenres.genre ==="Fantasy";
+// });
+
+// console.log(bookGenre)
 
 displayBooks(books);
