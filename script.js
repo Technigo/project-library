@@ -186,8 +186,8 @@ const bookListing = document.querySelector(".book-listing");
 const filterAuthor = document.getElementById("select-filter-author");
 const filterGenre = document.getElementById("select-filter-genre");
 const sorting = document.getElementById("select-sort");
-const randomBookContainer = document.getElementById("random-book-container");
-const randomBookBtn = document.getElementById("random-book-btn");
+const randomBookContainer = document.querySelector(".random-book-container");
+const randomBookBtn = document.querySelector(".random-book-btn");
 const searchField = document.getElementById("search-field");
 const searchBtn = document.getElementById("search-btn");
 const form = document.querySelector("form");
@@ -232,29 +232,33 @@ const getRandomBook = () => {
 
 // Create the DOM element for random book
 const createRandomBook = () => {
+  toggleHide(randomBookContainer);
   randomBookContainer.innerHTML = "";
   const book = getRandomBook();
   const article = document.createElement("article");
   article.classList.add("book-item");
   article.innerHTML = `
+  <h4 class="random-book-badge">Try this!</h4>
   <img
     class="book-image"
     src="${book.image}"
     alt="${book.title}" />
-  <h2 class="title">${book.title}</h2>
-  <h3 class="author">${book.author}</h3>
-  <time
-    class="year"
-    datetime=${book.year}
-    >${book.year}</time>
-  <p class="genre">${book.genre}</p>
-  <p class="rating">${book.rating} ${book.stars}</p>
-  <details>
-    <summary>${summarytext}</summary>
-    <span class="description">
-    ${book.description}
-    </span>
-  </details>`;
+  <div class="book-specs">
+    <h2 class="title">${book.title}</h2>
+    <h3 class="author">${book.author}</h3>
+    <time
+      class="year"
+      datetime=${book.year}
+      >${book.year}</time>
+    <p class="genre">${book.genre}</p>
+    <p class="rating">${book.rating} ${book.stars}</p>
+    <details>
+      <summary>${summarytext}</summary>
+      <span class="description">
+      ${book.description}
+      </span>
+    </details>
+  </div>`;
   randomBookContainer.append(article);
 };
 
@@ -373,21 +377,23 @@ async function getBooks(bookArray) {
     class="book-image"
     src="${book.image}"
     alt="${book.title}" />
-  <h2 class="title">${book.title}</h2>
-  <h3 class="author">${book.author}</h3>
-  <time
-    class="year"
-    datetime=${book.year}
-    >${book.year}</time
-  >
-  <p class="genre">${book.genre}</p>
-  <p class="rating">${book.rating} ${book.stars}</p>
-  <details>
-    <summary>${summarytext}</summary>
-    <span class="description">
-    ${book.description}
-    </span>
-  </details>`;
+  <div class="book-specs">
+    <h2 class="title">${book.title}</h2>
+    <h3 class="author">${book.author}</h3>
+    <time
+      class="year"
+      datetime=${book.year}
+      >${book.year}</time
+    >
+    <p class="genre">${book.genre}</p>
+    <p class="rating">${book.rating} ${book.stars}</p>
+    <details>
+      <summary>${summarytext}</summary>
+      <span class="description">
+      ${book.description}
+      </span>
+    </details>
+  </div>`;
     fragment.appendChild(article);
   });
   bookListing.append(fragment);

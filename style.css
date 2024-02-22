@@ -179,6 +179,17 @@ summary {
   box-shadow: var(--shadow);
 }
 
+.random-book-badge {
+  position: absolute;
+  transform: translate(-1rem, 1rem);
+  background: var(--technigo-light-pink);
+  display: inline-block;
+  width: fit-content;
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+  align-self: flex-end;
+}
+
 .book-image {
   max-width: 100%;
   aspect-ratio: 5 / 4;
