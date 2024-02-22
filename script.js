@@ -191,9 +191,8 @@ const oldestButton = document.getElementById("oldestButton");
 const ratingButton = document.getElementById("ratingButton");
 const randomButton = document.getElementById("randomButton");
 
-//Here I use the querySelector instead of get element by id.
-//Books is the array. The for loop let us go through the array to get the information we need.
 
+//Books is the array. The for loop let us go through the array to get the information we need.
 //Here we declare function for rendering all books. And we need all the classes when doing styling
 function renderBook(book) {
   return `<div class="book">
@@ -209,7 +208,7 @@ function renderBook(book) {
 }
 
 
-//Books is the array. The for loop let us go through the array to get the information we need. 
+
 //Here is where we start the function to filter by genre.
 // the booksdiv is in the html 
 const booksDiv = document.getElementById("books");
@@ -242,6 +241,12 @@ genreDropDown.addEventListener("change", () => {
 
 //Here we are listening for clicks on the buttons
 newestButton.addEventListener("click", (event) => {
+  //This one makes the hover effect stays on the button when sorting books
+  newestButton.classList.add("active") 
+  //This one removes the hover effect when another sorting-button is clicked
+  oldestButton.classList.remove("active")
+  ratingButton.classList.remove("active")
+  randomButton.classList.remove("active")
   //"books" means that we are sorting the books for years
   books.sort(function (a, b) {
     return b.year - a.year;
@@ -253,6 +258,10 @@ newestButton.addEventListener("click", (event) => {
 });
 
 oldestButton.addEventListener("click", (event) => {
+  oldestButton.classList.add("active") 
+  newestButton.classList.remove("active") 
+  ratingButton.classList.remove("active")
+  randomButton.classList.remove("active")
   books.sort(function (a, b) {
     return a.year - b.year;
   });
@@ -264,6 +273,10 @@ oldestButton.addEventListener("click", (event) => {
 });
 
 ratingButton.addEventListener("click", (event) => {
+  ratingButton.classList.add("active") 
+  newestButton.classList.remove("active") 
+  oldestButton.classList.remove("active")
+  randomButton.classList.remove("active")
   books.sort(function (a, b) {
     return b.rating - a.rating;
   });
@@ -274,6 +287,10 @@ ratingButton.addEventListener("click", (event) => {
 });
 
 randomButton.addEventListener("click", (event) => {
+  randomButton.classList.add("active") 
+  newestButton.classList.remove("active") 
+  oldestButton.classList.remove("active")
+  ratingButton.classList.remove("active")
   //Here we are creating a varible for do random books. books.length uses all the books to work with
   const numberBook = Math.floor(Math.random() * books.length);
   booksDiv.innerHTML = "";

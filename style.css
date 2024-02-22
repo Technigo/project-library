@@ -1,4 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Kosugi+Maru&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Kosugi+Maru&display=swap");
+
 body {
   background-color: #eeb3c4;
   margin: 20px;
@@ -10,10 +12,13 @@ h1 {
   font-size: 70px;
   margin: 50px;
   display: flex;
-  letter-spacing: .1,5rem;
+  letter-spacing: 0.1, 5rem;
   justify-content: center;
 }
 
+h2 {
+  font-family: "Fira Sans";
+}
 .book {
   display: flex;
   flex-direction: column;
@@ -29,37 +34,70 @@ h1 {
 }
 
 select {
-  background-color: #bc86dd;
+  background-color: #e01a1a;
   color: white;
   border: none;
-  border-radius: 4px;
-  padding: 16px 20px;
+  border-radius: 30px;
+  padding: 18px 20px;
   margin-right: 4px;
   font-size: 16px;
   line-height: 26px;
-  font-family: "Montserrat";
+  font-family: "Fira Sans";
   font-weight: 500;
   cursor: pointer;
   transition: all 0.3s ease;
+  margin-top: 4px;
 }
 
 button {
   background-color: #bc86dd;
   color: white;
   border: none;
-  border-radius: 4px;
+  border-radius: 30px;
   padding: 16px 20px;
   margin-right: 4px;
   font-size: 16px;
   line-height: 26px;
-  font-family: "Montserrat";
+  font-family: "Fira Sans";
   font-weight: 500;
   cursor: pointer;
   transition: all 0.3s ease;
 }
 
+button:hover {
+  background-color: #04aa6d;
+  color: white;
+}
+/* This is called Specificity, and menas an element needs to be added to active, in order to treat the button.hover style equally important */
+button.active {
+  background-color:  #04aa6d;
+}
+
 .controls {
   display: flex;
-  flex-direction:row;
-  column-gap: 20px;
+  flex-direction: row;
+  column-gap: 150px;
+}
+
+
+.flex-child-0 {
+  width: 1312px;
+  height: 621px;
+  background: #868188;
+  top: 362px;
+  left: 64px;
+  justify-content: space-between;
+  display: flex;
+  align-items: center;
+}
+img {
+  width: 268px;
+  height: 200px;
+}
+.flex-parent {
+  width: 1440px;
+  height: 1047px;
+  top: -2614px;
+  left: -1343px;
+  border: 2px #000000;
 }

@@ -9,37 +9,56 @@
   <body>
     <h1 id="listOfClassics">Great books</h1>
 
-
     <!---This div puts the dropdown menu and the buttons so they have the same 
       parents and therefore end up being on the same row-->
     <div class="controls">
       <div>
-      <h2>Filter books by genre</h2>
-      
-      <!--Select is the drop-down menu-->
-      <select id="genre">
-        <option selected>All genres</option>
-        <option>Fiction</option>
-        <option>Horror</option>
-        <option>Science Fiction</option>
-        <option>Fantasy</option>
-        <option>Adventure</option>
-        <option>Mystery</option>
-        <option>Dystopian</option>
-      </select> 
-    </div>
-    <div> 
-      <h2>Sort books</h2>
-      
-    <button id="newestButton">Sort by newest</button>
-    <button id="oldestButton">Sort by oldest</button>
-    <button id="ratingButton">Sort by rating</button>
-    <button id="randomButton">Random</button>
+        <h2>Filter books by genre</h2>
 
-  </div>
+        <!--Select is the drop-down menu-->
+        <select id="genre">
+          <option selected>All genres</option>
+          <option>Fiction</option>
+          <option>Horror</option>
+          <option>Science Fiction</option>
+          <option>Fantasy</option>
+          <option>Adventure</option>
+          <option>Mystery</option>
+          <option>Dystopian</option>
+        </select>
+      </div>
+      <div>
+        <h2>Sort books</h2>
+
+        <button id="newestButton">Sort by newest</button>
+        <button id="oldestButton">Sort by oldest</button>
+        <button id="ratingButton">Sort by rating</button>
+        <button id="randomButton">Random</button>
+      </div>
     </div>
     <div id="books"></div>
 
+    <section id="flexParent" class="flex-parent">
+      <div class="flex-child-0"><h3>"The Great Gatsby"</h3>
+      <span></div>
+      <div class="flex-child-1"></div>
+      <div class="flex-child-2"></div>
+      <div class="flex-child-3"></div>
+      <div class="flex-child-4"></div>
+      <div class="flex-child-5"></div>
+      <div class="flex-child-6"></div>
+      <div class="flex-child-7"></div>
+      <div class="flex-child-8"></div>
+      <div class="flex-child-9"></div>
+      <div class="flex-child-10"></div>
+      <div class="flex-child-11"></div>
+      <div class="flex-child-12"></div>
+      <div class="flex-child-13"></div>
+      <div class="flex-child-14"></div>
+      <div class="flex-child-15"></div>
+      <div class="flex-child-16"></div>
+      <div class="flex-child-17"></div>
+    </section>
     <script src="script.js"></script>
   </body>
 </html>
