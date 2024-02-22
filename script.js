@@ -239,10 +239,12 @@ const printBooks = (booksArray) => {
         <img src="${book.image}" class="bookImage" alt="${book.title}" />
           <h3 class="bookTitle">${book.title}</h3>
         </div>
+
         <div class="bookChild">
           <p class="bookGenre">Genre: ${book.genre}</p>
           <p class="bookRating">Rating: ${book.rating}</p>
         </div>
+
         <div class="bookChild">
           <p class="bookAuthor">Author: ${book.author}</p>
           <p class="bookYear">Year: ${book.year}</p>
@@ -253,42 +255,6 @@ const printBooks = (booksArray) => {
   });
 };
 printBooks(books);
-
-
-sort.innerHTML +=`
-  <div class="sortTitle" id="sortTitle" >Sort</div>
-  <div class="sortButton" id="sortButton">
-    <button id="rating" value="rating" >rating</button>
-    <button id="year" value="rating">year</button>
-    <button id="name" >name</button>
-  </div>
-`
-let isDescending = false;
-document.getElementById("rating").addEventListener("click",()=>{
-  isDescending = !isDescending;
-  if(isDescending){
-    const ratingBooks = books.sort((a,b)=>(b.rating-a.rating))
-    printBooks(ratingBooks) 
-  } else {
-    const ratingBooks = books.sort((a,b)=>(a.rating-b.rating))
-    printBooks(ratingBooks)  
-  }
-})
-
-
-document.getElementById("year").addEventListener("click",()=>{
-  isDescending = !isDescending;
-  if(isDescending){
-    const yearBooks = books.sort((a,b)=>(b.year-a.year))
-    printBooks(yearBooks)
-  } else {
-    const yearBooks = books.sort((a,b)=>(a.year-b.year))
-    printBooks(yearBooks)
-  }
-})
-
-
-
 
 genre.innerHTML +=`
   <div class="sortTitle" id="sortTitle" >Filter on genre</div>
@@ -355,6 +321,39 @@ document.getElementById("more").addEventListener("change",(event)=>{
     printBooks(filterSelectedBooks); 
   } 
 })
+
+
+sort.innerHTML +=`
+  <div class="sortTitle" id="sortTitle" >Sort</div>
+  <div class="sortButton" id="sortButton">
+    <button id="rating" value="rating" >rating ↑↓</button>
+    <button id="year" value="rating">year ↑↓</button>
+  </div>
+`
+let isDescending = false;
+document.getElementById("rating").addEventListener("click",()=>{
+  isDescending = !isDescending;
+  if(isDescending){
+    const ratingBooks = books.sort((a,b)=>(b.rating-a.rating))
+    printBooks(ratingBooks) 
+  } else {
+    const ratingBooks = books.sort((a,b)=>(a.rating-b.rating))
+    printBooks(ratingBooks)  
+  }
+})
+
+document.getElementById("year").addEventListener("click",()=>{
+  isDescending = !isDescending;
+  if(isDescending){
+    const yearBooks = books.sort((a,b)=>(b.year-a.year))
+    printBooks(yearBooks)
+  } else {
+    const yearBooks = books.sort((a,b)=>(a.year-b.year))
+    printBooks(yearBooks)
+  }
+}) 
+
+
 
 
 
