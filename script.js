@@ -259,18 +259,15 @@ const filterRandom = () => {
   let randomDestination =  Math.floor(Math.random()*destinations.length);
   destinationDiv.classList.replace('load-destinations', 'filtered-destinations')
   loadDestinations([destinations[randomDestination]]) 
-  destinationDiv.innerHTML += `<div class="random-text">
+  setTimeout(()=> destinationDiv.innerHTML += `<div class="random-text">
   <h4>Hey! This is a great spot for remote web developing, don't you think?</h4>
   </div>
-  `
+  `, 700)
 }
 
 buttonRandom.addEventListener('click', filterRandom)
 buttonTemp.addEventListener("click", tempToggle)
 buttonRate.addEventListener("click", rateToggle)
 dropDown.addEventListener("change", filterCountry)
-
-
-
 
 
