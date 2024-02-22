@@ -6,10 +6,15 @@
 
 body {
   background: lightgray;
+  display: grid;
 }
 
 h1 {
   margin: 20px;
+}
+
+h2 {
+  margin: 10px 0;
 }
 
 #library-container {
@@ -17,22 +22,40 @@ h1 {
   grid-template-columns: repeat(1, 1fr);
   grid-gap: 10px;
   padding: 20px;
-
   background: lightgray;
   justify-content: center;
 }
 
 .card {
+  display: flex;
+  flex-direction: column;
   background-color: white;
   padding: 20px;
   border-radius: 20px;
+  width: auto;
+}
+
+.random {
+  background: yellow;
+  display: grid;
+}
+
+#random-book-container {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-gap: 10px;
+  padding: 20px;
+  justify-content: center;
 }
 
 img {
   width: 100%;
-  aspect-ratio: 4 / 3;
-  object-fit: cover;
+}
+
+#covers {
   border-radius: 10px;
+  object-fit: cover;
+  aspect-ratio: 4 / 3;
 }
 
 .dropdown-genre {
@@ -40,7 +63,30 @@ img {
   padding: 5px;
   border: solid 2px darkgrey;
   border-radius: 10px;
+  max-width: 100px;
   background: white;
+}
+
+#sorting-button {
+  max-width: 40px;
+  cursor: pointer;
+}
+
+button {
+  max-width: 100px;
+}
+
+.author-year {
+  display: flex;
+  justify-content: space-between;
+}
+
+.description {
+  margin: 20px 0;
+}
+
+.background {
+  background: green;
 }
 
 /* Media Query for Tablet */
@@ -48,15 +94,41 @@ img {
   #library-container {
     grid-template-columns: repeat(2, 1fr);
   }
+
+  #random-book-container {
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: left;
+  }
 }
 /* Media Query for Desktop */
 @media (min-width: 1025px) {
   #library-container {
     grid-template-columns: repeat(4, 1fr);
   }
+
+  #random-book-container {
+    grid-template-columns: repeat(4, 1fr);
+    justify-content: left;
+  }
 }
 
 #sorting-button {
   max-width: 40px;
   cursor: pointer;
+}
+
+button {
+}
+
+.author-year {
+  display: flex;
+  justify-content: space-between;
+}
+
+.description {
+  margin: 20px 0;
+}
+
+.background {
+  background: green;
 }

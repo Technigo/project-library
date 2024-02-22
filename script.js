@@ -200,22 +200,22 @@ const showBookContent = (arrayOfBooks, genreFilter = "all") => {
     genreFilter === "all"
       ? arrayOfBooks
       : arrayOfBooks.filter(
-          (book) => book.genre.toLowerCase() === genreFilter.toLowerCase(),
+          (book) => book.genre.toLowerCase() === genreFilter.toLowerCase()
         );
 
   //Display filtered books
   filteredBooks.forEach((book) => {
     // iterates over each book
-    libraryContainer.innerHTML += `
-
-    <div class=card>
-    <img src=${book.image}>
+    libraryContainer.innerHTML += ` <div class=card>
+    <img id="covers" src=${book.image}>
     <h2>${book.title}</h2>
-    <p>${book.author}</p>
-    <p>${book.year}</p>
+    <div class="author-year"><p>by ${book.author}</p>
+    <span class="background">${book.year}</span></div>
     <p>${book.genre}</p>
-    <p>${book.rating}</p>
-    <p>${book.description}</p>
+    <p>Rating ${book.rating}</p>
+    <div class="description">
+      <p>
+    ${book.description}</p></div>
   </div>`;
   });
 };
@@ -229,7 +229,6 @@ dropdownGenre.addEventListener("change", (event) => {
 //call the function - displays all books initially
 showBookContent(books);
 
-// *************** filter by genre *************** //
 //filter by genre
 const filterGenre = () => {};
 
@@ -259,9 +258,10 @@ const randomBook = () => {
 
   //to display the random book
   randomBookContainer.innerHTML = ` 
-		<div class="card">
-			<img src="${selectedBook.image}">
-			<h2>${selectedBook.title}</h2>
+		<div class="card random">
+    <h2>This is a randomly selected book</h2>
+			<img id="covers" src="${selectedBook.image}">
+			<h2>"by "${selectedBook.title}</h2>
 			<p>${selectedBook.author}</p>
 			<p>${selectedBook.year}</p>
 			<p>${selectedBook.genre}</p>
