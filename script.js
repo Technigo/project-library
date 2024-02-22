@@ -21,7 +21,7 @@ const books = [
     rating: 4.5,
     description:
       "Set in the American South, this novel tackles issues of racism and injustice through the eyes of young Scout Finch.",
-    image: "./books-images/to-kill-a-mockingbird.jpg",
+    image: "./books-images/to_kill_a_mockingbird_720.jpg",
   },
   {
     title: "1984",
@@ -51,7 +51,7 @@ const books = [
     rating: 4,
     description:
       "Narrated by the teenage Holden Caulfield, the novel explores themes of alienation and the search for authenticity.",
-    image: "./books-images/unknown.jpg",
+    image: "./books-images/the_catcher_in_the_rye_720.jpg",
   },
   {
     title: "The Hobbit",
@@ -71,7 +71,7 @@ const books = [
     rating: 4.7,
     description:
       "The first book in the beloved Harry Potter series, it introduces readers to the magical world of Hogwarts and the young wizard Harry Potter.",
-    image: "./books-images/harry-potter-and-the-sorcerer'.jpg",
+    image: "./books-images/harry_potter_2_720.jpg",
   },
   {
     title: "Moby-Dick",
@@ -101,7 +101,7 @@ const books = [
     rating: 4.3,
     description:
       "A psychological horror novel that tells the story of the Torrance family's terrifying experiences at the haunted Overlook Hotel.",
-    image: "./books-images/unknown.jpg",
+    image: "./books-images/the_shining_480.jpg",
   },
   {
     title: "The Chronicles of Narnia: The Lion, the Witch and the Wardrobe",
@@ -121,7 +121,7 @@ const books = [
     rating: 3.8,
     description:
       "A gripping mystery thriller that follows Harvard symbologist Robert Langdon as he unravels the secrets of the Da Vinci Code.",
-    image: "./books-images/unknown.jpg",
+    image: "./books-images/the_davinci_code_360.jpg",
   },
   {
     title: "The Alchemist",
@@ -131,7 +131,7 @@ const books = [
     rating: 4.25,
     description:
       "A philosophical novel that tells the story of Santiago, a shepherd boy, on his quest to discover his personal legend.",
-    image: "./books-images/unknown.jpg",
+    image: "./books-images/the_alchemist_480.jpg",
   },
   {
     title: "The Hunger Games",
@@ -141,7 +141,7 @@ const books = [
     rating: 4.3,
     description:
       "In a dystopian future, Katniss Everdeen becomes a symbol of rebellion when she volunteers to take her sister's place in the brutal Hunger Games.",
-    image: "./books-images/unknown.jpg",
+    image: "./books-images/the_hunger_games_720.jpg",
   },
   {
     title: "The Girl with the Dragon Tattoo",
@@ -151,7 +151,7 @@ const books = [
     rating: 4.1,
     description:
       "A gripping mystery novel featuring investigative journalist Mikael Blomkvist and the enigmatic hacker Lisbeth Salander.",
-    image: "./books-images/unknown.jpg",
+    image: "./books-images/the_girl_with_the_dragon_tattoo_720.jpg",
   },
   {
     title: "The Road",
@@ -161,7 +161,7 @@ const books = [
     rating: 4,
     description:
       "Set in a post-apocalyptic world, it follows a father and son's harrowing journey to survive and find safety.",
-    image: "./books-images/unknown.jpg",
+    image: "./books-images/the_road_360.jpg",
   },
   {
     title: "The Hitchhiker's Guide to the Galaxy",
@@ -171,7 +171,7 @@ const books = [
     rating: 4.35,
     description:
       "A comedic science fiction series that follows the misadventures of Arthur Dent after Earth's destruction.",
-    image: "./books-images/unknown.jpg",
+    image: "./books-images/thgtg_480.jpg",
   },
   {
     title: "The Giver",

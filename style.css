@@ -49,6 +49,7 @@ h2 {
 
 .book-image {
   width: 200px;
+  border-radius: 10px;
 }
 
 .book-title {
