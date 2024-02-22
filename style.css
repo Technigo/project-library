@@ -58,4 +58,5 @@ img {
 
 #sorting-button {
   max-width: 40px;
+  cursor: pointer;
 }
