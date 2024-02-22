@@ -5,7 +5,7 @@ const searchForm = document.getElementById("search-form");
 const searchInput = document.getElementById("search-input");
 const descendingButtonForm = document.getElementById("descending")
 const ascendingButtonForm = document.getElementById("ascending")
-
+const random = document.getElementById("random")
 
 const recipes = [
   {
@@ -250,6 +250,26 @@ const showRecipes = (recipesToShow) => {
 //Initial rendering of all recipes
 showRecipes(recipes)
 
+//Function random
+const getRandomValue = () => {
+  container.innerHTML = ""
+
+  recipes[Math.floor(Math.random() * recipes.length)]
+  const recipe = recipes[Math.floor(Math.random() * recipes.length)]
+  container.innerHTML += `
+  <div class="recipe-card">
+    <img src="${recipe.image}" 
+    width="200px"/>
+    <div class="recipe-text">
+      <h3>${recipe.name}</h3>
+      <p><b>Cuisine</b>: ${recipe.cuisineType}</p>
+      <p><b>Time</b>: ${recipe.totalTime} minutes</p>
+      <p><b>Ingredients:</b>: ${recipe.ingredients}</p>
+    </div>
+  </div>
+  `
+}
+
 //Function to sorting descending
 const filteredRecipesByDescending = () => {
 recipes.sort((a, b) => parseFloat(a.totalTime) - parseFloat(b.totalTime));
@@ -289,6 +309,12 @@ filterRecipes.addEventListener("change", (event) => {
   } else {
     filterRecipesByCuisine(selectedCuisine);
   }
+});
+
+//Event listener for random
+random.addEventListener("click", (event) => {
+ event.preventDefault();
+ getRandomValue();
 });
 
 //Event listener for searchform

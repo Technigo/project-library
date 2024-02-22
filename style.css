@@ -68,6 +68,11 @@ h3 {
   justify-content: flex-start space-around;
 }
 
+.footer {
+  display: flex;
+  justify-content: center;
+}
+
 /* Media query for viewports larger than 767px*/
 @media (min-width: 768px) {
   .recipe-container {
