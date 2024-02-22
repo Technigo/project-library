@@ -192,11 +192,21 @@ const searchField = document.getElementById("search-field");
 const searchBtn = document.getElementById("search-btn");
 const form = document.querySelector("form");
 const optionsBtn = document.getElementById("options-btn");
+const topBtn = document.querySelector(".top-btn");
+const header = document.querySelector("header");
 
 // Global variables
 const summarytext = "About the book";
 let authors = [];
 let genres = [];
+
+// Scroll to element
+const scrollToElement = element =>
+  element.scrollIntoView({
+    behavior: "smooth",
+    block: "start",
+    inline: "nearest",
+  });
 
 // Toggle hide/show
 const toggleHide = element => element.classList.toggle("hidden");
@@ -204,11 +214,7 @@ const toggleHide = element => element.classList.toggle("hidden");
 // Turn object values into arrays, then compare to searchValue
 async function getSearchResults(searchterm) {
   const searchResults = books.filter(book => {
-    return Object.values(book)
-      .join(" ")
-      .toLowerCase()
-      .split(" ")
-      .includes(searchterm);
+    return Object.values(book).join(" ").toLowerCase().includes(searchterm);
   });
   searchResults.length > 0
     ? getBooks(searchResults)
@@ -219,7 +225,6 @@ async function getSearchResults(searchterm) {
 const search = event => {
   event.preventDefault();
   const searchValue = searchField.value.toLowerCase();
-  console.log("Searched for: ", searchValue);
   getSearchResults(searchValue);
   searchField.value = "";
 };
@@ -366,6 +371,7 @@ const showRating = () => {
 
 // Put books from object into DOM
 async function getBooks(bookArray) {
+  scrollToElement(bookListing);
   bookListing.innerHTML = "";
   let fragment = document.createDocumentFragment();
   showRating();
@@ -416,3 +422,4 @@ randomBookBtn.addEventListener("click", createRandomBook);
 searchBtn.addEventListener("click", search);
 form.addEventListener("reset", () => getBooks(books));
 optionsBtn.addEventListener("click", () => toggleHide(form));
+topBtn.addEventListener("click", () => scrollToElement(header));

@@ -228,6 +228,13 @@ summary {
   font-weight: 400;
 }
 
+.top-btn {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  margin: 1rem;
+}
+
 .hidden {
   display: none;
 }
