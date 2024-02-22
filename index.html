@@ -19,31 +19,26 @@
         <p>Choose a filter:</p>
         <div class="filter-buttons">
           <div class="button-row-1" id="buttonRow1">
-            <button>All</button>
-            <button>Fish</button>
-            <button>Meat</button>
+            <button id="allButton" name="all">All</button>
+            <button id="fishButton" name="fish">Fish</button>
+            <button id="meatButton" name="meat">Meat</button>
           </div>
           <div class="button-row-2" id="buttonRow2">
-            <button>Chicken</button>
-            <button>Vegetarian</button>
+            <button id="chickenButton" name="chicken">Chicken</button>
+            <button id="vegetarianButton" name="vegetarian">Vegetarian</button>
           </div>
           <div class="button-row-3" id="buttonRow3">
-            <button>Surprise me!</button>
+            <button id="surpriseButton" name="surprise">Surprise me!</button>
           </div>
         </div>
       </div>
       <div id="timeContainer" class="time-container">
         <p>Sort by:</p>
-        <button>Cooking time</button>
+        <button id="cookingTimeButton" name="cooking-time">Cooking time</button>
       </div>
     </section>
 
-    <div id="recipeContainter" class="recipe-container">
-      <p>Hello world!</p>
-      <p>Hej hej hej</p>
-      <p>Hello world!</p>
-      <p>Hej hej hej</p>
-    </div>
+    <section id="recipeContainer" class="recipe-container"></section>
 
     <script src="script.js" defer></script>
   </body>

@@ -2,6 +2,17 @@
 If you choose to create your own arrays with elements, just make sure that some
 of the properties make sense to filter on, and some to sort on.*/
 
+// const recipeBox = document.getElementById("recipeContainer");
+
+// const recipeContainer = document.getElementById("recipeContainter");
+const allButton = document.getElementById("allButton");
+const fishButton = document.getElementById("fishButton");
+const meatButton = document.getElementById("meatButton");
+const chickenButton = document.getElementById("chickenButton");
+const vegetarianButton = document.getElementById("vegetarianButton");
+const surpriseButton = document.getElementById("surpriseButton");
+const cookingTimeButton = document.getElementById("cookingTimeButton");
+
 const recipes = [
   {
     name: "Individual vegetarian lasagnes",
@@ -217,3 +228,33 @@ const recipes = [
     image: "./recipe-images/grilled.jpg",
   },
 ];
+
+const displayRecipes = (recipes) => {
+  recipeContainer.innerHTML = "";
+  recipes.forEach((recipe) => {
+    const recipeDiv = document.createElement("div");
+    recipeDiv.innerHTML = `
+      <h3>${recipe.name}</h3>
+      <img src="${recipe.image}" alt="${recipe.name}" />
+      <p><strong>Ingredients:</strong></p>
+      <ul>
+        ${recipe.ingredients.map((ingr) => `<li>${ingr}</li>`).join("")}
+      </ul>
+      <p><strong>Source:</strong> ${recipe.source}</p>
+      <p><strong>Total Time:</strong> ${recipe.totalTime} minutes</p>
+    `;
+    recipeContainer.appendChild(recipeDiv);
+  });
+};
+
+displayRecipes(recipes);
+
+/*
+const filterRecipes = () => {
+const value = buttons.value
+
+if ( value === "all"){
+loadRecipes ()}
+
+}
+*/

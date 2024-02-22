@@ -79,6 +79,19 @@ button:hover {
   background-color: lightblue;
   display: grid;
   grid-template-columns: 1fr;
+  justify-content: center;
+  /* gap: 20px; */
+  border: solid black;
+}
+
+.recipe-container img {
+  width: 80%;
+  height: 300px;
+  object-fit: cover;
+}
+
+.recipe-box {
+  background-color: black;
 }
 
 /* Media query for tablet*/
@@ -103,7 +116,7 @@ button:hover {
 /* Media query for desktop*/
 @media (min-width: 1025px) {
   .recipe-container {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(4, 25%);
   }
 
   h1 {
