@@ -192,11 +192,4 @@ hr {
   #sort {
     display: block;
   }
-
-  button {
-    margin: 2px;
-    font-weight: 600;
-    line-height: 1;
-    padding: 1rem 1.3rem;
-  }
 }

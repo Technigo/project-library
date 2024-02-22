@@ -10,7 +10,7 @@ I first created the basic skeleton using html and css. I then looked at resorces
 
 The next step was to start working on the funcions. Once the main functions were in place, I started to look at how I could break out some of the code into their own functions that could be reused for multiple events, such as the genre filter buttons. I also added dropdown menus for mobile view, as it was too crowded with all the buttons. Some styling was done throughout the process, but mostly once the main functions were in place.
 
-If I had had more time I would have tried out adding the search bar, as well as being able to sort alphabetically.
+If I had had more time I would have tried out adding the search bar, as well as broken out more code into their own functions.
 
 ## View it live
 

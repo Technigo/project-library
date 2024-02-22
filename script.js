@@ -184,6 +184,8 @@ const books = [
 ///////////////////////////// DOM selectors /////////////////////////////
 
 const flexContainer = document.getElementsByClassName("flex-container")[0];
+const dropdownFilter = document.querySelector("#filter-dropdown");
+const dropdownSort = document.querySelector("#sort-dropdown");
 const randomBtn = document.getElementById("random-button");
 const allGenresBtn = document.getElementById("all-genres");
 const fictionBtn = document.getElementById("fiction");
@@ -195,10 +197,10 @@ const mysteryBtn = document.getElementById("mystery");
 const dystopianBtn = document.getElementById("dystopian");
 const newestBtn = document.getElementById("sort-newest");
 const oldestBtn = document.getElementById("sort-oldest");
+const sortAZBtn = document.getElementById("sort-az");
+const sortZABtn = document.getElementById("sort-za");
 const filterButtons = document.querySelectorAll(".filter");
 const sortButtons = document.querySelectorAll(".sort");
-const dropdownFilter = document.querySelector("#filter-dropdown");
-const dropdownSort = document.querySelector("#sort-dropdown");
 
 /////////////////////////// Global Variables ///////////////////////////
 
@@ -233,10 +235,7 @@ const displayBooks = (bookArr) => {
 
 // Function that removes all book cards
 const removeBooks = () => {
-  const bookDelete = flexContainer.getElementsByClassName("book-display");
-  Array.from(bookDelete).forEach((book) => {
-    book.remove();
-  });
+  flexContainer.innerHTML = "";
 };
 
 // Display all books when page is loaded
@@ -247,8 +246,8 @@ window.onload = (event) => {
 };
 
 // Function that lets us filter by genre of book
-const filterByGenre = (arr, genre) => {
-  return arr.filter((book) => book.genre === genre);
+const filterByGenre = (bookArray, genre) => {
+  return bookArray.filter((book) => book.genre === genre);
 };
 
 // Fuction that filters depending on which filter button is clicked
@@ -349,8 +348,8 @@ newestBtn.addEventListener("click", (event) => {
   removeBooks();
   sortButtons.forEach((btn) => btn.classList.remove("clicked-sort"));
   newestBtn.classList.add("clicked-sort");
-  const newBooks = nowDispBooks.sort((a, b) => b.year - a.year);
-  displayBooks(newBooks);
+  const sortedBooks = nowDispBooks.sort((a, b) => b.year - a.year);
+  displayBooks(sortedBooks);
 });
 
 // Button for Oldest
@@ -358,8 +357,28 @@ oldestBtn.addEventListener("click", (event) => {
   removeBooks();
   sortButtons.forEach((btn) => btn.classList.remove("clicked-sort"));
   oldestBtn.classList.add("clicked-sort");
-  const oldBooks = nowDispBooks.sort((a, b) => a.year - b.year);
-  displayBooks(oldBooks);
+  const sortedBooks = nowDispBooks.sort((a, b) => a.year - b.year);
+  displayBooks(sortedBooks);
+});
+
+sortAZBtn.addEventListener("click", (event) => {
+  removeBooks();
+  sortButtons.forEach((btn) => btn.classList.remove("clicked-sort"));
+  sortAZBtn.classList.add("clicked-sort");
+  const sortedBooks = nowDispBooks.sort((a, b) =>
+    a.title.localeCompare(b.title)
+  );
+  displayBooks(sortedBooks);
+});
+
+sortZABtn.addEventListener("click", (event) => {
+  removeBooks();
+  sortButtons.forEach((btn) => btn.classList.remove("clicked-sort"));
+  sortAZBtn.classList.add("clicked-sort");
+  const sortedBooks = nowDispBooks.sort((a, b) =>
+    b.title.localeCompare(a.title)
+  );
+  displayBooks(sortedBooks);
 });
 
 // Button for Random book
