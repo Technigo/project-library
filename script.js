@@ -203,7 +203,6 @@ const toggleHide = element => element.classList.toggle("hidden");
 
 // Turn object values into arrays, then compare to searchValue
 async function getSearchResults(searchterm) {
-  console.log(books);
   const searchResults = books.filter(book => {
     return Object.values(book)
       .join(" ")
@@ -211,7 +210,6 @@ async function getSearchResults(searchterm) {
       .split(" ")
       .includes(searchterm);
   });
-  console.log("Search term included in: ", searchResults);
   searchResults.length > 0
     ? getBooks(searchResults)
     : (bookListing.innerHTML = `<p>Could not find any books like that...</p>`);
@@ -299,7 +297,6 @@ const getAuthors = () => {
 // Put authors in filter
 const createAuthorFilter = () => {
   authors = getAuthors();
-  console.log("Authors fetched");
   const fragment = document.createDocumentFragment();
   authors.forEach(name => {
     const option = document.createElement("option");
@@ -337,7 +334,6 @@ const getGenres = () => {
 // Put genre in filter
 const createGenreFilter = () => {
   genres = getGenres();
-  console.log("Genres fetched");
   const fragment = document.createDocumentFragment();
   genres.forEach(name => {
     const option = document.createElement("option");
@@ -365,9 +361,8 @@ const showRating = () => {
 
 // Put books from object into DOM
 async function getBooks(bookArray) {
-  console.log("Clearing Book listing...");
   bookListing.innerHTML = "";
-  console.log("fetching books...");
+  randomBookContainer.innerHTML = "";
   let fragment = document.createDocumentFragment();
   showRating();
   bookArray.forEach(book => {
@@ -396,7 +391,6 @@ async function getBooks(bookArray) {
     fragment.appendChild(article);
   });
   bookListing.append(fragment);
-  console.log("books done!");
 }
 
 // Load content
