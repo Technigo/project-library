@@ -94,7 +94,6 @@ body {
       user-select: none;
       -webkit-user-select: none;
       touch-action: manipulation;
-      
       max-width: fit-content;
     }
     
@@ -113,7 +112,7 @@ h3 {
 }
 
 h4  {
-    color: white;
+    color: rgb(1, 98, 179);
 }
 
 h4 span {
@@ -127,6 +126,12 @@ h4 span {
     flex-direction: column;
     flex-wrap: wrap;
     justify-content: space-around;
+}
+
+.filtered-destinations {
+    width: 100%;
+    margin: 0;
+    display: flex;
 }
 
 .container{
@@ -156,6 +161,10 @@ h4 span {
 
 ul {
     padding: 1em;
+}
+
+.random-text{
+   display: none;
 }
 
 @media screen and (min-width: 768px){
@@ -265,5 +274,22 @@ ul {
     .description-text{
         padding-top: 0.5em;
         padding-bottom: 1em;
+    }
+    .random-text{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: #fff2f2;
+        max-width: 30%;
+        max-height: 50px;
+        opacity: 1;
+        border-radius: 40px 40px 40px 0px;
+        padding: 1em;
+        border: 3px solid black;
+        }
+
+    .random-text h4{
+        color: black;
     }
 }

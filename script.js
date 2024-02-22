@@ -5,13 +5,13 @@ const destinationDiv = document.getElementById('load-destinations')
 const buttonTemp = document.getElementById('button-temp')
 const buttonRate = document.getElementById('button-rate')
 const dropDown = document.getElementById('filter-dropdown')
-
+const buttonRandom = document.getElementById('button-random')
 
 
 const destinations = [
   {
     name: 'Isle of Skye',
-    country: 'scotland',
+    country: 'Scotland',
     language: 'English',
     accessibility: 'Difficult',
     rating: 4.2,
@@ -22,7 +22,7 @@ const destinations = [
   },
   {
     name: 'Taormina',
-    country: 'italy',
+    country: 'Italy',
     language: 'Italian',
     accessibility: 'Easy',
     rating: 4.2,
@@ -33,7 +33,7 @@ const destinations = [
   },
   {
     name: 'Purnululu',
-    country: 'australia',
+    country: 'Australia',
     language: 'English',
     accessibility: 'Difficult',
     rating: 4.4,
@@ -44,7 +44,7 @@ const destinations = [
   },
   {
     name: 'Xochimilco lake',
-    country: 'mexico',
+    country: 'Mexico',
     language: 'spanish',
     accessibility: 'easy',
     rating: 4.0,
@@ -55,7 +55,7 @@ const destinations = [
   },
   {
     name: 'Uluru',
-    country: 'australia',
+    country: 'Australia',
     language: 'English',
     accessibility: 'Difficult',
     rating: 5.0,
@@ -66,7 +66,7 @@ const destinations = [
   },
   {
     name: 'Marble Cathedral',
-    country: 'chile',
+    country: 'Chile',
     language: 'Spanish',
     accessibility: 'Difficult',
     rating: 4.6,
@@ -77,7 +77,7 @@ const destinations = [
   },
   {
     name: 'Danxia Landform',
-    country: 'china',
+    country: 'China',
     language: 'Chinese',
     accessibility: 'Moderate',
     rating: 5.0,
@@ -88,18 +88,18 @@ const destinations = [
   },
   {
     name: 'Abisko',
-    country: 'sweden',
+    country: 'Sweden',
     language: 'Swedish',
     accessibility: 'Moderate',
     rating: 4.5,
     temperature: -7,
     description:
       'Abisko host some of the most amazing Northern Lights viewing, as well as the vibrant Swedish Lapland culture.',
-    image: './destinations-images/abisko-national-park-sweden.jpg'
+    image: './destinations-images/abisko-northenlights-sweden.jpg'
   },
   {
     name: 'Larung gar',
-    country: 'tibet',
+    country: 'Tibet',
     language: 'Tibetan',
     accessibility: 'Moderate',
     rating: 4.9,
@@ -110,7 +110,7 @@ const destinations = [
   },
   {
     name: 'Wangxian Valley',
-    country: 'china',
+    country: 'China',
     language: 'Chinese',
     accessibility: 'Moderate',
     rating: 4.1,
@@ -118,6 +118,61 @@ const destinations = [
     description:
       'Wangxian is famous for its houses hanging from its cliff. Integrating landscapes, outdoor rafting, culture and folk experience.',
     image: './destinations-images/wangxian-valley-china.jpg'
+  },
+  {
+    name: 'Die Rakotzbrück',
+    country: 'Germany',
+    language: 'German',
+    accessibility: 'Easy',
+    rating: 3.9,
+    temperature: 14,
+    description:
+      'Wangxian is famous for its houses hanging from its cliff. Integrating landscapes, outdoor rafting, culture and folk experience.',
+    image: './destinations-images/die-rakotzbruck-germany.jpg'
+  },
+  {
+    name: 'Hanoi railway',
+    country: 'Vietnam',
+    language: 'Vietnamese',
+    accessibility: 'Easy',
+    rating: 4.3,
+    temperature: 29,
+    description:
+      'Wangxian is famous for its houses hanging from its cliff. Integrating landscapes, outdoor rafting, culture and folk experience.',
+    image: './destinations-images/hanoi-vietnam.jpg'
+  },
+  {
+    name: 'Hoia Baciu forest',
+    country: 'Romania',
+    language: 'Romanian',
+    accessibility: 'Moderate',
+    rating: 3.9,
+    temperature: 24,
+    description:
+      'Wangxian is famous for its houses hanging from its cliff. Integrating landscapes, outdoor rafting, culture and folk experience.',
+    image: './destinations-images/crooked-forest-romania.jpg'
+  },
+  {
+    name: 'Reine',
+    country: 'Norway',
+    language: 'Norwegian',
+    accessibility: 'Moderate',
+    rating: 3.8,
+    temperature: 5,
+    description:
+      'Wangxian is famous for its houses hanging from its cliff. Integrating landscapes, outdoor rafting, culture and folk experience.',
+    image: './destinations-images/reine-norway.jpg'
+  },
+  {
+    name: 'Fly Geyser',
+    country: 'USA',
+    language: 'English',
+    accessibility: 'Easy',
+    rating: 4.5,
+    temperature: 25,
+    description:
+      'This geyser was created nearly 100 years ago when an attempt to drill for a well accidentally struck geothermal boiling water.',
+    image: './destinations-images/fly-geyser-nevada-usa.jpg'
   },
 ]
 
@@ -183,17 +238,7 @@ const sortByRate = () => {
   }
   destinationDiv.classList.replace('filtered-destinations', 'load-destinations')
   loadDestinations(destinations)
-  console.log()
 } 
-
-//const scotland = destinations.filter((object) => object.country === "scotland")
-
-//const country = destinations.filter((object) => object.country === `${country}`)
-/*
-const filterCountry = () => {
-  destinations.country.filter((country) => country === dropDown.value )
-  loadDestinations(destinations)
-}*/
 
 const filterCountry = () => {
 const countryValue = dropDown.value
@@ -210,7 +255,17 @@ const countryValue = dropDown.value
   loadDestinations(filteredList)
 }
 
-// alla addEventListeners tillsammans på botten sen
+const filterRandom = () => {
+  let randomDestination =  Math.floor(Math.random()*destinations.length);
+  destinationDiv.classList.replace('load-destinations', 'filtered-destinations')
+  loadDestinations([destinations[randomDestination]]) 
+  destinationDiv.innerHTML += `<div class="random-text">
+  <h4>Hey! This is a great spot for remote web developing, don't you think?</h4>
+  </div>
+  `
+}
+
+buttonRandom.addEventListener('click', filterRandom)
 buttonTemp.addEventListener("click", tempToggle)
 buttonRate.addEventListener("click", rateToggle)
 dropDown.addEventListener("change", filterCountry)
