@@ -28,7 +28,7 @@ const destinations = [
     rating: 4.2,
     temperature: 25,
     description:
-      'Beautifully restored mediaeval buildings, breathtaking views around every corner and a giddy network of winding streets strewn with shops, bars and restaurants.',
+      'Beautifully restored mediaeval buildings, breathtaking views around every corner. Add winding streets strewn with shops, bars and restaurants.',
     image: './destinations-images/Taormina-italy.jpg'
   },
   {
@@ -123,19 +123,20 @@ const destinations = [
 
 //Skapa funktion som laddar array in i html
 const loadDestinations = (destinations) => {
+    // Cleans the div before each load
     destinationDiv.innerHTML = ""
-    destinations.forEach((object) => {
+    destinations.forEach((dest) => {
     destinationDiv.innerHTML += `
     <div class="container">
-      <div class="text-above"><h4>${object.name}<br><span>${object.country}</span></div>
-      <div class="img-container"><img src="${object.image}"></div>
+      <div class="text-above"><h4>${dest.name}<br><span>${dest.country}</span></div>
+      <div class="img-container"><img src="${dest.image}"></div>
       <ul>. 
-        <li>Language: ${object.language}</li>
-        <li>Accessibility: ${object.accessibility}</li>
-        <li>Temperature: ${object.temperature}ºC</li>
-        <li>Rating: ${object.rating}/5</li>
+        <li>Language: ${dest.language}</li>
+        <li>Accessibility: ${dest.accessibility}</li>
+        <li>Temperature: ${dest.temperature}ºC</li>
+        <li>Rating: ${dest.rating}/5</li>
       </ul>
-      <div class="description-text"><p>${object.description}</p></div>
+      <div class="description-text"><p>${dest.description}</p></div>
       </div>
     `
     })
@@ -153,14 +154,15 @@ const tempToggle = () => {
 
 const sortByTemp = () => {
   if (lowToHigh) {
-  destinations.sort((a, b) => {
-      return b.temperature - a.temperature
+  destinations.sort((destA, destB) => {
+      return destB.temperature - destA.temperature
   })
   } else {
-    destinations.sort((a, b) => {
-      return a.temperature - b.temperature
+    destinations.sort((destA, destB) => {
+      return destA.temperature - destB.temperature
     })
 }
+destinationDiv.classList.replace('filtered-destinations', 'load-destinations')
 loadDestinations(destinations)
 }
 
@@ -171,14 +173,15 @@ const rateToggle = () => {
 
 const sortByRate = () => {
   if (lowToHigh) {
-    destinations.sort((a, b) => {
-      return b.rating - a.rating
+    destinations.sort((destA, destB) => {
+      return destB.rating - destA.rating
    })
   } else {
-    destinations.sort((a, b) => {
-      return a.rating - b.rating
+    destinations.sort((destA, destB) => {
+      return destA.rating - destB.rating
     })
   }
+  destinationDiv.classList.replace('filtered-destinations', 'load-destinations')
   loadDestinations(destinations)
   console.log()
 } 
@@ -196,13 +199,14 @@ const filterCountry = () => {
 const countryValue = dropDown.value
   if (countryValue === 'all'){
     loadDestinations(destinations)
+    destinationDiv.classList.replace('filtered-destinations', 'load-destinations')
     return
   }
   const filteredList = destinations.filter((object) => {
-    const matchesType = object.country.includes(countryValue)
+    const matchesType = object.country === countryValue
     return matchesType 
   })
-  destinationDiv.classList.replace('filtered-destinations')
+  destinationDiv.classList.replace('load-destinations', 'filtered-destinations')
   loadDestinations(filteredList)
 }
 
