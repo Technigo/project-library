@@ -195,6 +195,7 @@ const filterDystopian = document.getElementById("filterDystopian")
 const sortAscending = document.getElementById("sortAscending")
 const sortDescending = document.getElementById("sortDescending")
 const galleryWrapper = document.getElementById("galleryWrapper")
+const randomBook = document.getElementById("randomBook")
 
 const showLibrary = (booksArray) => {
   galleryWrapper.innerHTML = ""
@@ -265,6 +266,22 @@ const sortDesc = () => {
   showLibrary(sortedDescending)
 }
 sortDescending.addEventListener("click", sortDesc())
+
+const randomChoice = () => {
+  galleryWrapper.innerHTML = ""
+
+  const book = books[Math.floor(Math.random() * books.length)]
+
+  galleryWrapper.innerHTML += ` <div id="singleCard" class="card-wrapper">
+  <img src=${book.image} alt=${book.image} />
+  <h2>${book.title}</h2>
+  <p>Author:${book.author}</p>
+  <p>Year: ${book.year}</p>
+  <p>Genre: ${book.genre}</p>
+  <p>${book.description}</p>
+</div>`
+}
+randomBook.addEventListener("click", randomChoice())
 
 // loading all books
 
