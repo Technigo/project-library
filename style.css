@@ -1,6 +1,6 @@
 html {
     background-color: #fbf5eb;
-    font-family: lato;
+    font-family: 'Kumbh Sans';
 }
 
 .header {
@@ -32,7 +32,7 @@ html {
 
 
 /*Media query for big screens to make sure the title and search box works well together*/
-@media (min-width: 521px) AND (max-width: 600px){
+@media (min-width: 5233px) AND (max-width: 600px){
     .header {
         justify-content: space-between;
     }
@@ -51,7 +51,7 @@ html {
 }
 
 /*Media query for medium screens to make sure the title and search box works well together*/
-@media (min-width: 450px) AND (max-width: 520px){
+@media (min-width: 450px) AND (max-width: 532px){
     .header {
         padding-left: 40px;
         padding-right: 40px;
@@ -65,14 +65,16 @@ h1 {
     padding-left: auto;
     text-align:center;
     font-size: 40px;
-    font-family: Lato;
+
     color:#00AFB9;
 }
 
 #search-input {
     border-radius: 30px;
     border: none;
-    padding: 8px;
+    padding: 8px 8px 8px 25px;
+    font-family: "Kumbh Sans"
+    
 
 }
 
@@ -90,30 +92,30 @@ h1 {
 
 .filter-btn {
     border-radius: 30px;
-    background-color:#FED9B7;
+    background-color:#ffe5b3;
     color: #b42465;
     padding: 10px;
     margin: 3px;
     border: none;
     margin-top: -40px;
-    font-family: 'Lato';
     font-weight: bold;
     font-size: 11px;
     margin-bottom: 13px;
+    box-shadow: 2px 2px 2px rgba(0, 162, 255, 0.2);
 }
 
 .sort-btn {
     border-radius: 30px;
-    background-color:#FED9B7;
+    background-color:#ffe5b3;
     color: #b42465;
     padding: 10px;
     margin: 3px;
     border: none;
     margin-top: -40px;
-    font-family: 'Lato';
     font-weight: bold;
     font-size: 11px;
     margin-bottom: 13px;
+    box-shadow: 2px 2px 2px rgba(0, 162, 255, 0.2);
 }
 
 button:hover{
@@ -201,15 +203,15 @@ p {
 }
 #random-button{
     color:#b42465;
-    background-color: #FED9B7;
+    background-color: #ffe5b3;
     border-radius: 30px;
     padding: 17px;
     border: none;
-    font-family: 'Lato';
     font-weight: bold;
-    font-size: 15px;
+    font-size: 14px;
     margin-left: 10px;
     margin-top: 15px;
+    box-shadow: 3px 3px 3px rgba(159, 49, 58, 0.4);
 }
 
 #random-button:hover{
