@@ -66,10 +66,18 @@ body {
     flex-direction: column;
     padding: 1em 0 5em 0;
 }
-.destination-top {
+.blue-top {
     width: 90%;
     margin: 0 auto;
     padding-top: 1em;
+}
+
+.filter-sort{
+    width: 100%;
+    padding-top: 1.5em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
 }
 
 .button, .filter-dropdown {
@@ -82,13 +90,15 @@ body {
       display: inline-block;
       font-weight: 600;
       font-size: 10px;
-      padding: 0 13px;
+      padding: 10px 13px;
       line-height: 30px;
       text-align: center;
       text-decoration: none;
       user-select: none;
       -webkit-user-select: none;
       touch-action: manipulation;
+      margin-top: 2em;
+      max-width: fit-content;
     }
     
     .button:hover, .filter-dropdown:hover {
@@ -102,22 +112,16 @@ body {
 
 h3 {
     color: white;
+    text-decoration:underline;
 }
 
 h4  {
     color: white;
-    padding-bottom: 0.5em;
-
 }
 
-.filter-sort{
-    width: 100%;
-    padding-top: 1.5em;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
+h4 span {
+    color: black;
 }
-
 
 .load-destinations {
     width: 90%;
@@ -138,11 +142,23 @@ h4  {
     width: 100%;
     height: 100%;
     object-fit: cover;
-   
+}
+
+.text-above {
+    height: 40px;
+    min-height: 40px;
+}
+
+.img-container{
+    margin-top: 1em;
 }
 
 .description-text{
     padding-top: 0.5em;
+}
+
+ul {
+    padding: 1em;
 }
 
 @media screen and (min-width: 768px){
@@ -181,21 +197,24 @@ h4  {
         margin-bottom: 2em;
     }
 
-    .destination-top{
-        width: 95%;
+    .blue-top{
+        width: 97%;
         display: flex;
         flex-direction: row;
     }
 
-    .destination-top h3 {
+    .blue-top h3 {
       align-self: flex-end;
     }
     
     .filter-sort{
         width: 100%;
+        padding-top: 1.5em;
         margin: 0 auto;
-        padding-left:1em;
-        justify-content:flex-end;
+        padding-left: 1em;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
     }
 
     .load-destinations {
@@ -211,7 +230,7 @@ h4  {
     
     .container{
         max-width: 220px;
-        max-height: 350px;
+        height: auto;
         display: flex;
         flex-direction: column;
         padding-top: 1em;
