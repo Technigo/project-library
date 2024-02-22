@@ -96,8 +96,8 @@ const books = [
     year: 1951,
     genre: "Fiction",
     rating: 4.0,
-    description: "Narrated by the teenage Holden Caulfield, the novel explores themes of alienation and the search for authenticity."
-    image: './books-images/catcher.jpg'
+    description: "Narrated by the teenage Holden Caulfield, the novel explores themes of alienation and the search for authenticity.",
+    image: './books-images/catcherintherye.jpg'
   },
   {
     title: 'Dracula',
