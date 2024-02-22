@@ -91,6 +91,7 @@ h1 {
     margin: 3px;
     border: none;
     margin-top: -40px;
+    font-family: 'Kumbh Sans';
     font-weight: bold;
     font-size: 11px;
     margin-bottom: 13px;
@@ -105,6 +106,7 @@ h1 {
     margin: 3px;
     border: none;
     margin-top: -40px;
+    font-family: 'Kumbh Sans';
     font-weight: bold;
     font-size: 11px;
     margin-bottom: 13px;
@@ -150,7 +152,7 @@ h2 {
 }
 
 h3 {
-    font-size: 14px;
+    font-size: 15px;
     margin-top: -15px;
     color: #9d4943;
 }
@@ -174,7 +176,7 @@ h4 {
 }
 
 p {
-    font-size: 12px;
+    font-size: 13px;
 }
 
 #footer {
@@ -199,6 +201,7 @@ p {
     border-radius: 30px;
     padding: 17px;
     border: none;
+    font-family: 'Kumbh Sans';
     font-weight: bold;
     font-size: 14px;
     margin-left: 10px;
