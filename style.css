@@ -1,13 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+  font-family: 'Jost', sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+}
+
 h1 {
   color: black;
+  margin: 64px;
+  font-size: 64px;
 }
 
 .book-boxes {
   color: black;
+  background-color: aqua;
+  width: 300px;
+  padding-left: 16px;
+  justify-content: center;
+  align-items: center;
 }
 
 #container {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  background-color: rgb(195, 195, 195);
+}
+
+img {
+  width: 268px;
+  height: 200px;
+  border-radius: 12px;
+  align-items: center;
+}
+
+
+@media (min-width: 667px) and (max-width: 1024px) {
+  .container {
+
+  }
+}
+
+@media (min-width: 1025px) {
+  .container {
+
+  }
 }
