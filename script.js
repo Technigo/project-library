@@ -259,14 +259,24 @@ const card = document.getElementsByClassName("card");
 const filterSelection = (cuisine) => {
   // Declare variables for later use in this function.
   let i;
-  // card is the
-
   if (cuisine == "all") cuisine = "";
   // Add the "show" class (display:block) to the filtered elements, and remove the "show" class from the elements that are not selected
   for (i = 0; i < card.length; i++) {
     removeClass(card[i], "show");
     if (card[i].className.indexOf(cuisine) > -1) addClass(card[i], "show");
   }
+};
+
+const filterSelectionIndex = (cuisine) => {
+  // Declare variables for later use in this function.
+  let i;
+  if (cuisine == "all") cuisine = "";
+  // Add the "show" class (display:block) to the filtered elements, and remove the "show" class from the elements that are not selected
+  for (i = 0; i < card.length; i++) {
+    removeClass(card[i], "show");
+ 
+  }
+  addClass(card[randomRecipe()], "show");
 };
 
 // Show filtered elements
@@ -377,6 +387,13 @@ function sortListTime() {
 
 // Random Recipe (Martin)
 /* RNG to pick an index and display that.*/
+
+// function to get a random recipe and display it.
+const randomRecipe = () => {
+  let randomNumber = Math.floor(Math.random() * recipes.length);
+  console.log(randomNumber);
+  return randomNumber;
+}
 
 // Search bar
 // 1.When a user click "search button", this function will triggered
