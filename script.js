@@ -296,6 +296,17 @@ chinaBtn.onclick = () => filterRecipes("chinese");
   renderRecipes(sortedRecipes);
 }
  */
+
+// Function to load a random recipe
+const loadRandomRecipe = () => {
+  const random = Math.floor(Math.random() * recipes.length);
+  const randomRecipe = recipes[random]
+  renderRecipes([randomRecipe]);
+};
+
+const randomBtn = document.getElementById("random-btn");
+randomBtn.onclick = () => loadRandomRecipe();
+
 //Function to sort recipes by total cooking time. Ascending and descending.
 const sortRecipesAscending = () => {
   const sortRecipes = recipes.slice().sort((a, b) => a.totalTime - b.totalTime);
