@@ -46,6 +46,5 @@ So you’ve completed all the steps above? Great job! Make sure you've committed
 
 //TO DO - Requirements
 
-- Sort on time - Descending/Ascending
 - Random-button
 - Responsive

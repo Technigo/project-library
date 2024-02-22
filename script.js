@@ -296,22 +296,21 @@ chinaBtn.onclick = () => filterRecipes("chinese");
   renderRecipes(sortedRecipes);
 }
  */
+//Function to sort recipes by total cooking time. Ascending and descending.
 const sortRecipesAscending = () => {
-  const sortRecipes = recipes.sort((a, b) => a.totalTime - b.totalTime);
+  const sortRecipes = recipes.slice().sort((a, b) => a.totalTime - b.totalTime);
   renderRecipes(sortRecipes);
 };
 
-// // ascending
-// let numbers = [10, 5, 8, 20, 3];
-// numbers.sort((a, b) => a - b);
-// console.log(numbers); // Output: [3, 5, 8, 10, 20]
+const sortRecipesDescending = () => {
+  const sortRecipes = recipes.slice().sort((a, b) => b.totalTime - a.totalTime);
+  renderRecipes(sortRecipes);
+};
 
-// // descending
-// numbers.sort((a, b) => b - a);
-// console.log(numbers); // Output: [20, 10, 8, 5, 3]
-
-// recipes.totalTime.sort((a, b) => a.totalTime - b.totalTime);
-// console.log(recipes);
+const ascendingBtn = document.getElementById("ascending-btn");
+ascendingBtn.onclick = () => sortRecipesAscending();
+const descendingBtn = document.getElementById("descending-btn");
+descendingBtn.onclick = () => sortRecipesDescending();
 
 //Call the renderRecipes function when the website is loaded
 window.onload = () => renderRecipes(recipes);
