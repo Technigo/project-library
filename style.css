@@ -40,8 +40,12 @@ button {
   padding: 8px 16px 8px 16px;
   margin: 0 5px 0 0;
   line-height: 23.91px;
-  border: none;
+  border: 1px solid #00000000;
   border-radius: 50px;
+}
+
+button:hover {
+  border: 1px solid #002ead;
 }
 
 .filter-button {
@@ -49,13 +53,19 @@ button {
   color: #0018a4;
 }
 
+.filter-button.active {
+  background-color: #0018a4;
+  color: white;
+}
+
 .sort-button {
   background-color: #ffecea;
   color: #0018a4;
 }
 
-button:hover {
-  background-color: #002ead;
+.sort-button:hover,
+.sort-button.active {
+  background-color: #ff6589;
   color: white;
 }
 

@@ -280,16 +280,44 @@ const filterRecipes = (cuisineType) => {
 };
 
 const allBtn = document.getElementById("all-btn");
-allBtn.onclick = () => renderRecipes(recipes);
+allBtn.onclick = () => {
+  renderRecipes(recipes);
+  deactivateAllButtons();
+  allBtn.classList.add("active");
+};
 
 const italyBtn = document.getElementById("italy-btn");
-italyBtn.onclick = () => filterRecipes("italian");
+italyBtn.onclick = () => {
+  filterRecipes("italian");
+  deactivateAllButtons();
+  italyBtn.classList.add("active");
+};
 
 const usaBtn = document.getElementById("usa-btn");
-usaBtn.onclick = () => filterRecipes("american");
+usaBtn.onclick = () => {
+  filterRecipes("american");
+  deactivateAllButtons();
+  usaBtn.classList.add("active");
+};
 
 const chinaBtn = document.getElementById("china-btn");
-chinaBtn.onclick = () => filterRecipes("chinese");
+chinaBtn.onclick = () => {
+  filterRecipes("chinese");
+  deactivateAllButtons();
+  chinaBtn.classList.add("active");
+};
+
+// Function to load a random recipe
+const loadRandomRecipe = () => {
+  const random = Math.floor(Math.random() * recipes.length);
+  const randomRecipe = recipes[random];
+  renderRecipes([randomRecipe]);
+  deactivateAllButtons();
+  randomBtn.classList.add("active");
+};
+
+const randomBtn = document.getElementById("random-btn");
+randomBtn.onclick = () => loadRandomRecipe();
 
 /* const sortRecipesByAscendingTime = () => {
   const sortedRecipes = recipes.slice().sort((a, b) => (a.totalTime || Infinity) - (b.totalTime || Infinity));
@@ -297,25 +325,30 @@ chinaBtn.onclick = () => filterRecipes("chinese");
 }
  */
 
-// Function to load a random recipe
-const loadRandomRecipe = () => {
-  const random = Math.floor(Math.random() * recipes.length);
-  const randomRecipe = recipes[random]
-  renderRecipes([randomRecipe]);
+// Function to deactivate all buttons
+const deactivateAllButtons = () => {
+  randomBtn.classList.remove("active");
+  allBtn.classList.remove("active");
+  italyBtn.classList.remove("active");
+  usaBtn.classList.remove("active");
+  chinaBtn.classList.remove("active");
+  descendingBtn.classList.remove("active");
+  ascendingBtn.classList.remove("active");
 };
 
-const randomBtn = document.getElementById("random-btn");
-randomBtn.onclick = () => loadRandomRecipe();
-
-//Function to sort recipes by total cooking time. Ascending and descending.
+//Functions to sort recipes by total cooking time. Ascending and descending.
 const sortRecipesAscending = () => {
   const sortRecipes = recipes.slice().sort((a, b) => a.totalTime - b.totalTime);
   renderRecipes(sortRecipes);
+  deactivateAllButtons();
+  ascendingBtn.classList.add("active");
 };
 
 const sortRecipesDescending = () => {
   const sortRecipes = recipes.slice().sort((a, b) => b.totalTime - a.totalTime);
   renderRecipes(sortRecipes);
+  deactivateAllButtons();
+  descendingBtn.classList.add("active");
 };
 
 const ascendingBtn = document.getElementById("ascending-btn");
