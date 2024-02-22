@@ -131,7 +131,7 @@ const books = [
     rating: 4.25,
     description:
       "A philosophical novel that tells the story of Santiago, a shepherd boy, on his quest to discover his personal legend.",
-    image: "./books-images/unknown.jpg",
+    image: "./books-images/the-alchemist.jpg",
   },
   {
     title: "The Hunger Games",
@@ -141,7 +141,7 @@ const books = [
     rating: 4.3,
     description:
       "In a dystopian future, Katniss Everdeen becomes a symbol of rebellion when she volunteers to take her sister's place in the brutal Hunger Games.",
-    image: "./books-images/unknown.jpg",
+    image: "./books-images/the-hunger-games.jpg",
   },
   {
     title: "The Girl with the Dragon Tattoo",
@@ -151,7 +151,7 @@ const books = [
     rating: 4.1,
     description:
       "A gripping mystery novel featuring investigative journalist Mikael Blomkvist and the enigmatic hacker Lisbeth Salander.",
-    image: "./books-images/unknown.jpg",
+    image: "./books-images/the-girl-with-the-dragon-tattoo.jpg",
   },
   {
     title: "The Road",
@@ -161,7 +161,7 @@ const books = [
     rating: 4,
     description:
       "Set in a post-apocalyptic world, it follows a father and son's harrowing journey to survive and find safety.",
-    image: "./books-images/unknown.jpg",
+    image: "./books-images/the-road.webp",
   },
   {
     title: "The Hitchhiker's Guide to the Galaxy",
@@ -171,7 +171,7 @@ const books = [
     rating: 4.35,
     description:
       "A comedic science fiction series that follows the misadventures of Arthur Dent after Earth's destruction.",
-    image: "./books-images/unknown.jpg",
+    image: "./books-images/the-hitchhikers-guide-to-the-galaxy.webp",
   },
   {
     title: "The Giver",
@@ -181,24 +181,32 @@ const books = [
     rating: 4.12,
     description:
       "A dystopian novel set in a seemingly perfect society where young Jonas discovers the dark truth beneath the surface.",
-    image: "./books-images/unknown.jpg",
+    image: "./books-images/the-giver.webp",
   },
 ];
 
-// DOM Selectors
+//README: DOM Objects
+//TODO: Creat DOM object for input area
 const genreBtns = document.getElementsByClassName("genre-btn");
-console.log(genreBtns);
+console.log("Genre buttons DOM objects collection:", genreBtns);
 const cardCollection = document.getElementById("card-grid");
-console.log(cardCollection);
-console.log(cardCollection.innerHTML);
+console.log("card grid DOM objects collection", cardCollection);
+console.log("card grid inner HTML", cardCollection.innerHTML);
 const ascendingBtn = document.getElementById("ascending");
 const descendingBtn = document.getElementById("descending");
 const randomBtn = document.getElementById("random");
 const allBooksBtn = document.getElementById("all-genres-btn");
-// Global Variables
+const filterBtns = document.querySelectorAll(".filter-btn");
+const searchInput = document.getElementById("search-txt");
+const searchBtn = document.getElementById("search-btn");
+const subHeading = document.querySelector("h2");
 
-// Functions
+//README: Global Variables
+
+//README: Functions
 const showBooks = (arr) => {
+  subHeading.textContent = `Sit back, relax and enjoy reading 📖
+  `;
   cardCollection.innerHTML = "";
   arr.forEach((obj) => {
     cardCollection.innerHTML += `<div class="card">
@@ -218,29 +226,66 @@ const showBooks = (arr) => {
   });
 };
 
-showBooks(books);
+const triggerSortBtns = (arr) => {
+  ascendingBtn.addEventListener("click", () => {
+    const ascendingBooks = [...arr].sort((a, b) => a.rating - b.rating);
+    showBooks(ascendingBooks);
+  });
+  descendingBtn.addEventListener("click", () => {
+    const descendingBooks = [...arr].sort((a, b) => b.rating - a.rating);
+    showBooks(descendingBooks);
+  });
+};
 
-allBooksBtn.addEventListener("click", () => showBooks(books));
+//README: Event listners are added to differenct DOM objects below
+//FIXME: make the sorting logic based on filter, e.g. Horror (filter) -> Descending (sort)
+//Add event listner to all books button
+allBooksBtn.addEventListener("click", () => {
+  filterBtns.forEach((button) => button.classList.remove("active"));
+  allBooksBtn.classList.add("active");
+  showBooks(books);
+  triggerSortBtns(books);
+});
+//Add event listner to all books button
 for (let btn of genreBtns) {
   btn.addEventListener("click", (event) => {
+    filterBtns.forEach((button) => button.classList.remove("active"));
     let filteredBooks = books.filter((obj) => obj.genre === event.target.value);
+    btn.classList.add("active");
     showBooks(filteredBooks);
+    triggerSortBtns(filteredBooks);
   });
 }
 
-ascendingBtn.addEventListener("click", () => {
-  const ascendingBooks = books.sort((a, b) => a.rating - b.rating);
-  showBooks(ascendingBooks);
-});
-descendingBtn.addEventListener("click", () => {
-  const descendingBooks = books.sort((a, b) => b.rating - a.rating);
-  showBooks(descendingBooks);
-});
-
-// index 0 - 17
-console.log(books.length);
+// Add Event Listener to random generator button
+console.log("The length of Books array", books.length);
 
 randomBtn.addEventListener("click", () => {
+  filterBtns.forEach((button) => button.classList.remove("active"));
   let randomNum = Math.floor(Math.random() * 18);
   showBooks([books[randomNum]]);
 });
+
+searchBtn.addEventListener("click", () => {
+  const searchResult = books.filter((book) =>
+    book.title.toLowerCase().includes(searchInput.value.toLowerCase())
+  );
+  showBooks(searchResult);
+  if (searchResult.length !== 0) {
+    subHeading.textContent = `
+    Your search result "${searchInput.value}" matches the following books:`;
+  } else {
+    subHeading.textContent = `
+  Sorry your search "${searchInput.value}" is not in our library yet. Please try to search for something else.`;
+  }
+  console.log(searchResult);
+});
+
+//for each loop -> get object.title
+//compare object title with the search value -> check a string matched another string "the" -> "the " "t" "Hello".includes("el") -> true false
+// "object.title".includes(search.value)
+// case-insensitive align casing
+
+//Call the function - display all the books when landing
+showBooks(books);
+triggerSortBtns(books);

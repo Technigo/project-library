@@ -14,58 +14,88 @@
       href="https://fonts.googleapis.com/css2?family=Gelasio:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Roboto+Slab:wght@100..900&display=swap"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+
     <title>Lagom Book Library</title>
   </head>
   <body>
     <header>
       <h1>Lagom Book Library</h1>
+      <form class="search-box">
+        <input
+          type="text"
+          class="search-txt"
+          id="search-txt"
+          placeholder="Type your search..."
+        />
+        <button class="search-btn" id="search-btn" type="submit">
+          <i class="fa fa-search" aria-hidden="true"></i>
+        </button>
+      </form>
     </header>
-    <blockquote
-      class="blockquote"
-      cite="https://parade.com/1167905/marynliles/quotes-about-reading-books/"
-    >
-      <p class="blockquote-text">
-        A good library will never be too neat, or too dusty, because somebody
-        will always be in it, taking books off the shelves and staying up late
-        reading them.
-      </p>
-      <p class="blockquote-text blockquote-text-credit">Lemony Snicket</p>
-    </blockquote>
-    <div class="filter-container">
-      <div class="desktop-container">
-        <div class="desktop-filter">
-          <p>Filter on genre</p>
-          <div class="btn-filter">
-            <button id="all-genres-btn">All</button>
-            <button class="genre-btn" value="Fiction">Fiction</button>
-            <button class="genre-btn" value="Science Fiction">
-              Science Fiction
-            </button>
-            <button class="genre-btn" value="Fantasy">Fantasy</button>
-            <button class="genre-btn" value="Adventure">Adventure</button>
-            <button class="genre-btn" value="Horror">Horror</button>
-            <button class="genre-btn" value="Mystery">Mystery</button>
-            <button class="genre-btn" value="Dystopian">Dystopian</button>
+    <main>
+      <blockquote
+        class="blockquote"
+        cite="https://parade.com/1167905/marynliles/quotes-about-reading-books/"
+      >
+        <p class="blockquote-text">
+          A good library will never be too neat, or too dusty, because somebody
+          will always be in it, taking books off the shelves and staying up late
+          reading them.
+        </p>
+        <p class="blockquote-text blockquote-text-credit">Lemony Snicket</p>
+      </blockquote>
+      <div class="filter-container">
+        <div class="desktop-container">
+          <div class="desktop-filter">
+            <p>Filter on genre</p>
+            <div class="btn-filter">
+              <button class="filter-btn" id="all-genres-btn">All</button>
+              <button class="filter-btn genre-btn" value="Fiction">
+                Fiction
+              </button>
+              <button class="filter-btn genre-btn" value="Science Fiction">
+                Science Fiction
+              </button>
+              <button class="filter-btn genre-btn" value="Fantasy">
+                Fantasy
+              </button>
+              <button class="filter-btn genre-btn" value="Adventure">
+                Adventure
+              </button>
+              <button class="filter-btn genre-btn" value="Horror">
+                Horror
+              </button>
+              <button class="filter-btn genre-btn" value="Mystery">
+                Mystery
+              </button>
+              <button class="filter-btn genre-btn" value="Dystopian">
+                Dystopian
+              </button>
+            </div>
           </div>
-        </div>
-        <div class="desktop-sort">
-          <p>Sort on rating</p>
-          <div class="btn-sort">
-            <button id="descending">Descending</button>
-            <button id="ascending">Ascending</button>
+          <div class="desktop-sort">
+            <p>Sort on rating</p>
+            <div class="btn-sort">
+              <button class="sort-btn" id="descending">Descending</button>
+              <button class="sort-btn" id="ascending">Ascending</button>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <h2>Sit back, relax and enjoy reading 📖</h2>
-    <div id="card-grid" class="card-grid"></div>
-    <div class="random-container">
-      <p>Having a hard time deciding what book to take? Let us help you :)</p>
-      <p>Random book selection</p>
-      <div class="btn-random">
-        <button id="random">Click me!</button>
+      <h2></h2>
+      <div id="card-grid" class="card-grid"></div>
+      <div class="random-container">
+        <p>Having a hard time deciding what book to take? Let us help you 📚</p>
+        <!-- <p>Random book selection</p> -->
+        <div class="btn-random">
+          <button id="random">Recommend a book</button>
+        </div>
       </div>
-    </div>
+    </main>
     <footer>
       <p>© created by Wen & Linda</p>
     </footer>
