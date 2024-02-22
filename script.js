@@ -209,14 +209,15 @@ const showBookContent = (arrayOfBooks, genreFilter = "all") => {
     libraryContainer.innerHTML += ` <div class=card>
     <img id="covers" src=${book.image}>
     <h2>${book.title}</h2>
-    <div class="author-year"><p>by ${book.author}</p>
-    <span class="background">${book.year}</span></div>
-    <p>${book.genre}</p>
-    <p>Rating ${book.rating}</p>
+    <div class="author-year"><p>by ${book.author} | </p>
+    <p>${book.year}</div>
+    
     <div class="description">
       <p>
     ${book.description}</p></div>
-  </div>`;
+  <div class="genre-rating">
+  <p>${book.genre}</p>
+    <p>Rating ${book.rating}</p></div></div>`;
   });
 };
 
@@ -261,15 +262,56 @@ const randomBook = () => {
 		<div class="card random">
     <h2>This is a randomly selected book</h2>
 			<img id="covers" src="${selectedBook.image}">
-			<h2>"by "${selectedBook.title}</h2>
-			<p>${selectedBook.author}</p>
-			<p>${selectedBook.year}</p>
+			<h2>${selectedBook.title}</h2>
+			<div class="author-year"><p>by ${selectedBook.author}</p>
+			<span class="background">${selectedBook.year}</span></div>
 			<p>${selectedBook.genre}</p>
-			<p>${selectedBook.rating}</p>
-			<p>${selectedBook.description}</p>
+			<p>Rating ${selectedBook.rating}</p>
+      <div class="description">
+			<p>${selectedBook.description}</p></div>
 		</div>`;
 };
 
 //Eventlistener
 sortButton.addEventListener("click", sortBooksByTitle);
 randomBookButton.addEventListener("click", randomBook);
+
+// filter by year
+// function that takes minYear and mayYear as parameters to specify a range
+const filterByYear = (minYear, maxYear) => {
+  const filteredBooks = books.filter(
+    (book) => book.year >= minYear && book.year <= maxYear
+  );
+  showBookContent(filteredBooks);
+};
+
+// Event listener added to the dropdown with the id "filter-year"
+document.getElementById("filter-year").addEventListener("change", (event) => {
+  //function that determines the range of years based on the selected options (cases)
+  const selectedYear = event.target.value;
+  let minYear, maxYear;
+
+  switch (selectedYear) {
+    case "19th":
+      minYear = 1801;
+      maxYear = 1900;
+      break;
+    case "20th":
+      minYear = 1901;
+      maxYear = 2000;
+      break;
+    case "post20th":
+      minYear = 2001;
+      maxYear = new Date().getFullYear();
+      //new Date() creates a new date object representing the current date/time.
+      //getFullYear returnes the current year as a four digit number (e.g. 2024)
+      //maxYear = makes sure that the filter includes books up to current year
+      break;
+    default:
+      minYear = 0;
+      maxYear = new Date().getFullYear();
+      break;
+  }
+  //call the function
+  filterByYear(minYear, maxYear);
+});

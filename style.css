@@ -1,20 +1,39 @@
+@import url("https://fonts.googleapis.com/css2?family=Merriweather&display=swap");
+
 * {
   margin: 0;
   box-sizing: border-box;
   font-family: "Futura", Tahoma, Geneva, Verdana, sans-serif;
+  color: #333c57;
 }
 
 body {
-  background: lightgray;
-  display: grid;
+  background: #60789b;
 }
 
 h1 {
-  margin: 20px;
+  font-family: "Merriweather", serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 2.5 em;
+  color: #afc1d7;
+  padding: 50px 0;
+  text-align: center;
+  background: #333c58;
 }
 
 h2 {
   margin: 10px 0;
+  font-family: "Merriweather", serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.5 em;
+  color: #333c57;
+}
+
+.sort-buttons {
+  display: flex;
+  justify-content: space-between;
 }
 
 #library-container {
@@ -22,21 +41,21 @@ h2 {
   grid-template-columns: repeat(1, 1fr);
   grid-gap: 10px;
   padding: 20px;
-  background: lightgray;
+  background: #60789b;
   justify-content: center;
 }
 
 .card {
   display: flex;
   flex-direction: column;
-  background-color: white;
+  background-color: #afc1d7;
   padding: 20px;
   border-radius: 20px;
   width: auto;
 }
 
 .random {
-  background: yellow;
+  background: white;
   display: grid;
 }
 
@@ -55,16 +74,38 @@ img {
 #covers {
   border-radius: 10px;
   object-fit: cover;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 5 / 3;
+}
+.label-dropdown {
+  margin: 20px;
+  padding: 5px;
 }
 
 .dropdown-genre {
-  margin: 20px;
+  /* margin: 20px; */
   padding: 5px;
-  border: solid 2px darkgrey;
+  border: solid 2px #333c58;
   border-radius: 10px;
   max-width: 100px;
-  background: white;
+  height: auto;
+  background: #afc1d7;
+  cursor: pointer;
+}
+
+#sorting-button {
+  max-width: 50px;
+  cursor: pointer;
+}
+
+button {
+  margin: 20px;
+  padding: 5px;
+  border: solid 2px #333c58;
+  border-radius: 10px;
+  max-width: 100px;
+  height: inherit;
+  background: #afc1d7;
+  cursor: pointer;
 }
 
 #sorting-button {
@@ -72,11 +113,12 @@ img {
   cursor: pointer;
 }
 
-button {
-  max-width: 100px;
+.author-year {
+  display: flex;
+  justify-content: flex-start;
 }
 
-.author-year {
+.genre-rating {
   display: flex;
   justify-content: space-between;
 }
@@ -85,8 +127,8 @@ button {
   margin: 20px 0;
 }
 
-.background {
-  background: green;
+.description {
+  margin: 20px 0;
 }
 
 /* Media Query for Tablet */
@@ -110,25 +152,4 @@ button {
     grid-template-columns: repeat(4, 1fr);
     justify-content: left;
   }
-}
-
-#sorting-button {
-  max-width: 40px;
-  cursor: pointer;
-}
-
-button {
-}
-
-.author-year {
-  display: flex;
-  justify-content: space-between;
-}
-
-.description {
-  margin: 20px 0;
-}
-
-.background {
-  background: green;
 }

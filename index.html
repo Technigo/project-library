@@ -10,22 +10,45 @@
     <h1>Project Library</h1>
 
     <!--FILTER & SORTING SYSTEM-->
-    <!--filter by genre-->
-    <select class="dropdown-genre" id="filter-genre">
-      <option value="all">All</option>
-      <option value="adventure">Adventure</option>
-      <option value="dystopian">Dystopian</option>
-      <option value="fantasy">Fantasy</option>
-      <option value="fiction">Fiction</option>
-      <option value="horror">Horror</option>
-      <option value="mystery">Mystery</option>
-      <option value="science fiction">Science Fiction</option>
-    </select>
+    <div class="sort-buttons">
+      <!--filter by genre-->
+      <div class="label-dropdown">
+        <label for="" filter-genre>Filter by genre:</label>
+        <select class="dropdown-genre" id="filter-genre">
+          <option value="all">All</option>
+          <option value="adventure">Adventure</option>
+          <option value="dystopian">Dystopian</option>
+          <option value="fantasy">Fantasy</option>
+          <option value="fiction">Fiction</option>
+          <option value="horror">Horror</option>
+          <option value="mystery">Mystery</option>
+          <option value="science fiction">Science Fiction</option>
+        </select>
+      </div>
 
-    <!--button for random book-->
-    <button id="random-book">Choose random book</button>
+      <!--filter by year-->
+      <div class="label-dropdown">
+        <label for="filter-year" filter-year>Filter by year:</label>
+        <select class="dropdown-genre" id="filter-year">
+          <option value="all">All Years</option>
+          <option value="19th">19th Century (1801-1900)</option>
+          <option value="20th">20th Century (1901-2000)</option>
+          <option value="post20th">After 20th Century</option>
+        </select>
+      </div>
 
-    <img id="sorting-button" src="icons/absteigend-sortieren.png" alt="sort" />
+      <!--button for random book-->
+      <button id="random-book">Shuffle books</button>
+      <button>
+        <p>A - Z</p>
+
+        <img
+          id="sorting-button"
+          src="icons/absteigend-sortieren.png"
+          alt="sort"
+        />
+      </button>
+    </div>
 
     <!--button for sorting alphabetically-->
     <div id="random-book-container"></div>
