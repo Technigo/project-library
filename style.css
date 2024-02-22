@@ -183,6 +183,7 @@ p {
     flex-direction: column;
     background-color: rosybrown;
     padding-top: 25px;
+    padding-bottom: 25px;
     margin: 40px -7px -7px -7px;  
 }
 
