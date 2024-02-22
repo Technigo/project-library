@@ -290,7 +290,7 @@ searchInput.addEventListener("input", searchResult);
 
 // Function to randomize a book
 randomButton.addEventListener("click", () => {
-  let randomNum = Math.floor(Math.random() * 17);
+  let randomNum = Math.floor(Math.random() * 18);
   showBooks([books[randomNum]]);
 });
 
