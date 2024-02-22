@@ -232,7 +232,6 @@ const getRandomBook = () => {
 
 // Create the DOM element for random book
 const createRandomBook = () => {
-  toggleHide(randomBookContainer);
   randomBookContainer.innerHTML = "";
   const book = getRandomBook();
   const article = document.createElement("article");
@@ -264,6 +263,7 @@ const createRandomBook = () => {
 
 // Sort book listing
 const sortListing = event => {
+  randomBookContainer.innerHTML = "";
   let sortedBooks = [];
   switch (event.target.value) {
     case "by-author":
@@ -312,6 +312,7 @@ const createAuthorFilter = () => {
 
 // Filter books
 const filterBooks = event => {
+  randomBookContainer.innerHTML = "";
   let filteredBooks = [];
   switch (event.target.id) {
     case "select-filter-author":
@@ -366,7 +367,6 @@ const showRating = () => {
 // Put books from object into DOM
 async function getBooks(bookArray) {
   bookListing.innerHTML = "";
-  randomBookContainer.innerHTML = "";
   let fragment = document.createDocumentFragment();
   showRating();
   bookArray.forEach(book => {

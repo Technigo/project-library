@@ -224,6 +224,10 @@ summary {
   font-style: italic;
 }
 
+.description {
+  font-weight: 400;
+}
+
 .hidden {
   display: none;
 }
