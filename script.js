@@ -1,7 +1,4 @@
-/*Here we have created two different arrays that you can work with if you want.
-If you choose to create your own arrays with elements, just make sure that some
-of the properties make sense to filter on, and some to sort on.*/
-
+//Array with recipes
 const recipes = [
   {
     name: "Individual vegetarian lasagnes",
@@ -247,9 +244,10 @@ const renderRecipes = (recipes) => {
     recipeDiv.appendChild(recipeCuisineType);
 
     // only add time when not null
+    //POSSIBLE TO CHANGE THIS TO ONLY SHOW IF totalTime === number ?
     if (recipe.totalTime !== null) {
       const recipeTotalTime = document.createElement("p");
-      recipeTotalTime.textContent = `Time: ${recipe.totalTime}`;
+      recipeTotalTime.textContent = `Time: ${recipe.totalTime} min`;
       recipeDiv.appendChild(recipeTotalTime);
     }
 
@@ -259,6 +257,7 @@ const renderRecipes = (recipes) => {
 
     // Create an unordered list for ingredients
     const recipeIngredientsList = document.createElement("ul");
+    recipeDiv.appendChild(recipeIngredientsList);
 
     // Loop through each ingredient and create list items
     recipe.ingredients.forEach((ingredient) => {
@@ -266,9 +265,8 @@ const renderRecipes = (recipes) => {
       ingredientItem.textContent = ingredient;
       recipeIngredientsList.appendChild(ingredientItem);
     });
-    recipeDiv.appendChild(recipeIngredientsList);
 
-    // Append recipeDiv to container
+    // Append recipeDiv to recipe-section
     recipeSection.appendChild(recipeDiv);
   });
 };
