@@ -206,18 +206,18 @@ const showBookContent = (arrayOfBooks, genreFilter = "all") => {
   //Display filtered books
   filteredBooks.forEach((book) => {
     // iterates over each book
-    libraryContainer.innerHTML += ` <div class=card>
-    <img id="covers" src=${book.image}>
-    <h2>${book.title}</h2>
-    <div class="author-year"><p>by ${book.author} | </p>
-    <p>${book.year}</div>
-    
-    <div class="description">
-      <p>
-    ${book.description}</p></div>
-  <div class="genre-rating">
-  <p>${book.genre}</p>
-    <p>Rating ${book.rating}</p></div></div>`;
+    libraryContainer.innerHTML += `<div class=card>
+     <img id="covers" src=${book.image}>
+     <h2>${book.title}</h2>
+     <p>by ${book.author} | ${book.year}</p>
+     <div class="description">
+      <p>${book.description}</p>
+     </div>
+     <div class="genre-rating">
+      <p>${book.genre}</p>
+      <p>Rating ${book.rating}</p>
+     </div>
+    </div>`;
   });
 };
 
@@ -263,12 +263,14 @@ const randomBook = () => {
     <h2>This is a randomly selected book</h2>
 			<img id="covers" src="${selectedBook.image}">
 			<h2>${selectedBook.title}</h2>
-			<div class="author-year"><p>by ${selectedBook.author}</p>
-			<span class="background">${selectedBook.year}</span></div>
-			<p>${selectedBook.genre}</p>
-			<p>Rating ${selectedBook.rating}</p>
-      <div class="description">
-			<p>${selectedBook.description}</p></div>
+			<p>by ${selectedBook.author} | ${selectedBook.year}</p>
+			<div class="description">
+			 <p>${selectedBook.description}</p>
+      </div>
+      <div class="genre-rating">
+       <p>${selectedBook.genre}</p>
+			 <p>Rating ${selectedBook.rating}</p>
+      </div>
 		</div>`;
 };
 
