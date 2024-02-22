@@ -285,15 +285,27 @@ genre.innerHTML +=`
     <button id="more" >More ></button>
   </div>
 `
-document.getElementById("fiction").addEventListener("click",()=>{
-  const fictionBooks = books.filter((book)=>book.genre==="Fiction")
-  printBooks(fictionBooks)  
+document.getElementById("all").addEventListener("click",()=>{
+  const allBooks = books
+  printBooks(allBooks)  
 })
 
 document.getElementById("fantasy").addEventListener("click",()=>{
   const fantasyBooks = books.filter((book)=>book.genre==="Fantasy")
   printBooks(fantasyBooks)  
 })
+
+document.getElementById("adventure").addEventListener("click",()=>{
+  const adventureBooks = books.filter((book)=>book.genre==="Adventure")
+  printBooks(adventureBooks)  
+})
+
+document.getElementById("fiction").addEventListener("click",()=>{
+  const fictionBooks = books.filter((book)=>book.genre==="Fiction")
+  printBooks(fictionBooks)  
+})
+
+
 
 
 
