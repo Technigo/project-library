@@ -1,10 +1,14 @@
 # project-library Technigo Webdevelopment bootcamp
 
 Hello World - destination library
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+The assignment was to create a library website with javascript, using arrays and object that we filter, sort and search within based on name etc and a random selection. We chose to work with the theme travel destinations.
+
+We worked in a team of two, consisting of:
+
+Sofie Ferrari Strahl and Izabel Lind Färnstrand
 
 The problem
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+We bumped into some problems with the sorting and approached this by googling, experimenting, discussing and reviewing exsisting code online. We started the project by doing a figma with a design and planned different goals. If we had more time we would have added a favorites function and added more destinations and a filter for accessibility. 
 
 View it live
 http://

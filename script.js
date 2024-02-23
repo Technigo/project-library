@@ -201,12 +201,13 @@ const loadDestinations = (destinations) => {
 // Calling the function as soon as the website opens
 loadDestinations(destinations)
 
-//function that shift b
+//function that shift the value each time button is clicked, to enable toggle
 const tempToggle = () => {
   lowToHigh = !lowToHigh
   sortByTemp()
 }
 
+//Function that sorts high to low and low to high depending of value atm
 const sortByTemp = () => {
   if (lowToHigh) {
   destinations.sort((destA, destB) => {
@@ -221,11 +222,13 @@ destinationDiv.classList.replace('filtered-destinations', 'load-destinations')
 loadDestinations(destinations)
 }
 
+//function that shift the value each time button is clicked, to enable toggle
 const rateToggle = () => {
   lowToHigh = !lowToHigh
   sortByRate()
 }
 
+// Function that sort by rate, ascending or descending depending on value atm
 const sortByRate = () => {
   if (lowToHigh) {
     destinations.sort((destA, destB) => {
@@ -240,6 +243,7 @@ const sortByRate = () => {
   loadDestinations(destinations)
 } 
 
+//Function for filter dropdown menu with conditional statement for all countries
 const filterCountry = () => {
 const countryValue = dropDown.value
   if (countryValue === 'all'){
@@ -255,7 +259,7 @@ const countryValue = dropDown.value
   loadDestinations(filteredList)
 }
 
-//Function for random-button, together with bubb
+//Function for random-button, together with delayed text bubble 
 const filterRandom = () => {
   let randomDestination = Math.floor(Math.random()*destinations.length);
   destinationDiv.classList.replace('load-destinations', 'filtered-destinations')
