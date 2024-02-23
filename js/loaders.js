@@ -5,7 +5,7 @@ const cuisineDropdown = document.getElementById("cuisine");
 const authorDropdown = document.getElementById("author");
 const filterAuthors = document.getElementById("filterAuthors");
 const filterCuisines = document.getElementById("filterCuisines");
-const filterDropdown = document.querySelector(".filterDropdown");
+// const filterDropdown = document.querySelector(".filterDropdown");
 
 // Function to load and display the list of recipe
 const loadRecipeStory = (recipe) => {
@@ -69,65 +69,64 @@ const loadRecipes = (recipes) => {
   });
 };
 
-// Function to fetch options for filtering recipies
+// Function that will fetch and display the current filter options in the dropdown
 const fetchFilterOptions = (targetId) => {
-  // Need to adjust cuisine -> Cuisine
-  // Om jag klickar på author så använder jag target id för att trigga dropdown
-  const newTargetId = targetId.charAt(0).toUpperCase() + targetId.slice(1);
-  const filterDropdown = document.getElementById("filter" + newTargetId);
+  console.log("This is the fetch filter option");
+  // Convert targetId 'cuisine' to "Cuisine" before attaching
+  const titleTarget = targetId.charAt(0).toUpperCase() + targetId.slice(1);
 
-  const getTypes = (targetId) => {
-    const typeSet = new Set();
+  // Get the filter dropdown element
+  const filterDropdown = document.getElementById("filter" + titleTarget);
 
-    if (targetId === "cuisine") {
-      recipes.forEach((recipe) => {
-        recipe.cuisineType.forEach((cuisineType) => {
-          typeSet.add(cuisineType.toLowerCase());
-        });
-      });
-      // Toogle the dropdown
-      filterDropdown.classList.toggle("active");
-    } else if (targetId === "author") {
-      recipes.forEach((recipe) => {
-        typeSet.add(recipe.author.toLowerCase());
-      });
-      // Toogle the dropdown
-      filterDropdown.classList.toggle("active");
-    }
+  // Function to get all cuisines or authors in the recipe array
+  const getTargetValues = (targetId) => {
+    console.log("Get all cuisines or authors in the recipe array");
+    const targetValues = new Set();
 
-    return [...typeSet].sort();
-  };
-
-  const loadFilters = (types) => {
-    // Clean the dropdown
-    filterDropdown.innerHTML = "";
-
-    types.forEach((type) => {
-      filterDropdown.innerHTML += `
-      <label>
-        <input type="checkbox" name="${targetId}" class="${targetId}" value="${type}"/>
-        ${type}
-      </label> `;
+    recipes.forEach((recipe) => {
+      if (targetId === "cuisine") {
+        recipe.cuisineType.forEach((cuisine) =>
+          targetValues.add(cuisine.toLowerCase())
+        );
+      } else if (targetId === "author") {
+        targetValues.add(recipe.author.toLowerCase());
+      }
     });
+    return [...targetValues].sort(); // Convert Set to array and sort
   };
 
-  loadFilters(getTypes(targetId));
+  // Function to generate checkboxes based on unique values: Need targetId (cuisine) and the targetValues
+  const generateCheckboxes = (targetId, targetValues) => {
+    return targetValues
+      .map(
+        (value, index) =>
+          `<label>
+        <input type="checkbox" id="${targetId}-${index}" name="${targetId}" class="${targetId}" value="${value}"/>
+        ${value}
+      </label> `
+      )
+      .join("");
+  };
+
+  // Get target values for the specifies filter category
+  const targetValues = getTargetValues(targetId);
+  const checkboxesHTML = generateCheckboxes(targetId, targetValues);
+  filterDropdown.innerHTML = checkboxesHTML;
 };
 
-// Function to filter and display recipes based on cuisine and author
-const filterRecipes = (e) => {
+// Implement the filterRecipes Function
+const filterRecipes = (recipes, e) => {
+  console.log("This is the filter recipes");
   // Get the id from the dropdown
   const targetId = e.target.id;
 
-  // Need to get the checkboxes
+  // Get the checkboxes corresponding to the targetId (cuisine or author)
   fetchFilterOptions(targetId);
 };
 
-// Function to display the list of favorite dogs
-
 // Apply the filter when the user changes the dropdown selection
-cuisineDropdown.addEventListener("click", filterRecipes);
-authorDropdown.addEventListener("click", filterRecipes);
+cuisineDropdown.addEventListener("click", (e) => filterRecipes(recipes, e));
+authorDropdown.addEventListener("click", (e) => filterRecipes(recipes, e));
 // Load the initial list of dogs when the page loads
 loadRecipeStory(recipes[0]);
 loadRecipes(recipes);
