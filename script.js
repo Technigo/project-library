@@ -129,7 +129,7 @@ const destinations = [
     rating: 3.9,
     temperature: 14,
     description:
-      'Wangxian is famous for its houses hanging from its cliff. Integrating landscapes, outdoor rafting, culture and folk experience.',
+      'The semi circular bridge was designed to create the illusion of a perfect stone circle when reflected in the waters of the Rakotzsee lake below.',
     image: './destinations-images/die-rakotzbruck-germany.jpg'
   },
   {
@@ -140,18 +140,18 @@ const destinations = [
     rating: 4.3,
     temperature: 29,
     description:
-      'Wangxian is famous for its houses hanging from its cliff. Integrating landscapes, outdoor rafting, culture and folk experience.',
+      'A narrow train bypass which sees a twice-daily train pass close to buildings on either side of the tracks, full of restaurants and people.',
     image: './destinations-images/hanoi-vietnam.jpg'
   },
   {
-    name: 'Hoia Baciu forest',
-    country: 'Romania',
-    language: 'Romanian',
+    name: 'Crooked forest',
+    country: 'Poland',
+    language: 'Polish',
     accessibility: 'Moderate',
     rating: 3.9,
     temperature: 24,
     description:
-      'Wangxian is famous for its houses hanging from its cliff. Integrating landscapes, outdoor rafting, culture and folk experience.',
+      'Blending science fiction and ecological abnormality, a group of 400 trees are mysteriously bent without explanation.',
     image: './destinations-images/crooked-forest-romania.jpg'
   },
   {
@@ -162,7 +162,7 @@ const destinations = [
     rating: 3.8,
     temperature: 5,
     description:
-      'Wangxian is famous for its houses hanging from its cliff. Integrating landscapes, outdoor rafting, culture and folk experience.',
+      'The breathtaking village of Reine is located on the island of Moskenesøya, with red and white fishermen’s huts dotting the shoreline.',
     image: './destinations-images/reine-norway.jpg'
   },
   {
