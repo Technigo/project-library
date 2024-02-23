@@ -1,13 +1,15 @@
-/*Here we have created two different arrays that you can work with if you want.
-If you choose to create your own arrays with elements, just make sure that some
-of the properties make sense to filter on, and some to sort on.*/
+//Dom selectors
 const destinationDiv = document.getElementById('load-destinations')
 const buttonTemp = document.getElementById('button-temp')
 const buttonRate = document.getElementById('button-rate')
 const dropDown = document.getElementById('filter-dropdown')
 const buttonRandom = document.getElementById('button-random')
+const searchInput = document.getElementById("search")
 
+//global scope
+let lowToHigh = true
 
+//Array with objects with different destinations
 const destinations = [
   {
     name: 'Isle of Skye',
@@ -176,7 +178,7 @@ const destinations = [
   },
 ]
 
-//Skapa funktion som laddar array in i html
+//Function that loads the content of the objects into the HTML
 const loadDestinations = (destinations) => {
     // Cleans the div before each load
     destinationDiv.innerHTML = ""
@@ -196,12 +198,10 @@ const loadDestinations = (destinations) => {
     `
     })
 }
-// hämtar alla resmål när man laddar sidan
+// Calling the function as soon as the website opens
 loadDestinations(destinations)
 
-//sätt högst upp under DOM
-let lowToHigh = true
-
+//function that shift b
 const tempToggle = () => {
   lowToHigh = !lowToHigh
   sortByTemp()
@@ -247,16 +247,17 @@ const countryValue = dropDown.value
     destinationDiv.classList.replace('filtered-destinations', 'load-destinations')
     return
   }
-  const filteredList = destinations.filter((object) => {
-    const matchesType = object.country === countryValue
+  const filteredList = destinations.filter((dest) => {
+    const matchesType = dest.country === countryValue
     return matchesType 
   })
   destinationDiv.classList.replace('load-destinations', 'filtered-destinations')
   loadDestinations(filteredList)
 }
 
+//Function for random-button, together with bubb
 const filterRandom = () => {
-  let randomDestination =  Math.floor(Math.random()*destinations.length);
+  let randomDestination = Math.floor(Math.random()*destinations.length);
   destinationDiv.classList.replace('load-destinations', 'filtered-destinations')
   loadDestinations([destinations[randomDestination]]) 
   setTimeout(()=> destinationDiv.innerHTML += `<div class="random-text">
@@ -265,9 +266,23 @@ const filterRandom = () => {
   `, 700)
 }
 
+// Function for searchbar, returns destinations based on name, country and language.
+const handleSearch = () => {
+  const searchValue = searchInput.value.toLowerCase()
+    const searchResult = destinations.filter((dest) => {
+      return (
+        dest.name.toLowerCase().includes(searchValue) ||
+        dest.country.toLowerCase().includes(searchValue) ||
+        dest.language.toLowerCase().includes(searchValue)
+      )
+    })
+    loadDestinations(searchResult)
+  }
+  
+//EventListners 
 buttonRandom.addEventListener('click', filterRandom)
-buttonTemp.addEventListener("click", tempToggle)
-buttonRate.addEventListener("click", rateToggle)
-dropDown.addEventListener("change", filterCountry)
-
+buttonTemp.addEventListener('click', tempToggle)
+buttonRate.addEventListener('click', rateToggle)
+dropDown.addEventListener('change', filterCountry)
+searchInput.addEventListener('input', handleSearch)
 
