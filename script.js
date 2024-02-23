@@ -200,23 +200,24 @@ const showBookContent = (arrayOfBooks, genreFilter = "all") => {
     genreFilter === "all"
       ? arrayOfBooks
       : arrayOfBooks.filter(
-          (book) => book.genre.toLowerCase() === genreFilter.toLowerCase(),
+          (book) => book.genre.toLowerCase() === genreFilter.toLowerCase()
         );
 
   //Display filtered books
   filteredBooks.forEach((book) => {
     // iterates over each book
-    libraryContainer.innerHTML += `
-
-    <div class=card>
-    <img src=${book.image}>
-    <h2>${book.title}</h2>
-    <p>${book.author}</p>
-    <p>${book.year}</p>
-    <p>${book.genre}</p>
-    <p>${book.rating}</p>
-    <p>${book.description}</p>
-  </div>`;
+    libraryContainer.innerHTML += `<div class=card>
+     <img id="covers" src=${book.image}>
+     <h2>${book.title}</h2>
+     <p>by ${book.author} | ${book.year}</p>
+     <div class="description">
+      <p>${book.description}</p>
+     </div>
+     <div class="genre-rating">
+      <p>${book.genre}</p>
+      <p>Rating ${book.rating}</p>
+     </div>
+    </div>`;
   });
 };
 
@@ -229,7 +230,6 @@ dropdownGenre.addEventListener("change", (event) => {
 //call the function - displays all books initially
 showBookContent(books);
 
-// *************** filter by genre *************** //
 //filter by genre
 const filterGenre = () => {};
 
@@ -259,17 +259,61 @@ const randomBook = () => {
 
   //to display the random book
   randomBookContainer.innerHTML = ` 
-		<div class="card">
-			<img src="${selectedBook.image}">
+		<div class="card random">
+    <h2>This is a randomly selected book</h2>
+			<img id="covers" src="${selectedBook.image}">
 			<h2>${selectedBook.title}</h2>
-			<p>${selectedBook.author}</p>
-			<p>${selectedBook.year}</p>
-			<p>${selectedBook.genre}</p>
-			<p>${selectedBook.rating}</p>
-			<p>${selectedBook.description}</p>
+			<p>by ${selectedBook.author} | ${selectedBook.year}</p>
+			<div class="description">
+			 <p>${selectedBook.description}</p>
+      </div>
+      <div class="genre-rating">
+       <p>${selectedBook.genre}</p>
+			 <p>Rating ${selectedBook.rating}</p>
+      </div>
 		</div>`;
 };
 
 //Eventlistener
 sortButton.addEventListener("click", sortBooksByTitle);
 randomBookButton.addEventListener("click", randomBook);
+
+// filter by year
+// function that takes minYear and mayYear as parameters to specify a range
+const filterByYear = (minYear, maxYear) => {
+  const filteredBooks = books.filter(
+    (book) => book.year >= minYear && book.year <= maxYear
+  );
+  showBookContent(filteredBooks);
+};
+
+// Event listener added to the dropdown with the id "filter-year"
+document.getElementById("filter-year").addEventListener("change", (event) => {
+  //function that determines the range of years based on the selected options (cases)
+  const selectedYear = event.target.value;
+  let minYear, maxYear;
+
+  switch (selectedYear) {
+    case "19th":
+      minYear = 1801;
+      maxYear = 1900;
+      break;
+    case "20th":
+      minYear = 1901;
+      maxYear = 2000;
+      break;
+    case "post20th":
+      minYear = 2001;
+      maxYear = new Date().getFullYear();
+      //new Date() creates a new date object representing the current date/time.
+      //getFullYear returnes the current year as a four digit number (e.g. 2024)
+      //maxYear = makes sure that the filter includes books up to current year
+      break;
+    default:
+      minYear = 0;
+      maxYear = new Date().getFullYear();
+      break;
+  }
+  //call the function
+  filterByYear(minYear, maxYear);
+});
