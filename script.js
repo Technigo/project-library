@@ -196,6 +196,7 @@ const dystopianButton = document.getElementById('filterDystopian')
 const ascendingButton = document.getElementById('ascending')
 const descendingButton = document.getElementById('descending')
 const filterBar = document.getElementById('filterBar')
+const rateButton = document.getElementById('from-high-rate')
 const randomDiv = document.getElementById('random-book-div')
 const randomButton=document.getElementById('random-button')
 
@@ -269,9 +270,10 @@ descendingButton.addEventListener('click',fromNewest)
 
 //sort: from the highest to lowest rating and vice versa
 const bookRate = () => {
-  
-
+  const highestRate = books.sort ((a,b) => b.rating - a.rating)
+  displayBooks(highestRate)
 }
+rateButton.addEventListener('click', bookRate)
 
 const randomBook = () => {
   const arrLen = books.length
@@ -293,6 +295,7 @@ const displayBooks = (arrays) => {
         <p>Author:${book.author}</p>
         <p>Year: ${book.year}</p>
         <p>Genre: ${book.genre}</p>
+        <p>Rating: ${book.rating}</p>
         <p>${book.description}</p>`
 
   document.body.appendChild(bookSection)
