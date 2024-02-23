@@ -239,13 +239,15 @@ const showRecipes = (recipesToShow) => {
       <div class="recipe-text">
         <h3>${recipe.name}</h3>
         <p><b>Cuisine</b>: ${recipe.cuisineType}</p>
-        <p><b>Time</b>: ${recipe.totalTime} minutes</p>
+        <p><b>Cooking time</b>: ${recipe.totalTime} minutes</p>
         <p><b>Ingredients:</b></p>
         <ul>
           ${recipe.ingredients
             .map((ingredient) => `<li>${ingredient}</li>`)
             .join("")}
         </ul>
+        <p class="recipe-link"><a href="${recipe.url}" target="_blank">Link to cooking method</a>
+        </p>
       </div>
     </div>
     `;
@@ -268,14 +270,15 @@ const getRandomValue = () => {
     <div class="recipe-text">
       <h3>${recipe.name}</h3>
       <p><b>Cuisine</b>: ${recipe.cuisineType}</p>
-      <p><b>Time</b>: ${recipe.totalTime} minutes</p>
+      <p><b>Cooking time</b>: ${recipe.totalTime} minutes</p>
       <p><b>Ingredients:</b></p>
       <ul>
         ${recipe.ingredients
           .map((ingredient) => `<li>${ingredient}</li>`)
           .join("")}
       </ul>
-    </div>
+      <p class="recipe-link"><a href="${recipe.url}" target="_blank">Link to cooking method</a>
+      </div>
   </div>
   `;
 };

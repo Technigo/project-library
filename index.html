@@ -14,15 +14,11 @@
     <title>Recipe Library</title>
   </head>
   <body>
-    <h1>Project Recipe Library</h1>
+    <h1 onclick="location.reload()">Project Recipe Library</h1>
     <div class="forms-header">
-      <form class="search-form" id="search-form">
-        <input id="search-input" type="text" placeholder="Search by keyword" />
-        <button class="send-btn" type="submit">Search</button>
-      </form>
       <form class="kitchen-form" id="kitchen-form">
-        <p>Filter on Kitchen</p>
-        <select id="filter-recipes">
+        <p class="form-text">Filter on kitchen</p>
+        <select class="filter-recipes" id="filter-recipes">
           <option value="all">All</option>
           <option value="italian">Italy</option>
           <option value="american">USA</option>
@@ -34,9 +30,13 @@
         </select>
       </form>
       <form class="sorting-form" id="sorting-form">
-        <p>Sort on time</p>
-        <button id="descending">Descending</button>
-        <button id="ascending">Ascending</button>
+        <p class="form-text">Sort on cooking time</p>
+        <button id="descending"><p>Descending</p></button>
+        <button id="ascending"><p>Ascending</p></button>
+      </form>
+      <form class="search-form" id="search-form">
+        <input class="search-input" id="search-input" type="text" placeholder="Search by keyword" />
+        <button class="send-btn" type="submit"><p>Search</p></button>
       </form>
     </div>
 
@@ -44,8 +44,7 @@
 
     <footer>
       <div class="footer">
-        <p>
-          Still haven't decided? Pick a random recipe here:
+        <p class="form-text">Still haven't decided? Pick a random recipe here:
           <button id="random">Give me a recipe!</button>
         </p>
       </div>
