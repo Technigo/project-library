@@ -6,6 +6,7 @@ const authorDropdown = document.getElementById("author");
 const filterAuthors = document.getElementById("filterAuthors");
 const filterCuisines = document.getElementById("filterCuisines");
 const filterDropdown = document.querySelector(".filterDropdown");
+const filterArray = [];
 
 // Function to load and display the list of recipe
 const loadRecipeStory = (recipe) => {
@@ -76,19 +77,29 @@ const handleFilterDropdown = (targetId) => {
 };
 
 const updateFilters = (e) => {
-  const filterArray = [];
-
-  console.log(filterArray);
   const targetValue = e.target.value;
 
   // Check if the targetValue exists in the array
   const index = filterArray.indexOf(targetValue);
 
-  // Om arrayen är tom så ska alla recept visas.
+  // If targetValue exists, remove it; otherwise, push it into the array
+  if (index !== -1) {
+    console.log("exists in filterArray so remove");
+    console.log(index !== -1);
+    filterArray.splice(index, 1);
+  } else {
+    console.log("push the new value");
+    filterArray.push(targetValue);
+  }
 
-  // Om targetValue redan finns ska den tas bort
+  if (filterArray.length === 0) {
+    console.log("arrayen är tom");
+    loadRecipes(recipes);
+  } else {
+    console.log("apply filter");
+  }
 
-  // Om det inte finns ska den läggas till i arrayen
+  console.log(filterArray);
 };
 
 const fetchFilterOptions = (targetId) => {
