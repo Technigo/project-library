@@ -1,13 +1,8 @@
-/*Here we have created two different arrays that you can work with if you want.
-If you choose to create your own arrays with elements, just make sure that some
-of the properties make sense to filter on, and some to sort on.*/
-
 const title = document.getElementById("head")
 const filters = document.getElementById("filters")
 const genre = document.getElementById("genre")
 const sort = document.getElementById("sort")
 const library = document.getElementById("library")
-
 
 const books = [
   {
@@ -193,7 +188,8 @@ const books = [
 ]
 
 
-/* const printBooks=()=>{
+/*wrong position of libaray.innerHTML 
+const printBooks=()=>{
   books.forEach(book=>{
     library.innerHTML +=`
     <div class="bookItem1" id="bookItem1">  
@@ -216,7 +212,6 @@ const books = [
       <p id="bookDescription"></p>
     </div>
     `
-    
     bookTitle.innerHTML = book.title
     bookGenre.innerHTML = "Genre: " + book.genre
     bookRating.innerHTML = "Rating: " +book.rating
@@ -226,7 +221,6 @@ const books = [
 
   })
 }   
-
 printBooks() */
 
 
@@ -287,9 +281,8 @@ document.getElementById("genreButton").addEventListener("click",(event)=>{
   }    
 })
 
-
-
-/* document.getElementById("all").addEventListener("click",()=>{
+/* too many codes here. nonono if more filters need to be added. 
+  document.getElementById("all").addEventListener("click",()=>{
   const allBooks = books
   printBooks(allBooks)  
 })
@@ -309,8 +302,6 @@ document.getElementById("adventure").addEventListener("click",()=>{
   printBooks(adventureBooks)  
 }) */
 
-
-
 document.getElementById("more").addEventListener("change",(event)=>{
   const genreFilter = event.target.value;
   if(genreFilter==="More"){
@@ -321,7 +312,6 @@ document.getElementById("more").addEventListener("change",(event)=>{
     printBooks(filterSelectedBooks); 
   } 
 })
-
 
 sort.innerHTML +=`
   <div class="sortTitle" id="sortTitle" >Sort</div>
@@ -352,6 +342,34 @@ document.getElementById("year").addEventListener("click",()=>{
     printBooks(yearBooks)
   }
 }) 
+
+surprise.innerHTML +=`
+  <div class="surpriseTitle" id="surpriseTitle">Surprise</div>
+  <div id="surpriseButton">
+    <button id="random" value="random" >A random book</button>
+    <select id="more1">
+        <option value="More1">More</option>
+        <option id="century" value="2000">21st Century Books</option>
+        <option id="century" value="1900">20th Century Books</option>
+        <option id="century" value="1800">19th Century Books</option>
+    </select>
+  </div>
+`
+  document.getElementById("random").addEventListener("click",()=>{
+    const randomIndex = Math.floor(Math.random(books)*books.length);
+    const randomBooks =books[randomIndex]
+    console.log(randomBooks);
+    printBooks([randomBooks]); 
+  })
+
+  document.getElementById("more1").addEventListener("change",(event)=>{
+    const century = parseInt(event.target.value);
+    const centuryNew = parseInt(event.target.value)+100;
+
+    const centuryBooks = books.filter((book)=>book.year>=century && book.year<=centuryNew) 
+    console.log(centuryBooks)
+    printBooks(centuryBooks) 
+  })
 
 
 
