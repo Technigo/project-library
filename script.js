@@ -185,22 +185,21 @@ const books = [
 /////////////////////Dom Objects/////////////////////
 const searchInput = document.getElementById("search-txt");
 const searchBtn = document.getElementById("search-btn");
+const allBtn = document.querySelector(".all");
 const filterBtns = document.querySelectorAll(".filter-btn");
-const allBooksBtn = document.getElementById("all-genres-btn");
-const genreBtns = document.getElementsByClassName("genre-btn");
-const ascendingBtn = document.getElementById("ascending");
-const descendingBtn = document.getElementById("descending");
+const sortBtns = document.querySelectorAll(".sort-btn");
 const subHeading = document.querySelector("h2");
 const cardCollection = document.getElementById("card-grid");
 const randomBtn = document.getElementById("random");
 
-/////////////////////Functions/////////////////////
-//Function that accepts a books array and show books
-const showBooks = (arr) => {
-  subHeading.textContent = "Sit back, relax and enjoy reading 📖";
+/////////////////////Functions///////////////////////
+// Function that accepts a books array and show books
+const showBooks = arr => {
   cardCollection.innerHTML = "";
-  arr.forEach((obj) => {
-    cardCollection.innerHTML += `<div class="card">
+  subHeading.textContent = "Sit back, relax and enjoy reading 📖";
+  arr.forEach(obj => {
+    cardCollection.innerHTML += `
+    <div class="card">
       <div class="img-container">
         <img src=${obj.image} alt="book ${obj.title}">
       </div>
@@ -216,61 +215,50 @@ const showBooks = (arr) => {
   });
 };
 
-//Function that add event listeners to sorting buttons so it sorts based on a given array and display the books
-const triggerSortBtns = (arr) => {
-  ascendingBtn.addEventListener("click", () => {
-    const ascendingBooks = [...arr].sort((a, b) => a.rating - b.rating);
-    showBooks(ascendingBooks);
-  });
-  descendingBtn.addEventListener("click", () => {
-    const descendingBooks = [...arr].sort((a, b) => b.rating - a.rating);
-    showBooks(descendingBooks);
-  });
+// Function that sorts books based on a given array and sorting logic
+const sortBooks = (arr, sortLogic) => {
+  if (sortLogic === "ascending") {
+    return [...arr].sort((a, b) => a.rating - b.rating);
+  } else {
+    return [...arr].sort((a, b) => b.rating - a.rating);
+  }
 };
 
-/////////////////////Event Listners/////////////////////
-//Add event listner to all books button (one single button that display all books), function wise is the same as below
-allBooksBtn.addEventListener("click", () => {
-  filterBtns.forEach((button) => button.classList.remove("active"));
-  allBooksBtn.classList.add("active");
-  showBooks(books);
-  triggerSortBtns(books);
-});
+// Function that filters books based on a given genre
+const filterBooks = genre => {
+  switch (genre) {
+    case "all":
+      return books;
+    default:
+      return books.filter(obj => obj.genre === genre);
+  }
+};
 
-// Add event listner to genre buttons
-// 1. Remove any active highlights in the filter section;
-// 2. filter books based on the button value, i.e. genre;
-// 3. show the filtered books;
-// 4. override the event listner on sort buttons to trigger actions based on filtered books
-for (let btn of genreBtns) {
-  btn.addEventListener("click", (event) => {
-    filterBtns.forEach((button) => button.classList.remove("active"));
-    let filteredBooks = books.filter((obj) => obj.genre === event.target.value);
-    btn.classList.add("active");
-    showBooks(filteredBooks);
-    triggerSortBtns(filteredBooks);
-  });
-}
+// Function that checks the active filter and sort, then shows the filterd and/or sorted books
+const processFilterAndSort = () => {
+  // variables declared below are in the function-blocked scope
+  let arr;
+  const activeFilterBtn = document.querySelector(".active-filter");
+  const activeSortBtn = document.querySelector(".active-sort");
+  if (activeFilterBtn && activeSortBtn) {
+    arr = sortBooks(filterBooks(activeFilterBtn.value), activeSortBtn.value);
+  } else if (activeFilterBtn) {
+    arr = filterBooks(activeFilterBtn.value);
+  } else if (activeSortBtn) {
+    arr = sortBooks(books, activeSortBtn.value);
+  } else {
+    arr = books;
+  }
+  showBooks(arr);
+};
 
-// Add Event Listener to random generator button
-// 1. Generate a random number;
-// 2. Use the random number as an index to access the books array
-// 3. Display a random book
-randomBtn.addEventListener("click", () => {
-  filterBtns.forEach((button) => button.classList.remove("active"));
-  let randomNum = Math.floor(Math.random() * 18);
-  showBooks([books[randomNum]]);
-});
-
-// Add Event Listner to search button:
-// 1. Compare the search result with all the books' titles within our data library;
-// 2. Show the result of matched books
-// 3. Manipulate the h2 so it customise the message we want to delivery for different types of search result (empty or non-empty)
-searchBtn.addEventListener("click", () => {
-  const searchResult = books.filter((book) =>
+// Function that compares the input, i.e. search with the books array and manipulates the h2 to deliver a customized message.
+const processSearchResult = () => {
+  const searchResult = books.filter(book =>
     book.title.toLowerCase().includes(searchInput.value.toLowerCase())
   );
   showBooks(searchResult);
+  highlightOnlyAll();
   if (searchResult.length !== 0) {
     subHeading.textContent = `
     Your search result "${searchInput.value}" matches the following books:`;
@@ -278,8 +266,53 @@ searchBtn.addEventListener("click", () => {
     subHeading.textContent = `
     Sorry your search "${searchInput.value}" is not in our library yet. Please try to search for something else.`;
   }
+  searchInput.value = "";
+};
+
+// Function that only highlights "all" button
+const highlightOnlyAll = () => {
+  [...filterBtns, ...sortBtns].forEach(button =>
+    button.classList.remove("active-filter", "active-sort")
+  );
+  allBtn.classList.add("active-filter");
+};
+
+// Function that generates and displays a random book
+const displayRandomBook = () => {
+  highlightOnlyAll();
+  let randomNum = Math.floor(Math.random() * 18);
+  showBooks([books[randomNum]]);
+};
+
+/////////////////////Event Listners/////////////////////
+// Add event listners to sort buttons
+sortBtns.forEach(sortBtn => {
+  sortBtn.addEventListener("click", () => {
+    sortBtns.forEach(button => button.classList.remove("active-sort"));
+    sortBtn.classList.add("active-sort");
+    processFilterAndSort();
+  });
 });
 
-//Call the function - display all the books when landing and add event listener to sorting buttons to sort based on all the books
+// Add event listners to filter buttons
+filterBtns.forEach(filterBtn => {
+  filterBtn.addEventListener("click", () => {
+    filterBtns.forEach(button => button.classList.remove("active-filter"));
+    filterBtn.classList.add("active-filter");
+    processFilterAndSort();
+  });
+});
+
+// Add event listner to random book generator button
+randomBtn.addEventListener("click", displayRandomBook);
+
+// Add event listner to search button which listens to Enter key AND click event
+searchBtn.addEventListener("click", e => {
+  e.preventDefault();
+  if (searchInput.value) {
+    processSearchResult();
+  }
+});
+
+/////////////////////Function call/////////////////////
 showBooks(books);
-triggerSortBtns(books);

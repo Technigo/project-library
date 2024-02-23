@@ -146,14 +146,13 @@ button:not(.search-btn):hover {
   margin-left: 4vw;
 }
 
-/* "active" class will be added through JS */
-button.active {
+/* "active-" class will be manipulated through JS */
+button.active-filter {
   background-color: #adbc9f;
   color: white;
 }
 
-.btn-sort button:active,
-.btn-sort button:focus {
+button.active-sort {
   background-color: #436850;
   color: white;
 }
