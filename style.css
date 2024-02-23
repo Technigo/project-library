@@ -1,0 +1,326 @@
+body {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Libre Baskerville", serif;
+  font-weight: 400;
+  font-style: normal;
+  background-color: #e7e0cf;
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+
+/* 1. Header Section */
+header {
+  margin: 0;
+  padding: 0;
+  background-color: #12372a;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+/* 1.1 h1 sub-section */
+h1 {
+  font-size: 1.9rem;
+  top: 12%;
+  text-align: center;
+  color: #fbfada;
+  position: absolute;
+}
+
+/* 1.2 Search bar sub-section */
+.search-box {
+  position: absolute;
+  top: 73%;
+  align-self: center;
+  transform: translate(0%, -45%);
+  background: #fbfada;
+  height: 38px;
+  border-radius: 25px;
+  padding: 3px;
+  margin: 5px;
+}
+
+.search-box:hover .search-btn {
+  color: #111;
+  background: #436850;
+}
+
+input.search-txt {
+  height: 50px;
+  margin: 0;
+  padding-left: 10px;
+  width: 225px;
+  border-radius: 25px;
+  background: none;
+  border: none;
+  outline: none;
+  color: #12372a;
+  transition: width 0.7s ease;
+  font-family: "Libre Baskerville", serif !important;
+}
+.search-btn {
+  color: #111;
+  height: 38px;
+  width: 38px;
+  background: #adbc9f;
+  float: right;
+  border-radius: 50%;
+  border: 0;
+  line-height: 38px;
+  text-align: center;
+  font-size: 20px;
+}
+
+/* 2. Main Section */
+
+/* 2.1 blockquote sub-section */
+.blockquote {
+  margin: 30px 30px;
+  padding: 25px;
+  background: #fbfada;
+  border: 2px solid #adbc9f;
+  color: #12372a;
+  border-left-width: 10px;
+}
+
+.blockquote::before {
+  content: "\201c";
+  font-size: 80px;
+  color: #436850;
+  display: block;
+  margin-bottom: -60px;
+  margin-top: -20px;
+}
+
+.blockquote-text {
+  font-family: "Gelasio", serif;
+  font-style: italic;
+  font-size: 1rem;
+  line-height: 1.5;
+  margin: 0;
+  text-align: center;
+}
+
+.blockquote-text-credit {
+  font-weight: bold;
+  font-style: normal;
+  text-align: right;
+  font-size: 0.8rem;
+  margin-top: 10px;
+}
+
+.blockquote-text-credit::before {
+  content: "\2014\0020";
+}
+
+/* 2.2 filter-container sub-section */
+.filter-container p {
+  margin-left: 5vw;
+}
+
+button:not(.search-btn) {
+  margin: 5px 10px;
+  border-radius: 10px;
+  background-color: #fbfada;
+  border: 2px solid transparent;
+  font-family: "Libre Baskerville", serif !important;
+  padding: 8px;
+}
+
+button:not(.search-btn):hover {
+  border: 2px solid #12372a;
+  cursor: pointer;
+}
+
+.btn-filter,
+.btn-sort,
+.btn-random {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin-left: 4vw;
+}
+
+/* "active-" class will be manipulated through JS */
+button.active-filter {
+  background-color: #adbc9f;
+  color: white;
+}
+
+button.active-sort {
+  background-color: #436850;
+  color: white;
+}
+
+.btn-random button:active,
+.btn-random button:focus {
+  background-color: #12372a;
+  color: white;
+}
+
+/* 2.3 h2 sub-section */
+
+h2 {
+  text-align: center;
+  padding: 40px 10px;
+}
+
+/* 2.4 card-grid sub-section - to be shown when HTML added from JS */
+.img-container {
+  margin-top: 20px;
+  align-self: center;
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
+}
+
+.img-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 15px;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+  gap: 1rem;
+  justify-items: center;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  border: 5px solid #436850;
+  border-radius: 15px;
+  width: 80%;
+  padding: 10px;
+}
+
+p {
+  margin: 10px 0;
+}
+
+.card:hover {
+  border: 5px solid #12372a;
+  background-color: #fbfada;
+  box-shadow: 8px 5px 5px rgb(18, 55, 42, 0.8);
+}
+
+/* 2.5 random-container sub-section */
+.random-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 40px;
+}
+
+.btn-random {
+  margin: 0;
+}
+
+.random-container p {
+  margin: 15px 15px;
+  text-align: center;
+}
+
+.btn-random button {
+  background-color: #adbc9f;
+  color: black;
+}
+
+/* 3. Footer Section */
+
+footer {
+  text-align: center;
+  background-color: #12372a;
+  color: #fbfada;
+  height: 60px;
+  margin-top: 20px;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/*----Media Query for tablet----*/
+@media (min-width: 600px) {
+  h1 {
+    font-size: 2.5rem;
+    top: 13%;
+  }
+  .card-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin: 0 2rem;
+  }
+  .card {
+    width: auto;
+  }
+  .blockquote::before {
+    font-size: 100px;
+    margin-bottom: -40px;
+  }
+  .blockquote-text {
+    font-size: 1.5rem;
+  }
+  .blockquote-text-credit {
+    font-size: 1.2rem;
+  }
+}
+
+/*----Media Query for desktop----*/
+@media (min-width: 1024px) {
+  .card-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  footer {
+    height: 60px;
+  }
+  .desktop-container {
+    display: flex;
+    justify-content: space-between;
+  }
+  .desktop-filter {
+    align-self: flex-start;
+  }
+  .desktop-sort {
+    margin-right: 5vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+  .btn-filter {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .btn-sort {
+    display: flex;
+    flex-wrap: nowrap;
+  }
+  .search-box {
+    top: 43%;
+    right: 5%;
+    transform: translate(10%, -30%);
+  }
+  .search-box:hover input.search-txt {
+    padding: 0 16px 16px 16px;
+    width: 200px;
+  }
+  input.search-txt {
+    padding: 0;
+    width: 0;
+  }
+  h1 {
+    top: auto;
+  }
+}

@@ -1,13 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Don't forget to change the title and connect the CSS file -->
-  <title>Project Library</title>
-</head>
-<body>
-  <h1>Project Library</h1>
-  <!-- Don't forget to connect the JavaScript file -->
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Roboto+Slab:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Gelasio:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Roboto+Slab:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+    <title>Lagom Book Library</title>
+  </head>
+  <body>
+    <header>
+      <h1>Lagom Book Library</h1>
+      <form class="search-box">
+        <input
+          type="text"
+          class="search-txt"
+          id="search-txt"
+          placeholder="Type your search..."
+        />
+        <button class="search-btn" id="search-btn" type="submit">
+          <i class="fa fa-search" aria-hidden="true"></i>
+        </button>
+      </form>
+    </header>
+    <main>
+      <blockquote
+        class="blockquote"
+        cite="https://parade.com/1167905/marynliles/quotes-about-reading-books/"
+      >
+        <p class="blockquote-text">
+          A good library will never be too neat, or too dusty, because somebody
+          will always be in it, taking books off the shelves and staying up late
+          reading them.
+        </p>
+        <p class="blockquote-text blockquote-text-credit">Lemony Snicket</p>
+      </blockquote>
+      <div class="filter-container">
+        <div class="desktop-container">
+          <div class="desktop-filter">
+            <p>Filter on genre</p>
+            <div class="btn-filter">
+              <button class="filter-btn active-filter all" value="all">
+                All
+              </button>
+              <button class="filter-btn" value="Fiction">Fiction</button>
+              <button class="filter-btn" value="Science Fiction">
+                Science Fiction
+              </button>
+              <button class="filter-btn" value="Fantasy">Fantasy</button>
+              <button class="filter-btn" value="Adventure">Adventure</button>
+              <button class="filter-btn" value="Horror">Horror</button>
+              <button class="filter-btn" value="Mystery">Mystery</button>
+              <button class="filter-btn" value="Dystopian">Dystopian</button>
+            </div>
+          </div>
+          <div class="desktop-sort">
+            <p>Sort on rating</p>
+            <div class="btn-sort">
+              <button class="sort-btn" value="descending">Descending</button>
+              <button class="sort-btn" value="ascending">Ascending</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <h2></h2>
+      <div id="card-grid" class="card-grid"></div>
+      <div class="random-container">
+        <p>Having a hard time deciding what book to take? Let us help you 📚</p>
+        <div class="btn-random">
+          <button id="random">Recommend a book</button>
+        </div>
+      </div>
+    </main>
+    <footer>
+      <p>© created by Wen & Linda</p>
+    </footer>
+    <script src="./script.js"></script>
+  </body>
 </html>
