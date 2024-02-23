@@ -123,6 +123,7 @@ const filterRecipes = (recipes, e) => {
   console.log("This is the filter recipes.");
   // Get the id from the dropdown
   const targetId = e.target.id;
+  console.log(recipes);
 
   // Get the checkboxes corresponding to the targetId (cuisine or author)
   fetchFilterOptions(targetId);
