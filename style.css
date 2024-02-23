@@ -32,7 +32,7 @@ h1 {
   margin: 0;
   text-align: center;
   padding: 60px;
-  background-image: url('./recipe-images/header-image.jpg');
+  background-image: url("./recipe-images/header-image.jpg");
   background-size: cover;
   cursor: pointer;
 }
@@ -57,7 +57,7 @@ a:link {
 
 a:hover {
   text-decoration: none;
-  color:#39253b;
+  color: #39253b;
 }
 
 .search-input,
@@ -73,7 +73,8 @@ a:hover {
 .kitchen-form,
 .sorting-form,
 .search-form,
-.random-form {
+.random-form,
+.favorite-form {
   display: flex;
   align-items: center;
   justify-content: flex-start space-around;
@@ -127,7 +128,7 @@ a:hover {
 }
 
 .recipe-card img {
-    border-radius: 20px;
+  border-radius: 20px;
 }
 
 .footer {
@@ -187,7 +188,7 @@ a:hover {
 
 /* Media query for viewports smaller than 530px*/
 @media (max-width: 530px) {
-  .random-form{
+  .random-form {
     display: flex;
     flex-direction: column;
     justify-content: space-between;

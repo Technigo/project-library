@@ -6,6 +6,7 @@ const searchInput = document.getElementById("search-input");
 const descendingButtonForm = document.getElementById("descending");
 const ascendingButtonForm = document.getElementById("ascending");
 const random = document.getElementById("random");
+const favoriteButton = document.getElementById("fav");
 
 const recipes = [
   {
@@ -130,15 +131,6 @@ const recipes = [
     image: "./recipe-images/baked-chicken.jpg",
   },
   {
-    name: "Deep Fried Fish Bones",
-    cuisineType: ["asian"],
-    ingredients: ["8 small whiting fish or smelt", "4 cups vegetable oil"],
-    source: "Serious Eats",
-    totalTime: 31,
-    url: "http://www.seriouseats.com/recipes/2011/03/deep-fried-fish-bones-recipe.html",
-    image: "./recipe-images/deep-fried-fish-bones.jpg",
-  },
-  {
     name: "Burnt-Scallion Fish",
     cuisineType: ["asian"],
     ingredients: [
@@ -225,7 +217,53 @@ const recipes = [
     url: "http://www.seriouseats.com/recipes/2012/05/spice-rubbed-grilled-flap-meat-sirloin-tip-recipe.html",
     image: "./recipe-images/grilled.jpg",
   },
+  {
+    name: "Gnocchi Alla Sorrentina",
+    cuisineType: "italian",
+    ingredients: [
+      "2 tablespoons extra-virgin olive oil, plus more for coating",
+      "1 clove garlic, lightly crushed and peeled",
+      "Generous pinch dried red pepper flakes",
+      "4 cups passata or tomato purée",
+      "Fine salt",
+      "Two sprigs basil",
+      "1 (8-ounce) ball mozzarella, diced",
+      "16 ounces potato gnocchi, homemade or store-bought",
+      "Freshly grated Parmigiano-Reggiano",
+    ],
+    source: "Domenica Marchetti",
+    totalTime: 60,
+    url: "https://www.themediterraneandish.com/gnocchi-alla-sorrentina/",
+    image: "./recipe-images/gnochi.jpeg",
+    favorite: true,
+  },
+  {
+    name: "Salpicon",
+    cuisineType: "mexican",
+    ingredients: [
+      "¼ cup olive oil",
+      "1 ¼ pound skirt steak",
+      "4 tomatoes, finely chopped",
+      "½ head iceberg or Romaine lettuce",
+      "4 tablespoon parsley, finely chopped",
+      "⅓ red onion, finely chopped",
+      "4 ozs panela cheese, grated",
+      "salt and pepper to taste",
+      "1 avocado",
+    ],
+    source: "Lori Alcalá",
+    totalTime: 130,
+    url: "https://mexicanfoodjournal.com/salpicon/",
+    image: "./recipe-images/salpicon.jpeg",
+    favorite: true,
+  },
 ];
+
+//Function to show favorites
+const showFavorites = () => {
+  const favRecipes = recipes.filter((recipe) => recipe.favorite === true);
+  showRecipes(favRecipes);
+};
 
 //Function to show the recipes
 const showRecipes = (recipesToShow) => {
@@ -245,7 +283,9 @@ const showRecipes = (recipesToShow) => {
             .map((ingredient) => `<li>${ingredient}</li>`)
             .join("")}
         </ul>
-        <p class="recipe-link"><a href="${recipe.url}" target="_blank">Link to cooking method</a>
+        <p class="recipe-link"><a href="${
+          recipe.url
+        }" target="_blank">Link to cooking method</a>
         </p>
       </div>
     </div>
@@ -275,7 +315,9 @@ const getRandomValue = () => {
           .map((ingredient) => `<li>${ingredient}</li>`)
           .join("")}
       </ul>
-      <p class="recipe-link"><a href="${recipe.url}" target="_blank">Link to cooking method</a>
+      <p class="recipe-link"><a href="${
+        recipe.url
+      }" target="_blank">Link to cooking method</a>
       </div>
   </div>
   `;
@@ -283,23 +325,24 @@ const getRandomValue = () => {
 
 //Function to sorting descending
 const filteredRecipesByDescending = () => {
-  recipes.sort((a, b) => parseFloat(a.totalTime) - parseFloat(b.totalTime));
+  recipes.sort((a, b) => a.totalTime - b.totalTime);
   showRecipes(recipes);
 };
 
 //Function to sorting ascending
 const filteredRecipesByAscending = () => {
-  recipes.sort((a, b) => parseFloat(b.totalTime) - parseFloat(a.totalTime));
+  recipes.sort((a, b) => b.totalTime - a.totalTime);
   showRecipes(recipes);
 };
 
 //Function to filter on search input based on name or ingredient
 const filterRecipesBySearchInput = (searchInputValue) => {
-  const filteredRecipes = recipes.filter((recipe) =>
-    recipe.name.toLowerCase().includes(searchInputValue.toLowerCase()) ||
-    recipe.ingredients.some((ingredient) =>
-    ingredient.toLowerCase().includes(searchInputValue.toLowerCase())
-    )
+  const filteredRecipes = recipes.filter(
+    (recipe) =>
+      recipe.name.toLowerCase().includes(searchInputValue.toLowerCase()) ||
+      recipe.ingredients.some((ingredient) =>
+        ingredient.toLowerCase().includes(searchInputValue.toLowerCase())
+      )
   );
   showRecipes(filteredRecipes);
 };
@@ -323,6 +366,12 @@ filterRecipes.addEventListener("change", (event) => {
   } else {
     filterRecipesByCuisine(selectedCuisine);
   }
+});
+
+//Event listener for favorites
+favoriteButton.addEventListener("click", (event) => {
+  event.preventDefault();
+  showFavorites();
 });
 
 //Event listener for random
