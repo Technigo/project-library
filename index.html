@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" type="text/css" href="style.css" />
-
     <title>Martin and Mai's Recipe book</title>
   </head>
   <body>
@@ -18,7 +17,9 @@
         <option value="american">American</option>
         <option value="asian">Asian</option>
         <option value="italian">Italian</option>
-        <option value="random">Random</option>
+        <option value="balanced">Balanced</option>
+        <option value="high-fiber">High-Fiber</option>
+        <option value="low-carb">Low-Carb</option>
       </select>
     </div>
 
@@ -26,7 +27,7 @@
       <select id="mobileSortSelect">
         <option value="" selected disabled>Sort Recipes</option>
         <option value="alphabetical">Alphabetical</option>
-        <option value="cook-time">Cooking-time</option>
+        <option value="cook-time">Cooking-Time</option>
       </select>
     </div>
 
@@ -67,63 +68,61 @@
           class="button"
           id="balanced"
           onclick="filterSelection('Balanced')"
-          
-        >
-          Balanced
-        </button>
-        <button
-        class="button"
-        id="high-fiber"
-        onclick="filterSelection('High-Fiber')"
-      >
-        High-fiber
-      </button>
-      <button
-      class="button"
-      id="low-carb"
-      onclick="filterSelection('Low-Carb')"
-    >
-      Low-Carb
-    </button>
-          
-        </div>
-      </div>
-      <div class="sortDiv">
-        <h2>Sort recipes</h2>
-        <div id="sortButtonDiv">
-          <button class="button" id="alphabetical" onclick="sortListName()">
-            Alphabetical
-          </button>
-          <button class="button" id="cooking-time" onclick="sortListTime()">
-            Cooking Time
-          </button>
-        </div>
-      </div>
-    </div>
-
-    
-    <div class="searchDiv">
-      <form id="search-form">
-        <input
-          type="text"
-          class="search"
-          id="search-input"
-          placeholder="Search a recipe"
-        />
-        <button type="submit" class="search button" id="search-button">
-          Search
-        </button>
-      </form>
-      <button
-            class="button"
-            id="random"
-            onclick="filterSelectionIndex('all')"
           >
-            Random
+          Balanced
           </button>
+          <button
+          class="button"
+          id="high-fiber"
+          onclick="filterSelection('High-Fiber')"
+          >
+          High-fiber
+          </button>
+          <button
+          class="button"
+          id="low-carb"
+          onclick="filterSelection('Low-Carb')"
+          >
+          Low-Carb
+          </button>    
+      </div>
     </div>
+    <div class="sortDiv">
+      <h2>Sort recipes</h2>
+      <div id="sortButtonDiv">
+        <button class="button" id="alphabetical" onclick="sortListName()">
+          Alphabetical
+        </button>
+        <button class="button" id="cooking-time" onclick="sortListTime()">
+          Cooking Time
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="searchDiv">
+    <form id="search-form">
+      <input
+        type="text"
+        class="search"
+        id="search-input"
+        placeholder="Search a recipe"
+      />
+      <button type="submit" class="search button" id="search-button">
+        Search
+      </button>
+    </form>
+    <button
+      class="button"
+      id="random"
+      onclick="filterSelectionIndex('all')"
+      >
+      Random
+    </button>
+  </div>
 
     <div id="container"></div>
     <script src="script.js"></script>
+    
   </body>
 </html>

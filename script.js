@@ -218,7 +218,7 @@ const recipes = [
   },
 ];
 
-// Function to capitilize the first letter of Cuisine type.
+// Function to capitilize the first letter of Cuisine type. If we have time.
 /*
 function capitalizeFirstLetter(recipes) {
   console.log(recipes)
@@ -252,12 +252,11 @@ function addRecipeInformation(recipe) {
 
 // Show recipes in HTML
 recipes.forEach(addRecipeInformation);
-
 const card = document.getElementsByClassName("card");
-// Filter on cuisine types (Martin)
 
+// Filter on cuisine types
 const filterSelection = (cuisine) => {
-  // Declare variables for later use in this function.
+  // Declare variables for later use in this function
   let i;
   if (cuisine == "all") cuisine = "";
   // Add the "show" class (display:block) to the filtered elements, and remove the "show" class from the elements that are not selected
@@ -268,7 +267,7 @@ const filterSelection = (cuisine) => {
 };
 
 const filterSelectionIndex = (cuisine) => {
-  // Declare variables for later use in this function.
+  // Declare variables for later use in this function
   let i;
   if (cuisine == "all") cuisine = "";
   // Add the "show" class (display:block) to the filtered elements, and remove the "show" class from the elements that are not selected
@@ -313,10 +312,9 @@ for (let i = 0; i < btns.length; i++) {
     this.className += " active";
   });
 }
-
 filterSelection("all");
 
-// mobile dropdowns
+// Mobile dropdowns
 document
   .getElementById("mobileFilterSelect")
   .addEventListener("change", function () {
@@ -337,14 +335,11 @@ document
     }
   });
 
-// Sort alphabetically and by cook time (Martin)
-
 function sortListName() {
   let list, i, switching, b, shouldSwitch;
   list = document.getElementById("container");
   switching = true;
-  /* Make a loop that will continue until
-  no switching has been done: */
+  // Make a loop that will continue until no switching has been done:
   while (switching) {
     // Start by saying: no switching is done:
     switching = false;
@@ -353,18 +348,15 @@ function sortListName() {
     for (i = 0; i < b.length - 1; i++) {
       // Start by saying there should be no switching:
       shouldSwitch = false;
-      /* Check if the next item should
-      switch place with the current item: */
+      // Check if the next item should switch place with the current item:
       if (b[i].innerHTML.toLowerCase() > b[i + 1].innerHTML.toLowerCase()) {
-        /* If next item is alphabetically lower than current item,
-        mark as a switch and break the loop: */
+        // If next item is alphabetically lower than current item,mark as a switch and break the loop:
         shouldSwitch = true;
         break;
       }
     }
     if (shouldSwitch) {
-      /* If a switch has been marked, make the switch
-      and mark the switch as done: */
+      //If a switch has been marked, make the switch and mark the switch as done:
       b[i].parentNode.insertBefore(b[i + 1], b[i]);
       switching = true;
     }
@@ -376,8 +368,7 @@ function sortListTime() {
   let list, i, switching, b, shouldSwitch;
   list = document.getElementById("container");
   switching = true;
-  /* Make a loop that will continue until
-  no switching has been done: */
+  //Make a loop that will continue until no switching has been done:
   while (switching) {
     // Start by saying: no switching is done:
     switching = false;
@@ -389,31 +380,25 @@ function sortListTime() {
       shouldSwitch = false;
 
       // Check and replace if a null-value is found.
-      if (b[i].innerText === 'null') {
+      if (b[i].innerText === "null") {
         b[i].innerText = 0;
       }
-      /* Check if the next item should
-      switch place with the current item: */
+      // Check if the next item should switch place with the current item:
       if (parseInt(b[i].innerHTML) > parseInt(b[i + 1].innerHTML)) {
-        /* If next item is alphabetically lower than current item,
-        mark as a switch and break the loop: */
+        // If next item is alphabetically lower than current item, mark as a switch and break the loop:
         shouldSwitch = true;
         break;
       }
     }
     if (shouldSwitch) {
-      /* If a switch has been marked, make the switch
-      and mark the switch as done: */
+      // If a switch has been marked, make the switch and mark the switch as done:
       c[i].parentNode.insertBefore(c[i + 1], c[i]);
       switching = true;
     }
   }
 }
 
-// Random Recipe (Martin)
-/* RNG to pick an index and display that.*/
-
-// function to get a random recipe and display it.
+// Function to get a random recipe and display it
 const randomRecipe = () => {
   let randomNumber = Math.floor(Math.random() * recipes.length);
   console.log(randomNumber);
@@ -421,9 +406,7 @@ const randomRecipe = () => {
 };
 
 // Search bar
-// 1.When a user submit "search", this function will triggered
 const searchForm = document.getElementById("search-form");
-// Add an event listener for the 'submit' event
 searchForm.addEventListener("submit", function (event) {
   // Prevent the form from submitting in the traditional way
   event.preventDefault();
@@ -431,20 +414,20 @@ searchForm.addEventListener("submit", function (event) {
   const searchInput = document.getElementById("search-input");
   // Search user's input to all lower case
   const searchValue = searchInput.value.toLowerCase();
-  // 2. search user's input from all recipes in array and Find a recipe that includes user's input text
+  // Search user's input from all recipes in array and Find a recipe that includes user's input text
   // Check if the recipe name (converted to lowercase) contains the search text
   const matchedRecipes = recipes.filter((recipe) =>
     recipe.name.toLowerCase().includes(searchValue)
   );
-  // 3. Show those recipes only
   // Clear existing recipes from the container before loading new ones
   container.innerHTML = "";
 
+  // Show those recipes only
   if (matchedRecipes.length > 0) {
     matchedRecipes.forEach(addRecipeInformation);
     // Checking for card-divs
     const y = document.getElementsByClassName("card");
-    // For each card-div add the show class.
+    // For each card-div add the show class
     for (i = 0; i < y.length; i++) {
       y[i].classList.add("show");
     }

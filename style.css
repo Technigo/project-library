@@ -31,6 +31,7 @@ h1 {
   margin: 4% 10%;
   color: var(--clr_accent);
 }
+
 .controlRow {
   display: flex;
   margin: 0 10%;
@@ -52,6 +53,7 @@ h1 {
   color: var(--clr_accent);
   transition: 0.3s;
 }
+
 .button.active {
   background-color: var(--clr_accent);
   color: var(--clr_card);
@@ -65,6 +67,7 @@ h1 {
   margin: 0 auto;
   padding: 2rem;
 }
+
 .card {
   display: none;
   flex-direction: column;
@@ -91,11 +94,11 @@ h1 {
   border-radius: 20px;
 }
 
-.card a{ 
-  position:absolute; 
-  width:100%;
-  height:100%;
-  top:0;
+.card a {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
   left: 0;
   z-index: 1;
 }
@@ -109,7 +112,6 @@ h1 {
   gap: 10px;
   margin: 0 10%;
 }
-
 
 #search-input {
   height: 48px;
@@ -128,7 +130,6 @@ h1 {
   display: flex;
 }
 
-/* Filter and Sort as dropdown */
 .mobileFilter {
   display: none;
 }
@@ -152,25 +153,23 @@ h1 {
     grid-template-columns: 1fr;
   }
 
-  /* Less padding on cards */
   .card {
     padding: 1rem;
   }
+
   .card img {
     height: 200px;
   }
 
-  /* Hide desktop filter buttons */
   .controlRow {
     display: none;
   }
-  /*Show mobile filter*/
+
   .mobileFilter {
     display: block;
     margin: 5% 10%;
   }
 
-  /* Center the Search bar */
   #search-input {
     width: 100%;
   }
