@@ -245,7 +245,7 @@ function addRecipeInformation(recipe) {
     <p>Cusine type: ${recipe.cuisineType}</p>
     <p>Ingredients: ${recipe.ingredients.join("<br/>")}</p> 
     <p>Source: ${recipe.source}</p>
-    <a href="${recipe.url}">Link</a>
+    <a class="card-link" href="${recipe.url}"><span></span></a>
     </div>
   `;
 }
