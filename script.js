@@ -1,11 +1,3 @@
-/*Here we have created two different arrays that you can work with if you want.
-If you choose to create your own arrays with elements, just make sure that some
-of the properties make sense to filter on, and some to sort on.*/
-
-// const recipeBox = document.getElementById("recipeContainer");
-
-// const recipeContainer = document.getElementById("recipeContainter");
-
 const allButton = document.getElementById("allButton");
 const fishButton = document.getElementById("fishButton");
 const meatButton = document.getElementById("meatButton");
@@ -13,6 +5,7 @@ const chickenButton = document.getElementById("chickenButton");
 const vegetarianButton = document.getElementById("vegetarianButton");
 const surpriseButton = document.getElementById("surpriseButton");
 const cookingTimeButton = document.getElementById("cookingTimeButton");
+const buttons = document.getElementsByClassName("button");
 
 const recipes = [
   {
@@ -288,32 +281,6 @@ const sortByCookingTime = () => {
   displayRecipes(cookingTime);
 };
 
-/*const sortByCookingTime = () => {
-const cookingTime = recipes.sort(totalTime)
-} */
-
-// const sortDogsZtoA = () => {
-//   const sortedDogs = [...DOGS].sort((a, b) => b.name.localeCompare(a.name))
-//   loadDogs(sortedDogs)
-// }
-
-// sortAtoZ.addEventListener("click", sortDogsAtoZ);
-// sortZtoA.addEventListener("click", sortDogsZtoA);
-
-/*
-const sortByCookingTime = () => {
-  const cookingTime = [...recipes].sort((a, b) => {
-    if (typeof a.totalTime === 'string' && typeof b.totalTime === 'string') {
-      return a.totalTime.localeCompare(b.totalTime);
-    } else if (typeof a.totalTime === 'number' && typeof b.totalTime === 'number') {
-      return a.totalTime - b.totalTime;
-    }
-    return  0;
-  });
-  displayRecipes(cookingTime);
-};
-*/
-
 allButton.addEventListener("click", () => filterRecipesByType("all"));
 fishButton.addEventListener("click", () => filterRecipesByType("Fish"));
 meatButton.addEventListener("click", () => filterRecipesByType("Meat"));
@@ -321,27 +288,3 @@ chickenButton.addEventListener("click", () => filterRecipesByType("Chicken"));
 vegetarianButton.addEventListener("click", () => filterRecipesByType("Vegetarian"));
 surpriseButton.addEventListener("click", getRandomRecipe);
 cookingTimeButton.addEventListener("click", sortByCookingTime);
-
-/*const city = ["California", "Barcelona", "Paris", "Kathmandu"];
-
-// sort the city array in ascending order
-const sortedCookingTime = recipes.sort(cookingTime);
-console.log(sortedArray);*/
-
-/*
-const sortByCookingTime = () => {
-const cookingTime = recipes.sort(totalTime)
-displayRecipes(cookingTime)
-}
-*/
-
-/* const sortByCookingTime = () => {
-  const sortedRecipes = [...recipes].sort((a, b) => {
-    const timeA = a.totalTime;
-    const timeB = b.totalTime;
-
-    return timeA - timeB;
-  });
-
-  displayRecipes(sortedRecipes);
-};*/

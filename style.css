@@ -73,6 +73,11 @@ button:hover {
   color: #fff;
 }
 
+button:visited {
+  background-color: var(--primaryColor);
+  color: #fff;
+}
+
 .button-row-2 {
   margin-bottom: 5px;
 }
@@ -100,16 +105,26 @@ button:hover {
 #card {
   display: flex;
   flex-direction: column;
-  box-shadow: #000;
+  box-shadow: 5px 5px 15px var(--primaryColor);
   margin: 15px;
   padding: 15px 10px;
   background-color: var(--thirdColor);
+  border-radius: 15px;
 }
 
 #card img,
 h3 {
   align-self: center;
   margin-bottom: 10px;
+}
+
+.footer {
+  background-color: var(--secondaryColor);
+  padding: 50px;
+  margin-top: 20px;
+  text-align: center;
+  color: var(---primarycolor);
+  font-weight: 600;
 }
 
 /* Media query for tablet*/
