@@ -340,7 +340,7 @@ document
 // Sort alphabetically and by cook time (Martin)
 
 function sortListName() {
-  var list, i, switching, b, shouldSwitch;
+  let list, i, switching, b, shouldSwitch;
   list = document.getElementById("container");
   switching = true;
   /* Make a loop that will continue until
@@ -373,7 +373,7 @@ function sortListName() {
 
 // Sort cooking time. Not working right.
 function sortListTime() {
-  var list, i, switching, b, shouldSwitch;
+  let list, i, switching, b, shouldSwitch;
   list = document.getElementById("container");
   switching = true;
   /* Make a loop that will continue until
@@ -388,8 +388,9 @@ function sortListTime() {
       // Start by saying there should be no switching:
       shouldSwitch = false;
 
-      if (b[i].innerHTML === null) {
-        b[i].innerHTML = `0`;
+      // Check and replace if a null-value is found.
+      if (b[i].innerText === 'null') {
+        b[i].innerText = 0;
       }
       /* Check if the next item should
       switch place with the current item: */
