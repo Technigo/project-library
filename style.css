@@ -72,7 +72,7 @@ a:hover {
 
 .kitchen-form,
 .sorting-form,
-.search-form
+.search-form,
 .random-form {
   display: flex;
   align-items: center;
@@ -182,5 +182,17 @@ a:hover {
     flex-direction: row;
     justify-content: space-around;
     padding: 10px;
+  }
+}
+
+/* Media query for viewports smaller than 530px*/
+@media (max-width: 530px) {
+  .random-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .footer p {
+    margin-bottom: 10px;
   }
 }
