@@ -243,8 +243,7 @@ const renderRecipes = (recipes) => {
     recipeCuisineType.textContent = `Cuisine: ${recipe.cuisineType}`;
     recipeDiv.appendChild(recipeCuisineType);
 
-    // only add time when not null
-    //POSSIBLE TO CHANGE THIS TO ONLY SHOW IF totalTime === number ?
+    // only print time when not null
     if (recipe.totalTime !== null) {
       const recipeTotalTime = document.createElement("p");
       recipeTotalTime.textContent = `Time: ${recipe.totalTime} min`;
@@ -313,17 +312,10 @@ const loadRandomRecipe = () => {
   const randomRecipe = recipes[random];
   renderRecipes([randomRecipe]);
   deactivateAllButtons();
-  randomBtn.classList.add("active");
 };
 
 const randomBtn = document.getElementById("random-btn");
 randomBtn.onclick = () => loadRandomRecipe();
-
-/* const sortRecipesByAscendingTime = () => {
-  const sortedRecipes = recipes.slice().sort((a, b) => (a.totalTime || Infinity) - (b.totalTime || Infinity));
-  renderRecipes(sortedRecipes);
-}
- */
 
 // Function to deactivate all buttons
 const deactivateAllButtons = () => {
@@ -358,36 +350,3 @@ descendingBtn.onclick = () => sortRecipesDescending();
 
 //Call the renderRecipes function when the website is loaded
 window.onload = () => renderRecipes(recipes);
-
-//We should listen for a click or similar on the filter-buttons and that should show the expected cuisine-element as a result
-//cuisineType: "Italian"
-
-//CHAT-GPT GAVE US THIS THAT SHOWS US THE FILTERED CUISINE TYPE IN THE LOG
-// // Example: Filter recipes by cuisine type "south-american"
-// const filteredRecipes = recipes.filter((recipe) =>
-//   recipe.cuisineType.includes("italian")
-// );
-
-// console.log(filteredRecipes);
-
-// const filteredRecipes = recipes.filter((recipe) =>
-//   recipe.cuisineType.includes("Italian")
-// );
-
-// console.log(filteredRecipes);
-
-// renderRecipes(alla recept)
-// klickar på filter knapp
-// Filtrera recept
-// renderRecipes(filterarde recept)
-
-// klicka på filter knapp
-// filtrera recept
-// spara filtrerade recept i global variabel
-// renderRecipes
-
-// Globalt:
-// let renderedRecipes;
-//
-// I renderRecipes:
-// renderedRecipes = recipes;
