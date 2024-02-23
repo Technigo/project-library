@@ -5,7 +5,7 @@ const cuisineDropdown = document.getElementById("cuisine");
 const authorDropdown = document.getElementById("author");
 const filterAuthors = document.getElementById("filterAuthors");
 const filterCuisines = document.getElementById("filterCuisines");
-// const filterDropdown = document.querySelector(".filterDropdown");
+const filterDropdown = document.querySelector(".filterDropdown");
 
 // Function to load and display the list of recipe
 const loadRecipeStory = (recipe) => {
@@ -69,21 +69,34 @@ const loadRecipes = (recipes) => {
   });
 };
 
-// Function that will fetch and display the current filter options in the dropdown
+const handleFilterDropdown = (targetId) => {
+  const newTargetId = targetId.charAt(0).toUpperCase() + targetId.slice(1);
+  const filterDropdown = document.getElementById("filter" + newTargetId);
+  filterDropdown.classList.toggle("active");
+};
+
+const updateFilters = (e) => {
+  const filterArray = [];
+
+  console.log(filterArray);
+  const targetValue = e.target.value;
+
+  // Check if the targetValue exists in the array
+  const index = filterArray.indexOf(targetValue);
+
+  // Om arrayen är tom så ska alla recept visas.
+
+  // Om targetValue redan finns ska den tas bort
+
+  // Om det inte finns ska den läggas till i arrayen
+};
+
 const fetchFilterOptions = (targetId) => {
   console.log("This is the fetch filter option");
-  // Convert targetId 'cuisine' to "Cuisine" before attaching
-  const titleTarget = targetId.charAt(0).toUpperCase() + targetId.slice(1);
 
-  // Get the filter dropdown element
-  const filterDropdown = document.getElementById("filter" + titleTarget);
-
-  // Toggle the visibility of the filter dropdown when clicking on the title
-  filterDropdown.classList.toggle("active");
-
-  // Function to get all cuisines or authors in the recipe array
   const getTargetValues = (targetId) => {
     console.log("Get all cuisines or authors in the recipe array");
+
     const targetValues = new Set();
 
     recipes.forEach((recipe) => {
@@ -112,30 +125,44 @@ const fetchFilterOptions = (targetId) => {
       .join("");
   };
 
-  // Get target values for the specifies filter category
   const targetValues = getTargetValues(targetId);
   const checkboxesHTML = generateCheckboxes(targetId, targetValues);
+
+  const newTargetId = targetId.charAt(0).toUpperCase() + targetId.slice(1);
+  const filterDropdown = document.getElementById("filter" + newTargetId);
   filterDropdown.innerHTML = checkboxesHTML;
+
+  // Add event listeners to the checkboxes
+  const checkboxes = filterDropdown.querySelectorAll(
+    `input[type='checkbox'].${targetId}`
+  );
+
+  checkboxes.forEach((checkbox) => {
+    checkbox.addEventListener("change", (e) => {
+      updateFilters(e);
+    });
+  });
 };
 
-// Implement the filterRecipes Function
 const filterRecipes = (recipes, e) => {
-  console.log("This is the filter recipes.");
   // Get the id from the dropdown
   const targetId = e.target.id;
-  console.log(recipes);
+
+  // Toggle dropdown
+  handleFilterDropdown(targetId);
 
   // Get the checkboxes corresponding to the targetId (cuisine or author)
   fetchFilterOptions(targetId);
-
-  console.log("Getting checkboxes in the filter function using the target id");
-  const checkboxes = document.querySelectorAll(`.${targetId}`);
-  console.log(checkboxes);
 };
 
-// Apply the filter when the user changes the dropdown selection
-cuisineDropdown.addEventListener("click", (e) => filterRecipes(recipes, e));
-authorDropdown.addEventListener("click", (e) => filterRecipes(recipes, e));
+// Toogle the dropdown
+cuisineDropdown.addEventListener("click", (e) => {
+  filterRecipes(recipes, e);
+});
+
+authorDropdown.addEventListener("click", (e) => {
+  filterRecipes(recipes, e);
+});
 
 // Load the initial list of dogs when the page loads
 loadRecipeStory(recipes[0]);
