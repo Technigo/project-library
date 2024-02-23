@@ -237,7 +237,8 @@ const showRecipes = (recipesToShow) => {
       <img src="${recipe.image}"/>
       <div class="recipe-text">
         <h3>${recipe.name}</h3>
-        <p><b>Cooking time</b>: ${recipe.totalTime} minutes</p>
+        <p><b>Cuisine:</b> ${recipe.cuisineType}</p>
+        <p><b>Cooking time:</b> ${recipe.totalTime} minutes</p>
         <p><b>Ingredients:</b></p>
         <ul>
           ${recipe.ingredients
@@ -266,6 +267,7 @@ const getRandomValue = () => {
     <img src="${recipe.image}"/>
     <div class="recipe-text">
       <h3>${recipe.name}</h3>
+      <p><b>Cuisine:</b> ${recipe.cuisineType}</p>
       <p><b>Cooking time</b>: ${recipe.totalTime} minutes</p>
       <p><b>Ingredients:</b></p>
       <ul>
