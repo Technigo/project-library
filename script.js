@@ -200,44 +200,26 @@ const dystopianButton = document.getElementById('filterDystopian')
 const ascendingButton = document.getElementById('ascending')
 const descendingButton = document.getElementById('descending')
 const filterBar = document.getElementById('filterBar')
+const randomDiv = document.getElementById('random-book-div')
+const randomButton=document.getElementById('random-button')
 
 //creat element
 const bookSection = document.createElement('div')
-const randomDiv = document.createElement('div')
-const bookRandomButton = document.createElement('button')
 const galleryWrapperDiv = document.createElement('div')
 
-
-
-// all books display
-const displayBooks = () => {
-  books.forEach(book => {
-    const singleCard = document.createElement('div')
-    singleCard.classList.add('card-wrapper')
-    singleCard.innerHTML+= `
-    <img src="${book.image}" alt="${book.title}" />
-        <h2>${book.title}</h2>
-        <p>Author:${book.author}</p>
-        <p>Year: ${book.year}</p>
-        <p>Genre: ${book.genre}</p>
-        <p>${book.description}</p>
-    `
-    document.body.appendChild(bookSection)
-    bookSection.appendChild(galleryWrapperDiv)
-    galleryWrapperDiv.appendChild(singleCard)
-    
-    singleCard.style.colums = '300px 4'
-    console.log(singleCard)
-  })
-}
-displayBooks()
+//creat random book
+// const randomSection = document.createElement('div')
+// const bookRandomButton = document.createElement('button')
+// const randomBookSection = document.createElement('div')
+// const randomGalleryWrapperDiv = document.createElement('div')
 
 
 
 //genre type by filter for fiction
 const genreFiction = () => {
-  const filteredFicion = books.filter(book=>book.genre === 'Fiction')
-  console.log(filteredFicion)
+  let filteredFiction = []
+  filteredFiction = books.filter((book)=>book.genre === 'Fiction')
+displayBooks(filteredFiction)
 }
 fictionButton.addEventListener('click',genreFiction)
 
@@ -245,56 +227,55 @@ fictionButton.addEventListener('click',genreFiction)
 // scienceFiction 
 const genreScience = () => {
   const filteredScience = books.filter(book => book.genre === 'Science Fiction')
-  console.log(filteredScience)
+  displayBooks(filteredScience)
 }
 scienceButton.addEventListener('click',genreScience)
 
 //fantasy
 const genreFantasy = () => {
   const filteredFantasy = books.filter(book => book.genre === 'Fantasy')
-  console.log(filteredFantasy)
+  displayBooks(filteredFantasy)
 }
 fantasyButton.addEventListener('click',genreFantasy)
 
 //adventure
 const genreAdventure = () => {
   const filteredAdventure = books.filter(book=>book.genre==='Adventure')
-  console.log(filteredAdventure)
+  displayBooks(filteredAdventure)
 }
 adventureButton.addEventListener('click',genreAdventure)
 
 //horror
 const genreHorror = () =>{
   const filteredHorror = books.filter(book=>book.genre === 'Horror')
-  console.log(filteredHorror)
+  displayBooks(filteredHorror)
 }
 horrorButton.addEventListener('click',genreHorror)
 
 //Mystery
 const genreMystery = () =>{
   const filteredMystery = books.filter(book=>book.genre === 'Mystery')
-  console.log(filteredMystery)
+  displayBooks(filteredMystery)
 }
 mysteryButton.addEventListener('click',genreMystery)
 
 //dystopian
 const genreDystopian = () =>{
   const filteredDystopian = books.filter(book=>book.genre === 'Dystopian')
-  console.log(filteredDystopian)
+  displayBooks(filteredDystopian)
 }
 dystopianButton.addEventListener('click',genreDystopian)
 
 //sort: from newest to oldest and vice versa. By if...else statement?
 const fromOldest = () => {
   const ascendingSort = books.sort((a,b)=>a.year - b.year)
-  console.log(ascendingSort)
+  displayBooks(ascendingSort)
 }
-fromOldest()
 ascendingButton.addEventListener('click',fromOldest)
 
 const fromNewest = () =>{
   const descendingSort = books.sort((a,b)=> b.year - a.year)
-  console.log (descendingSort)
+  displayBooks (descendingSort)
 }
 descendingButton.addEventListener('click',fromNewest)
 
@@ -304,23 +285,80 @@ const bookRate = () => {
 
 }
 
-
-//random book
-const randomBook = ()=>{
-  bookRandomButton.id = 'random'
-  bookRandomButton.textContent = 'Random choice'
-  randomDiv.appendChild(bookRandomButton)
-  filterBar.appendChild(randomDiv)
-
-  const randomBookChoice = () =>{
+const randomBook = () => {
   const arrLen = books.length
   const randomChoice = books[Math.floor(Math.random() * arrLen)]
-  console.log(randomChoice)
+  displayBooks(randomC)
 }
-randomBookChoice()
+
+// const randomeBookChoice = () =>{
+//   const book = randomBook()
+
+//   // bookRandomButton.id = 'random'
+//   // bookRandomButton.textContent = 'Random choice'
+//   // randomDiv.appendChild(bookRandomButton)
+//   // filterBar.appendChild(randomDiv)
+//   randomGalleryWrapperDiv.innerHTML = ''
+//   // const createRandomBook = book =>{
+//     const randomSingleCard = document.createElement('div')
+//     randomSingleCard.classList.add('card-wrapper')
+//     randomSingleCard.innerHTML+= `
+//     <img 
+//     src="${book.image}" 
+//     alt="${book.title}" />
+//     <h2>${book.title}</h2>
+//     <p>Author:${book.author}</p>
+//     <p>Year: ${book.year}</p>
+//     <p>Genre: ${book.genre}</p>
+//     <p>${book.description}</p>`
+
+//   document.body.appendChild(randomBookSection)
+//   randomBookSection.appendChild(randomGalleryWrapperDiv)
+//   randomGalleryWrapperDiv.appendChild(randomSingleCard)
+//   }
+  
+
+randomButton.addEventListener('click',() => randomeBookChoice)
+
+
+  //const randomeBookChoice = () =>{
+  //bookRandomButton.id = 'random'
+  //bookRandomButton.textContent = 'Random choice'
+  // randomDiv.appendChild(bookRandomButton)
+  // filterBar.appendChild(randomDiv)
+
+  
+//   const arrLen = books.length
+//   const randomChoice = books[Math.floor(Math.random() * arrLen)]
+//   displayBooks(randomChoice)
+//   }
+// randomButton.addEventListener('click',randomBook)
+
+
+// all books display
+const displayBooks = (arrays) => {
+  galleryWrapperDiv.innerHTML = ''
+  arrays.forEach(book => {
+    const singleCard = document.createElement('div')
+    singleCard.classList.add('card-wrapper')
+    singleCard.innerHTML+= `
+    <img src="${book.image}" alt="${book.title}" />
+        <h2>${book.title}</h2>
+        <p>Author:${book.author}</p>
+        <p>Year: ${book.year}</p>
+        <p>Genre: ${book.genre}</p>
+        <p>${book.description}</p>`
+
+  document.body.appendChild(bookSection)
+  bookSection.appendChild(galleryWrapperDiv)
+  galleryWrapperDiv.appendChild(singleCard)
+  singleCard.style.colums = '300px 4'
+    console.log(singleCard)
+})
 }
-randomBook()
-bookRandomButton.addEventListener('click',randomBook)
+displayBooks(books)
+
+
 
 
 
