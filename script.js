@@ -225,18 +225,60 @@ const recipes = [
   }
 ]
 
+
+const favoriteRecipes = []
+
+const cardContainer =document.getElementById("card-container")
 const filterOptions = document.getElementById("filter-dropdown")
-const cardContainer = document.getElementById("card-container")
+const timePrep = document.getElementById("time-prep")
+const randomButton =document.getElementById("")
 
-const loadRecipes = (recipes) => {
-  cardContainer.innerHTML = "";
 
-  recipes.forEach((recipes)) => {
-    cardContainer.innerHTML += `
-    <div class="card">`
-      <p>${recipes.name}</p>
-      <p>by ${recipes.source}</p>
-      <img src="${recipes.image}"></img>a
-      </div>
+  cardContainer.innerHTML = '';
+
+  function generateIngredientsList(ingredients) {
+    let ingredientsHTML = '';
+    ingredients.forEach(ingredient => {
+        ingredientsHTML += `<li>${ingredient}</li>`;
+    });
+return `<ul>${ingredientsHTML}</ul>`
   }
+  
+  //functiom to loas and display recipes
+
+ const loadRecipes = (recipeArray) => {
+  cardContainer.innerHTML = ""
+
+  recipeArray.forEach((recipe) => {
+    const ingredientsListHTML = generateIngredientsList(recipe.ingredients)
+
+    cardContainer.innerHTML += `
+    <div class="card">
+     <h3>${recipe.name}</h3>
+      <p>By ${recipe.source}</p>
+      <img src="${recipe.image}" alt="${recipe.name}">
+    <div class="ingredients">
+      <h3>Ingredients:</h3>
+      <ul>${ingredientsListHTML}</ul>
+    </div>
+    <button onclick="addToFavourites('${recipe.name}')">Add to favourites</button>
+  </div>
+    `
+  })
+ }
+
+ const filterRecipes = () => {
+const value = filterDropdown.value
+
+if (value === "all") {
+  loadRecipes(recipes)
+} else {
+  const filteredList =recipes.filterDropdown((recipe) => recipe.ingredients === value)
+
+  loadRecipes(filteredList)
 }
+ }
+
+filterDropdown.addEventListener("change", filterRecipes)
+
+loadRecipes(recipes)

@@ -1,0 +1,100 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: black;
+    color: #d77989;
+    font-family: "Shadows Into Light", cursive;
+    font-weight: 400;
+    font-style: normal;
+}
+
+h1 {
+    text-transform: uppercase;
+    font-size: 32px;
+    margin-bottom: 8px;
+    text-align: center;
+}
+
+p {
+    font-size: 20px;
+    margin: 5px 10px;
+    color: black;
+}
+
+#filterDropdown{
+    margin-bottom: 14px;
+}
+
+header {
+    background: black;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.header-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    max-width: 1200px;
+}
+
+
+#card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* adjust more here */
+.card {
+    min-height: 450px;
+    width: 300px;
+    flex-grow: 1;
+    vertical-align: top;
+    background: #d77989;
+    border-radius: 16px;
+    border: 2px solid #c33d53;
+    margin: 10ppx;
+    padding-top: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.card button {
+    border: none;
+    background-color: black;
+    padding: 4px 6px;
+    border-radius: 4px;
+    color: white;
+    font-style: bold;
+}
+
+.card img {
+    margin: 22px;
+    display: block;
+    height: 200px;
+    width: 250px;
+}
+
+.card h3 {
+    color: black;
+}
+
+.card p {
+    font-size: 22px;
+    color: black;
+}
+
+.ingredients {
+color: black;
+}
+footer {
+    background: black;
+    display: flex;
+}
