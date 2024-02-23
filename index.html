@@ -1,13 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link rel="stylesheet" href="./style.css" />
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Don't forget to change the title and connect the CSS file -->
-  <title>Project Library</title>
+  <link href="https://fonts.googleapis.com/css2?family=Andada+Pro:wght@600&family=Archivo:ital,wght@0,100;0,200;0,700;0,800;0,900;1,200&family=Poppins:wght@100;200;300&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Sora:wght@100;200;300&display=swap" rel="stylesheet">
+  <title>Hello World - travels</title>
 </head>
 <body>
-  <h1>Project Library</h1>
-  <!-- Don't forget to connect the JavaScript file -->
+ <header>
+  <div class="header">
+    <div class="logo"><a href="index.html"><img src="./destinations-images/Hello-world.svg"></a></div>
+    <div class="menu"><img src="./destinations-images/burger-menu.png"></div>
+    <div class="slogan"><h1>A web developer’s guide to unique work destinations</h1></div>
+  </div>
+ </header>
+ <main>
+  <div class="img-section"><img src="./destinations-images/poster.jpg"></div>
+  <section class="blue-section">
+    <div class="blue-top"><h3>Destinations</h3>
+      <div class="filter-sort"><button class="button" id="button-temp" role="button">Sort by temperature</button>
+        <button class="button" id="button-rate" role="button">Sort by rating</button>
+        <button class="button" id="button-random" role="button">Surprise me!</button>
+        <select id="filter-dropdown" class="filter-dropdown">
+          <option value="all">All counties</option>
+          <option value="Australia">Australia</option>
+          <option value="Chile">Chile</option>
+          <option value="China">China</option>
+          <option value="Germany">Germany</option>
+          <option value="Mexico">Mexico</option>
+          <option value="Scotland">Scotland</option>
+          <option value="Tibet">Tibet</option>
+          <option value="Poland">Poland</option>
+          <option value="Norway">Norway</option>
+          <option value="USA">USA</option>
+        </select>
+        <input type="text" id="search" placeholder="Search ..">
+      </div>
+      </div>
+      <div class="load-destinations" id="load-destinations">
+    </div>
+  </section>
+ </main>
+
+  <script src="./script.js" type="text/javascript" ></script>
 </body>
 </html>

@@ -1,0 +1,336 @@
+* {
+    margin: 0;
+}
+body { 
+    background: rgb(255, 255, 255);
+    font-family: "Roboto Mono", monospace;
+}
+.header{
+    width: 100%;
+    display: grid;
+    margin-top: 2rem;
+    grid-template-columns: 1fr 1fr 10%;
+}
+.logo {
+    grid-column: 1 / span 2;
+    margin-left: 10%;
+}
+
+.logo img {
+    width: 50%;
+    margin: 0 25% 1px 25%;
+}
+
+.menu {
+    grid-column: 3;
+}
+.menu img {
+    width: 20px;
+    position: absolute;
+    right: 0;
+    padding-right: 1em;
+}
+
+.slogan{
+    grid-column: 1 / span 2;
+    grid-row: 2;
+    margin-left: 10%;
+    display: flex;
+    justify-content: center;
+    font-size: 0.28em;
+    text-align:center;
+}
+
+.img-section {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.img-section img{
+    width: 90%;
+    height: auto;
+}
+
+.blue-section {
+    background-color: #57D7FF;
+    width: 90%;
+    margin: 0 auto;
+    height: auto;
+    min-height: 500px;
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    padding: 1em 0 5em 0;
+}
+.blue-top {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.filter-sort{
+    width: 100%;
+    padding-top: 1.5em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 3px;
+    
+}
+
+.button, .filter-dropdown, #search {
+      background-color: #ffffff;
+      width: 100%;
+      border: 2px solid #000000;
+      color: #000000;
+      cursor: pointer;
+      display: inline-block;
+      font-weight: 600;
+      font-size: 10px;
+      padding: 10px 13px;
+      line-height: 10px;
+      text-align: center;
+      touch-action: manipulation;
+    }
+    
+    .button:hover, .filter-dropdown:hover {
+      background-color: white;
+    }
+    
+    .button:active, .filter-dropdown:active #search:active{
+      transform: translate(2px, 2px);
+    }
+
+ #search {
+    width: 99%;
+    padding: 10px 0;
+ }
+
+h3 {
+    color: white;
+    text-decoration:underline;
+}
+
+h4  {
+    color: rgb(1, 98, 179);
+}
+
+h4 span {
+    color: black;
+}
+
+.load-destinations {
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.filtered-destinations {
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    padding-top: 3em;
+}
+
+.container img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.text-above {
+    height: 40px;
+    min-height: 40px;
+}
+
+.img-container{
+    margin-top: 1em;
+}
+
+.description-text{
+    padding-top: 0.5em;
+}
+
+ul {
+    padding: 1em;
+}
+
+.random-text{
+   display: none;
+}
+
+@media screen and (min-width: 1060px){
+    .filter-sort{
+        width: 100%;
+        margin: 0 auto;
+        padding-left: 1em;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+    }
+
+}
+
+
+@media screen and (min-width: 768px){
+    .logo img {
+        width: 26%;
+        margin: 1rem 37% 1px 37%;
+    } 
+    h1 {
+        font-size: 3em;
+    }
+
+    ul {
+        font-size: 0.8em;
+    }
+
+    p {
+        font-size: 0.9em;
+    }
+    .menu img{
+        width: 35px;
+        margin: 1em 3em 0 0;
+    }
+    .slogan{
+        font-size: 0.3em;
+    }
+    
+    main {
+        padding-top:2em;
+    }
+
+    .img-section img{
+        width: 70%;
+    }
+    .blue-section {
+        background-color: #57D7FF;
+        width: 68%;
+        margin: 0 auto;
+        height: auto;
+        min-height: 500px;
+        margin-top: 2rem;
+        display: flex;
+        flex-direction: column;
+        padding: 0 1% 5em 1%;
+        margin-bottom: 2em;
+    }
+
+    .blue-top{
+        width: 96%;
+        display: flex;
+        flex-direction: row;
+    }
+
+    .blue-top h3 {
+      align-self: flex-end;
+    }
+    .filter-sort{
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content:end;
+        height: fit-content;
+        gap: 8px;
+    }
+    
+    .load-destinations {
+        width: 100%;
+        margin: 0;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        gap: 0.5em;
+        padding-top: 1em;
+        
+    }
+
+    .filtered-destinations {
+        width: 100%;
+        margin: 0;
+        display: flex;
+        flex-direction: row;
+        justify-content: left;
+        gap: 2em;
+        padding-top: 1em;
+        padding-left: 2em;
+    }
+    
+    .container{
+        max-width: 220px;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        padding-top: 1em;
+    }
+    
+    .container img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+       
+    }
+
+      .button, .filter-dropdown, #search {
+        background-color: #ffffff;
+        border: 2px solid #422800;
+        border-radius: 30px;
+        box-shadow: #422800 4px 4px 0 0;
+        color: #422800;
+        cursor: pointer;
+        display: inline-block;
+        font-weight: 600;
+        font-size: 10px;
+        padding: 0 20px;
+        line-height: 10px;
+        text-align: center;
+        touch-action: manipulation;
+        max-width: fit-content;
+        height: 35px;
+      }
+      
+      .button:hover, .filter-dropdown:hover, #search:hover {
+        background-color: #fff2ec;
+      }
+      
+      .button:active, .filter-dropdown:active {
+        box-shadow: #422800 2px 2px 0 0;
+        transform: translate(2px, 2px);
+      }
+  
+    #search {
+        height: 31px;
+    }
+    
+    .description-text{
+        padding-top: 0.5em;
+        padding-bottom: 1em;
+    }
+    .random-text{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: #fff2f2;
+        max-width: 30%;
+        max-height: 50px;
+        opacity: 1;
+        border-radius: 40px 40px 40px 0px;
+        padding: 1em;
+        border: 3px solid black;
+        }
+
+    .random-text h4{
+        color: black;
+    }
+}
