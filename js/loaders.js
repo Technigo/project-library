@@ -78,6 +78,9 @@ const fetchFilterOptions = (targetId) => {
   // Get the filter dropdown element
   const filterDropdown = document.getElementById("filter" + titleTarget);
 
+  // Toggle the visibility of the filter dropdown when clicking on the title
+  filterDropdown.classList.toggle("active");
+
   // Function to get all cuisines or authors in the recipe array
   const getTargetValues = (targetId) => {
     console.log("Get all cuisines or authors in the recipe array");
@@ -97,6 +100,7 @@ const fetchFilterOptions = (targetId) => {
 
   // Function to generate checkboxes based on unique values: Need targetId (cuisine) and the targetValues
   const generateCheckboxes = (targetId, targetValues) => {
+    console.log("Display checkboxes for the clicked titleTarget");
     return targetValues
       .map(
         (value, index) =>
@@ -116,17 +120,22 @@ const fetchFilterOptions = (targetId) => {
 
 // Implement the filterRecipes Function
 const filterRecipes = (recipes, e) => {
-  console.log("This is the filter recipes");
+  console.log("This is the filter recipes.");
   // Get the id from the dropdown
   const targetId = e.target.id;
 
   // Get the checkboxes corresponding to the targetId (cuisine or author)
   fetchFilterOptions(targetId);
+
+  console.log("Getting checkboxes in the filter function using the target id");
+  const checkboxes = document.querySelectorAll(`.${targetId}`);
+  console.log(checkboxes);
 };
 
 // Apply the filter when the user changes the dropdown selection
 cuisineDropdown.addEventListener("click", (e) => filterRecipes(recipes, e));
 authorDropdown.addEventListener("click", (e) => filterRecipes(recipes, e));
+
 // Load the initial list of dogs when the page loads
 loadRecipeStory(recipes[0]);
 loadRecipes(recipes);
