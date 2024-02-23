@@ -33,6 +33,15 @@ main {
   margin: 0 auto;
   width: 100%;
 }
+.gallery-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  column-gap: 35px;
+  row-gap: 20px;
+  margin: 40px 40px 40px 40px;
+  place-items: center;
+} 
 /* .gallery-wrapper {
   background-color: #b13f6a;
   color: #ffb000;
@@ -42,14 +51,13 @@ main {
   justify-content: space-around;
   box-sizing: border-box;
 } */
-.gallery-wrapper {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-rows: auto;
-  column-gap: 35px;
-  row-gap: 20px;
+/* .gallery-wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
   justify-content: center;
-}
+  align-content: center;
+} */
 
 /* .card-wrapper {
   display: grid;
@@ -62,12 +70,6 @@ main {
   box-sizing: border-box;
   border-radius: 20px;
   border: solid rgb(205, 117, 30);
-} */
-/* img {
-  width: 268px; 
-  height: 200px;
-  border-radius: 10px;
-  justify-content: center;
 } */
 
 .card-wrapper {
