@@ -6,6 +6,13 @@ body {
   margin: 20px;
 }
 
+header {
+  display: flex;
+  column-gap: 10px;
+  align-items: center;
+  justify-content: center;
+}
+
 h1 {
   font-family: "Kosugi Maru";
   color: #000000;
@@ -13,7 +20,7 @@ h1 {
   margin: 50px;
   display: flex;
   letter-spacing: 0.1, 5rem;
-  justify-content: center;
+  
 }
 
 h2 {
