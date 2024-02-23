@@ -13,7 +13,7 @@
     <div class="sort-buttons">
       <!--filter by genre-->
       <div class="label-dropdown">
-        <label for="" filter-genre>Filter by genre:</label>
+        <label for="filter-genre">Filter by genre:</label>
         <select class="dropdown-genre" id="filter-genre">
           <option value="all">All</option>
           <option value="adventure">Adventure</option>
@@ -38,16 +38,20 @@
       </div>
 
       <!--button for random book-->
-      <button id="random-book">Shuffle books</button>
-      <button>
-        <p>A - Z</p>
+      <div class="label-dropdown">
+        <button id="random-book">Shuffle books</button>
+      </div>
+      <div class="label-dropdown">
+        <button>
+          <p>A - Z</p>
 
-        <img
-          id="sorting-button"
-          src="icons/absteigend-sortieren.png"
-          alt="sort"
-        />
-      </button>
+          <img
+            id="sorting-button"
+            src="icons/absteigend-sortieren.png"
+            alt="sort"
+          />
+        </button>
+      </div>
     </div>
 
     <!--button for sorting alphabetically-->

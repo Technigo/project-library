@@ -15,7 +15,7 @@ h1 {
   font-family: "Merriweather", serif;
   font-weight: 400;
   font-style: normal;
-  font-size: 2.5 em;
+  font-size: 2.5em;
   color: #afc1d7;
   padding: 50px 0;
   text-align: center;
@@ -27,13 +27,15 @@ h2 {
   font-family: "Merriweather", serif;
   font-weight: 400;
   font-style: normal;
-  font-size: 1.5 em;
+  font-size: 1.5em;
   color: #333c57;
 }
 
 .sort-buttons {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
+  margin: 0 20px;
 }
 
 #library-container {
@@ -63,7 +65,7 @@ h2 {
   display: grid;
   grid-template-columns: repeat(1, 1fr);
   grid-gap: 10px;
-  padding: 20px;
+  padding: 5px 20px 0 20px;
   justify-content: center;
 }
 
@@ -77,7 +79,6 @@ img {
   aspect-ratio: 5 / 3;
 }
 .label-dropdown {
-  margin: 20px;
   padding: 5px;
 }
 
@@ -98,7 +99,6 @@ img {
 }
 
 button {
-  margin: 20px;
   padding: 5px;
   border: solid 2px #333c58;
   border-radius: 10px;
@@ -141,6 +141,10 @@ button {
     grid-template-columns: repeat(2, 1fr);
     justify-content: left;
   }
+
+  .sort-buttons {
+    flex-direction: row;
+  }
 }
 /* Media Query for Desktop */
 @media (min-width: 1025px) {
@@ -151,5 +155,9 @@ button {
   #random-book-container {
     grid-template-columns: repeat(4, 1fr);
     justify-content: left;
+  }
+
+  .sort-buttons {
+    flex-direction: row;
   }
 }
