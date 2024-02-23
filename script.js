@@ -316,6 +316,13 @@ for (let i = 0; i < btns.length; i++) {
 
 filterSelection("all");
 
+// mobile dropdown
+document
+  .getElementById("mobileFilterSelect")
+  .addEventListener("change", function () {
+    filterSelection(this.value);
+  });
+
 // Sort alphabetically and by cook time (Martin)
 
 function sortListName() {

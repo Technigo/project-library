@@ -27,14 +27,8 @@ h2 {
 }
 
 h1 {
-  position: absolute;
-  left: 0;
-  top: 0;
-  text-wrap: nowrap;
-  overflow: hidden;
-  font-size: 4rem;
-  padding: 5rem 0 2rem;
-  margin: 0 10%;
+  font-size: 3rem;
+  margin: 4% 10%;
   color: var(--clr_accent);
 }
 .controlRow {
@@ -64,11 +58,8 @@ h1 {
 }
 
 #container {
-  display: flex;
-  flex-wrap: wrap;
-  /*
-  justify-content: center;
-  */
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 1rem;
   width: 80%;
   margin: 0 auto;
@@ -76,7 +67,7 @@ h1 {
 }
 .card {
   display: none;
-  width: 300px;
+  flex-direction: column;
   position: relative;
   margin-bottom: 24px;
   padding: 2rem;
@@ -89,9 +80,8 @@ h1 {
 }
 
 .card img {
-  width: 90%;
   height: 200px;
-  margin: 5%;
+  max-width: 100%;
   object-fit: cover;
   border-radius: 20px;
 }
@@ -103,7 +93,7 @@ h1 {
 }
 
 .show {
-  display: block;
+  display: flex;
 }
 
 .searchDiv {
@@ -117,56 +107,62 @@ h1 {
   border: none;
   border-radius: 5px;
   text-indent: 10px;
+  width: 300px;
 }
 
-/* Drop down styling*/
-.dropbtn {
-  color: #242038;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
+#search-input::placeholder {
+  color: var(--clr_accent);
+}
+
+#search-form {
+  display: flex;
+  width: 100%;
+}
+
+/* Filter and Sort as dropdown */
+.mobileFilter {
+  display: none;
+}
+
+.mobileFilter select {
+  width: 100%;
+  padding: 0.8rem;
+  color: var(--clr_accent);
   border: none;
-  cursor: pointer;
+  border-radius: 5px;
+  display: flex;
+  border-right: 16px solid transparent;
 }
 
-.dropdown {
-  display: none;
-}
+@media only screen and (max-width: 768px) {
+  h1 {
+    font-size: 2rem;
+  }
 
-.dropdown-content {
-  display: none;
-  position: absolute;
-  left: 0px;
-  background-color: #f9f9f9;
-  min-width: 8rem;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.3);
-  z-index: 1;
-}
+  #container {
+    grid-template-columns: 1fr;
+  }
 
-.dropdown-content a {
-  color: #242038;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-}
+  /* Less padding on cards */
+  .card {
+    padding: 1rem;
+  }
+  .card img {
+    height: 200px;
+  }
 
-.dropdown-content a:hover {
-  background-color: #725ac1;
-  color: #f9f9f9;
-}
+  /* Hide desktop filter buttons */
+  .controlRow {
+    display: none;
+  }
+  /*Show mobile filter*/
+  .mobileFilter {
+    display: block;
+    margin: 5% 10%;
+  }
 
-.dropdown:hover .dropdown-content {
-  display: block;
-}
-
-.dropdown:hover .dropbtn {
-  background-color: #725ac1;
-}
-
-@media only screen and (max-width: 375px) {
-  /*
-      Filter and Sort as dropdown
-      Less padding on cards
-      Center the Search bar.
-  */
+  /* Center the Search bar */
+  #search-input {
+    width: 100%;
+  }
 }
