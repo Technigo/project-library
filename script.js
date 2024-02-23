@@ -183,22 +183,22 @@ const books = [
       "A dystopian novel set in a seemingly perfect society where young Jonas discovers the dark truth beneath the surface.",
     image: "./books-images/unknown.jpg",
   },
-]
+];
 // DOM selectors
-const filterFiction = document.getElementById("filterFiction")
-const filterScienceFiction = document.getElementById("filterScienceFiction")
-const filterFantasy = document.getElementById("filterFantasy")
-const filterAdventure = document.getElementById("filterAdventure")
-const filterHorror = document.getElementById("filterHorror")
-const filterMistery = document.getElementById("filterMistery")
-const filterDystopian = document.getElementById("filterDystopian")
-const sortAscending = document.getElementById("sortAscending")
-const sortDescending = document.getElementById("sortDescending")
-const galleryWrapper = document.getElementById("galleryWrapper")
-const randomBook = document.getElementById("randomBook")
+const filterFiction = document.getElementById("filterFiction");
+const filterScienceFiction = document.getElementById("filterScienceFiction");
+const filterFantasy = document.getElementById("filterFantasy");
+const filterAdventure = document.getElementById("filterAdventure");
+const filterHorror = document.getElementById("filterHorror");
+const filterMistery = document.getElementById("filterMistery");
+const filterDystopian = document.getElementById("filterDystopian");
+const sortAscending = document.getElementById("sortAscending");
+const sortDescending = document.getElementById("sortDescending");
+const galleryWrapper = document.getElementById("galleryWrapper");
+const randomBook = document.getElementById("randomBook");
 
 const showLibrary = (booksArray) => {
-  galleryWrapper.innerHTML = ""
+  galleryWrapper.innerHTML = "";
   booksArray.forEach((book) => {
     galleryWrapper.innerHTML += ` <div id="singleCard" class="card-wrapper">
   <img src=${book.image} alt=${book.image} />
@@ -207,70 +207,74 @@ const showLibrary = (booksArray) => {
   <p>Year: ${book.year}</p>
   <p>Genre: ${book.genre}</p>
   <p>${book.description}</p>
-</div>`
-  })
-}
+</div>`;
+  });
+};
+const filteredBooks = books.slice();
 
-const fictionSelect = (books) => {
-  const filteredFiction = books.filter((book) => book.genre === "Fiction")
-  showLibrary(filteredFiction)
-}
-filterFiction.addEventListener("click", fictionSelect(books))
+const fictionSelect = (filteredBooks) => {
+  const filteredFiction = filteredBooks.filter(
+    (book) => book.genre === "Fiction"
+  );
+  showLibrary(filteredFiction);
+};
+filterFiction.addEventListener("click", fictionSelect(books));
 
 const scienceFictionSelect = (books) => {
   const filteredScienceFiction = books.filter(
     (book) => book.genre === "Science Fiction"
-  )
-  showLibrary(filteredScienceFiction)
-}
-filterScienceFiction.addEventListener("click", scienceFictionSelect(books))
+  );
+  showLibrary(filteredScienceFiction);
+};
+filterScienceFiction.addEventListener("click", scienceFictionSelect(books));
 
 const fantasySelect = (books) => {
-  const filteredFantasy = books.filter((book) => book.genre === "Fantasy")
-  showLibrary(filteredFantasy)
-}
-filterFantasy.addEventListener("click", fantasySelect(books))
+  const filteredFantasy = books.filter((book) => book.genre === "Fantasy");
+  showLibrary(filteredFantasy);
+};
+filterFantasy.addEventListener("click", fantasySelect(books));
 
 const adventureSelect = (books) => {
-  const filteredAdventure = books.filter((book) => book.genre === "Adventure")
-  showLibrary(filteredAdventure)
-}
-filterAdventure.addEventListener("click", adventureSelect(books))
+  const filteredAdventure = books.filter((book) => book.genre === "Adventure");
+  showLibrary(filteredAdventure);
+};
+filterAdventure.addEventListener("click", adventureSelect(books));
 
 const horrorSelect = (books) => {
-  const filteredHorror = books.filter((book) => book.genre === "Horror")
-  showLibrary(filteredHorror)
-}
-filterHorror.addEventListener("click", horrorSelect(books))
+  const filteredHorror = books.filter((book) => book.genre === "Horror");
+  showLibrary(filteredHorror);
+};
+filterHorror.addEventListener("click", horrorSelect(books));
 
 const misterySelect = (books) => {
-  const filteredMistery = books.filter((book) => book.genre === "Mystery")
-  showLibrary(filteredMistery)
-}
-filterMistery.addEventListener("click", misterySelect(books))
+  const filteredMistery = books.filter((book) => book.genre === "Mystery");
+  showLibrary(filteredMistery);
+};
+filterMistery.addEventListener("click", misterySelect(books));
 
 const dystopianSelect = (books) => {
-  const filteredDystopian = books.filter((book) => book.genre === "Dystopian")
-  showLibrary(filteredDystopian)
-}
-filterDystopian.addEventListener("click", dystopianSelect(books))
+  const filteredDystopian = books.filter((book) => book.genre === "Dystopian");
+  showLibrary(filteredDystopian);
+};
+filterDystopian.addEventListener("click", dystopianSelect(books));
+//sorting books ascending
 
 const sortAsc = () => {
-  const sortedAscending = books.sort((a, b) => a.year - b.year)
-  showLibrary(sortedAscending)
-}
-sortAscending.addEventListener("click", sortAsc())
-
+  const sortedAscending = filteredBooks.sort((a, b) => a.year - b.year);
+  showLibrary(sortedAscending);
+};
+sortAscending.addEventListener("click", sortAsc());
+//sorting books descending
 const sortDesc = () => {
-  const sortedDescending = books.sort((a, b) => b.year - a.year)
-  showLibrary(sortedDescending)
-}
-sortDescending.addEventListener("click", sortDesc())
+  const sortedDescending = filteredBooks.sort((a, b) => b.year - a.year);
+  showLibrary(sortedDescending);
+};
+sortDescending.addEventListener("click", sortDesc());
 
 const randomChoice = () => {
-  galleryWrapper.innerHTML = ""
+  galleryWrapper.innerHTML = "";
 
-  const book = books[Math.floor(Math.random() * books.length)]
+  const book = books[Math.floor(Math.random() * books.length)];
 
   galleryWrapper.innerHTML += ` <div id="singleCard" class="card-wrapper">
   <img src=${book.image} alt=${book.image} />
@@ -279,10 +283,10 @@ const randomChoice = () => {
   <p>Year: ${book.year}</p>
   <p>Genre: ${book.genre}</p>
   <p>${book.description}</p>
-</div>`
-}
-randomBook.addEventListener("click", randomChoice())
+</div>`;
+};
+randomBook.addEventListener("click", randomChoice());
 
 // loading all books
 
-showLibrary(books)
+showLibrary(books);
