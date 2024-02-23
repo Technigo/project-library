@@ -254,12 +254,14 @@ printBooks(books);
 genre.innerHTML +=`
   <div class="sortTitle" id="sortTitle" >Filter on genre</div>
   <div class="genreButton" id="genreButton">
-    <button id="all" value="all">All</button>
-    <button id="fiction" value="Fiction">Fiction</button>
-    <button id="fantasy" value="Fantasy" >Fantasy</button>
-    <button id="adventure" value="Adventure">Adventure</button>
+    <div class="genreChoice" id="genreChoice">
+      <button id="all" value="all">All</button>
+      <button id="fiction" value="Fiction">Fiction</button>
+      <button id="fantasy" value="Fantasy" >Fantasy</button>
+      <button id="adventure" value="Adventure">Adventure</button>
+    </div>
     <select id="more">
-      <option value="More">More</option>
+      <option value="More" disabled selected>More</option>
       <option id="sciFi" value="Science Fiction">Science Fiction</option>
       <option id="horror" value="Horror">Horror</option>
       <option id="mystery" value="Mystery">Mystery</option>
@@ -267,20 +269,29 @@ genre.innerHTML +=`
     </select>
   </div>
 `
-
 // use a event.target.value instead of creating each filter.
-document.getElementById("genreButton").addEventListener("click",(event)=>{
-  const filteredBooks = event.target.value
-  if (filteredBooks==="all"){
-    document.getElementById("all").addEventListener("click",()=>{
-      const allBooks = books
-      printBooks(allBooks)  
-    })
-  } else {
-    const filteredButtonBooks = books.filter((book)=>book.genre===filteredBooks)
-    printBooks(filteredButtonBooks) 
-  }    
-})
+const filterBook=()=>{
+  document.getElementById("genreChoice").addEventListener("click",(event)=>{
+    const filteredBooks = event.target.value
+    if (filteredBooks==="all"){
+      document.getElementById("all").addEventListener("click",()=>{
+        const allBooks = books
+        printBooks(allBooks)  
+      })
+    } else {
+      const filteredButtonBooks = books.filter((book)=>book.genre===filteredBooks)
+      printBooks(filteredButtonBooks) 
+    }
+  })
+    
+  // Filter with "more" selector
+  document.getElementById("more").addEventListener("change",(event)=>{
+    const genreFilter = event.target.value;
+    const filterSelectedBooks = books.filter((book)=>book.genre===genreFilter);
+    printBooks(filterSelectedBooks); 
+  })
+}
+filterBook();
 
 /* too many codes here. nonono if more filters need to be added. 
   document.getElementById("all").addEventListener("click",()=>{
@@ -303,26 +314,24 @@ document.getElementById("adventure").addEventListener("click",()=>{
   printBooks(adventureBooks)  
 }) */
 
-// Filter with "more" selector
-document.getElementById("more").addEventListener("change",(event)=>{
-  const genreFilter = event.target.value;
-  reset(books);
-  if(genreFilter==="More"){
-    const alBooks = books;
-    printBooks(alBooks);
-  } else {
-    const filterSelectedBooks = books.filter((book)=>book.genre===genreFilter);
-    printBooks(filterSelectedBooks); 
-  } 
-})
+
 
 //Search
-
 userSearch.innerHTML+=`
   <input type="text" id="userInput" placeholder="  Search your next book">
   <button id="searchButton">Go</button>
 `
-
+const searchBooks=()=>{
+  let userInput =""
+  userInput = document.getElementById("userInput")
+  document.getElementById("searchButton").addEventListener("click",(event)=>{
+    const userBookInput = userInput.value.toUpperCase();
+    const searchResult =books.filter((book)=>Object.values(book).join("").toUpperCase().includes(userBookInput));
+    console.log(searchResult);
+    printBooks(searchResult);
+  })
+}
+searchBooks();
 
 
 //Sort
@@ -334,39 +343,50 @@ sort.innerHTML +=`
     <button id="title" value="title">A-Z ↑↓</button>
   </div>
 `
-let isDescending = false;
-document.getElementById("rating").addEventListener("click",()=>{
-  isDescending = !isDescending;
-  if(isDescending){
-    const ratingBooks = books.sort((a,b)=>(b.rating-a.rating))
-    printBooks(ratingBooks) 
-  } else {
-    const ratingBooks = books.sort((a,b)=>(a.rating-b.rating))
-    printBooks(ratingBooks)  
-  }
-})
+const sortByRating =()=>{
+  let isDescending = false;
+  document.getElementById("rating").addEventListener("click",()=>{
+    isDescending = !isDescending;
+    if(isDescending){
+      const ratingBooks = books.sort((a,b)=>(b.rating-a.rating))
+      printBooks(ratingBooks) 
+    } else {
+      const ratingBooks = books.sort((a,b)=>(a.rating-b.rating))
+      printBooks(ratingBooks)  
+    }
+  })
+}
+sortByRating();
 
-document.getElementById("year").addEventListener("click",()=>{
-  isDescending = !isDescending;
-  if(isDescending){
-    const yearBooks = books.sort((a,b)=>(b.year-a.year))
-    printBooks(yearBooks)
-  } else {
-    const yearBooks = books.sort((a,b)=>(a.year-b.year))
-    printBooks(yearBooks)
-  }
-}) 
+const sortByYear=()=>{
+  let isDescending = false;
+  document.getElementById("year").addEventListener("click",()=>{
+    isDescending = !isDescending;
+    if(isDescending){
+      const yearBooks = books.sort((a,b)=>(b.year-a.year))
+      printBooks(yearBooks)
+    } else {
+      const yearBooks = books.sort((a,b)=>(a.year-b.year))
+      printBooks(yearBooks)
+    }
+  }) 
+}
+sortByYear();
 
-document.getElementById("title").addEventListener("click",()=>{
-  isDescending = !isDescending;
-  if(isDescending){
-    const titleBooks = books.sort((a,b)=>b.title.localeCompare(a.title))
-    printBooks(titleBooks)
-  } else {
-    const titleBooks = books.sort((a,b)=>a.title.localeCompare(b.title))
-    printBooks(titleBooks)
-  }
-}) 
+const sortByTitle=()=>{
+  let isAscending = false;
+  document.getElementById("title").addEventListener("click",()=>{
+    isAscending = !isAscending;
+    if(isAscending){
+      const titleBooks = books.sort((a,b)=>a.title.localeCompare(b.title))
+      printBooks(titleBooks)
+    } else {
+      const titleBooks = books.sort((a,b)=>b.title.localeCompare(a.title))
+      printBooks(titleBooks)
+    }
+  }) 
+}
+sortByTitle();
 
 //Random and filter by century
 surprise.innerHTML +=`
@@ -374,52 +394,34 @@ surprise.innerHTML +=`
   <div id="surpriseButton">
     <button id="random" value="random" >A random book</button>
     <select id="more1">
-        <option value="More1">More</option>
+        <option value="More1" disabled selected>More</option>
         <option id="century" value="2000">21st Century Books</option>
         <option id="century" value="1900">20th Century Books</option>
         <option id="century" value="1800">19th Century Books</option>
     </select>
   </div>
 `
+const randomize=()=>{
   document.getElementById("random").addEventListener("click",()=>{
     const randomIndex = Math.floor(Math.random(books)*books.length);
     const randomBooks =books[randomIndex]
     printBooks([randomBooks]); 
   })
+}
+randomize();
 
+const soryByCentury=()=>{
   document.getElementById("more1").addEventListener("change",(event)=>{
     const century = parseInt(event.target.value);
     const centuryNew = parseInt(event.target.value)+100;
     const centuryBooks = books.filter((book)=>book.year>=century && book.year<=centuryNew) 
     printBooks(centuryBooks) 
   })
-
+}
+soryByCentury();
 
 //Until here, filter will show books by order after sorting. Reset function is needed. But it is also good to have filter list by year/rating.    
-const reset=()=>{
+/* const reset=()=>{
   ratingBooks=books;
   yearBooks=books;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
-
-
-
-  
- 
-
-
- 
-
+} */

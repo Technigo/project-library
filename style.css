@@ -118,7 +118,7 @@ p{
     flex-direction: column;   
 }
 
-.genreButton button,
+.genreChoice,
 .genreButton select {
   display: inline-block;
   vertical-align: middle; 
