@@ -320,7 +320,13 @@ filterSelection("all");
 document
   .getElementById("mobileFilterSelect")
   .addEventListener("change", function () {
-    filterSelection(this.value);
+    if (this.value == "random"){
+      filterSelectionIndex("all");
+    }
+    else{
+      filterSelection(this.value);
+    }
+
   });
 
 // Sort alphabetically and by cook time (Martin)
