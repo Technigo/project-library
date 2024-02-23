@@ -1,15 +1,22 @@
 body {
   background-color: white;
   color: #b13f6a;
-  text-align: center;
+  /* text-align: center; */
   /* <uniquifier>: Use a uniquifier for the class name
     <weight>: Use a value from 100 to 900 */
 
+  /* font-family: "Jost", sans-serif; */
+  /* font-optical-sizing: auto; */
+  /* font-weight: 500;
+  font-style: normal; */
+  /* font-size: 20px; */
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
   font-family: "Jost", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 500;
-  font-style: normal;
-  font-size: 20px;
 }
 .filter-bar {
   text-align: left;
@@ -23,30 +30,77 @@ main {
   margin: 0;
   display: flex;
   flex-direction: column;
-
   margin: 0 auto;
   width: 100%;
 }
-.gallery-wrapper {
+/* .gallery-wrapper {
   background-color: #b13f6a;
   color: #ffb000;
   display: grid;
-  width: 100%;
-  grid-template-columns: auto;
+  grid-template-columns: 300px 300px 300px 300px;
+  grid-template-rows: auto;
   justify-content: space-around;
   box-sizing: border-box;
-}
-.card-wrapper {
-  display: flex;
-  flex-direction: column;
+} */
+.gallery-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  column-gap: 35px;
+  row-gap: 20px;
   justify-content: center;
-  background-color: #ffb000;
+}
+
+/* .card-wrapper {
+  display: grid;
+  grid-template-rows: 200px 29px 28px 28px 28px 24px 150px;
+  background-color: white;
   color: #b13f6a;
-  width: 100%;
-  margin: 20px 0;
+  width: 300px;
+  height: 621px;
+  padding: 16px, 16px, 24px, 16px;
   box-sizing: border-box;
   border-radius: 20px;
   border: solid rgb(205, 117, 30);
+} */
+/* img {
+  width: 268px; 
+  height: 200px;
+  border-radius: 10px;
+  justify-content: center;
+} */
+
+.card-wrapper {
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+  padding: 16px, 16px, 24px, 16px;
+  box-sizing: border-box;
+  border-radius: 20px;
+  border: solid rgb(205, 117, 30);
+
+}
+
+img {
+  max-width: 100%;
+  aspect-ratio: 5 / 4;
+  border-radius: 10px;
+  margin-bottom: 2rem;
+}
+
+h2 {
+  font-size: 22px;
+  height: 29px;
+}
+
+.small-clot {
+  font-size: 20px;
+}
+
+.divider{
+  width: 268px;
+  border: 1px;
+  color: #E9E9E9;
 }
 button {
   background-color: #b13f6a;

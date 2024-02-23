@@ -201,7 +201,7 @@ const randomDiv = document.getElementById('random-book-div')
 const randomButton=document.getElementById('random-button')
 
 //creat element
-const bookSection = document.createElement('div')
+// const bookSection = document.createElement('div')
 const galleryWrapperDiv = document.createElement('div')
 
 //genre type by filter for fiction
@@ -289,23 +289,34 @@ const displayBooks = (arrays) => {
   arrays.forEach(book => {
     const singleCard = document.createElement('div')
     singleCard.classList.add('card-wrapper')
+    galleryWrapperDiv.classList.add('gallery-wrapper')
     singleCard.innerHTML+= `
-    <img src="${book.image}" alt="${book.title}" />
-        <h2>${book.title}</h2>
-        <p>Author:${book.author}</p>
-        <p>Year: ${book.year}</p>
-        <p>Genre: ${book.genre}</p>
-        <p>Rating: ${book.rating}</p>
-        <p>${book.description}</p>`
+    <img 
+      src="${book.image}" 
+      alt="${book.title}" />
+    <div class="detail-content">
+      <h2 id="title">${book.title}</h2>
+      <hr>
+      <p id="author" class= "small-clot"><span>Author:</span> ${book.author}</p>
+      <p id="publish-year" class= "small-clot"><span>Year:</span> ${book.year}</p>
+      <p id="genre-type" class= "small-clot"><span>Genre:</span> ${book.genre}</p>
+      <p id="rate" class= "small-clot"><span>Rating:</span> ${book.rating}</p>
+      <hr>
+      <details>
+        <summary>Description</summary>
+        <p id="description">${book.description}</p>
+      </details>
+    </div>
+    `
 
-  document.body.appendChild(bookSection)
-  bookSection.appendChild(galleryWrapperDiv)
+  document.body.appendChild(galleryWrapperDiv)
+  // bookSection.appendChild(galleryWrapperDiv)
   galleryWrapperDiv.appendChild(singleCard)
-  singleCard.style.colums = '300px 4'
-    console.log(singleCard)
 })
 }
 displayBooks(books)
+
+//setTimeOut --
 
 
 
