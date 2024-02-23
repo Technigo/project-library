@@ -193,6 +193,8 @@ const sortBooksZA = document.getElementById("za")
 const sortBooksNewest = document.getElementById("newest")
 const sortBookOldest = document.getElementById("oldest")
 const sortBooksPopular = document.getElementById("mostPopular")
+const randomButton = document.getElementById("")
+
 
 //Display all the books
 const displayBooks = (bookBoxes) => {
@@ -229,6 +231,7 @@ const filterBooks = () => {
     displayBooks(filterButton)
   }
 }
+
 
 // .addEventListener("click", filterBooks)
 
@@ -277,3 +280,13 @@ sortBooksPopular.addEventListener("click", mostPopularBook)
 // console.log(bookGenre)
 
 displayBooks(books);
+
+// test 
+// Random button
+
+
+random.addEventListener("click", getRandomValue)
+
+filterDropdown.addEventListener("change", filterBooks)
+// Load the initial list of dogs when the page loads.
+displayBooks(books)

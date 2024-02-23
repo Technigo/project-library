@@ -18,7 +18,7 @@ In order to simplify the execution of this project, we have provided you with tw
 
 - Your page should display all of the elements (and their information) in the chosen array when the website is loaded ✅
 - Your page should have at least one `filter`, e.g. on genre or cuisine type
-- Your page should be able to `sort` on at least one property, e.g.:
+- Your page should be able to `sort` on at least one property, e.g.: ✅
   - _for books_:
     - from newest to oldest and vice versa
     - from the highest to lowest rating and vice versa
@@ -31,7 +31,6 @@ So you’ve completed all the steps above? Great job! Make sure you've committed
 ### Intermediate stretch goals
 
 - Go wild with the filtering. Add a filter to:
-  - only show the recipes with less than 5 or 10 ingredients
   - only show the books from the 21st century
 - Go wild with the sorting. Sort on:
   - Alphabetical order
