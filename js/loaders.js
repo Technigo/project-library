@@ -78,28 +78,37 @@ const handleFilterDropdown = (targetId) => {
 
 const updateFilters = (e) => {
   const targetValue = e.target.value;
+  const targetId = e.target.name;
 
   // Check if the targetValue exists in the array
   const index = filterArray.indexOf(targetValue);
 
   // If targetValue exists, remove it; otherwise, push it into the array
   if (index !== -1) {
-    console.log("exists in filterArray so remove");
-    console.log(index !== -1);
     filterArray.splice(index, 1);
-  } else {
-    console.log("push the new value");
+
     filterArray.push(targetValue);
   }
 
   if (filterArray.length === 0) {
-    console.log("arrayen är tom");
     loadRecipes(recipes);
   } else {
-    console.log("apply filter");
+    // jag har nu en array med selections. nu behöver jag plocka ut de objekt som har det värdet
+    const filteredRecipes = recipes.filter((recipe) => {
+      return filterArray.some((value) => {
+        if (recipe.cuisineType && targetId === "cuisine") {
+          return recipe.cuisineType.some(
+            (propValue) => propValue.toLowerCase() === value
+          );
+        } else if (recipe.author && targetId === "author") {
+          return recipe[targetId].toLowerCase() === value;
+        }
+        return false;
+      });
+    });
+    // Display the filtered recipes
+    loadRecipes(filteredRecipes);
   }
-
-  console.log(filterArray);
 };
 
 const fetchFilterOptions = (targetId) => {
