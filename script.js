@@ -1,4 +1,4 @@
-const title = document.getElementById("head")
+const userSearch = document.getElementById("userSearch")
 const filters = document.getElementById("filters")
 const genre = document.getElementById("genre")
 const sort = document.getElementById("sort")
@@ -223,7 +223,7 @@ const printBooks=()=>{
 }   
 printBooks() */
 
-
+//Show all books
 const printBooks = (booksArray) => {
   library.innerHTML = '';
   booksArray.forEach(book => {
@@ -250,6 +250,7 @@ const printBooks = (booksArray) => {
 };
 printBooks(books);
 
+// Filter
 genre.innerHTML +=`
   <div class="sortTitle" id="sortTitle" >Filter on genre</div>
   <div class="genreButton" id="genreButton">
@@ -302,8 +303,10 @@ document.getElementById("adventure").addEventListener("click",()=>{
   printBooks(adventureBooks)  
 }) */
 
+// Filter with "more" selector
 document.getElementById("more").addEventListener("change",(event)=>{
   const genreFilter = event.target.value;
+  reset(books);
   if(genreFilter==="More"){
     const alBooks = books;
     printBooks(alBooks);
@@ -313,11 +316,22 @@ document.getElementById("more").addEventListener("change",(event)=>{
   } 
 })
 
+//Search
+
+userSearch.innerHTML+=`
+  <input type="text" id="userInput" placeholder="  Search your next book">
+  <button id="searchButton">Go</button>
+`
+
+
+
+//Sort
 sort.innerHTML +=`
   <div class="sortTitle" id="sortTitle" >Sort</div>
   <div class="sortButton" id="sortButton">
     <button id="rating" value="rating" >rating ↑↓</button>
     <button id="year" value="rating">year ↑↓</button>
+    <button id="title" value="title">A-Z ↑↓</button>
   </div>
 `
 let isDescending = false;
@@ -343,6 +357,18 @@ document.getElementById("year").addEventListener("click",()=>{
   }
 }) 
 
+document.getElementById("title").addEventListener("click",()=>{
+  isDescending = !isDescending;
+  if(isDescending){
+    const titleBooks = books.sort((a,b)=>b.title.localeCompare(a.title))
+    printBooks(titleBooks)
+  } else {
+    const titleBooks = books.sort((a,b)=>a.title.localeCompare(b.title))
+    printBooks(titleBooks)
+  }
+}) 
+
+//Random and filter by century
 surprise.innerHTML +=`
   <div class="surpriseTitle" id="surpriseTitle">Surprise</div>
   <div id="surpriseButton">
@@ -358,19 +384,22 @@ surprise.innerHTML +=`
   document.getElementById("random").addEventListener("click",()=>{
     const randomIndex = Math.floor(Math.random(books)*books.length);
     const randomBooks =books[randomIndex]
-    console.log(randomBooks);
     printBooks([randomBooks]); 
   })
 
   document.getElementById("more1").addEventListener("change",(event)=>{
     const century = parseInt(event.target.value);
     const centuryNew = parseInt(event.target.value)+100;
-
     const centuryBooks = books.filter((book)=>book.year>=century && book.year<=centuryNew) 
-    console.log(centuryBooks)
     printBooks(centuryBooks) 
   })
 
+
+//Until here, filter will show books by order after sorting. Reset function is needed. But it is also good to have filter list by year/rating.    
+const reset=()=>{
+  ratingBooks=books;
+  yearBooks=books;
+}
 
 
 

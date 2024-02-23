@@ -41,6 +41,30 @@ main{
     margin-right: 10px;
 }
 
+.userSearch{
+    position: relative;
+    margin-left: auto;
+    margin-right: 90px;
+}
+
+#userInput{
+    background-color: #E9E9E9;
+    border: 1px lightgray solid;
+    border-radius: 10px 0 0 10px;
+    height: 36px;
+    width: 200px; 
+}
+
+#searchButton{
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 0 10px 10px 0;
+    width: 60px;
+    height: 36px;
+    position: absolute;
+}
+
 h1{
     font-size: 60px;
     text-align: center;
@@ -85,7 +109,7 @@ p{
     border-radius: 30px;
     width:46%;
     height: 80px;
-    margin: 2px 34px 2px 2px;
+    margin: 2px 12px 2px 2px;
     padding: 2px 16px;
     justify-content: center;
     color: black;
@@ -100,9 +124,21 @@ p{
   vertical-align: middle; 
 }
 
+.sort{
+    background-color: #FAFBFF;
+    /*border: 1px black solid;*/
+    border-radius: 30px;
+    width:32%;
+    height: 80px;
+    margin: 2px 2px 2px 2px;
+    padding: 2px 16px;
+    justify-content: center;
+    color: black;
+    font-size: 16px;
+    display: flex;
+    flex-direction: column;
+}
 
-
-.sort,
 .surprise{
     background-color: #FAFBFF;
     /*border: 1px black solid;*/
