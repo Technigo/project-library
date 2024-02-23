@@ -189,6 +189,7 @@ const books = [
 
 //DOM selector
 const container = document.getElementById("container");
+const randomButton = document.getElementById("")
 
 
 //Display all the books
@@ -246,3 +247,11 @@ const filterBooks = () => {
 displayBooks(books);
 
 // test 
+// Random button
+
+
+random.addEventListener("click", getRandomValue)
+
+filterDropdown.addEventListener("change", filterBooks)
+// Load the initial list of dogs when the page loads.
+displayBooks(books)
