@@ -101,7 +101,8 @@ button:hover {
   color: white;
 }
 
-/* This is called Specificity, and menas an element needs to be added to active, in order to treat the button.hover style equally important */
+/* This is called Specificity, and menas an element(button) also needs to be added to "active", 
+in order to treat the button.hover style equally important to button.active */
 button.active {
   background-color: #66b095;
 }

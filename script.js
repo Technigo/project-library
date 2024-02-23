@@ -192,8 +192,8 @@ const ratingButton = document.getElementById("ratingButton");
 const randomButton = document.getElementById("randomButton");
 
 
-//Books is the array. The for loop let us go through the array to get the information we need.
-//Here we declare function for rendering all books. And we need all the classes when doing styling
+//Books is the array. The "for loop" let's us go through the array of books to get the book(s) we need.
+//Here we declare function for rendering all books. And we need all the classes for later when doing styling.
 function renderBook(book) {
   return `<div class="book">
   <img src="${book.image}" class="book-image" />
@@ -208,26 +208,25 @@ function renderBook(book) {
 }
 
 //Here is where we start the function to filter by genre.
-// the booksdiv is in the html 
+//The "booksdiv" is in the html 
 const booksDiv = document.getElementById("books");
 //we loop through one book at the time, therefor "for book of books"
 for (const book of books) {
-  //here we have all the books to work with
+  //Here we have all the books to work with
   booksDiv.innerHTML += renderBook(book);
 }
 
 const genreDropDown = document.getElementById("genre");
-//change(eventtype) is for making changes of genres.
+//change(event-type) is for making changes of genres.
 genreDropDown.addEventListener("change", () => {
   
-  //We are here filtering the genres
+  //Here we are filtering by genre
+  //"booksDiv.innerHTMl = """, wipes the array so the user later can choose a specific book.
   booksDiv.innerHTML = "";
   for (const book of books) {
-    //this is where to filter out the genres.
-    //pipe symbol option 7. || means OR.
-    //Here we are filtering out all, we render all the book, if user choose horror or other genre we filter that.
+    //Pipe symbol on keyBoard: option 7. || means OR.
     if (
-      //value checks which book is selected by the user
+      //Value checks which book is selected by the user. It's all books OR books selected by genre
       genreDropDown.value == "All genres" ||
       book.genre == genreDropDown.value
     ) {
@@ -237,7 +236,7 @@ genreDropDown.addEventListener("change", () => {
   }
 });
 
-//Here we are listening for clicks on the buttons
+//Here we are listen for clicks on the buttons
 newestButton.addEventListener("click", (event) => {
   //This one makes the hover effect stays on the button when sorting books
   newestButton.classList.add("active") 
@@ -245,7 +244,7 @@ newestButton.addEventListener("click", (event) => {
   oldestButton.classList.remove("active")
   ratingButton.classList.remove("active")
   randomButton.classList.remove("active")
-  //"books" means that we are sorting the books for years
+  //Here we sort books by year, newest to oldest. 
   books.sort(function (a, b) {
     return b.year - a.year;
   });
@@ -289,10 +288,10 @@ randomButton.addEventListener("click", (event) => {
   newestButton.classList.remove("active") 
   oldestButton.classList.remove("active")
   ratingButton.classList.remove("active")
-  //Here we are creating a varible for do random books. books.length uses all the books to work with
+  //Here we are creating a varible for do random books. "books.length" uses all the books to work with
   const numberBook = Math.floor(Math.random() * books.length);
   booksDiv.innerHTML = "";
-  //Here we run all the books, and then chose one with [numberBook]
+  //Here we render all the books, and then chose ONE with [numberBook]
   booksDiv.innerHTML += renderBook(books[numberBook]);
 });
 
