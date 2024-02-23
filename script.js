@@ -316,17 +316,25 @@ for (let i = 0; i < btns.length; i++) {
 
 filterSelection("all");
 
-// mobile dropdown
+// mobile dropdowns
 document
   .getElementById("mobileFilterSelect")
   .addEventListener("change", function () {
-    if (this.value == "random"){
+    if (this.value == "random") {
       filterSelectionIndex("all");
-    }
-    else{
+    } else {
       filterSelection(this.value);
     }
+  });
 
+document
+  .getElementById("mobileSortSelect")
+  .addEventListener("change", function () {
+    if (this.value == "alphabetical") {
+      sortListName();
+    } else if (this.value == "cook-time") {
+      sortListTime();
+    }
   });
 
 // Sort alphabetically and by cook time (Martin)
@@ -374,13 +382,13 @@ function sortListTime() {
     // Start by saying: no switching is done:
     switching = false;
     b = list.getElementsByClassName("time");
-    c = list.getElementsByClassName("card")
+    c = list.getElementsByClassName("card");
     // Loop through all list items:
     for (i = 0; i < b.length; i++) {
       // Start by saying there should be no switching:
       shouldSwitch = false;
 
-      if (b[i].innerHTML === null){
+      if (b[i].innerHTML === null) {
         b[i].innerHTML = `0`;
       }
       /* Check if the next item should
