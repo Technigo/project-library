@@ -12,17 +12,29 @@
 <body>
   <h1>Project Library</h1>
 
-  <div id="wrapper">
-    <!-- Lägg in knappar-->
+  <div class="wrapper">
+    <div id="filter-books">
+      <p>Filter books by genre</p>
+      <button id="all">All</button>
+      <button id="fantasy">Fantasy</button>
+      <button id="horror">Horror</button>
+      <button id="adventure">Adventure</button>
+    </div>
+    <div id="sort-books">
+      <p>Sort books by</p>
+      <button id="az">A-Z</button>
+      <button id="za">Z-A</button>
+      <button id="newest">Year newest</button>
+      <button id="oldest">Year oldest</button>
+      <button id="mostPopular">Most popular</button>
+    </div>
   </div>
 
   <div id="container">
-
     <div class="book-boxes">
     </div>
   </div>
 
   <script src="./script.js"></script>
 </body>
-
 </html>

@@ -185,12 +185,14 @@ const books = [
   }
 ]
 
-
-
 //DOM selector
-const container = document.getElementById("container");
+const container = document.getElementById("container")
 const filterButton = document.getElementById("filterButton")
-
+const sortBooksAZ = document.getElementById("az")
+const sortBooksZA = document.getElementById("za")
+const sortBooksNewest = document.getElementById("newest")
+const sortBookOldest = document.getElementById("oldest")
+const sortBooksPopular = document.getElementById("mostPopular")
 
 //Display all the books
 const displayBooks = (bookBoxes) => {
@@ -205,7 +207,7 @@ const displayBooks = (bookBoxes) => {
       <p>${books.author}</p>
       <p>${books.year}</p>
       <p>${books.genre}</p>
-      <p>${books.rating}⚡️</p>
+      <p>⭐️ ${books.rating}</p>
       <p>${books.description}</p>
     </div>
     `
@@ -228,10 +230,44 @@ const filterBooks = () => {
   }
 }
 
-
 // .addEventListener("click", filterBooks)
 
 
+
+// //Functions to sort the books alphabetically, by publishing year & most popular
+
+const sortBooksAtoZ = () => {
+  const sortedBooks = [...books].sort((a, b) => a.title.localeCompare(b.title))
+  displayBooks(sortedBooks)
+}
+
+const sortBooksZtoA = () => {
+  const sortedBooks = [...books].sort((a, b) => b.title.localeCompare(a.title))
+  displayBooks(sortedBooks)
+}
+
+const sortedBooksOld = () => {
+  const sortedBooksYear = [...books].sort((a, b) => a.year - b.year)
+  displayBooks(sortedBooksYear)
+}
+
+const sortBooksNew = () => {
+  const sortedBooksYear = [...books].sort((a, b) => b.year - a.year)
+  displayBooks(sortedBooksYear)
+}
+
+const mostPopularBook = () => {
+  const sortedBooks = [...books].sort((a, b) => b.rating - a.rating)
+  displayBooks(sortedBooks)
+}
+
+
+
+sortBooksAZ.addEventListener("click", sortBooksAtoZ)
+sortBooksZA.addEventListener("click", sortBooksZtoA)
+sortBooksNewest.addEventListener("click", sortBooksNew)
+sortBookOldest.addEventListener("click", sortedBooksOld)
+sortBooksPopular.addEventListener("click", mostPopularBook)
 
 
 // const bookGenre = books.filter(function(bookGenres) {

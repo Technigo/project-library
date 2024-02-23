@@ -2,46 +2,75 @@
 
 * {
   font-family: 'Jost', sans-serif;
-  box-sizing: border-box;
   margin: 0;
+  box-sizing: border-box;
+  background-color: #FAFBFF;
 }
 
 h1 {
   color: black;
   margin: 64px;
+  padding-left: 64px;
   font-size: 64px;
+}
+
+
+
+.sort-buttons {
+  background-color: #FFECEA;
+  color: black;
+  padding: 8px, 16px, 8px, 16px;
+  font-style: bold;
+}
+
+p {
+  font-size: 22px;
+}
+
+.wrapper {
+  display: flex;
+  background-color: #FAFBFF;
+  margin: 64px;
+  padding-left: 64px;
 }
 
 .book-boxes {
   color: black;
-  background-color: aqua;
+  background-color: #FFFFFF;
   width: 300px;
+  border: #E9E9E9;
+  border-radius: 1px;
   padding-left: 16px;
 }
 
 #container {
   display: flex;
+  width: 100%;
   justify-content: center;
   flex-wrap: wrap;
-  background-color: rgb(195, 195, 195);
+  background-color: #FAFBFF;
 }
 
 img {
   width: 268px;
   height: 200px;
   border-radius: 12px;
-  align-items: center;
+  display: block;
+  margin: 12px auto;
 }
 
+#sort-books {
+  padding-left: 90px;
+}
 
 @media (min-width: 667px) and (max-width: 1024px) {
-  .container {
+  #container {
 
   }
 }
 
 @media (min-width: 1025px) {
-  .container {
+  #container {
 
   }
 }
