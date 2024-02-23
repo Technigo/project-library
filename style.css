@@ -5,34 +5,34 @@
 
 button {
   border-radius: 20px;
-  background-color: #eb84f5;
+  background-color: #e8a16b;
   border: none;
   transition-duration: 0.4s;
   text-align: center;
   font-size: 14px;
-  padding: 3px;
+  padding: 5px;
 }
 
 button:hover {
-  background-color: #eb84f5;
-  background-color: #ae62b5;
+  background-color: lightpink;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 10px 20px, rgba(0, 0, 0, 0.15) 0px 6px 6px;
 }
 
 button p {
-  padding: 3px;
-  margin-right: 0;
+  font-size: 14px;
+  padding: 4px;
 }
 
 body {
-  font-family: "Rubik";
+  font-family: "Rubik", sans-serif;
   color: #361f2e;
 }
 
 h1 {
   margin: 0;
   text-align: center;
-  padding: 3%;
-  background-image: url('./header-image.jpg');
+  padding: 60px;
+  background-image: url('./recipe-images/header-image.jpg');
   background-size: cover;
   cursor: pointer;
 }
@@ -46,6 +46,10 @@ p {
   color: #39253b;
 }
 
+img {
+  max-width: 240px;
+}
+
 a:link {
   text-decoration: none;
   color: darkred;
@@ -54,6 +58,31 @@ a:link {
 a:hover {
   text-decoration: none;
   color:#39253b;
+}
+
+.search-input,
+.filter-recipes {
+  border-radius: 10px;
+  padding: 3px;
+}
+
+.search-input {
+  margin-right: 10px;
+}
+
+.kitchen-form,
+.sorting-form,
+.search-form
+.random-form {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start space-around;
+  padding: 10px;
+}
+
+.form-text {
+  margin-right: 10px;
+  font-size: 15px;
 }
 
 .recipe-container {
@@ -101,34 +130,6 @@ a:hover {
     border-radius: 20px;
 }
 
-.forms-header p {
-  display: inline;
-  font-size: 15px;
-}
-
-.search-input,
-.filter-recipes {
-  border-radius: 10px;
-  padding: 3px;
-}
-
-.search-input {
-  margin-right: 10px;
-}
-
-.kitchen-form,
-.sorting-form,
-.search-form {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start space-around;
-  padding: 10px;
-}
-
-.form-text {
-  margin-right: 10px;
-}
-
 .footer {
   display: flex;
   justify-content: center;
@@ -137,8 +138,20 @@ a:hover {
   padding: 20px;
 }
 
+.footer button {
+  background-color: seashell;
+  padding: 10px;
+}
+
+.footer p {
+  display: inline;
+}
+
 /* Media query for viewports larger than 767px*/
 @media (min-width: 767px) {
+  img {
+    max-width: 300px;
+  }
   .recipe-container {
     grid-template-columns: repeat(2, 1fr);
     margin: 0px 5% 30px 5%;
@@ -147,6 +160,9 @@ a:hover {
 
 /* Media query for viewports larger than 950px*/
 @media (min-width: 950px) {
+  img {
+    max-width: 250px;
+  }
   .recipe-container {
     grid-template-columns: repeat(2, 1fr);
   }

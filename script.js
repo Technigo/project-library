@@ -234,11 +234,9 @@ const showRecipes = (recipesToShow) => {
   recipesToShow.forEach((recipe) => {
     container.innerHTML += `
     <div class="recipe-card">
-      <img src="${recipe.image}" 
-      width="200px"/>
+      <img src="${recipe.image}"/>
       <div class="recipe-text">
         <h3>${recipe.name}</h3>
-        <p><b>Cuisine</b>: ${recipe.cuisineType}</p>
         <p><b>Cooking time</b>: ${recipe.totalTime} minutes</p>
         <p><b>Ingredients:</b></p>
         <ul>
@@ -265,11 +263,9 @@ const getRandomValue = () => {
   const recipe = recipes[Math.floor(Math.random() * recipes.length)];
   container.innerHTML += `
   <div class="recipe-card">
-    <img src="${recipe.image}" 
-    width="200px"/>
+    <img src="${recipe.image}"/>
     <div class="recipe-text">
       <h3>${recipe.name}</h3>
-      <p><b>Cuisine</b>: ${recipe.cuisineType}</p>
       <p><b>Cooking time</b>: ${recipe.totalTime} minutes</p>
       <p><b>Ingredients:</b></p>
       <ul>
@@ -295,10 +291,13 @@ const filteredRecipesByAscending = () => {
   showRecipes(recipes);
 };
 
-//Function to filter on search input
+//Function to filter on search input based on name or ingredient
 const filterRecipesBySearchInput = (searchInputValue) => {
   const filteredRecipes = recipes.filter((recipe) =>
-    recipe.name.toLowerCase().includes(searchInputValue)
+    recipe.name.toLowerCase().includes(searchInputValue.toLowerCase()) ||
+    recipe.ingredients.some((ingredient) =>
+    ingredient.toLowerCase().includes(searchInputValue.toLowerCase())
+    )
   );
   showRecipes(filteredRecipes);
 };
