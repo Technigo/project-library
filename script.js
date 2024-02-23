@@ -193,7 +193,7 @@ const sortBooksZA = document.getElementById("za")
 const sortBooksNewest = document.getElementById("newest")
 const sortBookOldest = document.getElementById("oldest")
 const sortBooksPopular = document.getElementById("mostPopular")
-const randomButton = document.getElementById("")
+const randomButton = document.getElementById("radom")
 
 
 //Display all the books
@@ -201,8 +201,8 @@ const displayBooks = (bookBoxes) => {
   container.innerHTML = "";
 
   bookBoxes.forEach((books) => {
-    container.innerHTML += 
-   `
+    container.innerHTML +=
+      `
     <div class="book-boxes">
       <img src="${books.image}">
       <h3>${books.title}</h3>
@@ -250,13 +250,13 @@ const sortBooksZtoA = () => {
 }
 
 const sortedBooksOld = () => {
-  const sortedBooksYear = [...books].sort((a, b) => a.year - b.year)
-  displayBooks(sortedBooksYear)
+  const sortedBooks = [...books].sort((a, b) => a.year - b.year)
+  displayBooks(sortedBooks)
 }
 
 const sortBooksNew = () => {
-  const sortedBooksYear = [...books].sort((a, b) => b.year - a.year)
-  displayBooks(sortedBooksYear)
+  const sortedBooks = [...books].sort((a, b) => b.year - a.year)
+  displayBooks(sortedBooks)
 }
 
 const mostPopularBook = () => {
@@ -265,12 +265,35 @@ const mostPopularBook = () => {
 }
 
 
+const randomBook = () => {
+  container.innerHTML = ""
+
+  books[Math.floor(Math.random() * books.length)]
+  const bookRandom = books[Math.floor(Math.random()*books.length)];
+
+  container.innerHTML += `
+  <div class="book-boxes">
+    <img src="${books.image}">
+    <h3>${books.title}</h3>
+    <p>${books.author}</p>
+    <p>${books.year}</p>
+    <p>${books.genre}</p>
+    <p>⭐️ ${books.rating}</p>
+    <p>${books.description}</p>
+  </div>
+  `
+}
+
+
+
 
 sortBooksAZ.addEventListener("click", sortBooksAtoZ)
 sortBooksZA.addEventListener("click", sortBooksZtoA)
 sortBooksNewest.addEventListener("click", sortBooksNew)
 sortBookOldest.addEventListener("click", sortedBooksOld)
 sortBooksPopular.addEventListener("click", mostPopularBook)
+randomButton.addEventListener("click", randomBook)
+// filterBooks.addEventListener("change", filterBooks)
 
 
 // const bookGenre = books.filter(function(bookGenres) {
@@ -281,12 +304,11 @@ sortBooksPopular.addEventListener("click", mostPopularBook)
 
 displayBooks(books);
 
-// test 
+
 // Random button
 
 
-random.addEventListener("click", getRandomValue)
 
-filterDropdown.addEventListener("change", filterBooks)
-// Load the initial list of dogs when the page loads.
-displayBooks(books)
+
+
+
