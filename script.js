@@ -67,7 +67,7 @@ const BOOKS = [
     rating: 4.7,
     description:
       'The first book in the beloved Harry Potter series, it introduces readers to the magical world of Hogwarts and the young wizard Harry Potter.',
-    image: "./books-images/harry-potter-and-the-sorcerer'.jpg"
+    image: "./books-images/the-hobbit.jpg"
   },
   {
     title: 'Moby-Dick',
@@ -199,13 +199,13 @@ const loadBooks = (bookArray) =>{
 
   bookArray.forEach((book)=> {
     container.innerHTML += `
-       <div class="card">
-        <img src=${book.image} alt="">
-        <div>
-          <h2>${book.title} - ${book.rating}</h2>
-          <h3>by ${book.author}, ${book.year}, genre ${book.genre}</h3>
-          <p>${book.description}</p>
-        </div>
+      <div class="card">
+      <img src=${book.image} alt="">
+      <div>
+        <h2>${book.title} - ${book.rating}</h2>
+        <h3>by ${book.author}, ${book.year}, genre ${book.genre}</h3>
+        <p>${book.description}</p>
+      </div>
       </div>
     `
   });
@@ -223,6 +223,7 @@ const sortBooksByFantasy = () => {
   const fantasyBooks = BOOKS.filter(book => book.genre === 'Fantasy')
   loadBooks(fantasyBooks)
 }
+
 //Fiction
 const sortBooksByFiction = () => {
   const fictionBooks = BOOKS.filter(book => book.genre === 'Fiction')
@@ -245,11 +246,21 @@ const sortBooksByHorror = () => {
 const sortBooksByMystery = () => {
   const misteryBooks = BOOKS.filter(book => book.genre === 'Mystery')
   loadBooks(misteryBooks)
+}  
+
+//Sort by AZ
+const sortBooksAtoZ = () =>{
+  const booksAtoZ = [...BOOKS].sort((a, b) => a.title.localeCompare(b.title))
+  loadBooks(booksAtoZ)
 }
 
+//Sort by ZA
+const sortBooksZtoA = () =>{
+  const booksZtoA = [...BOOKS].sort((a, b) => a.title.localeCompare(a.title)) 
+  loadBooks(booksZtoA)
+}
 
 loadBooks(BOOKS)
-
 // Event Listeners go here:
 sortByRate.addEventListener("click", sortBooksByRate)
 sortByFantasy.addEventListener("click", sortBooksByFantasy)
@@ -257,3 +268,5 @@ sortByFiction.addEventListener("click", sortBooksByFiction)
 sortByDystopia.addEventListener("click", sortBooksByDystopia)
 sortByHorror.addEventListener("click", sortBooksByHorror)
 sortByMystery.addEventListener("click", sortBooksByMystery)
+sortAtoZ.addEventListener("click", sortBooksAtoZ)
+sortZtoA.addEventListener("click", sortBooksZtoA)
