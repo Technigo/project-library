@@ -3,36 +3,36 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Cultivation guide</title>
     <link rel="stylesheet" type="text/css" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
   </head>
   <body>
     <header class="header" id="header">
-      <img src="">
-      <h1 class="h1">Welcome to our cultivation guide!</h1>
+      <div class="text-background">
+        <h1 class="h1">Welcome to our cultivation guide!</h1>
+      </div>
+      <div class="btn-container">
+        <button class="sort-btn" id="sort-by-name">Sort by name</button>
+        <button class="sort-btn" id="sort-by-scientific-name">Sort by scientific name</button>
+      </div>
     </header>
-
     <section class="navbar" id="navbar">
-      <button class="btn" id="btnAllName">Show all</button>
-      <button class="btn" id="btnPickRandom">Pick randomly!</button>
-      <div class="dropdown"  id="dropDownMenu">
-        <button class="dropbtn" id="dropBtn">Show...</button>
+      <button class="btn" id="btn-show-all">Show all</button>
+      <button class="btn" id="btn-pick-random">Pick randomly!</button>
+      <div class="dropdown">
+        <button class="dropbtn">Select category</button>
         <div class="dropdown-content">
-          <a href="#" id="typeCategory">Vegetables</a>
-          <a href="#" id="typeCategory">Herbs</a>
-          <a href="#" id="typeCategory">Fruits and berries</a>
+          <a id="select-vegetables">Vegetables</a>
+          <a id="select-herbs">Herbs</a>
+          <a id="select-fruits">Fruits and berries</a>
         </div>
       </div>
-      <div class="dropdown" id="dropDownSortMenu">
-        <button class="dropbtn" id="dropBtnTwo">Sort by...</button>
+      <div class="dropdown">
+        <button class="dropbtn">Select time to sow</button>
         <div class="dropdown-content">
-          <a href="#" id="latinName">Latin name</a> 
-          <a href="#" id="timeToSow">Time to sow</a>
-          <a href="#" id="developmentTime">Development time</a>
-          <a href="#" id="waterDemand">Water demand</a>
-          <!-- <a href="#" id="nutritionalNeeds">Nutritional needs</a> -->
-          <!-- <a href="#" id="lifeLength">Life length</a> -->
+          <a id="select-spring">Spring</a> 
+          <a id="select-autumn">Autumn</a>
         </div>
       </div>
     </section>

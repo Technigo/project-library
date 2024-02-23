@@ -1,21 +1,16 @@
-//DOM selectors
+//DOM selectors:
 const cardContainer = document.getElementById("card-container")
-const navbar = document.getElementById("navbar")
-const btnToShowAll = document.getElementById("btnAllName")
-const btnPickRandom = document.getElementById("btnPickRandom")
-const dropDownMenu = document.getElementById("dropDownMenu")
-const dropBtn = document.getElementById("dropBtn")
-const dropDownSortMenu = document.getElementById("dropDownSortMenu")
-const dropBtnTwo = document.getElementById("dropBtnTwo")
-const typeCategory = document.getElementById("typeCategory")
-const latinName = document.getElementById("latinName")
-const timeToSow = document.getElementById("timeToSow")
-const developmentTime = document.getElementById("developmentTime")
-const waterDemand = document.getElementById("waterDemand")
-const nutritionalNeeds = document.getElementById("nutritionalNeeds")
-const lifeLength = document.getElementById("lifeLength")
+const btnSortName = document.getElementById("sort-by-name")
+const btnSortScientificName = document.getElementById("sort-by-scientific-name")
+const btnShowAll = document.getElementById("btn-show-all")
+const btnPickRandom = document.getElementById("btn-pick-random")
+const selectVegetables = document.getElementById("select-vegetables")
+const selectHerbs = document.getElementById("select-herbs")
+const selectFruits = document.getElementById("select-fruits")
+const selectSpring = document.getElementById("select-spring")
+const selectAutumn = document.getElementById("select-autumn")
 
-//Variables for the different plant-categorys
+//Variables for the different plant-categorys:
 let plantName = ""
 let plantCategory = ""
 let plantScientificName = ""
@@ -26,12 +21,14 @@ let plantWaterDemand = ""
 let plantNutritionalNeeds = ""
 let plantPerennial = ""
 let plantImageLink = ""
-//Other variables
+//Other variables:
 let randomObject = ""
+const onlyPlantNamesUnsorted = []
+const onlyPlantNamesToSort = []
 const onlyScientificNamesUnsorted = []
 const onlyScientificNamesToSort = []
 
-//The array with our plants in objects
+//The array with our plants in objects:
 const plants = [
   {
     name: "Carrot",
@@ -177,24 +174,25 @@ const plants = [
     perennial: true,
     img: "./assets/blackberries.jpg",
   },
-];
+]
 
+//Functions:
 //Shows a card containing the inputted plant
 const showACard = (onePlant) => {
-  plantName = plants[plants.indexOf(onePlant)]["name"];
-  plantCategory = plants[plants.indexOf(onePlant)]["category"];
-  plantScientificName = plants[plants.indexOf(onePlant)]["scientificName"];
-  plantTimeToSow = plants[plants.indexOf(onePlant)]["timeToSow"];
+  plantName = plants[plants.indexOf(onePlant)]["name"]
+  plantCategory = plants[plants.indexOf(onePlant)]["category"]
+  plantScientificName = plants[plants.indexOf(onePlant)]["scientificName"]
+  plantTimeToSow = plants[plants.indexOf(onePlant)]["timeToSow"]
   if (onePlant.directSowing === true){
     plantDirectSowing = "Yes"
   } else {
     plantDirectSowing = "No"
   }
-  plantDevelopmentTime = plants[plants.indexOf(onePlant)]["developmentTime"];
-  plantWaterDemand = plants[plants.indexOf(onePlant)]["waterDemand"];
-  plantNutritionalNeeds = plants[plants.indexOf(onePlant)]["nutritionalNeeds"];
-  plantPerennial = plants[plants.indexOf(onePlant)]["perennial"];
-  plantImageLink = plants[plants.indexOf(onePlant)]["img"];
+  plantDevelopmentTime = plants[plants.indexOf(onePlant)]["developmentTime"]
+  plantWaterDemand = plants[plants.indexOf(onePlant)]["waterDemand"]
+  plantNutritionalNeeds = plants[plants.indexOf(onePlant)]["nutritionalNeeds"]
+  plantPerennial = plants[plants.indexOf(onePlant)]["perennial"]
+  plantImageLink = plants[plants.indexOf(onePlant)]["img"]
   if (onePlant.perennial === true){
     plantPerennial = "Yes"
   } else {
@@ -224,7 +222,8 @@ const pickRandom = () => {
   randomObject = Math.floor(Math.random() * 12)
   showACard(plants[randomObject])
 }
-//Shows only the vegetable cards
+//Functions to filter the plants in different ways
+//Shows only a vegetable card
 const showMeVegetables = (onePlant) => {
   plantCategory = onePlant.category
   if (plantCategory === "vegetables") {
@@ -232,8 +231,12 @@ const showMeVegetables = (onePlant) => {
   } else {
   }
 }
-//plants.forEach(showMeVegetables)
-//Shows only the herb cards
+//Shows all the vegetables
+const showAllVegetables = () => {
+  cardContainer.innerHTML = ""
+  plants.forEach(showMeVegetables)
+}
+//Shows only an herb card
 const showMeHerbs = (onePlant) => {
   plantCategory = onePlant.category
   if (plantCategory === "herbs") {
@@ -241,8 +244,12 @@ const showMeHerbs = (onePlant) => {
   } else {
   }
 }
-//plants.forEach(showMeHerbs)
-//Shows only the fruit/berries cards
+//Shows all the herbs
+const showAllHerbs = () => {
+  cardContainer.innerHTML = ""
+  plants.forEach(showMeHerbs)
+}
+//Shows only a fruit/berry card
 const showMeFruitsAndBerries = (onePlant) => {
   plantCategory = onePlant.category
   if (plantCategory === "fruits/berries") {
@@ -250,9 +257,12 @@ const showMeFruitsAndBerries = (onePlant) => {
   } else {
   }
 }
-//plants.forEach(showMeFruitsAndBerries)
-
-//Shows only the spring cards
+//Shows all the fruits and berries
+const showAllFruits = () => {
+  cardContainer.innerHTML = ""
+  plants.forEach(showMeFruitsAndBerries)
+}
+//Shows only a spring card
 const showMeSpring = (onePlant) => {
   plantTimeToSow = onePlant.timeToSow
   if (plantTimeToSow === "spring") {
@@ -260,8 +270,12 @@ const showMeSpring = (onePlant) => {
   } else {
   }
 }
-//plants.forEach(showMeSpring)
-//Shows only the autumn cards
+//Shows all the spring cards
+const showAllSpring = () => {
+  cardContainer.innerHTML = ""
+  plants.forEach(showMeSpring)
+}
+//Shows only an autumn card
 const showMeAutumn = (onePlant) => {
   plantTimeToSow = onePlant.timeToSow
   if (plantTimeToSow === "autumn") {
@@ -269,46 +283,75 @@ const showMeAutumn = (onePlant) => {
   } else {
   }
 }
-//plants.forEach(showMeAutumn)
-
+//Shows all the autumn cards
+const showAllAutumn = () => {
+  cardContainer.innerHTML = ""
+  plants.forEach(showMeAutumn)
+}
+//Functions to sort the plants alphabetically
+//Functions to sort by English name
+//Writes the plant names in an array
+const writeThePlantNames = () => {
+  plants.forEach((onePlant) => {
+    onlyPlantNamesUnsorted.push(onePlant.name)
+  })
+}
+//Make a new array with the plant names sorted
+const sortThePlantNames = () => {
+  onlyPlantNamesUnsorted.forEach((name) => {
+    onlyPlantNamesToSort.push(name)
+  })
+  onlyPlantNamesToSort.sort()
+  //Use both arrays to show the cards in the correct order
+  onlyPlantNamesToSort.forEach((name) => {
+    showACard(plants[onlyPlantNamesUnsorted.indexOf(name)])
+  })
+}
+//Sort and show the cards by plant name
+const sortCardsByPlantName = () => {
+  onlyPlantNamesUnsorted.length = 0
+  onlyPlantNamesToSort.length = 0
+  cardContainer.innerHTML = ""
+  writeThePlantNames()
+  sortThePlantNames()
+}
+//Functions to sort by scientific name
 //Writes the scientific names in an array
 const writeTheScientificNames = () => {
   plants.forEach((onePlant) => {
-    onlyScientificNamesUnsorted.push(onePlant.scientificName);
-  });
-};
+    onlyScientificNamesUnsorted.push(onePlant.scientificName)
+  })
+}
 //Make a new array with the scientific names sorted
 const sortTheScientificNames = () => {
   onlyScientificNamesUnsorted.forEach((name) => {
-    onlyScientificNamesToSort.push(name);
-  });
-  onlyScientificNamesToSort.sort();
+    onlyScientificNamesToSort.push(name)
+  })
+  onlyScientificNamesToSort.sort()
+  //Use both arrays to show the cards in the correct order
   onlyScientificNamesToSort.forEach((name) => {
-    showACard(plants[onlyScientificNamesUnsorted.indexOf(name)]);
-  });
-};
-const sortByScientificName = () => {
+    showACard(plants[onlyScientificNamesUnsorted.indexOf(name)])
+  })
+}
+//Sort and show the cards by scientific name
+const sortCardsByScientificName = () => {
+  onlyScientificNamesUnsorted.length = 0
+  onlyScientificNamesToSort.length = 0
+  cardContainer.innerHTML = ""
   writeTheScientificNames()
   sortTheScientificNames()
 }
 
-/*
-const sortByDevelopmentTime = () => {
-//sort by days of devtime
-//numbersArray.map 
-}
-
-const sortByWaterDemand = () => {
-//
-}
-
-const sortByNutritionalNeeds = () => {
-}*/
-
-//sort by perennial
-
-
-showAll()
 //Eventlisteners:
-btnToShowAll.addEventListener("click", showAll)
+btnShowAll.addEventListener("click", showAll)
 btnPickRandom.addEventListener("click", pickRandom)
+btnSortName.addEventListener("click", sortCardsByPlantName)
+btnSortScientificName.addEventListener ("click", sortCardsByScientificName)
+selectVegetables.addEventListener("click", showAllVegetables)
+selectHerbs.addEventListener("click", showAllHerbs)
+selectFruits.addEventListener("click", showAllFruits)
+selectSpring.addEventListener("click", showAllSpring)
+selectAutumn.addEventListener("click", showAllAutumn)
+
+//Start by showing all the plants sorted alphabetically
+sortCardsByPlantName()

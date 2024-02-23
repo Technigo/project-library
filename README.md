@@ -1,31 +1,15 @@
 # project-library
+Our library is about plants you can show in your garden.
+We'll have a function to filter our vegetables by type or when it's time to sow.
+There is also a button to sort the plants alphabetically by its name in English or its scientific name.
 
-Hej Erika & Katarina! 
-Jag har gjort lite i CSS, lagt till några knappar en dropdown-meny. 
-Vi får styla det sen så det blir snyggt! 
-Jag valde att ge kanpparna class och id. Jag gav också alla 
-respektive element i dropdown-menyn varsitt id för att kunna plocka upp dom i JavaScript-filen med DOM-selectors.git 
+## The problem
 
+If you had more time, what would be next?
 
-Our library will be about growing vegetables.
-We'll have a function to filter our vegetables by type/sort.
-We'll sort the vegetables after developing time in days, what grows fastest vs slowest.
-Spring vegetables, autumn vegetables.
+We started by adding all the plants that we wanted and then made a function to show them. Next we continued with functions to filter and sort them in different ways. Lastly we connected the functions with the buttons by adding event listeners.
 
-Categories/groups:
+The hardest part was to make the functions. We tried to work with pair programming, but it was hard when neither of us understood what to do. So we all googled and tried out the different methods that we found. In the end barely any of them worked, so we had to work our way around the problem, by using the knowledge we had instead. Because of time constraints we had to divide the work between us and do different parts.
 
-Parsley
-Chive
-Rosemary
-Basil
-
-Carrot
-Zucchini
-Onion 
-Garlic
-
-Apple
-Strawberry
-Raspberry
-Blackberry
+## View it live
 

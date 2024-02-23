@@ -1,83 +1,179 @@
 body {
-    background-color: rgb(73, 143, 73);
+  background-color: #498f49;
+}
+
+.header {
+  background: url(assets/cultivation-header3.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  height: 200px;
+  display: grid;
+  grid-template-columns: 9fr 1fr;
+  grid-template-rows: 3fr 2fr 4fr;
+}
+
+.text-background {
+  grid-row-start: 2;
+  grid-column: span 2;
+  background-color: rgba(138, 138, 138, 0.5);
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.h1 {
+  font-family: "Shadows Into Light";
+  text-transform: uppercase;
+  color: #dad7cd;
+  font-size: 40px;
+  text-align: center;
+}
+
+.btn-container {
+  grid-row: 3;
+  grid-column: 2;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+
+.sort-btn {
+  background: #a3b18a;
+  color: black;
+  padding: 15px;
+  margin: 25px 10px;
+  font-size: 6px;
+  border: 1px solid #344e41;
+  border-radius: 15px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+}
+
+.navbar {
+  border-top: 2px solid #344e41;
+  border-bottom: 2px solid #344e41;
+  margin: 10px 0;
+  padding: 15px;
+  display: grid;
+  grid-template-columns: 2fr 2fr;
 }
 
 .btn {
-  background-color: #63d578;
+  background: #498f49;
   color: black;
   padding: 10px;
   font-size: 16px;
+  text-transform: uppercase;
   border: none;
+}
+
+
+.btn:hover,
+.sort-btn:hover {
+  background: #82e285;
 }
 
 /* Dropdown Button */
 .dropbtn {
-    background-color: #63d578;
-    color: black;
-    padding: 10px;
-    font-size: 16px;
-    border: none;
-  }
-  
-  /* The container <div> - needed to position the dropdown content */
-  .dropdown {
-    position: relative;
-    display: inline-block;
-  }
-  
-  /* Dropdown Content (Hidden by Default) */
-  .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #63d578;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-  }
-  
-  /* Links inside the dropdown */
-  .dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-  }
-  
-  /* Change color of dropdown links on hover */
-  .dropdown-content a:hover {background-color: #ddd;}
-  
-  /* Show the dropdown menu on hover */
-  .dropdown:hover .dropdown-content {display: block;}
-  
-  /* Change the background color of the dropdown button when the dropdown content is shown */
-  .dropdown:hover .dropbtn {background-color: #82e285;}
+  background-color: #498f49;
+  color: black;
+  padding: 10px;
+  font-size: 16px;
+  text-transform: uppercase;
+  border: none;
+}
 
-  .card-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 15px;
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #63d578;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+  background-color: #82e285;
+}
+
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 10px;
+}
+
+.card {
+  border: 2px solid #344e41;
+  border-radius: 10px;
+  padding: 15px;
+  text-align: center;
+  background: #a3b18a;
+}
+
+.card h2 {
+  text-transform: uppercase;
+}
+
+.card p {
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+img {
+  height: 200px;
+  width: 80%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+@media (min-width: 668px) {
+  .text-background {
+    height: 60px;
   }
 
-  .card {
-    border: 2px solid #344e41;
-    border-radius: 10px;
-    padding: 15px;
-    text-align: center;
-    background: #a3b18a;
+  .h1 {
+  font-size: 50px;
   }
 
-  .card h2 {
-    text-transform: uppercase;
+  .sort-btn {
+  padding: 20px;
+  margin: 25px 10px;
+  font-size: 12px;
+  border-radius: 15px;
+  height: 24px;
+}
+  
+  .navbar {
+    grid-template-columns: repeat(4, 1fr);
   }
-
-  .card p {
-    font-weight: 600;
-    text-transform: capitalize;
-  }
-
-  img {
-    height: 200px;
-    width: 80%;
-    object-fit: cover;
-    border-radius: 10px;
-  }
+}
