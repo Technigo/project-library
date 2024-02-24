@@ -185,16 +185,16 @@
   grid-auto-rows: auto;
   gap: 20px;
 }
-.section__recipes-container #section__recipes .recipy-wrapper {
+.section__recipes-container #section__recipes .recipe-wrapper {
   background: #f0f0f0;
   padding: 0.5em;
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
 }
-.section__recipes-container #section__recipes .recipy-wrapper img {
+.section__recipes-container #section__recipes .recipe-wrapper img {
   height: 200px;
   object-fit: cover;
 }
-.section__recipes-container #section__recipes .recipy-wrapper h3 {
+.section__recipes-container #section__recipes .recipe-wrapper h3 {
   margin: 10px 0;
   font-size: 1.2rem;
 }
