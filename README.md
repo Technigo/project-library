@@ -12,4 +12,4 @@ We started by adding all the plants that we wanted and then made a function to s
 The hardest part was to make the functions. We tried to work with pair programming, but it was hard when neither of us understood what to do. So we all googled and tried out the different methods that we found. In the end barely any of them worked, so we had to work our way around the problem, by using the knowledge we had instead. Because of time constraints we had to divide the work between us and do different parts.
 
 ## View it live
-
+https://moonlit-jelly-c24410.netlify.app/
