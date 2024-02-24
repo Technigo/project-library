@@ -270,30 +270,30 @@ genre.innerHTML +=`
   </div>
 `
 // use a event.target.value instead of creating each filter.
+let filterSelectedBooks=[];
 const filterBook=()=>{
   document.getElementById("genreChoice").addEventListener("click",(event)=>{
-    
-    console.log("books", books)
     const filteredBooks = event.target.value
     if (filteredBooks==="all"){
       document.getElementById("all").addEventListener("click",()=>{
-        const allBooks = books
-        printBooks(allBooks)  
+        filterSelectedBooks = books
+        printBooks(filterSelectedBooks)  
       })
     } else {
-      const filteredButtonBooks = books.filter((book)=>book.genre===filteredBooks)
-      printBooks(filteredButtonBooks) 
+      filteredSelectedBooks = books.filter((book)=>book.genre===filteredBooks)
+      printBooks(filteredSelectedBooks) 
     }
   })
     
   // Filter with "more" selector
   document.getElementById("more").addEventListener("change",(event)=>{
     const genreFilter = event.target.value;
-    const filterSelectedBooks = books.filter((book)=>book.genre===genreFilter);
+    filterSelectedBooks = books.filter((book)=>book.genre===genreFilter);
     printBooks(filterSelectedBooks); 
-  })
+  }) 
 }
 filterBook();
+
 
 /* too many codes here. nonono if more filters need to be added. 
   document.getElementById("all").addEventListener("click",()=>{
@@ -329,7 +329,6 @@ const searchBooks=()=>{
   document.getElementById("searchButton").addEventListener("click",(event)=>{
     const userBookInput = userInput.value.toUpperCase();
     const searchResult =books.filter((book)=>Object.values(book).join("").toUpperCase().includes(userBookInput));
-    console.log(searchResult);
     printBooks(searchResult);
   })
 }
@@ -347,9 +346,11 @@ sort.innerHTML +=`
 `
 const sortByRating =()=>{
   let isDescending = false;
+  
   // Defnine a new array for sorting purpose so books order is not touched. Good explaination here.https://dev.to/samanthaming/how-to-deep-clone-an-array-in-javascript-3cig OR use toSorted() since toSorted will not affect the original array.
   const ratingBooks = [...books];
   document.getElementById("rating").addEventListener("click",()=>{
+    console.log(filterSelectedBooks);
     isDescending = !isDescending;
     if(isDescending){
       ratingBooks.sort((a,b)=>(b.rating-a.rating))
@@ -358,7 +359,6 @@ const sortByRating =()=>{
       ratingBooks.sort((a,b)=>(a.rating-b.rating))
       printBooks(ratingBooks)  
     }
-    console.log("12",books);
   })
 }
 sortByRating();
@@ -377,8 +377,6 @@ const sortByYear=()=>{
   }) 
 }
 sortByYear();
-
-
 
 const sortByTitle=()=>{
   let isAscending = false;
