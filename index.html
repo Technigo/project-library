@@ -9,31 +9,35 @@
 </head>
 <body>
 
-  <div class="hero">
+  <header>
     <div class="hero.text">
       <h1>Welcome to Our Library</h1>
-      <p>Explore - Learn -  Grow</p>
+      <h5>Explore - Learn -  Grow</h5>
     </div>
-  </div>
+    <div class="sortButtons">
+      <!-- <p>alphabetical sorting</p> -->
+        <div>
+          <button id="az">A-Z</button>
+          <button id="za">Z-A</button>
+        </div>
+      <!-- <p>Most readed</p> -->
+        <div>
+          <button id="btnRate">Rate</button>
+        </div>
+      <!-- <p>Sort Genre</p> -->
+        <select id="genreDropdown">
+          <option value="all">All genres</option>
+          <option value="Fantasy">Fantasy</option>
+          <option value="Fiction">Fiction</option>
+          <option value="Mystery">Mystery</option>
+          <option value="Horror">Horror</option>
+          <option value="Science Fiction">Science fiction</option>
+          <option value="Adventure">Adventure</option>
+          <option value="Dystopian">Dystopian</option>
+        </select>        
+    </div> 
+  </header>
 
-  <div class="sortButtons">
-    <!-- <p>lphabetical sorting</p> -->
-      <button id="az">A-Z</button>
-      <button id="za">Z-A</button>
-    <!-- <p>Sort Genre</p> -->
-      <button id="btnFantasy">Fantasy</button>
-      <button id="btnFiction">Fiction</button>
-      <button id="btnDystopia">Dystopia</button>
-      <button id="btnHorror">Horror</button>
-      <button id="btnMystery">Mystery</button>
-    <!-- <p>Most readed</p> -->
-      <button id="btnRate">Rate</button>
-  </div> 
-  
-  <!-- <div class="search-bar">
-    <input type="text" placeholder="Search...">
-    <button class="button">Search</button>
-  </div> -->
   <main class="main">
     <div id="container">
       <!-- here is where our books go -->
@@ -41,12 +45,12 @@
   </main>
   
   </footer>
-      <h3>
-        Technigo Planet Team - 2024
-      </h3>
+    <div class="footer-content">
+      <p>© 2024 Arnau Vidal, Lorenzo Dastoli</p>
+      <img src="books-images/logo.svg" alt="Technigo" class="logo">
+    </div>
   </footer>
   
   <script src="script.js"></script>
 </body>
-
 </html>

@@ -185,12 +185,7 @@ const container = document.getElementById("container")
 const sortAtoZ = document.getElementById("az")
 const sortZtoA = document.getElementById("za")
 const sortByRate = document.getElementById("btnRate")
-      /* genere buttons*/
-const sortByFantasy = document.getElementById("btnFantasy")
-const sortByFiction = document.getElementById("btnFiction")
-const sortByDystopia = document.getElementById("btnDystopia")
-const sortByHorror = document.getElementById("btnHorror")
-const sortByMystery = document.getElementById("btnMystery")
+const sortByGenre = document.getElementById("genreDropdown")
 
 // loadBooks function, this will clear any previous object inside the html container
 // and then it will show up the new html elements depending on their sorting function. 
@@ -200,12 +195,12 @@ const loadBooks = (bookArray) =>{
   bookArray.forEach((book)=> {
     container.innerHTML += `
       <div class="card">
-      <img src=${book.image} alt="">
-      <div>
-        <h2>${book.title} - ${book.rating}</h2>
-        <h3>by ${book.author}, ${book.year}, genre ${book.genre}</h3>
-        <p>${book.description}</p>
-      </div>
+        <img id="bookImage" src=${book.image} alt="">
+        <div>
+          <h2 >${book.title} - ${book.rating}</h2>
+          <h3 >by ${book.author}, ${book.year}, genre ${book.genre}</h3>
+          <p>${book.description}</p>
+        </div>
       </div>
     `
   });
@@ -217,36 +212,16 @@ const sortBooksByRate = () => {
   loadBooks(ratedBooks)  
 }
 
-// GENRE SORTING
-//Fantacy
-const sortBooksByFantasy = () => {
-  const fantasyBooks = BOOKS.filter(book => book.genre === 'Fantasy')
-  loadBooks(fantasyBooks)
+//Sort books by genre
+const sortBooksByGenre = () => {
+  const value = sortByGenre.value
+  if (value === "all"){
+    loadBooks(BOOKS)
+  } else {
+    const filteredList = BOOKS.filter((book) => book.genre === value)
+    loadBooks(filteredList)
+  }
 }
-
-//Fiction
-const sortBooksByFiction = () => {
-  const fictionBooks = BOOKS.filter(book => book.genre === 'Fiction')
-  loadBooks(fictionBooks)
-}
-
-//Dystopian
-const sortBooksByDystopia = () => {
-  const dystopiaBooks = BOOKS.filter(book => book.genre === 'Dystopian')
-  loadBooks(dystopiaBooks)
-}
-
-//Horror
-const sortBooksByHorror = () => {
-  const horrorBooks = BOOKS.filter(book => book.genre === 'Horror')
-  loadBooks(horrorBooks)
-}
-
-//Mystery
-const sortBooksByMystery = () => {
-  const misteryBooks = BOOKS.filter(book => book.genre === 'Mystery')
-  loadBooks(misteryBooks)
-}  
 
 //Sort by AZ
 const sortBooksAtoZ = () =>{
@@ -260,13 +235,11 @@ const sortBooksZtoA = () =>{
   loadBooks(booksZtoA)
 }
 
+//Load books when start page
 loadBooks(BOOKS)
+
 // Event Listeners go here:
 sortByRate.addEventListener("click", sortBooksByRate)
-sortByFantasy.addEventListener("click", sortBooksByFantasy)
-sortByFiction.addEventListener("click", sortBooksByFiction)
-sortByDystopia.addEventListener("click", sortBooksByDystopia)
-sortByHorror.addEventListener("click", sortBooksByHorror)
-sortByMystery.addEventListener("click", sortBooksByMystery)
+sortByGenre.addEventListener("change", sortBooksByGenre)
 sortAtoZ.addEventListener("click", sortBooksAtoZ)
 sortZtoA.addEventListener("click", sortBooksZtoA)
