@@ -87,3 +87,15 @@ body {
     flex-wrap: wrap;
     margin-top: 10px;
   }
+
+
+  @media screen and (max-width: 466px) {
+
+    .box {
+        padding: 0;
+       }
+      
+       h1 {
+        font-size:40px;
+       }
+      }
