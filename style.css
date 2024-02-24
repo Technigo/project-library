@@ -86,6 +86,10 @@ button:hover {
   color: #128057 ;
 }
 
+header:hover{
+  cursor: pointer;
+}
+
 @media only screen and (max-width:500px) {
   .gallery-wrapper {
     display: flex;

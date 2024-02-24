@@ -1,7 +1,3 @@
-/*Here we have created two different arrays that you can work with if you want.
-If you choose to create your own arrays with elements, just make sure that some
-of the properties make sense to filter on, and some to sort on.*/
-
 const books = [
   {
     title: 'The Great Gatsby',
@@ -201,13 +197,11 @@ const randomDiv = document.getElementById('random-book-div')
 const randomButton=document.getElementById('random-button')
 
 //creat element
-// const bookSection = document.createElement('div')
 const galleryWrapperDiv = document.createElement('div')
 
 //genre type by filter for fiction
 const genreFiction = () => {
-  let filteredFiction = []
-  filteredFiction = books.filter((book)=>book.genre === 'Fiction')
+  const filteredFiction = books.filter((book)=>book.genre === 'Fiction')
 displayBooks(filteredFiction)
 }
 fictionButton.addEventListener('click',genreFiction)
@@ -255,7 +249,7 @@ const genreDystopian = () =>{
 }
 dystopianButton.addEventListener('click',genreDystopian)
 
-//sort: from newest to oldest and vice versa. By if...else statement?
+//sort: from newest to oldest and vice versa
 const fromOldest = () => {
   const ascendingSort = books.sort((a,b)=>a.year - b.year)
   displayBooks(ascendingSort)
@@ -268,7 +262,7 @@ const fromNewest = () =>{
 }
 descendingButton.addEventListener('click',fromNewest)
 
-//sort: from the highest to lowest rating and vice versa
+//sort: from the highest to lowest rating
 const bookRate = () => {
   const highestRate = books.sort ((a,b) => b.rating - a.rating)
   displayBooks(highestRate)
@@ -307,18 +301,18 @@ const displayBooks = (arrays) => {
       </details>
     </div>
     `
-
   document.body.appendChild(galleryWrapperDiv)
-  // bookSection.appendChild(galleryWrapperDiv)
   galleryWrapperDiv.appendChild(singleCard)
 })
 }
 displayBooks(books)
 
+//reload 
+const restartPage = () => {
+  location.reload()
+}
 //setTimeOut --
-
-
-
+//back to top button
 
 
 
