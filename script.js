@@ -47,7 +47,7 @@ const BOOKS = [
     rating: 4,
     description:
       'Narrated by the teenage Holden Caulfield, the novel explores themes of alienation and the search for authenticity.',
-    image: './books-images/unknown.jpg'
+    image: './books-images/the-chatcher-in-the-rye.jpg'
   },
   {
     title: 'The Hobbit',
@@ -67,7 +67,7 @@ const BOOKS = [
     rating: 4.7,
     description:
       'The first book in the beloved Harry Potter series, it introduces readers to the magical world of Hogwarts and the young wizard Harry Potter.',
-    image: "./books-images/the-hobbit.jpg"
+    image: "./books-images/harry-potter.jpg"
   },
   {
     title: 'Moby-Dick',
@@ -97,7 +97,7 @@ const BOOKS = [
     rating: 4.3,
     description:
       "A psychological horror novel that tells the story of the Torrance family's terrifying experiences at the haunted Overlook Hotel.",
-    image: './books-images/unknown.jpg'
+    image: './books-images/the-shining.jpg'
   },
   {
     title: 'The Chronicles of Narnia: The Lion, the Witch and the Wardrobe',
@@ -117,7 +117,7 @@ const BOOKS = [
     rating: 3.8,
     description:
       'A gripping mystery thriller that follows Harvard symbologist Robert Langdon as he unravels the secrets of the Da Vinci Code.',
-    image: './books-images/unknown.jpg'
+    image: './books-images/the-davinci-code.jpg'
   },
   {
     title: 'The Alchemist',
@@ -127,7 +127,7 @@ const BOOKS = [
     rating: 4.25,
     description:
       'A philosophical novel that tells the story of Santiago, a shepherd boy, on his quest to discover his personal legend.',
-    image: './books-images/unknown.jpg'
+    image: './books-images/the-alchemist.jpg'
   },
   {
     title: 'The Hunger Games',
@@ -137,7 +137,7 @@ const BOOKS = [
     rating: 4.3,
     description:
       "In a dystopian future, Katniss Everdeen becomes a symbol of rebellion when she volunteers to take her sister's place in the brutal Hunger Games.",
-    image: './books-images/unknown.jpg'
+    image: './books-images/the-hunger-games.jpg'
   },
   {
     title: 'The Girl with the Dragon Tattoo',
@@ -147,7 +147,7 @@ const BOOKS = [
     rating: 4.1,
     description:
       'A gripping mystery novel featuring investigative journalist Mikael Blomkvist and the enigmatic hacker Lisbeth Salander.',
-    image: './books-images/unknown.jpg'
+    image: './books-images/the-girl-with-the-dragon-tatto.jpg'
   },
   {
     title: 'The Road',
@@ -157,7 +157,7 @@ const BOOKS = [
     rating: 4,
     description:
       "Set in a post-apocalyptic world, it follows a father and son's harrowing journey to survive and find safety.",
-    image: './books-images/unknown.jpg'
+    image: './books-images/the-road.jpg'
   },
   {
     title: "The Hitchhiker's Guide to the Galaxy",
@@ -167,7 +167,7 @@ const BOOKS = [
     rating: 4.35,
     description:
       "A comedic science fiction series that follows the misadventures of Arthur Dent after Earth's destruction.",
-    image: './books-images/unknown.jpg'
+    image: './books-images/the-hitchnikers-guide-to-the-galaxy.jpg'
   },
   {
     title: 'The Giver',
@@ -177,7 +177,7 @@ const BOOKS = [
     rating: 4.12,
     description:
       'A dystopian novel set in a seemingly perfect society where young Jonas discovers the dark truth beneath the surface.',
-    image: './books-images/unknown.jpg'
+    image: './books-images/the-giver.jpg'
   }
 ]
 //DOM SELECTORS
@@ -186,6 +186,7 @@ const sortAtoZ = document.getElementById("az")
 const sortZtoA = document.getElementById("za")
 const sortByRate = document.getElementById("btnRate")
 const sortByGenre = document.getElementById("genreDropdown")
+const header = document.querySelector("header")
 
 // loadBooks function, this will clear any previous object inside the html container
 // and then it will show up the new html elements depending on their sorting function. 
@@ -196,9 +197,10 @@ const loadBooks = (bookArray) =>{
     container.innerHTML += `
       <div class="card">
         <img id="bookImage" src=${book.image} alt="">
+        <h2 id=rate >${book.rating}</h2>
         <div>
-          <h2 >${book.title} - ${book.rating}</h2>
-          <h3 >by ${book.author}, ${book.year}, genre ${book.genre}</h3>
+          <h2 >${book.title}</h2>
+          <h3 >by ${book.author}, ${book.year}, ${book.genre}</h3>
           <p>${book.description}</p>
         </div>
       </div>
@@ -215,10 +217,40 @@ const sortBooksByRate = () => {
 //Sort books by genre
 const sortBooksByGenre = () => {
   const value = sortByGenre.value
+  let backgroundImageUrl = "";
+
   if (value === "all"){
     loadBooks(BOOKS)
   } else {
     const filteredList = BOOKS.filter((book) => book.genre === value)
+
+  switch (value) {
+    case "Fantasy":
+      backgroundImageUrl = "url('./books-images/fantasy.jpg')";
+      break;
+    case "Fiction":
+      backgroundImageUrl = "url('./books-images/fiction.jpg')";
+      break;     
+    case "Science Fiction":
+      backgroundImageUrl = "url('./books-images/science-fiction.jpg')";
+      break;       
+    case "Dystopian":
+      backgroundImageUrl = "url('./books-images/dystopian.jpg')";
+      break;      
+    case "Mystery":
+      backgroundImageUrl = "url('./books-images/mystery.jpg')";
+      break;      
+    case "Horror":
+      backgroundImageUrl = "url('./books-images/horror.jpg')";
+      break;      
+    case "Adventure":
+      backgroundImageUrl = "url('./books-images/adventure.jpeg')";
+      break;      
+    default:
+      backgroundImageUrl = "url('./books-images/pexels-abby-chung-1106468.jpg')";
+      break;
+    } 
+    header.style.backgroundImage = (`linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), ${backgroundImageUrl}`);
     loadBooks(filteredList)
   }
 }

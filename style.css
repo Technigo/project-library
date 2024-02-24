@@ -1,5 +1,5 @@
 :root{
-  --f1:  #dbd8e3; 
+  --f1:  #b1abc3; 
   --f2:  #5c5470; 
   --f3:  #352f44; 
   --f4:  #2a2438; 
@@ -13,6 +13,7 @@ body {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
+  height: 100%;
 }
 
 header {
@@ -22,31 +23,28 @@ header {
   align-items: center;
   align-items: center;
   width: 100%;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(books-images/pexels-abby-chung-1106468.jpg); 
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('./books-images/pexels-abby-chung-1106468.jpg'); 
   background-size: cover;
   background-position: center;
   height: 300px; 
   color: #fff;
   text-align: center;
   margin-bottom: 10px;
+  transition: background-image 1s ease; /* Define transition for background image */
 }
 
 .sortButtons {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  width: 100%;
-}
-
-main, .main{
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
   align-items: center;
+  width: 100%;
+  height: 40px;
+  padding: 5px 30px;
 }
 
-button, select {
-  font-size: 0.775em;
+button, select, #btnRate{
+  font-size: 0.875em;
   margin: 10px;
   padding: 10px 25px;
   background-color:rgb(255, 255, 255); 
@@ -54,15 +52,47 @@ button, select {
   border: none;
   border-radius: 20px;
   cursor: pointer;
+  height: 100%;
 }
+
+#az {
+  border-radius: 20px 0 0 20px ;
+  padding: 10px;
+  margin-right: 0;
+}
+
+#za{
+ border-radius: 0 20px 20px 0;
+ padding: 10px;
+ margin-left: 5px;
+}
+
+#az-za {
+  display: flex;
+  justify-content: center;
+}
+
+main, .main{
+  display: flex;
+  flex: 1;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+}
+
 
 .card{
   display: flex;
   flex-direction: row;
-  border-bottom: 1px solid rgb(215, 213, 213);
-  max-width: 700px;
+  border-bottom: 2px solid rgb(215, 213, 213);
+  max-width: 500px;
   max-height: 600px;
   padding: 5px;
+  position: relative;
+}
+
+h2, h3, p{
+  margin:5px 0;
 }
 
 .card img{
@@ -73,7 +103,21 @@ button, select {
   box-shadow: 3px 3px 5px #AAA;
 }
 
+#rate{
+  position: absolute;
+  margin: 10px;
+  font-size: 0.875em;
+  padding: 10px 10px;
+  color: #fff;
+  border-radius: 25px;
+  background-color: var(--f1);
+}
+
 footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
   padding: 10px;
   text-align: center;
 }
@@ -120,21 +164,27 @@ footer {
     cursor: pointer;
   }
 
+  h1{
+    padding: 30px
+  }
+
 }
 /* -----------------------------------TABLET SCREENS 671px to 1024xp 2 colums-------------------------- */
 @media (min-width:671px) and (max-width:1024px) {
 
-  .sortButtons {
+
+.sortButtons {
     width: 80%;
   }
 }
 
 /* -----------------------------------PC SCREENS >1024px 4 columns ------------------------------------- */
 @media (min-width: 1024px){
-  main, .main{
+ #container{
     display: grid;
     gap: 30px;
-    width: 80%;
-    grid-template-columns: 1fr 1fr;    
+    max-width: 80%;
+    grid-template-columns: 1fr 1fr 1fr; 
+    grid-template-rows: auto 1fr auto   
   }  
 }
