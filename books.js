@@ -196,8 +196,6 @@ const horror = document.querySelector("#horror");
 const mystery = document.querySelector("#mystery");
 const dystopian = document.querySelector("#dystopian");
 
-let filteredBooks = [];
-
 const highestRating = document.querySelector("#highest-rating");
 const newestPublished = document.querySelector("#newest-published");
 const author = document.querySelector("#author");
@@ -250,8 +248,7 @@ const bookCards = (bookArray) => {
   });
 };
 
-//Have all the books displayed when the page is loaded
-bookCards(books);
+bookCards(books); //Have all the books displayed when the page is loaded
 
 const toggleGenreSelected = (Btn) => {
   genreBtns.forEach((genreBtn) => {
@@ -261,10 +258,11 @@ const toggleGenreSelected = (Btn) => {
 };
 
 const toggleSortSelected = (Btn) => {
+  let isSelected = Btn.classList.contains("selected");
   sortBtns.forEach((sortBtn) => {
     sortBtn.classList.remove("selected");
   });
-  Btn.classList.add("selected");
+  !isSelected ? Btn.classList.add("selected") : Btn.classList.add("hover");
 };
 
 const toggleDiscoverSelected = (Btn) => {
@@ -285,15 +283,51 @@ const getRandomBook = () => {
   console.log(randomBook);
 };
 
+let sortedBooks = [];
+let filteredBooks = [];
+let sortingFunction = null; //wait for the user to choose the sorting function
+const applySorting = () => {
+  if (sortingFunction) {
+    sortedBooks =
+      filteredBooks.length === 0
+        ? sortingFunction(books)
+        : sortingFunction(filteredBooks);
+    bookCards(sortedBooks); //if there is sorting applied
+  } else if (!sortingFunction && filteredBooks.length === 0) {
+    bookCards(books); //if the genre is "all"
+  } else {
+    bookCards(filteredBooks); //if there is no sorting applied
+  }
+};
+
+let isSorted = false; //click once to select, click again to deselect
+const checkSorted = (sortFunc) => {
+  if (!isSorted) {
+    sortingFunction = sortFunc;
+    applySorting();
+    isSorted = true;
+  } else {
+    sortingFunction = null;
+    applySorting();
+    isSorted = false;
+  }
+};
+
 const sortByHighRating = (arr) => {
   const arrCopy = arr.slice();
-  const sortedBooks = arrCopy.sort((a, b) => b.rating - a.rating);
+  sortedBooks = arrCopy.sort((a, b) => b.rating - a.rating);
   return sortedBooks;
 };
 
-const sortByAuthor = () => {
-  const booksCopy = books.slice();
-  const sortedBooks = booksCopy.sort((a, b) => {
+const sortByPublish = (arr) => {
+  const arrCopy = arr.slice();
+  sortedBooks = arrCopy.sort((a, b) => b.year - a.year);
+  return sortedBooks;
+};
+
+const sortByAuthor = (arr) => {
+  const arrCopy = arr.slice();
+  sortedBooks = arrCopy.sort((a, b) => {
     if (a.author < b.author) {
       return -1;
     } else if (a.author > b.author) {
@@ -309,7 +343,6 @@ const sortByAuthor = () => {
 //
 //Add event listeners
 //
-
 //
 //----Genre Style
 genreBtns.forEach((genreBtn) => {
@@ -333,15 +366,13 @@ genreBtns.forEach((genreBtn) => {
 //----Genre Filter Function
 all.addEventListener("click", () => {
   filteredBooks = books;
-  console.log(filteredBooks);
-  bookCards(books);
+  applySorting();
 });
 
 genreBtns.slice(1, 7).forEach((genreBtn) => {
   genreBtn.addEventListener("click", (event) => {
     filteredBooks = getGenre(event.target.innerHTML);
-    bookCards(filteredBooks);
-    console.log(filteredBooks);
+    applySorting();
   });
 });
 
@@ -359,24 +390,29 @@ sortBtns.forEach((sortBtn) => {
   });
 
   sortBtn.addEventListener("click", () => {
-    toggleSortSelected(sortBtn);
-    sortBtn.classList.remove("hover");
+    console.log(isSorted);
+    if (!isSorted) {
+      toggleSortSelected(sortBtn);
+      sortBtn.classList.remove("hover");
+    } else {
+      toggleSortSelected(sortBtn);
+    }
   });
 });
 
 //
 //----Sort Functions
+
 highestRating.addEventListener("click", () => {
-  let sortedBooks;
-  filteredBooks.length === 0
-    ? (sortedBooks = sortByHighRating(books))
-    : (sortedBooks = sortByHighRating(filteredBooks));
-  bookCards(sortedBooks);
+  checkSorted(sortByHighRating);
+});
+
+newestPublished.addEventListener("click", () => {
+  checkSorted(sortByPublish);
 });
 
 author.addEventListener("click", () => {
-  const sortedBooks = sortByAuthor();
-  bookCards(sortedBooks);
+  checkSorted(sortByAuthor);
 });
 //
 //----Discover Style
