@@ -201,6 +201,8 @@ let filteredBooks = [];
 const highestRating = document.querySelector("#highest-rating");
 const newestPublished = document.querySelector("#newest-published");
 const author = document.querySelector("#author");
+const titleAZ = document.querySelector("#title-a-z");
+const titleZA = document.querySelector("#title-z-a");
 
 const randomBookBtn = document.querySelector("#randomBook");
 const newArrivalBtn = document.querySelector("#newArrival");
@@ -220,7 +222,7 @@ const genreBtns = [
   dystopian,
 ];
 
-const sortBtns = [highestRating, newestPublished, author];
+const sortBtns = [highestRating, newestPublished, author, titleAZ, titleZA];
 
 const discoverBtns = [randomBookBtn, newArrivalBtn];
 
@@ -365,7 +367,10 @@ sortBtns.forEach((sortBtn) => {
 //
 //----Sort Functions
 highestRating.addEventListener("click", () => {
-  const sortedBooks = sortByHighRating(filteredBooks);
+  let sortedBooks;
+  filteredBooks.length === 0
+    ? (sortedBooks = sortByHighRating(books))
+    : (sortedBooks = sortByHighRating(filteredBooks));
   bookCards(sortedBooks);
 });
 
