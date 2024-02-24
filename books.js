@@ -196,6 +196,8 @@ const horror = document.querySelector("#horror");
 const mystery = document.querySelector("#mystery");
 const dystopian = document.querySelector("#dystopian");
 
+let filteredBooks = [];
+
 const highestRating = document.querySelector("#highest-rating");
 const newestPublished = document.querySelector("#newest-published");
 const author = document.querySelector("#author");
@@ -271,9 +273,7 @@ const toggleDiscoverSelected = (Btn) => {
 };
 
 const getGenre = (genre) => {
-  const result = books.filter((book) => book.genre === genre);
-  console.log(result);
-  return result;
+  return books.filter((book) => book.genre === genre);
 };
 
 const getRandomBook = () => {
@@ -283,14 +283,15 @@ const getRandomBook = () => {
   console.log(randomBook);
 };
 
-const sortByHighRating = () => {
-  const sortedBooks = books.sort((a, b) => b.rating - a.rating);
-  console.log(sortedBooks);
+const sortByHighRating = (arr) => {
+  const arrCopy = arr.slice();
+  const sortedBooks = arrCopy.sort((a, b) => b.rating - a.rating);
   return sortedBooks;
 };
 
 const sortByAuthor = () => {
-  const sortedBooks = books.sort((a, b) => {
+  const booksCopy = books.slice();
+  const sortedBooks = booksCopy.sort((a, b) => {
     if (a.author < b.author) {
       return -1;
     } else if (a.author > b.author) {
@@ -329,13 +330,16 @@ genreBtns.forEach((genreBtn) => {
 //
 //----Genre Filter Function
 all.addEventListener("click", () => {
+  filteredBooks = books;
+  console.log(filteredBooks);
   bookCards(books);
 });
 
 genreBtns.slice(1, 7).forEach((genreBtn) => {
   genreBtn.addEventListener("click", (event) => {
-    const filteredBooks = getGenre(event.target.innerHTML);
+    filteredBooks = getGenre(event.target.innerHTML);
     bookCards(filteredBooks);
+    console.log(filteredBooks);
   });
 });
 
@@ -361,7 +365,7 @@ sortBtns.forEach((sortBtn) => {
 //
 //----Sort Functions
 highestRating.addEventListener("click", () => {
-  const sortedBooks = sortByHighRating();
+  const sortedBooks = sortByHighRating(filteredBooks);
   bookCards(sortedBooks);
 });
 
