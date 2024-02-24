@@ -272,6 +272,8 @@ genre.innerHTML +=`
 // use a event.target.value instead of creating each filter.
 const filterBook=()=>{
   document.getElementById("genreChoice").addEventListener("click",(event)=>{
+    
+    console.log("books", books)
     const filteredBooks = event.target.value
     if (filteredBooks==="all"){
       document.getElementById("all").addEventListener("click",()=>{
@@ -345,15 +347,18 @@ sort.innerHTML +=`
 `
 const sortByRating =()=>{
   let isDescending = false;
+  // Defnine a new array for sorting purpose so books order is not touched. Good explaination here.https://dev.to/samanthaming/how-to-deep-clone-an-array-in-javascript-3cig OR use toSorted() since toSorted will not affect the original array.
+  const ratingBooks = [...books];
   document.getElementById("rating").addEventListener("click",()=>{
     isDescending = !isDescending;
     if(isDescending){
-      const ratingBooks = books.sort((a,b)=>(b.rating-a.rating))
+      ratingBooks.sort((a,b)=>(b.rating-a.rating))
       printBooks(ratingBooks) 
     } else {
-      const ratingBooks = books.sort((a,b)=>(a.rating-b.rating))
+      ratingBooks.sort((a,b)=>(a.rating-b.rating))
       printBooks(ratingBooks)  
     }
+    console.log("12",books);
   })
 }
 sortByRating();
@@ -363,25 +368,27 @@ const sortByYear=()=>{
   document.getElementById("year").addEventListener("click",()=>{
     isDescending = !isDescending;
     if(isDescending){
-      const yearBooks = books.sort((a,b)=>(b.year-a.year))
+      const yearBooks = books.toSorted((a,b)=>(b.year-a.year))
       printBooks(yearBooks)
     } else {
-      const yearBooks = books.sort((a,b)=>(a.year-b.year))
+      const yearBooks = books.toSorted((a,b)=>(a.year-b.year))
       printBooks(yearBooks)
     }
   }) 
 }
 sortByYear();
 
+
+
 const sortByTitle=()=>{
   let isAscending = false;
   document.getElementById("title").addEventListener("click",()=>{
     isAscending = !isAscending;
     if(isAscending){
-      const titleBooks = books.sort((a,b)=>a.title.localeCompare(b.title))
+      const titleBooks = books.toSorted((a,b)=>a.title.localeCompare(b.title))
       printBooks(titleBooks)
     } else {
-      const titleBooks = books.sort((a,b)=>b.title.localeCompare(a.title))
+      const titleBooks = books.toSorted((a,b)=>b.title.localeCompare(a.title))
       printBooks(titleBooks)
     }
   }) 
