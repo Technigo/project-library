@@ -149,7 +149,7 @@
   background-size: cover;
   top: 5px;
   position: absolute;
-  right: -50px;
+  right: -30px;
   height: 10px;
   width: 10px;
   z-index: 2222;
@@ -159,7 +159,7 @@
 }
 .section__recipes-container .section__filter .filter-container .filterDropdown {
   position: absolute;
-  display: flex;
+  display: none;
   flex-direction: column;
   background-color: #fff;
   height: 0;
@@ -190,7 +190,7 @@
 }
 .section__recipes-container .section__filter .filter-container .filterDropdown .target-container .checkmark {
   position: absolute;
-  top: 0.7rem;
+  top: 0.8rem;
   left: 2px;
   height: 15px;
   width: 15px;
@@ -212,6 +212,7 @@
 }
 .section__recipes-container .section__filter .filter-container .filterDropdown.active {
   height: auto;
+  display: flex;
 }
 .section__recipes-container .section__filter .filter-container .filterDropdown a {
   color: #000;

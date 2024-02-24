@@ -8,6 +8,24 @@ const handleFilterDropdown = (targetId) => {
   filterDropdown.classList.toggle("active");
 };
 
+const handleClearAndCloseFilters = (filterDropdown) => {
+  const closeButton = document.createElement("button");
+  closeButton.innerHTML = "Close";
+  const clearAllFiltersButton = document.createElement("button");
+  clearAllFiltersButton.innerHTML = "Clear all";
+  filterDropdown.appendChild(closeButton);
+  filterDropdown.appendChild(clearAllFiltersButton);
+
+  closeButton.addEventListener("click", () => {
+    filterDropdown.classList.toggle("active");
+  });
+
+  clearAllFiltersButton.addEventListener("click", () => {
+    filterDropdown.classList.toggle("active");
+    loadRecipes(recipes);
+  });
+};
+
 const updateFilters = (e) => {
   const targetValue = e.target.value;
   const targetId = e.target.name;
@@ -72,7 +90,8 @@ const fetchFilterOptions = (targetId) => {
         <input type="checkbox" id="${targetId}-${index}" name="${targetId}" class="${targetId}" value="${value}"/>
         <span class="checkmark"></span>
         ${value}
-      </label> `
+      </label> 
+      `
       )
       .join("");
   };
@@ -83,6 +102,8 @@ const fetchFilterOptions = (targetId) => {
   const newTargetId = targetId.charAt(0).toUpperCase() + targetId.slice(1);
   const filterDropdown = document.getElementById("filter" + newTargetId);
   filterDropdown.innerHTML = checkboxesHTML;
+
+  handleClearAndCloseFilters(filterDropdown);
 
   // Add event listeners to the checkboxes
   const checkboxes = filterDropdown.querySelectorAll(
@@ -96,10 +117,7 @@ const fetchFilterOptions = (targetId) => {
   });
 };
 
-const filterRecipes = (recipes, e) => {
-  // Get the id from the dropdown
-  const targetId = e.target.id;
-
+const filterRecipes = (recipes, targetId) => {
   // Toggle dropdown
   handleFilterDropdown(targetId);
 
