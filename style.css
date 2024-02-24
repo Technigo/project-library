@@ -3,25 +3,7 @@
   margin: 0;
 }
 
-button {
-  border-radius: 20px;
-  background-color: #e8a16b;
-  border: none;
-  transition-duration: 0.4s;
-  text-align: center;
-  font-size: 14px;
-  padding: 5px;
-}
-
-button:hover {
-  background-color: lightpink;
-  box-shadow: rgba(0, 0, 0, 0.12) 0px 10px 20px, rgba(0, 0, 0, 0.15) 0px 6px 6px;
-}
-
-button p {
-  font-size: 14px;
-  padding: 4px;
-}
+/* General styling for elements*/
 
 body {
   font-family: "Rubik", sans-serif;
@@ -29,11 +11,7 @@ body {
 }
 
 h1 {
-  margin: 0;
   text-align: center;
-  padding: 60px;
-  background-image: url("./recipe-images/header-image.jpg");
-  background-size: cover;
   cursor: pointer;
 }
 
@@ -58,6 +36,43 @@ a:link {
 a:hover {
   text-decoration: none;
   color: #39253b;
+}
+
+button {
+  border-radius: 20px;
+  background-color: #e8a16b;
+  border: none;
+  transition-duration: 0.4s;
+  text-align: center;
+  font-size: 14px;
+  padding: 5px;
+  border: 0.5px solid black;
+}
+
+button:hover {
+  background-color: lightpink;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 10px 20px, rgba(0, 0, 0, 0.15) 0px 6px 6px;
+}
+
+button p {
+  font-size: 14px;
+  padding: 4px;
+}
+
+/* Styling for header and search/input fields */
+
+.header {
+  padding: 60px;
+  background-image: url("./recipe-images/header-image.jpg");
+  background-size: cover;
+}
+
+.forms-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10px;
+  color: #fff;
 }
 
 .search-input,
@@ -85,6 +100,8 @@ a:hover {
   margin-right: 10px;
   font-size: 15px;
 }
+
+/* Styling for the main section and the recipe cards */
 
 .recipe-container {
   display: grid;
@@ -119,17 +136,11 @@ a:hover {
   box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
 }
 
-.forms-header {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 10px;
-  color: #fff;
-}
-
 .recipe-card img {
   border-radius: 20px;
 }
+
+/* Styling for the footer */
 
 .footer {
   display: flex;
@@ -147,6 +158,8 @@ a:hover {
 .footer p {
   display: inline;
 }
+
+/* Media queries */
 
 /* Media query for viewports larger than 767px*/
 @media (min-width: 767px) {

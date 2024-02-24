@@ -1,32 +1,31 @@
 // Get references to HTML elements using their IDs.
-const container = document.getElementById("recipe-container");
-const filterRecipes = document.getElementById("filter-recipes");
-const searchForm = document.getElementById("search-form");
-const searchInput = document.getElementById("search-input");
-const descendingButtonForm = document.getElementById("descending");
-const ascendingButtonForm = document.getElementById("ascending");
-const random = document.getElementById("random");
-const favoriteButton = document.getElementById("fav");
+const container = document.getElementById("recipe-container")
+const filterRecipes = document.getElementById("filter-recipes")
+const searchForm = document.getElementById("search-form")
+const searchInput = document.getElementById("search-input")
+const descendingButtonForm = document.getElementById("descending")
+const ascendingButtonForm = document.getElementById("ascending")
+const random = document.getElementById("random")
+const favoriteButton = document.getElementById("fav")
 
 const recipes = [
   {
     name: "Individual Vegetarian Lasagnes",
     cuisineType: ["italian"],
     ingredients: [
-      `1.2 kg cherry tomatoes`,
-      `5 sprigs of fresh thyme`,
-      `extra virgin olive oil`,
-      `2 shallots`,
-      `2 cloves of garlic`,
-      `500 g baby spinach`,
-      `8-12 fresh or dried lasagne sheets`,
-      `350 g ricotta cheese`,
-      `WHITE SAUCE`,
-      `600 ml milk`,
-      `25 g unsalted butter`,
-      `2 heaped tablespoons flour`,
-      `150 g vegetarian sharp, mature cheese`,
-      `100 g mozzarella`,
+      "1.2 kg cherry tomatoes",
+      "5 sprigs of fresh thyme",
+      "extra virgin olive oil",
+      "2 shallots",
+      "2 cloves of garlic",
+      "500 g baby spinach",
+      "8-12 fresh or dried lasagne sheets",
+      "350 g ricotta cheese",
+      "600 ml milk",
+      "25 g unsalted butter",
+      "2 heaped tablespoons flour",
+      "150 g vegetarian sharp, mature cheese",
+      "100 g mozzarella",
     ],
     source: "Jamie Oliver",
     totalTime: 130,
@@ -34,66 +33,65 @@ const recipes = [
     image: "./recipe-images/individual-vegetarian-lasagnes.jpg",
   },
   {
-    name: "Vegetarian Stir-Fried Garlic Scape",
+    name: "Prawn Fried Rice",
     cuisineType: ["balanced"],
     ingredients: [
-      "8 oz. garlic scapes",
-      "3 oz. baby corn",
-      "3 oz. carrots",
-      "1 oz. dried shiitake mushrooms",
-      "1 clove of garlic sliced thinly",
-      "3 slices of fresh ginger root",
-      "2 tablespoons vegetable oil",
-      "1/4 cup shaoxing cooking wine",
-      "1/4 vegetarian stock or water",
-      "1 tablespoon light soy sauce",
-      "1 teaspoon sugar",
-      "1 teaspoon cornstarch",
-      "1/4 teaspoon ground white pepper",
-    ],
-    source: "Red Cook",
-    totalTime: 100,
-    url: "http://redcook.net/2010/06/16/garlic-scape-an-off-menu-treat/",
-    image: "./recipe-images/vegetarian-stir-fried-garlic-s.jpg",
-  },
-  {
-    name: "Cheat's Cheesy Focaccia",
-    cuisineType: ["italian"],
-    ingredients: [
-      "500g pack bread mix",
-      "2 tbsp olive oil , plus a little extra for drizzling",
-      "25g parmesan (or vegetarian alternative), grated",
-      "75g dolcelatte cheese (or vegetarian alternative)",
+      "250 grams long-grain brown rice",
+      "150 grams frozen peas",
+      "100 grams mangetout beans",
+      "1.5 tablespoon rapeseed oil",
+      "1 onion",
+      "2 garlic cloves",
+      "thumb-sized piece of ginger",
+      "150 grams raw king prawns",
+      "3 medium eggs",
+      "2 tablespoon sesame seeds",
+      "1 tablespoon soy sauce",
+      "0.5 tablespoon rice or white wine vinegar",
+      "4 spring onions",
     ],
     source: "BBC Good Food",
-    totalTime: 40,
-    url: "https://www.bbcgoodfood.com/recipes/cheats-cheesy-focaccia",
-    image: "./recipe-images/cheat’s-cheesy-focaccia.jpg",
+    totalTime: 45,
+    url: "https://www.bbcgoodfood.com/recipes/prawn-fried-rice",
+    image: "./recipe-images/fried-rice.jpeg",
   },
   {
-    name: "Vegetarian Shepherd's Pie",
-    cuisineType: ["balanced", "high-fiber"],
+    name: "Salpicon",
+    cuisineType: ["mexican"],
     ingredients: [
-      "2 tablespoons extra-virgin olive oil",
-      "1 large onion, finely diced",
-      "2 carrots, peeled and thinly sliced",
-      "2 celery stalks, thinly sliced",
-      "10 ounces cremini mushrooms, trimmed and sliced",
-      "1 tablespoon tomato paste",
-      "1 tablespoon vegetarian Worcestershire sauce, such as Annie's Naturals",
-      "1 dried bay leaf",
-      "1 cup French green lentils, picked over",
-      "Kosher salt and freshly ground pepper",
-      "1 cup frozen peas",
-      "2 pounds Yukon Gold potatoes, scrubbed and cut into 1 1/2-inch pieces",
-      "4 cloves garlic",
-      "4 tablespoons unsalted butter",
-      "1/2 cup whole milk, warmed",
+      "¼ cup olive oil",
+      "1 ¼ pound skirt steak",
+      "4 tomatoes, finely chopped",
+      "½ head iceberg or Romaine lettuce",
+      "4 tablespoon parsley, finely chopped",
+      "⅓ red onion, finely chopped",
+      "4 ozs panela cheese, grated",
+      "salt and pepper to taste",
+      "1 avocado",
     ],
-    source: "Martha Stewart",
-    totalTime: 120,
-    url: "https://www.marthastewart.com/1535235/vegetarian-shepherds-pie",
-    image: "./recipe-images/vegetarian-shepherd's-pie.jpg",
+    source: "Lori Alcalá",
+    totalTime: 130,
+    url: "https://mexicanfoodjournal.com/salpicon/",
+    image: "./recipe-images/salpicon.jpeg",
+    favorite: true,
+  },
+  {
+    name: "Classic French Tomato Mustard Tart",
+    cuisineType: ["french"],
+    ingredients: [
+      "900 grams ripe tomatoes",
+      "2 tsp salt",
+      "1 (370g) ready-rolled puff pastry",
+      "2 tablespoon Dijon Mustard",
+      "200 grams grated cheese (ie. Gruyère or Comté)",
+      "Optional: 2 tablespoons bread crumbs",
+      "2 tablespoon Herbs de Provence",
+      "Salt and freshly ground black pepper",
+    ],
+    source: "Pardon your French",
+    totalTime: 70,
+    url: "https://www.pardonyourfrench.com/classic-french-tomato-mustard-tart/",
+    image: "./recipe-images/tomato-pie.jpg",
   },
   {
     name: "Chicken Paprikash",
@@ -109,7 +107,7 @@ const recipes = [
       "1 cup chicken stock",
       "1/2 teaspoon salt",
       "1/2 cup sour cream",
-      "1 tablespoon flour - all-purpose",
+      "1 tablespoon flour",
     ],
     source: "No Recipes",
     totalTime: 80,
@@ -131,75 +129,91 @@ const recipes = [
     image: "./recipe-images/baked-chicken.jpg",
   },
   {
-    name: "Burnt-Scallion Fish",
+    name: "10 Minute Vegetable Noodle Soup",
     cuisineType: ["asian"],
     ingredients: [
-      "2 bunches scallions",
-      "8 tbsp. butter",
-      "2 8-oz. fish filets",
+      "70 g handful of chestnut mushrooms",
+      "0.5 carrot",
+      "1 shallot",
+      "1-2 cloves garlic",
+      "50g rice noodles",
+      "1 bulb bak choi",
+      "1 spring onion",
+      "0.5 tablespoon rapeseed oil",
+      "1.5 tablespoon soy sauce",
+      "500 ml vegetable stock",
+      "0.5 tablespoon rice vinegar",
     ],
-    source: "Saveur",
-    totalTime: 70,
-    url: "http://www.saveur.com/article/Recipes/Burnt-Scallion-Fish",
-    image: "./recipe-images/fish-dish.jpg",
+    source: "Beat the budget",
+    totalTime: 10,
+    url: "https://beatthebudget.com/recipe/10-minute-vegetable-noodle-soup/#wprm-recipe-container-19872",
+    image: "./recipe-images/noodle-soup.jpeg",
   },
   {
-    name: "Curry-Crusted Fish",
+    name: "Ginger Soy Fish",
     cuisineType: ["asian"],
     ingredients: [
-      "3 slices bread , about 85g/3oz in total",
-      "1 lime",
-      "1.0 tbsp Korma curry paste",
-      "4 thick white fish fillets",
+      "350g halibut fish fillet or other white fish",
+      "1 tablespoon corn starch",
+      "5 cm ginger",
+      "2 tablespoons cooking oil",
+      "1 tablespoon chopped scallions",
+      "2 tablespoons soy sauce",
+      "2 tablespoons water",
+      "1 tablespoon sugar",
+      "1 teaspoon sesame oil",
+      "3 dashes ground white pepper",
     ],
-    source: "BBC Good Food",
+    source: "Rasa Malaysia",
     totalTime: 80,
-    url: "http://www.bbcgoodfood.com/recipes/4717/",
-    image: "./recipe-images/fish-dish.jpg",
+    url: "https://rasamalaysia.com/ginger-soy-fish/",
+    image: "./recipe-images/ginger-fish.jpeg",
   },
   {
-    name: "Meat Stock",
-    cuisineType: "american",
+    name: "The Best Ever Cheeseburger",
+    cuisineType: ["american"],
     ingredients: [
-      "2.5 pounds beef marrow bones",
-      "1 large onion, quartered",
-      "2 carrots, sliced",
-      "1 leek, cleaned and sliced",
-      "2 celery stalks, sliced",
-      "2.5 pounds organic beef stew meat, cubed",
-      "2 tablespoons tomato paste",
-      "5 cloves garlic",
-      "2 bay leaves",
-      "3 sprigs thyme",
-      "3 sprigs Italian parsley",
-      "1/2 teaspoon black peppercorns",
+      "0.5 cup mayonnaise",
+      "0.25 cup ketchup",
+      "3 tablespoons dill pickle relish",
+      "1 tablespoon Dijon mustard",
+      "2 pounds ground beef",
+      "Kosher salt and freshly ground black pepper",
+      "1 tablespoon canola oil",
+      "6 slices American cheese",
+      "Brioche hamburger buns",
+      "Romaine or shredded lettuce",
+      "Sliced tomato",
+      "Sliced red onion",
     ],
-    source: "Food52",
+    source: "DamnDelicious",
     totalTime: 60,
-    url: "https://food52.com/recipes/3712-meat-stock",
-    image: "./recipe-images/meat.jpg",
+    url: "https://damndelicious.net/2022/08/12/the-best-ever-cheeseburger/",
+    image: "./recipe-images/cheeseburger.jpeg",
   },
   {
-    name: "Homemade Meat Broth",
-    cuisineType: "american",
+    name: "Swedish Meatballs (Homemade IKEA Meatballs)",
+    cuisineType: ["balanced"],
     ingredients: [
-      "1 teaspoon salt",
-      "1 carrot, peeled",
-      "1 medium onion, peeled",
-      "2 or 3 celery stalks",
-      "¼ red or yellow bell pepper, stripped of all its seeds",
-      "1 small boiling potato, peeled",
-      "1 ripe, fresh tomato, or 1 canned Italian plum tomato, drained of juice",
-      "5 pounds assorted pieces of meat and bones (see meat suggestions above), of which no less than 1½ pounds is all meat",
+      "2 slices white sandwich bread",
+      "1 onion , small (brown, white or yellow",
+      "300g / 10 oz ground beef (mince)",
+      "300g / 10 oz ground pork (mince)",
+      "1 egg",
+      "0.25 teaspoon ground nutmeg, preferably freshly grated",
+      "0.25 teaspoon All Spice powder",
+      "0.25 teaspoonblack pepper",
+      "0.75 teaspoon salt",
+      "1 tablespoon oil",
     ],
-    source: "Cookstr",
+    source: "Recipetineats",
     totalTime: 60,
-    url: "http://www.cookstr.com/recipes/il-brodo-homemade-meat-broth",
-    image: "./recipe-images/meat.jpg",
+    url: "https://www.recipetineats.com/swedish-meatballs/",
+    image: "./recipe-images/meatballs.jpeg",
   },
   {
     name: "Spice-Rubbed Grilled Flap Meat (Sirloin Tip)",
-    cuisineType: "south-american",
+    cuisineType: ["argentina"],
     ingredients: [
       "1 tablespoon whole black peppercorns, toasted",
       "1 teaspoon coriander seed, toasted",
@@ -219,16 +233,16 @@ const recipes = [
   },
   {
     name: "Gnocchi Alla Sorrentina",
-    cuisineType: "italian",
+    cuisineType: ["italian"],
     ingredients: [
-      "2 tablespoons extra-virgin olive oil, plus more for coating",
+      "2 tablespoons extra-virgin olive oil",
       "1 clove garlic, lightly crushed and peeled",
       "Generous pinch dried red pepper flakes",
       "4 cups passata or tomato purée",
       "Fine salt",
       "Two sprigs basil",
-      "1 (8-ounce) ball mozzarella, diced",
-      "16 ounces potato gnocchi, homemade or store-bought",
+      "1 ball mozzarella, diced",
+      "16 ounces potato gnocchi, homemade or store-bought",
       "Freshly grated Parmigiano-Reggiano",
     ],
     source: "Domenica Marchetti",
@@ -237,45 +251,24 @@ const recipes = [
     image: "./recipe-images/gnochi.jpeg",
     favorite: true,
   },
-  {
-    name: "Salpicon",
-    cuisineType: "mexican",
-    ingredients: [
-      "¼ cup olive oil",
-      "1 ¼ pound skirt steak",
-      "4 tomatoes, finely chopped",
-      "½ head iceberg or Romaine lettuce",
-      "4 tablespoon parsley, finely chopped",
-      "⅓ red onion, finely chopped",
-      "4 ozs panela cheese, grated",
-      "salt and pepper to taste",
-      "1 avocado",
-    ],
-    source: "Lori Alcalá",
-    totalTime: 130,
-    url: "https://mexicanfoodjournal.com/salpicon/",
-    image: "./recipe-images/salpicon.jpeg",
-    favorite: true,
-  },
-];
-
-//Function to show favorites
-const showFavorites = () => {
-  const favRecipes = recipes.filter((recipe) => recipe.favorite === true);
-  showRecipes(favRecipes);
-};
+]
 
 //Function to show the recipes
 const showRecipes = (recipesToShow) => {
-  container.innerHTML = "";
+  container.innerHTML = ""
 
   recipesToShow.forEach((recipe) => {
+    // Capitalize the first letter of cuisineType
+    const capitalizedCuisineType =
+      recipe.cuisineType[0].charAt(0).toUpperCase() +
+      recipe.cuisineType[0].slice(1)
+
     container.innerHTML += `
     <div class="recipe-card">
       <img src="${recipe.image}"/>
       <div class="recipe-text">
         <h3>${recipe.name}</h3>
-        <p><b>Cuisine:</b> ${recipe.cuisineType}</p>
+        <p><b>Cuisine:</b> ${capitalizedCuisineType}</p>
         <p><b>Cooking time:</b> ${recipe.totalTime} minutes</p>
         <p><b>Ingredients:</b></p>
         <ul>
@@ -289,19 +282,19 @@ const showRecipes = (recipesToShow) => {
         </p>
       </div>
     </div>
-    `;
-  });
-};
+    `
+  })
+}
 
 //Initial rendering of all recipes
-showRecipes(recipes);
+showRecipes(recipes)
 
 //Function random
 const getRandomValue = () => {
-  container.innerHTML = "";
+  container.innerHTML = ""
 
-  recipes[Math.floor(Math.random() * recipes.length)];
-  const recipe = recipes[Math.floor(Math.random() * recipes.length)];
+  recipes[Math.floor(Math.random() * recipes.length)]
+  const recipe = recipes[Math.floor(Math.random() * recipes.length)]
   container.innerHTML += `
   <div class="recipe-card">
     <img src="${recipe.image}"/>
@@ -320,20 +313,26 @@ const getRandomValue = () => {
       }" target="_blank">Link to cooking method</a>
       </div>
   </div>
-  `;
-};
+  `
+}
+
+//Function to show favorites
+const showFavorites = () => {
+  const favRecipes = recipes.filter((recipe) => recipe.favorite === true)
+  showRecipes(favRecipes)
+}
 
 //Function to sorting descending
 const filteredRecipesByDescending = () => {
-  recipes.sort((a, b) => a.totalTime - b.totalTime);
-  showRecipes(recipes);
-};
+  recipes.sort((a, b) => a.totalTime - b.totalTime)
+  showRecipes(recipes)
+}
 
 //Function to sorting ascending
 const filteredRecipesByAscending = () => {
-  recipes.sort((a, b) => b.totalTime - a.totalTime);
-  showRecipes(recipes);
-};
+  recipes.sort((a, b) => b.totalTime - a.totalTime)
+  showRecipes(recipes)
+}
 
 //Function to filter on search input based on name or ingredient
 const filterRecipesBySearchInput = (searchInputValue) => {
@@ -343,58 +342,58 @@ const filterRecipesBySearchInput = (searchInputValue) => {
       recipe.ingredients.some((ingredient) =>
         ingredient.toLowerCase().includes(searchInputValue.toLowerCase())
       )
-  );
-  showRecipes(filteredRecipes);
-};
+  )
+  showRecipes(filteredRecipes)
+}
 
 //Function to filter on cuisineType
 const filterRecipesByCuisine = (cuisineType) => {
   const filteredRecipes = recipes.filter((recipe) =>
     recipe.cuisineType.includes(cuisineType)
-  );
-  //Call the addRecipes funciton with the filtered recipes
-  showRecipes(filteredRecipes);
-};
+  )
+  //Call the showRecipes funciton with the filtered recipes
+  showRecipes(filteredRecipes)
+}
 
 //Event listeners for the filter dropdown
 filterRecipes.addEventListener("change", (event) => {
-  const selectedCuisine = event.target.value;
+  const selectedCuisine = event.target.value
 
   // if selected value = all -> then show all recipes otherwise filter by cuisine type
   if (selectedCuisine === "all") {
-    showRecipes(recipes);
+    showRecipes(recipes)
   } else {
-    filterRecipesByCuisine(selectedCuisine);
+    filterRecipesByCuisine(selectedCuisine)
   }
-});
+})
 
 //Event listener for favorites
 favoriteButton.addEventListener("click", (event) => {
-  event.preventDefault();
-  showFavorites();
-});
+  event.preventDefault()
+  showFavorites()
+})
 
 //Event listener for random
 random.addEventListener("click", (event) => {
-  event.preventDefault();
-  getRandomValue();
-});
+  event.preventDefault()
+  getRandomValue()
+})
 
 //Event listener for searchform
 searchForm.addEventListener("submit", (event) => {
-  event.preventDefault();
+  event.preventDefault()
 
-  filterRecipesBySearchInput(searchInput.value);
-});
+  filterRecipesBySearchInput(searchInput.value)
+})
 
 //Event listener for sort on descending
 descendingButtonForm.addEventListener("click", (event) => {
-  event.preventDefault();
-  filteredRecipesByDescending();
-});
+  event.preventDefault()
+  filteredRecipesByDescending()
+})
 
 //Event listener for sorting on ascending
 ascendingButtonForm.addEventListener("click", (event) => {
-  event.preventDefault();
-  filteredRecipesByAscending();
-});
+  event.preventDefault()
+  filteredRecipesByAscending()
+})

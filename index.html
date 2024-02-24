@@ -14,18 +14,21 @@
     <title>Recipe Library</title>
   </head>
   <body>
+    <div class="header">
     <h1 onclick="location.reload()">Project Recipe Library</h1>
+    </div>
     <div class="forms-header">
       <form class="kitchen-form" id="kitchen-form">
         <p class="form-text">Filter on kitchen</p>
         <select class="filter-recipes" id="filter-recipes">
           <option value="all">All</option>
           <option value="italian">Italy</option>
+          <option value="french">France</option>
           <option value="american">USA</option>
-          <option value="south-american">South American</option>
-          <option value="asian">Asian</option>
+          <option value="argentina">Argentina</option>
+          <option value="asian">Asia</option>
+          <option value="mexican">Mexico</option>
           <option value="balanced">Balanced</option>
-          <option value="high-fiber">High-fiber</option>
           <option value="low-carb">Low-Carb</option>
         </select>
       </form>
@@ -39,7 +42,7 @@
         <button class="send-btn" type="submit"><p>Search</p></button>
       </form>
       <form class="favorite-form" id="favorite-form">
-        <p class="form-text">Our favorties recipes</p>
+        <p class="form-text">Our favorite recipes</p>
         <button id="fav"><p>⭐️</p></button>
 
     </div>
