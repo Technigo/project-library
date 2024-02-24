@@ -181,10 +181,11 @@ const books = [
   },
 ];
 
-//
-//
-//DOM selectors
-//
+/*
+
+DOM selectors
+
+*/
 const bookDisplay = document.querySelector(".book-display");
 
 const all = document.querySelector("#all");
@@ -205,10 +206,11 @@ const titleZA = document.querySelector("#title-z-a");
 const randomBookBtn = document.querySelector("#randomBook");
 const newArrivalBtn = document.querySelector("#newArrival");
 
-//
-//
-//Button Arrays
-//
+/*
+
+Button Arrays
+
+*/
 const genreBtns = [
   all,
   fiction,
@@ -224,10 +226,13 @@ const sortBtns = [highestRating, newestPublished, author, titleAZ, titleZA];
 
 const discoverBtns = [randomBookBtn, newArrivalBtn];
 
-//
-//
-//Functions
-//
+/*
+
+
+Functions
+
+
+*/
 const bookCards = (bookArray) => {
   bookDisplay.innerHTML = "";
 
@@ -270,17 +275,13 @@ const toggleDiscoverSelected = (Btn) => {
     discoverBtn.classList.remove("selected");
   });
   Btn.classList.add("selected");
+  setTimeout(() => {
+    Btn.classList.remove("selected");
+  }, 300);
 };
 
 const getGenre = (genre) => {
   return books.filter((book) => book.genre === genre);
-};
-
-const getRandomBook = () => {
-  let i = Math.floor(Math.random() * books.length);
-  const randomBook = [books[i]];
-  bookCards(randomBook);
-  console.log(randomBook);
 };
 
 let sortedBooks = [];
@@ -339,12 +340,29 @@ const sortByAuthor = (arr) => {
   console.log(sortedBooks);
   return sortedBooks;
 };
-//
-//
-//Add event listeners
-//
+
+const getRandomBook = () => {
+  let i;
+  let previousNum = -1;
+  do {
+    i = Math.floor(Math.random() * books.length);
+  } while (i === previousNum);
+  previousNum = i;
+  const randomBook = [books[i]];
+  bookCards(randomBook);
+  console.log(i);
+};
+
+/*
+
+
+Add event listeners
+
+
+*/
 //
 //----Genre Style
+
 genreBtns.forEach((genreBtn) => {
   genreBtn.addEventListener("mouseover", () => {
     if (!genreBtn.classList.contains("selected")) {
@@ -364,6 +382,7 @@ genreBtns.forEach((genreBtn) => {
 
 //
 //----Genre Filter Function
+
 all.addEventListener("click", () => {
   filteredBooks = books;
   applySorting();
@@ -378,6 +397,7 @@ genreBtns.slice(1, 7).forEach((genreBtn) => {
 
 //
 //----Sort Style
+
 sortBtns.forEach((sortBtn) => {
   sortBtn.addEventListener("mouseover", () => {
     if (!sortBtn.classList.contains("selected")) {
@@ -414,8 +434,10 @@ newestPublished.addEventListener("click", () => {
 author.addEventListener("click", () => {
   checkSorted(sortByAuthor);
 });
+
 //
 //----Discover Style
+
 discoverBtns.forEach((discoverBtn) => {
   discoverBtn.addEventListener("mouseover", () => {
     if (!discoverBtn.classList.contains("selected")) {
@@ -432,6 +454,8 @@ discoverBtns.forEach((discoverBtn) => {
     toggleDiscoverSelected(discoverBtn);
   });
 });
+
 //
 //----Discover Functions
+
 randomBookBtn.addEventListener("click", getRandomBook);
