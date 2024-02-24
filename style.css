@@ -11,39 +11,78 @@ body {
     font-style: normal;
 }
 
-h1 {
-    text-transform: uppercase;
-    font-size: 32px;
-    margin-bottom: 8px;
-    text-align: center;
-}
-
-p {
-    font-size: 20px;
-    margin: 5px 10px;
-    color: black;
-}
-
-#filterDropdown{
-    margin-bottom: 14px;
-}
-
-header {
+.header {
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
     background: black;
     display: flex;
     justify-content: center;
     width: 100%;
+    padding: 2rem 9%;
 }
 
-.header-container {
+.navbar {
+    color: #c33d53;
+    font-size: 20px;
+    box-shadow:2px 2px 4px 2px rgb(47, 44, 44);
+    padding: 10px;
     display: flex;
+    flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-between;
+    align-content: center;
     align-items: center;
-    width: 90%;
-    max-width: 1200px;
+    justify-content:space-around;
+    margin: 0 auto;
+    width: auto;
+    margin-bottom: 20px;
 }
 
+.navbar a {
+    color: #d77989;
+    text-decoration: none;
+}
+.navbar a:hover {
+    color: white;
+}
+
+h1 {
+    text-transform: capitalize;
+    letter-spacing: 1px;
+    font-size: 40px;
+    margin-bottom: 8px;
+    text-align: center;
+    color: #d77989;
+}
+
+.filter-options {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-bottom: 20px;
+}
+
+#filterDropdown,
+.time-prep {
+    padding: 8px;
+    font-size: 13px;
+    
+    background-color: #c33d53;
+    color: white;
+    border-radius: 4px;
+}
+
+#random {
+    padding: 8px 13px;
+    background-color: #c33d53;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 10px;
+}
 
 #card-container {
     display: flex;
@@ -56,14 +95,15 @@ header {
     min-height: 450px;
     width: 300px;
     flex-grow: 1;
-    vertical-align: top;
     background: #d77989;
+    color: black;
     border-radius: 16px;
     border: 2px solid #c33d53;
-    margin: 10ppx;
-    padding-top: 10px;
+    margin: 10px;
+    padding: 20px;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
 }
 
 .card button {
@@ -76,25 +116,33 @@ header {
 }
 
 .card img {
-    margin: 22px;
-    display: block;
+    margin: 22px 0; 
     height: 200px;
-    width: 250px;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 4px 8 px rgba(0, 0, 0, 0.1);
+    align-self: center;
 }
 
 .card h3 {
-    color: black;
+    margin: 0;
+    text-transform: capitalize;
+    letter-spacing: 1px;
+    font-size: 22px;
 }
 
 .card p {
     font-size: 22px;
-    color: black;
+    margin: 0;
 }
 
-.ingredients {
-color: black;
+.card ingredients {
+margin: 10px;
 }
+
 footer {
     background: black;
     display: flex;
+    padding: 20px;
 }

@@ -226,7 +226,7 @@ const recipes = [
 ]
 
 
-const favoriteRecipes = []
+const readMoreRecipes = []
 
 const cardContainer =document.getElementById("card-container")
 const filterOptions = document.getElementById("filter-dropdown")
@@ -238,13 +238,15 @@ const randomButton =document.getElementById("")
 
   function generateIngredientsList(ingredients) {
     let ingredientsHTML = '';
-    ingredients.forEach(ingredient => {
-        ingredientsHTML += `<li>${ingredient}</li>`;
-    });
-return `<ul>${ingredientsHTML}</ul>`
+    const maxIngredientsToShow = 5;
+
+    for (let i = 0; i < Math.min(ingredients.legth, maxIngredientsToShow) ; i++) {
+      ingredientsHTML += `<li>${ingredient}</li>`;
+    } 
+    return `<ul>${ingredientsHTML}</ul>`
   }
   
-  //functiom to loas and display recipes
+  //functiom to load and display recipes
 
  const loadRecipes = (recipeArray) => {
   cardContainer.innerHTML = ""
@@ -254,18 +256,17 @@ return `<ul>${ingredientsHTML}</ul>`
 
     cardContainer.innerHTML += `
     <div class="card">
-     <h3>${recipe.name}</h3>
+    <h3>${recipe.name}</h3>
       <p>By ${recipe.source}</p>
       <img src="${recipe.image}" alt="${recipe.name}">
-    <div class="ingredients">
-      <h3>Ingredients:</h3>
-      <ul>${ingredientsListHTML}</ul>
-    </div>
-    <button onclick="addToFavourites('${recipe.name}')">Add to favourites</button>
+      <p><span>Time: </span>${recipe.totalTime}</p>
+      <p class="ingredients">Ingredients: </p>
+      ${ingredientsListHTML}
+      <button onclick=" window.location.href='${recipe.url}'">View Recipe</button>
   </div>
-    `
-  })
- }
+    `;
+    });
+  };
 
  const filterRecipes = () => {
 const value = filterDropdown.value
@@ -274,7 +275,6 @@ if (value === "all") {
   loadRecipes(recipes)
 } else {
   const filteredList =recipes.filterDropdown((recipe) => recipe.ingredients === value)
-
   loadRecipes(filteredList)
 }
  }
@@ -282,3 +282,4 @@ if (value === "all") {
 filterDropdown.addEventListener("change", filterRecipes)
 
 loadRecipes(recipes)
+
