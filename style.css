@@ -302,9 +302,11 @@ button:focus {
     justify-content: space-between;
   }
 
-  .genre, .sort, .surprise {
-    width: 100%; 
-    margin-bottom: 8px; 
+  .genre,
+  .sort,
+  .surprise {
+    width: 100%;
+    margin-bottom: 8px;
   }
 }
 
@@ -312,95 +314,80 @@ button:focus {
 @media only screen and (max-width: 1024px) {
   .library {
     grid-template-columns: repeat(2, 1fr);
+    margin-top: 135px;
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
   }
-  
+
   h1 {
     font-size: 40px;
   }
 
   .filters {
-    flex-direction: row;
-    flex-wrap: wrap; /* Allow items to wrap to the next line if necessary */
-    justify-content: space-between; /* Space items evenly along the main axis */
-  }
-
-  .filters {
     flex-direction: column;
-    align-items: stretch;
-  }
-
-  .genre, .sort, .surprise {
-    width: calc(48% - 10px); /* Adjust width to accommodate two items side by side */
-    margin-bottom: 8px; /* Add some spacing between items */
-  }
-
-/* For mobile: 1 column */
-@media only screen and (max-width: 600px) {
-  .logo {
-    width: 60px;
-    height: 60px;
-    margin-right: 5px;
-  }
-}
-
-/* For mobile: Adjust search bar */
-@media only screen and (max-width: 600px) {
-  .library {
-    grid-template-columns: repeat(1, 1fr);
-  }
-
-  h1 {
-    font-size: 36px;
-  }
-
-  .userSearch {
-    margin-left: auto;
-    margin-right: 10px; /* Adjust margin for spacing */
-  }
-
-  #userInput {
-    width: 150px; /* Adjust search input width */
-    font-size: 14px; /* Adjust font size for better readability */
-  }
-
-  #searchButton {
-    width: 40px; /* Adjust search button width */
-  }
-  .filters {
-    flex-direction: column; /* Stack items vertically */
-    align-items: center; /* Center items horizontally */
+    align-items: center;
   }
 
   .genre,
   .sort,
   .surprise {
-    width: 100%;
-    margin-bottom: 8px; /* Add some spacing between sections */
+    width: calc(100% - 20px);
+    margin-bottom: 8px;
   }
+}
 
-  .sort {
-    order: -5; /* Move sorting section to the top */
+/* For mobile: 1 column */
+@media only screen and (max-width: 600px) {
+  .library {
+    grid-template-columns: repeat(1, 1fr);
+    margin-top: 250px;
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
   }
-
   .title-container {
     display: flex;
-    flex-direction: column; /* Stack elements vertically */
-    align-items: center; /* Center items horizontally */
+    flex-direction: column;
+    align-items: center;
     margin-top: 30px;
   }
 
   .logo {
-    width: 40px; /* Adjust logo width */
-    height: 40px; /* Adjust logo height */
+    width: 40px;
+    height: 40px;
+    margin-right: 5px;
   }
 
-  .genre, .sort, .surprise, .userSearch {
-    width: calc(100% - 20px); /* Make sections full width with some margin */
-    margin-bottom: 8px; /* Add spacing between sections */
+  h1 {
+    margin-bottom: 10px;
   }
 
   .userSearch {
-    order: 1; /* Move search bar below other elements */
-    margin-top: 10px; /* Add margin for spacing */
+    margin-top: 10px; 
+    margin-left: auto;
+    order: 1; 
+    width: calc(100% - 20px); 
+    max-width: 300px;
+  }
+
+  .filters {
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+    margin-bottom: 30px;
+  }
+
+  .genre,
+  .sort,
+  .surprise {
+    width: calc(100% - 20px);
+    margin-top: 30px;
+  }
+
+  #more,
+  #more1 {
+    margin-top: 10px;
+    margin-left: 5px;
   }
 }
