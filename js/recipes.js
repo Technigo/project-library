@@ -242,3 +242,5 @@ const recipes = [
     image: "./assets/recipe-images/avocado-mousse.jpg",
   },
 ];
+
+export { recipes };
