@@ -246,7 +246,7 @@ const search = event => {
 
 // Get random book from array
 const getRandomBook = () => {
-  const randomIndex = Math.floor(Math.random() * (books.length - 1));
+  const randomIndex = Math.floor(Math.random() * books.length);
   return books[randomIndex];
 };
 
