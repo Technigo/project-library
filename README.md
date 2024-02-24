@@ -34,7 +34,9 @@ The goal of this project was to create a digital recipe library capable of loadi
 
 ## Problems
 
-    It was a challenge implementing dynamic filtering for cuisine types and authors, involving tasks such as managing checkbox events, updating the recipy filter array, and applying logic to dynamically filter recipes based on multiple selected checkboxes
+    It was a challenge implementing dynamic filtering for cuisine types and authors, involving tasks such as managing checkbox events, updating the recipy filter array, and applying logic to dynamically filter recipes based on multiple selected checkboxes.
+
+    If I had more time I would store the checked values in the localStorage to save the user selection.
 
 ## View it live
 
