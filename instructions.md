@@ -20,9 +20,9 @@ In order to simplify the execution of this project, we have provided you with tw
 - Your page should have at least one `filter`, e.g. on genre or cuisine type
 - Your page should be able to `sort` on at least one property, e.g.: ✅
   - _for books_:
-    - from newest to oldest and vice versa
-    - from the highest to lowest rating and vice versa
-- Your page should feature a button that selects a random book, and your page should display the selected item
+    - from newest to oldest and vice versa ✅
+    - from the highest to lowest rating and vice versa ✅
+- Your page should feature a button that selects a random book, and your page should display the selected item ✅
 
 ## Stretch Goals
 
@@ -33,9 +33,9 @@ So you’ve completed all the steps above? Great job! Make sure you've committed
 - Go wild with the filtering. Add a filter to:
   - only show the books from the 21st century
 - Go wild with the sorting. Sort on:
-  - Alphabetical order
+  - Alphabetical order ✅
 
 ### Advanced stretch goals
 
 - Create a search bar where the user can search for specific keywords
-- Recreate the same design as the one provided in the example on Figma
+- Recreate the same design as the one provided in the example on Figma ✅
