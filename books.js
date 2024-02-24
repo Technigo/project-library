@@ -202,9 +202,7 @@ const newestPublished = document.querySelector("#newest-published");
 const author = document.querySelector("#author");
 const titleAZ = document.querySelector("#title-a-z");
 const titleZA = document.querySelector("#title-z-a");
-
 const randomBookBtn = document.querySelector("#randomBook");
-const newArrivalBtn = document.querySelector("#newArrival");
 
 /*
 
@@ -222,9 +220,14 @@ const genreBtns = [
   dystopian,
 ];
 
-const sortBtns = [highestRating, newestPublished, author, titleAZ, titleZA];
-
-const discoverBtns = [randomBookBtn, newArrivalBtn];
+const sortBtns = [
+  highestRating,
+  newestPublished,
+  author,
+  titleAZ,
+  titleZA,
+  randomBookBtn,
+];
 
 /*
 
@@ -267,6 +270,7 @@ const toggleSortSelected = (Btn) => {
   sortBtns.forEach((sortBtn) => {
     sortBtn.classList.remove("selected");
   });
+  Btn.classList.remove("hover"); //Btn will change to select style right after click.
   !isSelected ? Btn.classList.add("selected") : Btn.classList.add("hover");
 };
 
@@ -341,6 +345,42 @@ const sortByAuthor = (arr) => {
   return sortedBooks;
 };
 
+const sortByTileAZ = (arr) => {
+  const arrCopy = arr.slice();
+  sortedBooks = arrCopy.sort((a, b) => {
+    const stringA = String(a.title);
+    const stringB = String(b.title);
+
+    if (stringA < stringB) {
+      return -1;
+    } else if (stringA > stringB) {
+      return 1;
+    } else {
+      return 0;
+    }
+  });
+  console.log(sortedBooks);
+  return sortedBooks;
+};
+
+const sortByTileZA = (arr) => {
+  const arrCopy = arr.slice();
+  sortedBooks = arrCopy.sort((a, b) => {
+    const stringA = String(a.title);
+    const stringB = String(b.title);
+
+    if (stringA < stringB) {
+      return 1;
+    } else if (stringA > stringB) {
+      return -1;
+    } else {
+      return 0;
+    }
+  });
+  console.log(sortedBooks);
+  return sortedBooks;
+};
+
 const getRandomBook = () => {
   let i;
   let previousNum = -1;
@@ -388,9 +428,10 @@ all.addEventListener("click", () => {
   applySorting();
 });
 
-genreBtns.slice(1, 7).forEach((genreBtn) => {
+genreBtns.slice(1, 8).forEach((genreBtn) => {
   genreBtn.addEventListener("click", (event) => {
     filteredBooks = getGenre(event.target.innerHTML);
+    console.log(event.target.innerHTML);
     applySorting();
   });
 });
@@ -412,8 +453,8 @@ sortBtns.forEach((sortBtn) => {
   sortBtn.addEventListener("click", () => {
     console.log(isSorted);
     if (!isSorted) {
-      toggleSortSelected(sortBtn);
       sortBtn.classList.remove("hover");
+      toggleSortSelected(sortBtn);
     } else {
       toggleSortSelected(sortBtn);
     }
@@ -435,27 +476,12 @@ author.addEventListener("click", () => {
   checkSorted(sortByAuthor);
 });
 
-//
-//----Discover Style
-
-discoverBtns.forEach((discoverBtn) => {
-  discoverBtn.addEventListener("mouseover", () => {
-    if (!discoverBtn.classList.contains("selected")) {
-      discoverBtn.classList.add("hover");
-    }
-  });
-
-  discoverBtn.addEventListener("mouseout", () => {
-    discoverBtn.classList.remove("hover");
-  });
-
-  discoverBtn.addEventListener("click", () => {
-    discoverBtn.classList.remove("hover");
-    toggleDiscoverSelected(discoverBtn);
-  });
+titleAZ.addEventListener("click", () => {
+  checkSorted(sortByTileAZ);
 });
 
-//
-//----Discover Functions
+titleZA.addEventListener("click", () => {
+  checkSorted(sortByTileZA);
+});
 
 randomBookBtn.addEventListener("click", getRandomBook);
