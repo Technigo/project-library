@@ -68,8 +68,9 @@ const fetchFilterOptions = (targetId) => {
     return targetValues
       .map(
         (value, index) =>
-          `<label>
+          `<label class="target-container">
         <input type="checkbox" id="${targetId}-${index}" name="${targetId}" class="${targetId}" value="${value}"/>
+        <span class="checkmark"></span>
         ${value}
       </label> `
       )
