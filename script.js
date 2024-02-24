@@ -295,13 +295,12 @@ const displayBooks = (arrays) => {
       src="${book.image}" 
       alt="${book.title}" />
     <div class="detail-content">
-      <h2 id="title">${book.title}</h2>
-      <hr>
+      <h3 id="title">${book.title}</h3>
       <p id="author" class= "small-clot"><span>Author:</span> ${book.author}</p>
       <p id="publish-year" class= "small-clot"><span>Year:</span> ${book.year}</p>
       <p id="genre-type" class= "small-clot"><span>Genre:</span> ${book.genre}</p>
       <p id="rate" class= "small-clot"><span>Rating:</span> ${book.rating}</p>
-      <hr>
+      
       <details>
         <summary>Description</summary>
         <p id="description">${book.description}</p>
