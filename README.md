@@ -8,4 +8,4 @@ We had some issues with creating the filters and the sorting but there was just 
 
 # View it live
 
-https://app.netlify.com/sites/sunny-melomakarona-724da2/overview
+https://sunny-melomakarona-724da2.netlify.app/
