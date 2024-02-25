@@ -156,13 +156,16 @@
 .section__filter {
   width: 100%;
   display: flex;
-  justify-content: left;
+  justify-content: space-between;
   padding-bottom: 0.4rem;
   margin: 2rem 0;
   border-bottom: 1px solid #d0d0d0;
   /* ========================
    SECTION: FILTER CUISINE || AUTHOR
    ======================== */
+}
+.section__filter .filter-sort-container {
+  display: flex;
 }
 .section__filter .filter-container {
   position: relative;
@@ -276,6 +279,19 @@
 }
 .section__filter .sort-container .sort-wrapper .sort-buttons button:last-child {
   color: #000;
+}
+
+.search-container {
+  display: flex;
+  align-items: end;
+  position: relative;
+}
+.search-container input {
+  background-color: #f0f0f0;
+  border: none;
+  font-size: 0.9rem;
+  border-radius: 30px;
+  padding: 0.6rem 1.1rem;
 }
 
 * {

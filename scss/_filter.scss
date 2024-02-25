@@ -5,10 +5,14 @@
 .section__filter {
   width: 100%;
   display: flex;
-  justify-content: left;
+  justify-content: space-between;
   padding-bottom: 0.4rem;
   margin: 2rem 0;
   border-bottom: 1px solid #d0d0d0;
+
+  .filter-sort-container {
+    display: flex;
+  }
 
   /* ========================
    SECTION: FILTER CUISINE || AUTHOR
