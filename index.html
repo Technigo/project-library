@@ -22,25 +22,28 @@
 </header>
 
   <div class="filter-options">
+    <p>Ingredients Category</p>
     <select id="filterDropdown">
       <option value="all">All Ingredients</option>
       <option value="whisk-go">Whisk & Go</option>
-      <option value="fast-flavorful">Fast & Flavorful</option>
-      <option value="quick-meals">QuickFix Meals</option>
-      <option value="snap-chef">Snap Chef</option>
+      <option value="leisurely-cook">Leisurely Cook</option>
+      <option value="culinary-adventure">Culinary Adventure</option>
     </select>
+
+    <p>Sort by time</p>
     <select class="time-prep" id="time-prep">
       <option value="default">By Time</option>
-      <option value="over-30">Over 30'</option>
-      <option value="over-60">Over 60'</option>
-      <option value="over-120">Over 120'</option>
+      <option value="Shortest-to-longest">Shortest to Longest</option>
+      <option value="longest-to-shortest">Longest to Shortest</option>
     </select>
-    <!--remember the null time, find out how to sort after that one-->
-  </div>
-  <div>
-    <button id="random">Random</button>
-  </div>
 
+    <p>Pick for me!</p>
+    <div>
+      <button id="random">Random</button>
+    </div>
+  </div>
+ 
+ 
 
  <section class="main">
   <section class="card-container" id="card-container">
@@ -48,10 +51,14 @@
 
 
   <footer>
-      <h2 class="favourite-recipe">My top favourite recipes</h2>
-        <secion id="favourites">
-          <p>To be named....</p>
-        </secion>
+    <div class="footer-container">
+      <div class="contact-info">
+        <h3>Contact Us</h3>
+        <p>Email: food@fusion.com</p>
+        <p>Phone: 123-456-7890</p>
+        <p>123 Main Street, Recipe, Denmark</p>
+      </div>
+          <p>&copy; 2024 Flavor Fus. All rights reserved.</p>
     </footer>
   <script src="script.js"></script>
  </body>

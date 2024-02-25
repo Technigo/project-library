@@ -228,10 +228,11 @@ const recipes = [
 
 const readMoreRecipes = []
 
+// references 
 const cardContainer =document.getElementById("card-container")
-const filterOptions = document.getElementById("filter-dropdown")
+const filterDropdown = document.getElementById("filterDropdown")
 const timePrep = document.getElementById("time-prep")
-const randomButton =document.getElementById("")
+const randomButton =document.getElementById("random")
 
 
   cardContainer.innerHTML = '';
@@ -240,10 +241,10 @@ const randomButton =document.getElementById("")
     let ingredientsHTML = '';
     const maxIngredientsToShow = 5;
 
-    for (let i = 0; i < Math.min(ingredients.legth, maxIngredientsToShow) ; i++) {
-      ingredientsHTML += `<li>${ingredient}</li>`;
+    for (let i = 0; i < Math.min(ingredients.length, maxIngredientsToShow) ; i++) {
+      ingredientsHTML += `<li>${ingredients[i]}</li>`;
     } 
-    return `<ul>${ingredientsHTML}</ul>`
+    return `<ul>${ingredientsHTML}</ul>`;
   }
   
   //functiom to load and display recipes
@@ -268,18 +269,66 @@ const randomButton =document.getElementById("")
     });
   };
 
+//filter recipes based on the nr of ingredients
+
  const filterRecipes = () => {
-const value = filterDropdown.value
+    const value = filterDropdown.value
 
 if (value === "all") {
   loadRecipes(recipes)
 } else {
-  const filteredList =recipes.filterDropdown((recipe) => recipe.ingredients === value)
-  loadRecipes(filteredList)
+  let filteredList;
+
+  //determine the category bassed on the number of ingredients
+  if (value === "whisk-go") {
+    filteredList = recipes.filter(recipe => recipe.ingredients.length <= 5);
+  } else if (value === "leisurely-cook") {
+    filteredList = recipes.filter(recipe => recipe.ingredients.length > 5 && recipe.ingredients.length <=10);
+  } else if (value === "culinary-adventure") {
+    filteredList = recipes.filter(recipe => recipe.ingredients.length > 10);
+  }
+
+    loadRecipes(filteredList)
+  }
+ };
+
+// sorting recipes by cooking time
+const sortRecipesByTime = () => {
+  const sortBy = timePrep.value;
+  let sortedRecipes;
+  
+  switch (sortBy) {
+    case 'Shortest-to-longest':
+      sortedRecipes = recipes.slice().sort((a, b) => a.totalTime - b.totalTime);
+      break;
+    case 'longest-to-shortest':
+      sortedRecipes = recipes.slice().sort((a, b) => b.totalTime - a.totalTime);
+      break;
+    default:
+      sortedRecipes = recipes;
+  }
+
+  loadRecipes(sortedRecipes);
+};
+
+ //function to get random recipes
+ const getRandomRecipes = (recipeArray) => {
+  const numRecipesAvailable = recipeArray.length;
+  const randomIndex = Math.floor(Math.random() * numRecipesAvailable)
+  return recipeArray[randomIndex]
 }
- }
 
-filterDropdown.addEventListener("change", filterRecipes)
 
+ //function to handle the click event
+ const handleRandomButtonClick = () => {
+  const randomRecipe = getRandomRecipes(recipes)
+  loadRecipes([randomRecipe])
+}
+
+// event listeners  
+filterDropdown.addEventListener('change', filterRecipes)
+randomButton.addEventListener('click', handleRandomButtonClick)
+timePrep.addEventListener('change', sortRecipesByTime)
 loadRecipes(recipes)
+
 
