@@ -1,3 +1,137 @@
 /* ========================
    SECTION: FILTER
    ======================== */
+
+.section__filter {
+  width: 100%;
+  display: flex;
+  justify-content: left;
+  padding-bottom: 0.4rem;
+  margin: 2rem 0;
+  border-bottom: 1px solid #d0d0d0;
+
+  /* ========================
+   SECTION: FILTER CUISINE || AUTHOR
+   ======================== */
+
+  .filter-container {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+
+    .filter-wrapper {
+      display: flex;
+      cursor: pointer;
+    }
+
+    h4 {
+      position: relative;
+      cursor: pointer;
+      margin-bottom: 0;
+      &::after {
+        content: "";
+        background: url("../assets/arrow-down.svg") no-repeat;
+        background-size: cover;
+        top: 5px;
+        position: absolute;
+        right: -30px;
+        height: 10px;
+        width: 10px;
+        z-index: 2222;
+      }
+    }
+
+    .filter-box {
+      margin-right: 100px;
+    }
+
+    .filterDropdown {
+      position: absolute;
+      display: none;
+      flex-direction: column;
+      background-color: $white;
+      height: 0;
+      overflow: hidden;
+      transition: height 3s ease-out;
+      top: 83px;
+
+      .target-container {
+        text-transform: capitalize;
+        padding: 0.7rem 2rem;
+        font-size: 0.9rem;
+        border-bottom: 1px solid #d0d0d0;
+        position: relative;
+        white-space: nowrap;
+
+        input {
+          position: absolute;
+          opacity: 0;
+          cursor: pointer;
+          height: 0;
+          width: 0;
+        }
+
+        input:checked ~ .checkmark {
+          background-color: $black;
+        }
+
+        input:checked ~ .checkmark:after {
+          display: block;
+        }
+
+        .checkmark {
+          position: absolute;
+          top: 0.8rem;
+          left: 2px;
+          height: 15px;
+          width: 15px;
+          background-color: #eee;
+
+          &::after {
+            content: "";
+            position: absolute;
+            display: none;
+            left: 4px;
+            top: 2px;
+            width: 5px;
+            height: 6px;
+            border: solid $white;
+            border-width: 0 3px 3px 0;
+            -webkit-transform: rotate(45deg);
+            -ms-transform: rotate(45deg);
+            transform: rotate(45deg);
+          }
+        }
+      }
+
+      &.active {
+        height: auto;
+        display: flex;
+      }
+
+      a {
+        color: $black;
+      }
+    }
+  }
+
+  /* ========================
+   SECTION: SORT
+   ======================== */
+
+  .sort-container {
+    .sort-wrapper {
+      button.descending {
+        background-color: $secondary-color;
+        color: $white;
+        &:hover {
+          background-color: #c0c7688f;
+        }
+      }
+      button.ascending {
+        color: $black;
+      }
+    }
+  }
+}
