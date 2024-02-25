@@ -10,8 +10,10 @@ const handleFilterDropdown = (targetId) => {
 
 const handleClearAndCloseFilters = (filterDropdown) => {
   const closeButton = document.createElement("button");
+  closeButton.classList.add("close-button");
   closeButton.innerHTML = "Close";
   const clearAllFiltersButton = document.createElement("button");
+  clearAllFiltersButton.classList.add("clear-button");
   clearAllFiltersButton.innerHTML = "Clear all";
   filterDropdown.appendChild(closeButton);
   filterDropdown.appendChild(clearAllFiltersButton);
@@ -61,11 +63,7 @@ const updateFilters = (e) => {
 };
 
 const fetchFilterOptions = (targetId) => {
-  console.log("This is the fetch filter option");
-
   const getTargetValues = (targetId) => {
-    console.log("Get all cuisines or authors in the recipe array");
-
     const targetValues = new Set();
 
     recipes.forEach((recipe) => {
@@ -82,7 +80,6 @@ const fetchFilterOptions = (targetId) => {
 
   // Function to generate checkboxes based on unique values: Need targetId (cuisine) and the targetValues
   const generateCheckboxes = (targetId, targetValues) => {
-    console.log("Display checkboxes for the clicked titleTarget");
     return targetValues
       .map(
         (value, index) =>

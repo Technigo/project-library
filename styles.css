@@ -184,8 +184,8 @@
   margin: 2rem 0;
   border-bottom: 1px solid #d0d0d0;
   /* ========================
-   SECTION: FILTER CUISINE || AUTHOR
-   ======================== */
+     SECTION: FILTER CUISINE || AUTHOR
+     ======================== */
 }
 @media screen and (max-width: 767px) {
   .section__filter {
@@ -250,6 +250,7 @@
   overflow: hidden;
   transition: height 3s ease-out;
   top: 83px;
+  z-index: 100;
 }
 .section__filter .filter-container .filterDropdown .target-container {
   text-transform: capitalize;
@@ -300,6 +301,20 @@
 }
 .section__filter .filter-container .filterDropdown a {
   color: #000;
+}
+.section__filter .filter-container .filterDropdown .close-button {
+  background-color: #c0c768;
+  color: #fff;
+}
+.section__filter .filter-container .filterDropdown .close-button:hover {
+  background-color: rgba(192, 199, 104, 0.5607843137);
+}
+.section__filter .filter-container .filterDropdown .clear-button {
+  background-color: #000;
+  color: #fff;
+}
+.section__filter .filter-container .filterDropdown .clear-button:hover {
+  background-color: #3c3b3b;
 }
 
 .section__filter {
@@ -446,7 +461,6 @@ button {
   cursor: pointer;
   font-family: "Montserrat", sans-serif;
   border: none;
-  border-radius: 30px;
   padding: 0.6rem 1.1rem;
   font-size: 0.9rem;
   font-weight: 600;

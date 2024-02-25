@@ -9,6 +9,7 @@
   padding-bottom: 0.4rem;
   margin: 2rem 0;
   border-bottom: 1px solid #d0d0d0;
+
   @media screen and (max-width: 767px) {
     flex-direction: column;
     border-bottom: none;
@@ -17,14 +18,15 @@
 
   .filter-sort-container {
     display: flex;
+
     @media screen and (max-width: 767px) {
       margin-bottom: 0.8em;
     }
   }
 
   /* ========================
-   SECTION: FILTER CUISINE || AUTHOR
-   ======================== */
+     SECTION: FILTER CUISINE || AUTHOR
+     ======================== */
 
   .filter-container {
     position: relative;
@@ -45,6 +47,7 @@
       position: relative;
       cursor: pointer;
       margin-bottom: 0;
+
       &::after {
         content: "";
         background: url("../assets/arrow-down.svg") no-repeat;
@@ -60,6 +63,7 @@
 
     .filter-box {
       margin-right: 100px;
+
       @media screen and (max-width: 767px) {
         margin-right: 50px;
       }
@@ -74,6 +78,7 @@
       overflow: hidden;
       transition: height 3s ease-out;
       top: 83px;
+      z-index: 100;
 
       .target-container {
         text-transform: capitalize;
@@ -131,6 +136,24 @@
 
       a {
         color: $black;
+      }
+
+      .close-button {
+        background-color: $secondary-color;
+        color: $white;
+
+        &:hover {
+          background-color: #c0c7688f;
+        }
+      }
+
+      .clear-button {
+        background-color: $black;
+        color: $white;
+
+        &:hover {
+          background-color: #3c3b3b;
+        }
       }
     }
   }
