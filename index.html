@@ -30,34 +30,48 @@
       </div>
 
       <section class="section__recipes-container">
+        <!-- Filter -->
+
         <div class="section__filter">
-          <div class="filter-container">
-            <h3>Filter on Recipes</h3>
-            <div class="filter-wrapper">
-              <div class="filter-box">
-                <h4 id="cuisine">Cuisine</h4>
-                <div id="filterCuisine" class="filterDropdown"></div>
-              </div>
-              <div class="filter-box">
-                <h4 id="author">Author</h4>
-                <div id="filterAuthor" class="filterDropdown"></div>
+          <div class="filter-sort-container">
+            <div class="filter-container">
+              <h3>Filter on Recipes</h3>
+              <div class="filter-wrapper">
+                <div class="filter-box">
+                  <h4 id="cuisine">Cuisine</h4>
+                  <div id="filterCuisine" class="filterDropdown"></div>
+                </div>
+                <div class="filter-box">
+                  <h4 id="author">Author</h4>
+                  <div id="filterAuthor" class="filterDropdown"></div>
+                </div>
               </div>
             </div>
-          </div>
 
-          <div class="sort-constainer">
-            <h3>Sort Recipes</h3>
-            <select name="sort" id="sortDropdown">
-              <option value="sortDesc">Descending</option>
-              <option value="sortAsc">Ascending</option>
-              <option value="sortAtoZ">A - Z</option>
-              <option value="sortZtoA">Z - A</option>
-              <option value="sortLessThan10">10 Ingredients or Less</option>
-            </select>
+            <div class="sort-constainer">
+              <h3>Sort Recipes</h3>
+              <select id="sortDropdown">
+                <option value="all">Filter All</option>
+                <option value="sortDesc">Descending</option>
+                <option value="sortAsc">Ascending</option>
+                <option value="sortAtoZ">A - Z</option>
+                <option value="sortZtoA">Z - A</option>
+                <option value="sortLessThan10">10 Ingredients or Less</option>
+              </select>
+            </div>
+          </div>
+          <div id="search-container" class="search-container">
+            <form id="searchForm">
+              <input
+                id="searchInput"
+                type="text"
+                placeholder="Search for recipy, ingredients or author"
+              />
+            </form>
           </div>
         </div>
 
-        <!-- Display all the recipes -->
+        <!-- Recipes -->
         <div id="section__recipes"></div>
       </section>
     </main>
@@ -65,6 +79,7 @@
     <script type="module" src="./js/loaders.js"></script>
     <script type="module" src="./js/filters.js"></script>
     <script type="module" src="./js/sort.js"></script>
+    <script type="module" src="./js/search.js"></script>
     <script type="module" src="./js/main.js"></script>
   </body>
 </html>
