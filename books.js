@@ -67,7 +67,7 @@ const books = [
     rating: 4.7,
     description:
       "The first book in the beloved Harry Potter series, it introduces readers to the magical world of Hogwarts and the young wizard Harry Potter.",
-    image: "./books-images/harry-potter-and-the-sorcerer'.jpg",
+    image: "./books-images/harry-potter-and-the-sorcerer.jpg",
   },
   {
     title: "Moby-Dick",
@@ -272,7 +272,6 @@ const bookCards = (bookArray) => {
 
 bookCards(books); //Have all the books displayed when the page is loaded
 const bookCardItems = document.querySelectorAll(".book-card");
-console.log(bookCardItems);
 
 const toggleFilterSelected = (Btn) => {
   genreBtns.forEach((genreBtn) => {
