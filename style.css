@@ -151,11 +151,11 @@ margin: 10px;
 footer {
     box-shadow:2px 2px 4px 2px rgb(201, 151, 151);
     text-align: center;
-    padding: 20px;
     position: relative;
     width: 100%;
     bottom: 50%;
     padding-top: 20px;
+    transform: translateY(50%);
 }
 
 /* Existing styles... */
