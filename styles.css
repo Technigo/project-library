@@ -49,6 +49,11 @@
     grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
   }
 }
+@media screen and (max-width: 467px) {
+  .section__inspiration {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
 
 /* ========================
    SECTION: BANNER
@@ -144,6 +149,11 @@
     grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
   }
 }
+@media screen and (max-width: 467px) {
+  .section__top-stories {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
 
 /* ========================
    SECTION: TOP FILTER
@@ -233,12 +243,22 @@
   width: 10px;
   z-index: 2222;
 }
+@media screen and (max-width: 467px) {
+  .section__filter .filter-container h4::after {
+    right: -20px;
+  }
+}
 .section__filter .filter-container .filter-box {
   margin-right: 100px;
 }
 @media screen and (max-width: 767px) {
   .section__filter .filter-container .filter-box {
     margin-right: 50px;
+  }
+}
+@media screen and (max-width: 467px) {
+  .section__filter .filter-container .filter-box {
+    margin-right: 30px;
   }
 }
 .section__filter .filter-container .filterDropdown {

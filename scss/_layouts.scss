@@ -53,8 +53,12 @@
       background: url("../assets/inspiration-images/sandwich.jpg") center/cover;
     }
   }
+
   @media screen and (max-width: 767px) {
     grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+  }
+  @media screen and (max-width: 467px) {
+    grid-template-columns: repeat(1, 1fr);
   }
 }
 
@@ -155,6 +159,9 @@
   }
   @media screen and (max-width: 767px) {
     grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+  }
+  @media screen and (max-width: 467px) {
+    grid-template-columns: repeat(1, 1fr);
   }
 }
 
