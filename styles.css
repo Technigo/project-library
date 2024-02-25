@@ -54,8 +54,16 @@
    SECTION: BANNER
    ======================== */
 .section__banner {
-  background: url("../assets/three-avokados.jpg") center/cover;
+  background: url("../assets/inspiration-images/avocado-loves-toast_paa1250x490.jpg") center/cover;
   min-height: 500px;
+  position: relative;
+}
+.section__banner::after {
+  content: "";
+  position: absolute;
+  background-color: rgba(77, 113, 70, 0.33);
+  width: 100%;
+  height: 100%;
 }
 
 /* ========================
@@ -89,6 +97,11 @@
 .section__top-stories #big-story .content {
   padding-right: 0.5em;
 }
+@media screen and (max-width: 767px) {
+  .section__top-stories #big-story .content {
+    width: 100%;
+  }
+}
 .section__top-stories #big-story .content img {
   height: 200px;
   width: 100%;
@@ -115,6 +128,16 @@
 }
 .section__top-stories .small-stories .img-2 {
   background: url("../assets/top-story-images/avocado-show.jpg") center/cover;
+}
+@media screen and (max-width: 767px) {
+  .section__top-stories .small-stories .img-2 {
+    display: none;
+  }
+}
+@media screen and (max-width: 767px) {
+  .section__top-stories .small-stories {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }
 @media screen and (max-width: 767px) {
   .section__top-stories {
@@ -164,14 +187,31 @@
    SECTION: FILTER CUISINE || AUTHOR
    ======================== */
 }
+@media screen and (max-width: 767px) {
+  .section__filter {
+    flex-direction: column;
+    border-bottom: none;
+    margin: 0;
+  }
+}
 .section__filter .filter-sort-container {
   display: flex;
+}
+@media screen and (max-width: 767px) {
+  .section__filter .filter-sort-container {
+    margin-bottom: 0.8em;
+  }
 }
 .section__filter .filter-container {
   position: relative;
   display: flex;
   justify-content: space-between;
   flex-direction: column;
+}
+@media screen and (max-width: 767px) {
+  .section__filter .filter-container {
+    width: 50%;
+  }
 }
 .section__filter .filter-container .filter-wrapper {
   display: flex;
@@ -195,6 +235,11 @@
 }
 .section__filter .filter-container .filter-box {
   margin-right: 100px;
+}
+@media screen and (max-width: 767px) {
+  .section__filter .filter-container .filter-box {
+    margin-right: 50px;
+  }
 }
 .section__filter .filter-container .filterDropdown {
   position: absolute;
@@ -264,6 +309,12 @@
 }
 .section__filter .sort-container {
   display: flex;
+  flex-direction: column;
+}
+@media screen and (max-width: 767px) {
+  .section__filter .sort-container {
+    width: 50%;
+  }
 }
 .section__filter .sort-container .sort-wrapper {
   display: flex;
@@ -292,6 +343,13 @@
   font-size: 0.9rem;
   border-radius: 30px;
   padding: 0.6rem 1.1rem;
+}
+@media screen and (max-width: 767px) {
+  .search-container {
+    justify-content: center;
+    padding: 1em 0;
+    border-top: 1px solid #d0d0d0;
+  }
 }
 
 * {

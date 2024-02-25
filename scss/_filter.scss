@@ -9,9 +9,17 @@
   padding-bottom: 0.4rem;
   margin: 2rem 0;
   border-bottom: 1px solid #d0d0d0;
+  @media screen and (max-width: 767px) {
+    flex-direction: column;
+    border-bottom: none;
+    margin: 0;
+  }
 
   .filter-sort-container {
     display: flex;
+    @media screen and (max-width: 767px) {
+      margin-bottom: 0.8em;
+    }
   }
 
   /* ========================
@@ -23,6 +31,10 @@
     display: flex;
     justify-content: space-between;
     flex-direction: column;
+
+    @media screen and (max-width: 767px) {
+      width: 50%;
+    }
 
     .filter-wrapper {
       display: flex;
@@ -48,6 +60,9 @@
 
     .filter-box {
       margin-right: 100px;
+      @media screen and (max-width: 767px) {
+        margin-right: 50px;
+      }
     }
 
     .filterDropdown {

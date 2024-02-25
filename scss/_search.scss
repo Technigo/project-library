@@ -10,4 +10,10 @@
     border-radius: 30px;
     padding: 0.6rem 1.1rem;
   }
+
+  @media screen and (max-width: 767px) {
+    justify-content: center;
+    padding: 1em 0;
+    border-top: 1px solid #d0d0d0;
+  }
 }
