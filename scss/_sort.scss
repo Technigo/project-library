@@ -1,0 +1,27 @@
+.section__filter {
+  /* ========================
+   SECTION: SORT
+   ======================== */
+
+  .sort-container {
+    display: flex;
+    .sort-wrapper {
+      display: flex;
+      flex-direction: column;
+      margin-right: 50px;
+
+      .sort-buttons {
+        button:first-child {
+          background-color: $secondary-color;
+          color: $white;
+          &:hover {
+            background-color: #c0c7688f;
+          }
+        }
+        button:last-child {
+          color: $black;
+        }
+      }
+    }
+  }
+}

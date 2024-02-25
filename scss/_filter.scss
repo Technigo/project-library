@@ -115,23 +115,4 @@
       }
     }
   }
-
-  /* ========================
-   SECTION: SORT
-   ======================== */
-
-  .sort-container {
-    .sort-wrapper {
-      button.descending {
-        background-color: $secondary-color;
-        color: $white;
-        &:hover {
-          background-color: #c0c7688f;
-        }
-      }
-      button.ascending {
-        color: $black;
-      }
-    }
-  }
 }

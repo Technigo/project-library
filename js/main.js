@@ -4,7 +4,8 @@ import { filterRecipes } from "./filters.js";
 import { handleSort } from "./sort.js";
 const cuisineDropdown = document.getElementById("cuisine");
 const authorDropdown = document.getElementById("author");
-const sortButtons = document.querySelectorAll(".sort-wrapper button");
+const sortDropdown = document.getElementById("sortDropdown");
+const sortOptions = Array.from(sortDropdown.options);
 
 // Toogle the filter dropdown
 cuisineDropdown.addEventListener("click", (e) => {
@@ -30,10 +31,10 @@ authorDropdown.addEventListener("click", (e) => {
 });
 
 // Add eventlistners to sort buttons
-sortButtons.forEach((sortButton) => {
-  sortButton.addEventListener("click", (e) => {
-    const targetId = e.target.id;
-    handleSort(recipes, targetId);
+sortOptions.forEach((option) => {
+  option.addEventListener("click", (e) => {
+    const sortValue = e.target.value;
+    handleSort(recipes, sortValue);
   });
 });
 

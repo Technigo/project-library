@@ -163,9 +163,6 @@
   /* ========================
    SECTION: FILTER CUISINE || AUTHOR
    ======================== */
-  /* ========================
-   SECTION: SORT
-   ======================== */
 }
 .section__filter .filter-container {
   position: relative;
@@ -256,14 +253,28 @@
 .section__filter .filter-container .filterDropdown a {
   color: #000;
 }
-.section__filter .sort-container .sort-wrapper button.descending {
+
+.section__filter {
+  /* ========================
+   SECTION: SORT
+   ======================== */
+}
+.section__filter .sort-container {
+  display: flex;
+}
+.section__filter .sort-container .sort-wrapper {
+  display: flex;
+  flex-direction: column;
+  margin-right: 50px;
+}
+.section__filter .sort-container .sort-wrapper .sort-buttons button:first-child {
   background-color: #c0c768;
   color: #fff;
 }
-.section__filter .sort-container .sort-wrapper button.descending:hover {
+.section__filter .sort-container .sort-wrapper .sort-buttons button:first-child:hover {
   background-color: rgba(192, 199, 104, 0.5607843137);
 }
-.section__filter .sort-container .sort-wrapper button.ascending {
+.section__filter .sort-container .sort-wrapper .sort-buttons button:last-child {
   color: #000;
 }
 
@@ -365,6 +376,16 @@ button {
   padding: 0.6rem 1.1rem;
   font-size: 0.9rem;
   font-weight: 600;
+  min-width: 150px;
+}
+
+select {
+  border: none;
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 0.2rem 1.1rem;
+  background-color: #c0c768;
+  color: #fff;
 }
 
 @media screen and (max-width: 667px) {
