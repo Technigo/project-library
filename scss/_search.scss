@@ -1,0 +1,13 @@
+.search-container {
+  display: flex;
+  align-items: end;
+  position: relative;
+
+  input {
+    background-color: $lightgrey;
+    border: none;
+    font-size: 0.9rem;
+    border-radius: 30px;
+    padding: 0.6rem 1.1rem;
+  }
+}
