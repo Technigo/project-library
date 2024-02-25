@@ -43,7 +43,7 @@ main {
 .userSearch {
   position: relative;
   margin-left: auto;
-  margin-right: 90px;
+  margin-right: 7%;
 }
 
 #userInput {
@@ -52,6 +52,7 @@ main {
   border-radius: 10px 0 0 10px;
   height: 36px;
   width: 200px;
+  margin-top: 4px;
 }
 
 #searchButton {
@@ -62,6 +63,7 @@ main {
   width: 60px;
   height: 36px;
   position: absolute;
+  margin-left:0;
 }
 
 h1 {
@@ -117,9 +119,9 @@ p {
 }
 
 .genreChoice,
-.genreButton select {
-  display: inline-block;
-  vertical-align: middle;
+.genreButton button
+.genreButton{
+    display: inline-block;
 }
 
 .sort {
@@ -167,8 +169,8 @@ button {
   border: none;
   width: auto;
   height: 36px;
-  padding: 1px 20px;
-  margin-right: 4px;
+  padding: 1px 12px;
+  margin: 4px;
   cursor: pointer;
   font-weight: 500;
 }
@@ -184,6 +186,11 @@ button#random {
   margin-right: 4px;
   cursor: pointer;
   font-weight: 500;
+}
+
+#surpriseButton{
+    display: flex;
+    flex-direction: row;
 }
 
 option {
@@ -235,8 +242,8 @@ button:focus {
   border: none;
   width: 100px;
   height: 36px;
-  padding: 1px 20px;
-  margin-right: 4px;
+  padding: 1px 12px;
+  margin: 2px;
   cursor: pointer;
   font-weight: bolder;
 }
@@ -292,29 +299,46 @@ button:focus {
   font-size: 10px;
 }
 
-/* For desktop */
-@media only screen and (min-width: 1025px) {
-  .library {
-    grid-template-columns: repeat(4, 1fr);
+
+@media(min-width:1025px) and (max-width:1311px){
+  .body{
+      width: 1024px;
   }
   .filters {
-    flex-direction: row;
-    justify-content: space-between;
+      justify-content: space-between;
+      flex-wrap: nowrap;
+  }
+  .genre{
+      width: 46%;
+      height: 80px;
+      margin: 2px px 2px 2px;
+      padding: 2px 6px;
+      justify-content: center;
+      color: black;
+      font-size: 16px;
+      display: flex;
+      flex-direction: column;
+  }
+  .genre
+  .sort,
+  .surprise{
+      display: inline-block;
   }
 
-  .genre,
-  .sort,
-  .surprise {
-    width: 100%;
-    margin-bottom: 8px;
+  .library {
+      grid-template-columns: repeat(2, 1fr);
+      margin-top: 55px;
+      justify-content: center;
+      display: flex;
+      flex-wrap: wrap;
   }
 }
 
 /* For tablets: 2 columns */
-@media only screen and (max-width: 1024px) {
+@media(min-width:667px) and (max-width:1024px){
   .library {
     grid-template-columns: repeat(2, 1fr);
-    margin-top: 135px;
+    margin-top: 155px;
     justify-content: center;
     display: flex;
     flex-wrap: wrap;
@@ -335,13 +359,16 @@ button:focus {
     width: calc(100% - 20px);
     margin-bottom: 8px;
   }
+  .title-container{
+    padding:32px;
+  }
 }
 
 /* For mobile: 1 column */
-@media only screen and (max-width: 600px) {
+@media(max-width:666px){
   .library {
     grid-template-columns: repeat(1, 1fr);
-    margin-top: 250px;
+    margin-top: 190px;
     justify-content: center;
     display: flex;
     flex-wrap: wrap;
@@ -351,30 +378,38 @@ button:focus {
     flex-direction: column;
     align-items: center;
     margin-top: 30px;
+    height: max-content;
+    justify-content: center;
   }
-
   .logo {
     width: 40px;
     height: 40px;
     margin-right: 5px;
   }
+  .logo,
+  h1{
+    display: inline-block;
+  }
 
   h1 {
     margin-bottom: 10px;
+    margin-top: 10px;
+    font-size: 36px;
   }
 
   .userSearch {
     margin-top: 10px; 
-    margin-left: auto;
+    margin-left: 18%;
+    justify-content: center;
     order: 1; 
-    width: calc(100% - 20px); 
+    width: calc(100% - 30px); 
     max-width: 300px;
   }
 
   .filters {
     flex-direction: column;
     align-items: center;
-    margin-top: 50px;
+    margin-top: 20px;
     margin-bottom: 30px;
   }
 
@@ -382,12 +417,56 @@ button:focus {
   .sort,
   .surprise {
     width: calc(100% - 20px);
-    margin-top: 30px;
+    margin-top: 10px;
+  }
+  .genreButton{
+    display: flex;
+    flex-direction: row;
+    justify-content: ;
   }
 
-  #more,
+  .genreChoice{
+    display: inline-block;
+  }
+
+  button{
+    border-radius: 20px;
+    width: 70px;
+    height: 30px;
+    padding: 1px 6px;
+    margin-right: 4px;
+    font-size: 12px;
+    display: inline-block;
+  }
+
+  button#random {
+    border-radius: 20px;
+    width: 70px;
+    height: 32px;
+    padding: 1px 6px;
+    margin-right: 4px;
+    font-size: 10;
+  }
+
+  #more{
+    border-radius: 20px;
+    width: 70px;
+    height: 30px;
+    padding: 1px 6px;
+    margin: 2px;  
+    font-size: 12px;
+    font-weight: bolder;
+    display: inline-block;
+  }
   #more1 {
-    margin-top: 10px;
-    margin-left: 5px;
+    border-radius: 20px;
+    width: 70px;
+    height: 32px;
+    padding: 1px 6px;
+    margin: 2px;  
+    font-size: 12px;
+    font-weight: bolder;
   }
 }
+
+
