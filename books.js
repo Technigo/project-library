@@ -197,6 +197,12 @@ const horror = document.querySelector("#horror");
 const mystery = document.querySelector("#mystery");
 const dystopian = document.querySelector("#dystopian");
 
+const earlyNineteen = document.querySelector("#early-nineteen");
+const lateNineteen = document.querySelector("#late-nineteen");
+const earlyTwenty = document.querySelector("#early-twenty");
+const lateTwenty = document.querySelector("#late-twenty");
+const present = document.querySelector("#present");
+
 const highestRating = document.querySelector("#highest-rating");
 const newestPublished = document.querySelector("#newest-published");
 const author = document.querySelector("#author");
@@ -218,6 +224,14 @@ const genreBtns = [
   horror,
   mystery,
   dystopian,
+];
+
+const yearBtns = [
+  earlyNineteen,
+  lateNineteen,
+  earlyTwenty,
+  lateTwenty,
+  present,
 ];
 
 const sortBtns = [
@@ -243,13 +257,13 @@ const bookCards = (bookArray) => {
     bookDisplay.innerHTML += `
     <div class="book-card">
       <img src="${book.image}" alt="${book.title}"/>
-      <div className="book-infomation">
-        <h4>${book.title}</h4>
-        <p>${book.author}</p>
-        <p>${book.year}</p>
-        <p>${book.genre}</p>
-        <p>${book.rating}</p>
-        <p>${book.description}</p>
+      <div class="book-infomation">
+        <h4 class="book-title">${book.title}</h4>
+        <p class="book-author"><span class="tag">Author :</span> ${book.author}</p>
+        <p class="book-year"><span class="tag">Published Year :</span> ${book.year}</p>
+        <p class="book-genre">${book.genre}</p>
+        <p class="book-rating"><span class="tag">Rating :</span> ${book.rating}</p>
+        <p class="book-description">${book.description}</p>
       </div>
     </div>
     `;
@@ -257,10 +271,15 @@ const bookCards = (bookArray) => {
 };
 
 bookCards(books); //Have all the books displayed when the page is loaded
+const bookCardItems = document.querySelectorAll(".book-card");
+console.log(bookCardItems);
 
-const toggleGenreSelected = (Btn) => {
+const toggleFilterSelected = (Btn) => {
   genreBtns.forEach((genreBtn) => {
     genreBtn.classList.remove("selected");
+  });
+  yearBtns.forEach((yeaerBtn) => {
+    yeaerBtn.classList.remove("selected");
   });
   Btn.classList.add("selected");
 };
@@ -274,48 +293,52 @@ const toggleSortSelected = (Btn) => {
   !isSelected ? Btn.classList.add("selected") : Btn.classList.add("hover");
 };
 
-const toggleDiscoverSelected = (Btn) => {
-  discoverBtns.forEach((discoverBtn) => {
-    discoverBtn.classList.remove("selected");
-  });
-  Btn.classList.add("selected");
-  setTimeout(() => {
-    Btn.classList.remove("selected");
-  }, 300);
+const getGenre = (genre) => {
+  filteredBooks = books;
+  return books.filter((book) => book.genre === genre);
 };
 
-const getGenre = (genre) => {
-  return books.filter((book) => book.genre === genre);
+const getYear = (startYear, endYear) => {
+  filteredBooks = books;
+  const start = Number(startYear);
+  const end = Number(endYear);
+  return books.filter((book) => book.year >= start && book.year <= end);
 };
 
 let sortedBooks = [];
 let filteredBooks = [];
 let sortingFunction = null; //wait for the user to choose the sorting function
+let isSorted = false;
+let previousSort = null;
+
+//Apply sorting
+//Part 1: Display books
 const applySorting = () => {
+  let booksToDisplay = filteredBooks.length === 0 ? books : filteredBooks; //Check if there is any filter applied
+
   if (sortingFunction) {
-    sortedBooks =
-      filteredBooks.length === 0
-        ? sortingFunction(books)
-        : sortingFunction(filteredBooks);
-    bookCards(sortedBooks); //if there is sorting applied
-  } else if (!sortingFunction && filteredBooks.length === 0) {
-    bookCards(books); //if the genre is "all"
-  } else {
-    bookCards(filteredBooks); //if there is no sorting applied
+    //Check if there is any sorting applied
+    booksToDisplay = sortingFunction(booksToDisplay);
   }
+
+  bookCards(booksToDisplay);
 };
 
-let isSorted = false; //click once to select, click again to deselect
+//Part 2: Toogle Style
+//----click once to select, click again to deselect
 const checkSorted = (sortFunc) => {
-  if (!isSorted) {
-    sortingFunction = sortFunc;
-    applySorting();
-    isSorted = true;
-  } else {
+  if (isSorted && previousSort === sortFunc) {
+    //Deselect sorting
     sortingFunction = null;
-    applySorting();
     isSorted = false;
+  } else {
+    //Select sorting
+    sortingFunction = sortFunc;
+    isSorted = true;
   }
+
+  applySorting();
+  previousSort = sortingFunction;
 };
 
 const sortByHighRating = (arr) => {
@@ -386,8 +409,8 @@ const getRandomBook = () => {
   let previousNum = -1;
   do {
     i = Math.floor(Math.random() * books.length);
-  } while (i === previousNum);
-  previousNum = i;
+  } while (i === previousNum); // prevent getting the same number
+  previousNum = i; //update previousNum
   const randomBook = [books[i]];
   bookCards(randomBook);
   console.log(i);
@@ -400,6 +423,17 @@ Add event listeners
 
 
 */
+
+bookCardItems.forEach((bookCard) => {
+  bookCard.addEventListener("mouseover", () => {
+    bookCard.classList.toggle("book-hover");
+  });
+
+  bookCard.addEventListener("mouseout", () => {
+    bookCard.classList.remove("book-hover");
+  });
+});
+
 //
 //----Genre Style
 
@@ -416,15 +450,15 @@ genreBtns.forEach((genreBtn) => {
 
   genreBtn.addEventListener("click", () => {
     genreBtn.classList.remove("hover");
-    toggleGenreSelected(genreBtn);
+    toggleFilterSelected(genreBtn);
   });
 });
 
 //
-//----Genre Filter Function
-
+//----Genre Filter event listener
 all.addEventListener("click", () => {
   filteredBooks = books;
+  console.log(books);
   applySorting();
 });
 
@@ -433,6 +467,62 @@ genreBtns.slice(1, 8).forEach((genreBtn) => {
     filteredBooks = getGenre(event.target.innerHTML);
     console.log(event.target.innerHTML);
     applySorting();
+  });
+});
+
+//
+//----Year Style
+yearBtns.forEach((yearBtn) => {
+  yearBtn.addEventListener("mouseover", () => {
+    if (!yearBtn.classList.contains("selected")) {
+      yearBtn.classList.add("hover");
+    }
+  });
+
+  yearBtn.addEventListener("mouseout", () => {
+    yearBtn.classList.remove("hover");
+  });
+
+  yearBtn.addEventListener("click", () => {
+    yearBtn.classList.remove("hover");
+    toggleFilterSelected(yearBtn);
+  });
+});
+//
+//----Year Filter event listense
+yearBtns.forEach((yearBtn) => {
+  yearBtn.addEventListener("click", (event) => {
+    switch (event.target.id) {
+      case "early-nineteen":
+        filteredBooks = getYear(1800, 1849);
+        console.log(event.target.innerHTML);
+        applySorting();
+        break;
+
+      case "late-nineteen":
+        filteredBooks = getYear(1850, 1899);
+        console.log(event.target.innerHTML);
+        applySorting();
+        break;
+
+      case "early-twenty":
+        filteredBooks = getYear(1900, 1949);
+        console.log(event.target.innerHTML);
+        applySorting();
+        break;
+
+      case "late-twenty":
+        filteredBooks = getYear(1950, 1999);
+        console.log(event.target.innerHTML);
+        applySorting();
+        break;
+
+      case "present":
+        filteredBooks = getYear(2000, 2049);
+        console.log(event.target.innerHTML);
+        applySorting();
+        break;
+    }
   });
 });
 
@@ -462,7 +552,7 @@ sortBtns.forEach((sortBtn) => {
 });
 
 //
-//----Sort Functions
+//----Sort evenet listener
 
 highestRating.addEventListener("click", () => {
   checkSorted(sortByHighRating);

@@ -16,10 +16,9 @@
 }
 
 body {
-  min-height: 100vh;
-  margin: 64px;
   font-family: "Montserrat", sans-serif;
   font-weight: 900;
+  padding: 64px;
 }
 
 .shop-title {
@@ -48,6 +47,23 @@ ul {
   font-size: 1rem;
 }
 
+.filter-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.genre,
+.year {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 1rem;
+  gap: 1rem;
+  font-size: 1rem;
+}
+
 li {
   color: black;
   height: 40px;
@@ -58,6 +74,7 @@ li {
   text-align: center;
   margin: auto;
   line-height: 23px;
+  transition: all 0.2s;
 }
 
 li#sci-fi {
@@ -90,9 +107,10 @@ li#randomBook {
 .book-display {
   margin-top: 85px;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-row: 400px;
-  gap: 2rem;
+  grid-template-columns: repeat(5, 1fr);
+  /* grid-row: 400px; */
+  gap: 2.5rem;
+  max-width: 100%;
 }
 
 .book-card {
@@ -103,6 +121,13 @@ li#randomBook {
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+  gap: 16px;
+  width: 300px;
+  transition: all 0.2s;
+}
+
+.book-infomation p {
+  padding-top: 8px;
 }
 
 .book-hover {
@@ -123,7 +148,47 @@ img {
   border-radius: 12px;
 }
 
+.book-title {
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 29.24px;
+  margin-bottom: 8px;
+}
+
+.book-author,
+.book-year,
+.book-rating,
+.book-description {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 21.25px;
+}
+
+.book-author,
+.book-description,
+.book-genre {
+  border-top: #e9e9e9 1px solid;
+}
+
+.book-year,
+.book-rating {
+  margin-bottom: 8px;
+}
+
+span.tag {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 23.92px;
+}
+
 /* Media queries */
+@media only screen and (min-width: 1440px) and (max-width: 1800px) {
+  .book-display {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+  }
+}
+
 @media only screen and (min-width: 1024px) and (max-width: 1440px) {
   .book-display {
     grid-template-columns: repeat(3, 1fr);
@@ -134,7 +199,7 @@ img {
 @media only screen and (min-width: 481px) and (max-width: 1024px) {
   .book-display {
     grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
+    gap: 0.6rem;
   }
 }
 
