@@ -271,7 +271,6 @@ const bookCards = (bookArray) => {
 };
 
 bookCards(books); //Have all the books displayed when the page is loaded
-const bookCardItems = document.querySelectorAll(".book-card");
 
 const toggleFilterSelected = (Btn) => {
   genreBtns.forEach((genreBtn) => {
@@ -418,19 +417,23 @@ const getRandomBook = () => {
 /*
 
 
-Add event listeners
+Add event listener
 
 
 */
 
-bookCardItems.forEach((bookCard) => {
-  bookCard.addEventListener("mouseover", () => {
-    bookCard.classList.toggle("book-hover");
-  });
+bookDisplay.addEventListener("mouseover", (event) => {
+  const target = event.target;
+  if (target.closest(".book-card")) {
+    target.closest(".book-card").classList.add("book-hover");
+  }
+});
 
-  bookCard.addEventListener("mouseout", () => {
-    bookCard.classList.remove("book-hover");
-  });
+bookDisplay.addEventListener("mouseout", (event) => {
+  const target = event.target;
+  if (target.closest(".book-card")) {
+    target.closest(".book-card").classList.remove("book-hover");
+  }
 });
 
 //

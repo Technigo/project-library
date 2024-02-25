@@ -7,9 +7,14 @@ In this pocket bookshop website, users can
 
 ## The problem
 
-I found it challenging to ensure that the filters and sorting interacted smoothly with each other.
+* I found it challenging to ensure that the filters and sorting interacted smoothly with each other.
 
-I managed to apply sorting smoothly to different genre filters and year filters. However, I'm still searching a good solution to find intersections when applying multiple filters simultaneously.
+😄 I managed to apply sorting smoothly to different genre filters and year filters. 
+🤔 However, I'm still searching a good solution to find intersections when applying multiple filters simultaneously.
+
+* I also struggled with maintaining the hover effect on the book cards after updating the book display. The event listeners were lost in the process.
+  
+😄 After some research I discovered about the concept of "event delegation". It's very enlightening!
 
 ## Next step
 
