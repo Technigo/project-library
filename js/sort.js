@@ -1,9 +1,13 @@
 import { loadRecipes } from "./loaders.js";
 
-const handleSort = (recipes, sortValue) => {
+const handleSort = (recipes, e) => {
+  const sortValue = e.target.value;
   let sortedRecipes = recipes.map((recipe) => recipe);
 
   switch (sortValue) {
+    case "all":
+      loadRecipes(recipes);
+      break;
     case "sortDesc":
       sortedRecipes = sortedRecipes.sort((a, b) => b.totalTime - a.totalTime);
       break;
@@ -20,7 +24,6 @@ const handleSort = (recipes, sortValue) => {
       sortedRecipes = sortedRecipes.filter(
         (recipe) => recipe.ingredients.length <= 10
       );
-
       break;
     default:
       break;
