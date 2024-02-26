@@ -189,6 +189,7 @@ DOM selectors
 const bookDisplay = document.querySelector(".book-display");
 
 const all = document.querySelector("#all");
+
 const fiction = document.querySelector("#fiction");
 const scifi = document.querySelector("#sci-fi");
 const fantasy = document.querySelector("#fantasy");
@@ -208,6 +209,7 @@ const newestPublished = document.querySelector("#newest-published");
 const author = document.querySelector("#author");
 const titleAZ = document.querySelector("#title-a-z");
 const titleZA = document.querySelector("#title-z-a");
+
 const randomBookBtn = document.querySelector("#randomBook");
 
 /*
@@ -233,14 +235,7 @@ const yearBtns = [
   present,
 ];
 
-const sortBtns = [
-  highestRating,
-  newestPublished,
-  author,
-  titleAZ,
-  titleZA,
-  randomBookBtn,
-];
+const sortBtns = [highestRating, newestPublished, author, titleAZ, titleZA];
 
 /*
 

@@ -216,7 +216,6 @@ Button Arrays
 
 */
 const genreBtns = [
-  all,
   fiction,
   scifi,
   fantasy,
@@ -234,14 +233,9 @@ const yearBtns = [
   present,
 ];
 
-const sortBtns = [
-  highestRating,
-  newestPublished,
-  author,
-  titleAZ,
-  titleZA,
-  randomBookBtn,
-];
+const sortBtns = [highestRating, newestPublished, author, titleAZ, titleZA];
+
+const generalBtns = [all, randomBookBtn];
 
 /*
 
