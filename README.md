@@ -13,6 +13,7 @@ Going in to the project we were given an array with object, each a book to be sh
 - The sorting options are created in html, while the filters are fetched from the object properties.
 - I added event listeners with event handelers to execute the sorting and filtering respectively.
 - Both sorting and filtering creates new arrays with books, and loads them to the page.
+- Sorting and filter works together by pushing the current list toa variable, and checking the same filter isn't already applied.
 
 - To create a random book I randomized a book index and loaded the correspoding book.
 
@@ -23,8 +24,6 @@ Going in to the project we were given an array with object, each a book to be sh
 ### Next step
 
 If I have time, I will try
-
-- Making the filters work together, and to apply sorting to the filtered list.
 
 - Get the search function to accept multiple words
 

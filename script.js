@@ -190,8 +190,9 @@ const randomBookContainer = document.querySelector(".random-book-container");
 const randomBookBtn = document.querySelector(".random-book-btn");
 const searchField = document.getElementById("search-field");
 const searchBtn = document.getElementById("search-btn");
-const form = document.querySelector("form");
+const optionsForm = document.querySelector("form");
 const optionsBtn = document.getElementById("options-btn");
+const close = document.querySelector(".close");
 const topBtn = document.querySelector(".top-btn");
 const header = document.querySelector("header");
 
@@ -213,7 +214,9 @@ const scrollToElement = element =>
   });
 
 // Toggle hide/show
-const toggleHide = element => element.classList.toggle("hidden");
+const toggleHide = element => {
+  element.classList.toggle("hidden");
+};
 
 // Reset
 const reset = () => {
@@ -247,6 +250,14 @@ const search = event => {
 // Get random book from array
 const getRandomBook = () => {
   const randomIndex = Math.floor(Math.random() * books.length);
+  // Check if there's already a random book visible, with the same title
+  while (
+    randomBookContainer.innerHTML !== "" &&
+    books[randomIndex].title ===
+      randomBookContainer.querySelector("h2").textContent
+  ) {
+    randomIndex++;
+  }
   return books[randomIndex];
 };
 
@@ -463,6 +474,7 @@ filterAuthor.addEventListener("change", filterBooks);
 filterGenre.addEventListener("change", filterBooks);
 randomBookBtn.addEventListener("click", createRandomBook);
 searchBtn.addEventListener("click", search);
-form.addEventListener("reset", () => reset);
-optionsBtn.addEventListener("click", () => toggleHide(form));
+optionsForm.addEventListener("reset", () => reset);
+optionsBtn.addEventListener("click", () => toggleHide(optionsForm));
+close.addEventListener("click", () => toggleHide(optionsForm));
 topBtn.addEventListener("click", () => scrollToElement(header));

@@ -172,6 +172,7 @@ summary {
   border-radius: var(--border-radius);
   margin-bottom: 1rem;
   transition: var(--transition);
+  border: transparent solid 2px;
 }
 
 .book-item:hover {
@@ -233,6 +234,13 @@ summary {
   right: 0;
   bottom: 0;
   margin: 1rem;
+}
+
+.close {
+  padding: 1rem 1rem 0 0 ;
+  align-self: flex-end;
+  color: var(--technigo-blue);
+  margin-left: auto;
 }
 
 .hidden {
