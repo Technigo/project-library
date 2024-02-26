@@ -216,6 +216,7 @@ Button Arrays
 
 */
 const genreBtns = [
+  all,
   fiction,
   scifi,
   fantasy,
@@ -271,10 +272,15 @@ const bookCards = (bookArray) => {
 
 bookCards(books); //Have all the books displayed when the page is loaded
 
-const toggleFilterSelected = (Btn) => {
+const toggleGenreSelected = (Btn) => {
   genreBtns.forEach((genreBtn) => {
     genreBtn.classList.remove("selected");
   });
+
+  Btn.classList.add("selected");
+};
+
+const toggleYearSelected = (Btn) => {
   yearBtns.forEach((yeaerBtn) => {
     yeaerBtn.classList.remove("selected");
   });
@@ -290,35 +296,80 @@ const toggleSortSelected = (Btn) => {
   !isSelected ? Btn.classList.add("selected") : Btn.classList.add("hover");
 };
 
+let genreFilteredBooks;
 const getGenre = (genre) => {
-  filteredBooks = books;
-  return books.filter((book) => book.genre === genre);
+  genreFilteredBooks = books.filter((book) => book.genre === genre);
+  return genreFilteredBooks;
 };
 
+let yearFilteredBooks;
 const getYear = (startYear, endYear) => {
-  filteredBooks = books;
   const start = Number(startYear);
   const end = Number(endYear);
-  return books.filter((book) => book.year >= start && book.year <= end);
+  yearFilteredBooks = books.filter(
+    (book) => book.year >= start && book.year <= end
+  );
+  return yearFilteredBooks;
+};
+
+let filterType = null;
+let isGenreFiltered = false;
+let isYearFiltered = false;
+let previousFilter = null;
+let booksToDisplay = [];
+
+const checkFiltered = () => {
+  booksToDisplay = filteredBooks.length === 0 ? books : filteredBooks;
+  console.log(booksToDisplay);
+  console.log(previousFilter);
+  console.log(filterType);
+  if (previousFilter === null) {
+    //string
+    booksToDisplay = filteredBooks;
+    console.log("stops at previousFilter === null");
+  } else if (isGenreFiltered && !isYearFiltered) {
+    booksToDisplay = filteredBooks;
+  } else if (!isGenreFiltered && isYearFiltered) {
+    booksToDisplay = filteredBooks;
+  } else if (!isGenreFiltered && !isYearFiltered) {
+    console.log("stops at all");
+    booksToDisplay = books;
+  } else if (!(previousFilter === null) && isGenreFiltered && isYearFiltered) {
+    booksToDisplay = genreFilteredBooks.filter((book) =>
+      yearFilteredBooks.includes(book)
+    );
+    console.log("stops at else");
+    console.log(booksToDisplay);
+  } else {
+    console.log("something is wrong");
+  } // get the intersection of filteredBooks array and newFilterBooks
+
+  booksToDisplay.length === 0
+    ? console.log("no result")
+    : console.log("there are books left");
+
+  previousFilter = filterType;
 };
 
 let sortedBooks = [];
 let filteredBooks = [];
-let sortingFunction = null; //wait for the user to choose the sorting function
+let sortingFunction = null; //wait for the user to choose the sorting     : (filteredBooks = booksToDisplay);function
 let isSorted = false;
 let previousSort = null;
 
 //Apply sorting
 //Part 1: Display books
 const applySorting = () => {
-  let booksToDisplay = filteredBooks.length === 0 ? books : filteredBooks; //Check if there is any filter applied
+  if (!(booksToDisplay.length === 0)) {
+    if (sortingFunction) {
+      //Check if there is any sorting applied
+      booksToDisplay = sortingFunction(booksToDisplay);
+    }
 
-  if (sortingFunction) {
-    //Check if there is any sorting applied
-    booksToDisplay = sortingFunction(booksToDisplay);
+    bookCards(booksToDisplay);
+  } else {
+    bookDisplay.innerHTML = `<p class="no-result">No result.</p>`;
   }
-
-  bookCards(booksToDisplay);
 };
 
 //Part 2: Toogle Style
@@ -435,12 +486,6 @@ bookDisplay.addEventListener("mouseout", (event) => {
   }
 });
 
-all.addEventListener("click", () => {
-  filteredBooks = books;
-  console.log(books);
-  applySorting();
-});
-
 //
 //----Genre Style
 
@@ -457,16 +502,26 @@ genreBtns.forEach((genreBtn) => {
 
   genreBtn.addEventListener("click", () => {
     genreBtn.classList.remove("hover");
-    toggleFilterSelected(genreBtn);
+    toggleGenreSelected(genreBtn);
   });
 });
 
 //
 //----Genre Filter event listener
+all.addEventListener("click", () => {
+  filteredBooks = books;
+  checkFiltered();
+  console.log(books);
+  applySorting();
+});
 
-genreBtns.forEach((genreBtn) => {
+genreBtns.slice(1, 8).forEach((genreBtn) => {
   genreBtn.addEventListener("click", (event) => {
-    filteredBooks = getGenre(event.target.innerHTML);
+    getGenre(event.target.innerHTML);
+    filteredBooks = genreFilteredBooks;
+    filterType = "Genre";
+    isGenreFiltered = true;
+    checkFiltered();
     console.log(event.target.innerHTML);
     applySorting();
   });
@@ -487,44 +542,53 @@ yearBtns.forEach((yearBtn) => {
 
   yearBtn.addEventListener("click", () => {
     yearBtn.classList.remove("hover");
-    toggleFilterSelected(yearBtn);
+    toggleYearSelected(yearBtn);
   });
 });
 //
 //----Year Filter event listense
+let startYear;
+let endYear;
+
 yearBtns.forEach((yearBtn) => {
   yearBtn.addEventListener("click", (event) => {
     switch (event.target.id) {
       case "early-nineteen":
-        filteredBooks = getYear(1800, 1849);
-        console.log(event.target.innerHTML);
-        applySorting();
+        startYear = 1800;
+        endYear = 1849;
+        getYear(1800, 1849);
         break;
 
       case "late-nineteen":
-        filteredBooks = getYear(1850, 1899);
-        console.log(event.target.innerHTML);
-        applySorting();
+        startYear = 1850;
+        endYear = 1899;
+        getYear(1850, 1899);
         break;
 
       case "early-twenty":
-        filteredBooks = getYear(1900, 1949);
-        console.log(event.target.innerHTML);
-        applySorting();
+        startYear = 1900;
+        endYear = 1949;
+        getYear(1900, 1949);
         break;
 
       case "late-twenty":
-        filteredBooks = getYear(1950, 1999);
-        console.log(event.target.innerHTML);
-        applySorting();
+        startYear = 1950;
+        endYear = 1999;
+        getYear(1950, 1999);
         break;
 
       case "present":
-        filteredBooks = getYear(2000, 2049);
-        console.log(event.target.innerHTML);
-        applySorting();
+        startYear = 2000;
+        endYear = 2049;
+        getYear(2000, 2049);
         break;
     }
+    filteredBooks = yearFilteredBooks;
+    filterType = "Year";
+    isYearFiltered = true;
+    checkFiltered();
+    console.log(event.target.innerHTML);
+    applySorting();
   });
 });
 
