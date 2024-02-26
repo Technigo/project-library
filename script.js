@@ -1,6 +1,8 @@
-/*Here we have created two different arrays that you can work with if you want.
-If you choose to create your own arrays with elements, just make sure that some
-of the properties make sense to filter on, and some to sort on.*/
+const userSearch = document.getElementById("userSearch")
+const filters = document.getElementById("filters")
+const genre = document.getElementById("genre")
+const sort = document.getElementById("sort")
+const library = document.getElementById("library")
 
 const books = [
   {
@@ -71,7 +73,7 @@ const books = [
     rating: 4.7,
     description:
       'The first book in the beloved Harry Potter series, it introduces readers to the magical world of Hogwarts and the young wizard Harry Potter.',
-    image: "./books-images/harry-potter-and-the-sorcerer'.jpg"
+    image: "./books-images/harry-potter-and-the-sorcerer.jpg"
   },
   {
     title: 'Moby-Dick',
@@ -185,222 +187,240 @@ const books = [
   }
 ]
 
-const recipes = [
-  {
-    name: 'Individual vegetarian lasagnes',
-    cuisineType: ['italian'],
-    ingredients: [
-      '1.2 kg cherry tomatoes',
-      '5 sprigs of fresh thyme',
-      'extra virgin olive oil',
-      '2 shallots',
-      '2 cloves of garlic',
-      '500 g baby spinach',
-      '8-12 fresh or dried lasagne sheets',
-      '350 g ricotta cheese',
-      'WHITE SAUCE',
-      '600 ml milk',
-      '25 g unsalted butter',
-      '2 heaped tablespoons flour',
-      '150 g vegetarian sharp, mature cheese',
-      '100 g mozzarella'
-    ],
-    source: 'Jamie Oliver',
-    totalTime: 130,
-    url: 'http://www.jamieoliver.com/recipes/vegetables-recipes/individual-vegetarian-lasagnes/',
-    image: './recipe-images/individual-vegetarian-lasagnes.jpg'
-  },
-  {
-    name: 'Vegetarian Stir-Fried Garlic Scape',
-    cuisineType: ['Balanced'],
-    ingredients: [
-      '8 oz. garlic scapes',
-      '3 oz. baby corn',
-      '3 oz. carrots',
-      '1 oz. dried shiitake mushrooms',
-      '1 clove of garlic sliced thinly',
-      '3 slices of fresh ginger root',
-      '2 tablespoons vegetable oil',
-      '1/4 cup shaoxing cooking wine',
-      '1/4 vegetarian stock or water',
-      '1 tablespoon light soy sauce',
-      '1 teaspoon sugar',
-      '1 teaspoon cornstarch',
-      '1/4 teaspoon ground white pepper'
-    ],
-    source: 'Red Cook',
-    totalTime: null,
-    url: 'http://redcook.net/2010/06/16/garlic-scape-an-off-menu-treat/',
-    image: './recipe-images/vegetarian-stir-fried-garlic-s.jpg'
-  },
-  {
-    name: 'Cheat’s cheesy focaccia',
-    cuisineType: ['Italian'],
-    ingredients: [
-      '500g pack bread mix',
-      '2 tbsp olive oil , plus a little extra for drizzling',
-      '25g parmesan (or vegetarian alternative), grated',
-      '75g dolcelatte cheese (or vegetarian alternative)'
-    ],
-    source: 'BBC Good Food',
-    totalTime: 40,
-    url: 'https://www.bbcgoodfood.com/recipes/cheats-cheesy-focaccia',
-    image: './recipe-images/cheat’s-cheesy-focaccia.jpg'
-  },
-  {
-    name: "Vegetarian Shepherd's Pie",
-    cuisineType: ['Balanced', 'High-Fiber'],
-    ingredients: [
-      '2 tablespoons extra-virgin olive oil',
-      '1 large onion, finely diced',
-      '2 carrots, peeled and thinly sliced',
-      '2 celery stalks, thinly sliced',
-      '10 ounces cremini mushrooms, trimmed and sliced',
-      '1 tablespoon tomato paste',
-      "1 tablespoon vegetarian Worcestershire sauce, such as Annie's Naturals",
-      '1 dried bay leaf',
-      '1 cup French green lentils, picked over',
-      'Kosher salt and freshly ground pepper',
-      '1 cup frozen peas',
-      '2 pounds Yukon Gold potatoes, scrubbed and cut into 1 1/2-inch pieces',
-      '4 cloves garlic',
-      '4 tablespoons unsalted butter',
-      '1/2 cup whole milk, warmed'
-    ],
-    source: 'Martha Stewart',
-    totalTime: 120,
-    url: 'https://www.marthastewart.com/1535235/vegetarian-shepherds-pie',
-    image: "./recipe-images/vegetarian-shepherd's-pie.jpg"
-  },
-  {
-    name: 'Chicken Paprikash',
-    cuisineType: ['Low-Carb'],
-    ingredients: [
-      '640 grams chicken - drumsticks and thighs ( 3 whole chicken legs cut apart)',
-      '1/2 teaspoon salt',
-      '1/4 teaspoon black pepper',
-      '1 tablespoon butter – cultured unsalted (or olive oil)',
-      '240 grams onion sliced thin (1 large onion)',
-      '70 grams Anaheim pepper chopped (1 large pepper)',
-      '25 grams paprika (about 1/4 cup)',
-      '1 cup chicken stock',
-      '1/2 teaspoon salt',
-      '1/2 cup sour cream',
-      '1 tablespoon flour – all-purpose'
-    ],
-    source: 'No Recipes',
-    totalTime: 80,
-    url: 'http://norecipes.com/recipe/chicken-paprikash/',
-    image: './recipe-images/chicken-paprikash.jpg'
-  },
-  {
-    name: 'Baked Chicken',
-    cuisineType: ['american'],
-    ingredients: [
-      '6 bone-in chicken breast halves, or 6 chicken thighs and wings, skin-on',
-      '1/2 teaspoon coarse salt',
-      '1/2 teaspoon Mrs. Dash seasoning',
-      '1/4 teaspoon freshly ground black pepper'
-    ],
-    source: 'Martha Stewart',
-    totalTime: 90,
-    url: 'http://www.marthastewart.com/318981/baked-chicken',
-    image: './recipe-images/baked-chicken.jpg'
-  },
-  {
-    name: 'Deep Fried Fish Bones',
-    cuisineType: ['south east asian'],
-    ingredients: ['8 small whiting fish or smelt', '4 cups vegetable oil'],
-    source: 'Serious Eats',
-    totalTime: 31,
-    url: 'http://www.seriouseats.com/recipes/2011/03/deep-fried-fish-bones-recipe.html',
-    image: './recipe-images/deep-fried-fish-bones.jpg'
-  },
-  {
-    name: 'Burnt-Scallion Fish',
-    cuisineType: ['chinese'],
-    ingredients: [
-      '2 bunches scallions',
-      '8 tbsp. butter',
-      '2 8-oz. fish filets'
-    ],
-    source: 'Saveur',
-    totalTime: 70,
-    url: 'http://www.saveur.com/article/Recipes/Burnt-Scallion-Fish',
-    image: './recipe-images/fish-dish.jpg'
-  },
-  {
-    name: 'Curry-Crusted Fish',
-    cuisineType: ['south east asian'],
-    ingredients: [
-      '3 slices bread , about 85g/3oz in total',
-      '1 lime',
-      '1.0 tbsp Korma curry paste',
-      '4 thick white fish fillets'
-    ],
-    source: 'BBC Good Food',
-    totalTime: 80,
-    url: 'http://www.bbcgoodfood.com/recipes/4717/',
-    image: './recipe-images/fish-dish.jpg'
-  },
-  {
-    name: 'Meat Stock',
-    cuisineType: 'american',
-    ingredients: [
-      '2.5 pounds beef marrow bones',
-      '1 large onion, quartered',
-      '2 carrots, sliced',
-      '1 leek, cleaned and sliced',
-      '2 celery stalks, sliced',
-      '2.5 pounds organic beef stew meat, cubed',
-      '2 tablespoons tomato paste',
-      '5 cloves garlic',
-      '2 bay leaves',
-      '3 sprigs thyme',
-      '3 sprigs Italian parsley',
-      '1/2 teaspoon black peppercorns'
-    ],
-    source: 'Food52',
-    totalTime: 60,
-    url: 'https://food52.com/recipes/3712-meat-stock',
-    image: './recipe-images/meat.jpg'
-  },
-  {
-    name: 'Homemade Meat Broth',
-    cuisineType: 'american',
-    ingredients: [
-      '1 teaspoon salt',
-      '1 carrot, peeled',
-      '1 medium onion, peeled',
-      '2 or 3 celery stalks',
-      '¼ red or yellow bell pepper, stripped of all its seeds',
-      '1 small boiling potato, peeled',
-      '1 ripe, fresh tomato, or 1 canned Italian plum tomato, drained of juice',
-      '5 pounds assorted pieces of meat and bones (see meat suggestions above), of which no less than 1½ pounds is all meat'
-    ],
-    source: 'Cookstr',
-    totalTime: 60,
-    url: 'http://www.cookstr.com/recipes/il-brodo-homemade-meat-broth',
-    image: './recipe-images/meat.jpg'
-  },
-  {
-    name: 'Spice-Rubbed Grilled Flap Meat (Sirloin Tip) Recipe',
-    cuisineType: 'south-american',
-    ingredients: [
-      '1 tablespoon whole black peppercorns, toasted',
-      '1 teaspoon coriander seed, toasted',
-      '1 teaspoon fennel seed, toasted',
-      '1 teaspoon cumin pods, toasted',
-      '1 teaspoon red pepper flakes',
-      '1/2 teaspoon dried oregano',
-      '2 medium cloves garlic, minced (about 2 teaspoons)',
-      '2 tablespoons vegetable or canola oil',
-      '1 whole flap meat steak, 2 to 2 1/2 pounds',
-      'Kosher salt'
-    ],
-    source: 'Serious Eats',
-    totalTime: 240,
-    url: 'http://www.seriouseats.com/recipes/2012/05/spice-rubbed-grilled-flap-meat-sirloin-tip-recipe.html',
-    image: './recipe-images/grilled.jpg'
-  }
-]
+
+/*wrong position of libaray.innerHTML 
+const printBooks=()=>{
+  books.forEach(book=>{
+    library.innerHTML +=`
+    <div class="bookItem1" id="bookItem1">  
+    </div>
+    `
+    bookItem1.innerHTML +=`
+    <div class="bookChild">
+      <img src="${book.image}" class="bookImage" alt="gatsby" />
+      <h3 id="bookTitle"></h3>
+    </div>
+
+    <div class="bookChild">
+      <p id="bookGenre"></p>
+      <p id="bookRating"></p>
+    </div>
+
+    <div class="bookChild">
+      <p id="bookAuthor"></p>
+      <p id="bookYear"></p>
+      <p id="bookDescription"></p>
+    </div>
+    `
+    bookTitle.innerHTML = book.title
+    bookGenre.innerHTML = "Genre: " + book.genre
+    bookRating.innerHTML = "Rating: " +book.rating
+    bookAuthor.innerHTML = "Author: " + book.author
+    bookYear.innerHTML = "Year: " +book.year
+    bookDescription.innerHTML = "Description:<br />" + book.description
+
+  })
+}   
+printBooks() */
+
+//Show all books
+const printBooks = (booksArray) => {
+  library.innerHTML = '';
+  booksArray.forEach(book => {
+    library.innerHTML  += `
+      <div class="bookItem">
+        <div class="bookChild">
+        <img src="${book.image}" class="bookImage" alt="${book.title}" />
+          <h3 class="bookTitle">${book.title}</h3>
+        </div>
+
+        <div class="bookChild">
+          <p class="bookGenre">Genre: ${book.genre}</p>
+          <p class="bookRating">Rating: ${book.rating}</p>
+        </div>
+
+        <div class="bookChild">
+          <p class="bookAuthor">Author: ${book.author}</p>
+          <p class="bookYear">Year: ${book.year}</p>
+          <p class="bookDescription">Description:<br />${book.description}</p>
+        </div>
+      </div>
+    `;
+  });
+};
+printBooks(books);
+
+// Filter
+genre.innerHTML +=`
+  <div class="sortTitle" id="sortTitle" >Filter on genre</div>
+  <div class="genreButton" id="genreButton">
+    <div class="genreChoice" id="genreChoice">
+      <button id="all" value="all">All</button>
+      <button id="fiction" value="Fiction">Fiction</button>
+      <button id="fantasy" value="Fantasy" >Fantasy</button>
+      <button id="adventure" value="Adventure">Adventure</button>
+    </div>
+    <select id="more">
+      <option value="More" disabled selected>More</option>
+      <option id="sciFi" value="Science Fiction">Science Fiction</option>
+      <option id="horror" value="Horror">Horror</option>
+      <option id="mystery" value="Mystery">Mystery</option>
+      <option id="dystopian" value="Dystopian">Dystopian</option>
+    </select>
+  </div>
+`
+// use a event.target.value instead of creating each filter.
+let filterSelectedBooks=[];
+const filterBook=()=>{
+  document.getElementById("genreChoice").addEventListener("click",(event)=>{
+    const filteredBooks = event.target.value
+    if (filteredBooks==="all"){
+      document.getElementById("all").addEventListener("click",()=>{
+        filterSelectedBooks = books
+        printBooks(filterSelectedBooks)  
+      })
+    } else {
+      filteredSelectedBooks = books.filter((book)=>book.genre===filteredBooks)
+      printBooks(filteredSelectedBooks) 
+    }
+  })
+    
+  // Filter with "more" selector
+  document.getElementById("more").addEventListener("change",(event)=>{
+    const genreFilter = event.target.value;
+    filterSelectedBooks = books.filter((book)=>book.genre===genreFilter);
+    printBooks(filterSelectedBooks); 
+  }) 
+}
+filterBook();
+
+
+/* too many codes here. nonono if more filters need to be added. 
+  document.getElementById("all").addEventListener("click",()=>{
+  const allBooks = books
+  printBooks(allBooks)  
+})
+
+document.getElementById("fiction").addEventListener("click",()=>{
+  const fictionBooks = books.filter((book)=>book.genre==="Fiction")
+  printBooks(fictionBooks)  
+})
+
+document.getElementById("fantasy").addEventListener("click",()=>{
+  const fantasyBooks = books.filter((book)=>book.genre==="Fantasy")
+  printBooks(fantasyBooks)  
+}) 
+
+document.getElementById("adventure").addEventListener("click",()=>{
+  const adventureBooks = books.filter((book)=>book.genre==="Adventure")
+  printBooks(adventureBooks)  
+}) */
+
+
+
+//Search
+userSearch.innerHTML+=`
+  <input type="text" id="userInput" placeholder="  Search your next book">
+  <button id="searchButton">Go</button>
+`
+const searchBooks=()=>{
+  let userInput =""
+  userInput = document.getElementById("userInput")
+  document.getElementById("searchButton").addEventListener("click",(event)=>{
+    const userBookInput = userInput.value.toUpperCase();
+    const searchResult =books.filter((book)=>Object.values(book).join("").toUpperCase().includes(userBookInput));
+    printBooks(searchResult);
+  })
+}
+searchBooks();
+
+
+//Sort
+sort.innerHTML +=`
+  <div class="sortTitle" id="sortTitle" >Sort</div>
+  <div class="sortButton" id="sortButton">
+    <button id="rating" value="rating" >rating ↑↓</button>
+    <button id="year" value="rating">year ↑↓</button>
+    <button id="title" value="title">A-Z ↑↓</button>
+  </div>
+`
+const sortByRating =()=>{
+  let isDescending = false;
+  
+  // Defnine a new array for sorting purpose so books order is not touched. Good explaination here.https://dev.to/samanthaming/how-to-deep-clone-an-array-in-javascript-3cig OR use toSorted() since toSorted will not affect the original array.
+  const ratingBooks = [...books];
+  document.getElementById("rating").addEventListener("click",()=>{
+    console.log(filterSelectedBooks);
+    isDescending = !isDescending;
+    if(isDescending){
+      ratingBooks.sort((a,b)=>(b.rating-a.rating))
+      printBooks(ratingBooks) 
+    } else {
+      ratingBooks.sort((a,b)=>(a.rating-b.rating))
+      printBooks(ratingBooks)  
+    }
+  })
+}
+sortByRating();
+
+const sortByYear=()=>{
+  let isDescending = false;
+  document.getElementById("year").addEventListener("click",()=>{
+    isDescending = !isDescending;
+    if(isDescending){
+      const yearBooks = books.toSorted((a,b)=>(b.year-a.year))
+      printBooks(yearBooks)
+    } else {
+      const yearBooks = books.toSorted((a,b)=>(a.year-b.year))
+      printBooks(yearBooks)
+    }
+  }) 
+}
+sortByYear();
+
+const sortByTitle=()=>{
+  let isAscending = false;
+  document.getElementById("title").addEventListener("click",()=>{
+    isAscending = !isAscending;
+    if(isAscending){
+      const titleBooks = books.toSorted((a,b)=>a.title.localeCompare(b.title))
+      printBooks(titleBooks)
+    } else {
+      const titleBooks = books.toSorted((a,b)=>b.title.localeCompare(a.title))
+      printBooks(titleBooks)
+    }
+  }) 
+}
+sortByTitle();
+
+//Random and filter by century
+surprise.innerHTML +=`
+  <div class="surpriseTitle" id="surpriseTitle">Surprise</div>
+  <div id="surpriseButton">
+    <button id="random" value="random" >A random book</button>
+    <select id="more1">
+        <option value="More1" disabled selected>More</option>
+        <option id="century" value="2000">21st Century Books</option>
+        <option id="century" value="1900">20th Century Books</option>
+        <option id="century" value="1800">19th Century Books</option>
+    </select>
+  </div>
+`
+const randomize=()=>{
+  document.getElementById("random").addEventListener("click",()=>{
+    const randomIndex = Math.floor(Math.random(books)*books.length);
+    const randomBooks =books[randomIndex]
+    printBooks([randomBooks]); 
+  })
+}
+randomize();
+
+const soryByCentury=()=>{
+  document.getElementById("more1").addEventListener("change",(event)=>{
+    const century = parseInt(event.target.value);
+    const centuryNew = parseInt(event.target.value)+100;
+    const centuryBooks = books.filter((book)=>book.year>=century && book.year<=centuryNew) 
+    printBooks(centuryBooks) 
+  })
+}
+soryByCentury();
