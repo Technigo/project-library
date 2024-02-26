@@ -227,7 +227,7 @@ const reset = () => {
 };
 
 // Handle search
-async function getSearchResults(searchterm) {
+const getSearchResults = searchterm => {
   const searchResults = books.filter(book => {
     return Object.values(book).join(" ").toLowerCase().includes(searchterm);
   });
@@ -237,7 +237,7 @@ async function getSearchResults(searchterm) {
   } else {
     bookListing.innerHTML = errorText;
   }
-}
+};
 
 // Search
 const search = event => {
@@ -333,7 +333,7 @@ const checkFilter = filter => {
   if (activeFilter.includes(filter) && activeSort) {
     activeList = books;
     return sortListing(activeSort);
-  } else if (activeFilter.includes(filter) === filter) {
+  } else if (activeFilter.includes(filter)) {
     return books;
   } else {
     return activeList;
@@ -362,7 +362,6 @@ const filterBooks = event => {
     default:
       break;
   }
-  console.log(activeFilter);
   activeList = filteredBooks;
 
   if (filteredBooks.length > 0) {
