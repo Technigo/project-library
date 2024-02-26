@@ -223,7 +223,7 @@ const reset = () => {
   activeList = books;
   getBooks(activeList);
   activeFilter = "";
-  sortedBooks = [];
+  activeSort = "";
 };
 
 // Handle search
@@ -296,6 +296,7 @@ const createRandomBook = () => {
 // Sort book listing
 const sortListing = event => {
   randomBookContainer.innerHTML = "";
+  let sortedBooks = [];
   activeSort = event;
   switch (event.target.value) {
     case "by-author":
@@ -474,7 +475,7 @@ filterAuthor.addEventListener("change", filterBooks);
 filterGenre.addEventListener("change", filterBooks);
 randomBookBtn.addEventListener("click", createRandomBook);
 searchBtn.addEventListener("click", search);
-optionsForm.addEventListener("reset", () => reset);
+optionsForm.addEventListener("reset", reset);
 optionsBtn.addEventListener("click", () => toggleHide(optionsForm));
 close.addEventListener("click", () => toggleHide(optionsForm));
 topBtn.addEventListener("click", () => scrollToElement(header));
