@@ -261,7 +261,7 @@ const bookCards = (bookArray) => {
         <h4 class="book-title">${book.title}</h4>
         <p class="book-author"><span class="tag">Author :</span> ${book.author}</p>
         <p class="book-year"><span class="tag">Published Year :</span> ${book.year}</p>
-        <p class="book-genre">${book.genre}</p>
+        <p class="book-genre"><span class="tag">Genre :</span> ${book.genre}</p>
         <p class="book-rating"><span class="tag">Rating :</span> ${book.rating}</p>
         <p class="book-description">${book.description}</p>
       </div>

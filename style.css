@@ -161,6 +161,7 @@ img {
 .book-author,
 .book-year,
 .book-rating,
+.book-genre,
 .book-description {
   font-size: 16px;
   font-weight: 500;
