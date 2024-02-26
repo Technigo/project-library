@@ -325,13 +325,15 @@ const sortListing = event => {
       break;
   }
   activeList = sortedBooks;
+  return sortedBooks;
 };
 
 // Check if same filter is already applied
 const checkFilter = filter => {
-  if (activeFilter === filter && activeSort.length > 0) {
+  if (activeFilter.includes(filter) && activeSort) {
+    activeList = books;
     return sortListing(activeSort);
-  } else if (activeFilter === filter) {
+  } else if (activeFilter.includes(filter) === filter) {
     return books;
   } else {
     return activeList;
@@ -342,17 +344,16 @@ const checkFilter = filter => {
 const filterBooks = event => {
   let filteredBooks = [];
   randomBookContainer.innerHTML = "";
-  // let filteredBooks = [];
   activeList = checkFilter(event.target.id);
   switch (event.target.id) {
     case "select-filter-author":
-      activeFilter = event.target.id;
+      activeFilter += event.target.id;
       filteredBooks = activeList.filter(
         book => book.author === event.target.value
       );
       break;
     case "select-filter-genre":
-      activeFilter = event.target.id;
+      activeFilter += event.target.id;
       filteredBooks = activeList.filter(
         book => book.genre === event.target.value
       );
@@ -361,13 +362,17 @@ const filterBooks = event => {
     default:
       break;
   }
+  console.log(activeFilter);
   activeList = filteredBooks;
 
   if (filteredBooks.length > 0) {
     getBooks(filteredBooks);
   } else {
     bookListing.innerHTML = errorText;
-    setTimeout(reset, 3000);
+    setTimeout(() => {
+      reset();
+      optionsForm.reset();
+    }, 3000);
   }
 };
 
