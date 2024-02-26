@@ -278,16 +278,15 @@ const createRandomBook = () => {
     <h3 class="author">${book.author}</h3>
     <time
       class="year"
-      datetime=${book.year}
-      >${book.year}</time>
+      datetime=${book.year}>
+      ${book.year}
+    </time>
     <p class="genre">${book.genre}</p>
     <p class="rating">${book.rating} ${book.stars}</p>
-    <details>
-      <summary>${summarytext}</summary>
-      <span class="description">
+    <h4>About the book</h4>
+    <p class="description">
       ${book.description}
-      </span>
-    </details>
+    </p>
   </div>`;
   randomBookContainer.append(article);
   scrollToElement(randomBookContainer);
@@ -447,17 +446,15 @@ async function getBooks(bookArray) {
     <h3 class="author">${book.author}</h3>
     <time
       class="year"
-      datetime=${book.year}
-      >${book.year}</time
-    >
+      datetime=${book.year}>
+      ${book.year}
+    </time>
     <p class="genre">${book.genre}</p>
     <p class="rating">${book.rating} ${book.stars}</p>
-    <details>
-      <summary>${summarytext}</summary>
-      <span class="description">
+    <h4>About the book</h4>
+    <p class="description">
       ${book.description}
-      </span>
-    </details>
+    </p>
   </div>`;
     fragment.appendChild(article);
   });
