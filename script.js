@@ -203,7 +203,7 @@ let authors = [];
 let genres = [];
 let activeList = books;
 let activeFilter = "";
-let sortedBooks = [];
+let activeSort = "";
 
 // Scroll to element
 const scrollToElement = element =>
@@ -296,12 +296,12 @@ const createRandomBook = () => {
 // Sort book listing
 const sortListing = event => {
   randomBookContainer.innerHTML = "";
-  // let sortedBooks = [];
+  activeSort = event;
   switch (event.target.value) {
     case "by-author":
-      sortedBooks = activeList.toSorted((a, b) => {
-        a.author > b.author ? 1 : -1;
-      });
+      sortedBooks = activeList.toSorted((a, b) =>
+        a.author > b.author ? 1 : -1
+      );
       getBooks(sortedBooks);
       break;
     case "by-year":
@@ -328,8 +328,8 @@ const sortListing = event => {
 
 // Check if same filter is already applied
 const checkFilter = filter => {
-  if (activeFilter === filter && sortedBooks.length > 0) {
-    return sortedBooks;
+  if (activeFilter === filter && activeSort.length > 0) {
+    return sortListing(activeSort);
   } else if (activeFilter === filter) {
     return books;
   } else {
