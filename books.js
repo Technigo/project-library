@@ -402,9 +402,9 @@ const sortByTileZA = (arr) => {
   return sortedBooks;
 };
 
+let previousNum = -1;
 const getRandomBook = () => {
   let i;
-  let previousNum = -1;
   do {
     i = Math.floor(Math.random() * books.length);
   } while (i === previousNum); // prevent getting the same number
