@@ -424,9 +424,3 @@ const soryByCentury=()=>{
   })
 }
 soryByCentury();
-
-//Until here, filter will show books by order after sorting. Reset function is needed. But it is also good to have filter list by year/rating.    
-/* const reset=()=>{
-  ratingBooks=books;
-  yearBooks=books;
-} */
