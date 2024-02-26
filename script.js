@@ -179,8 +179,8 @@ const plants = [
 //Functions:
 //Shows a card containing the inputted plant
 const showACard = (onePlant) => {
-  plantName = plants[plants.indexOf(onePlant)]["name"]
-  plantCategory = plants[plants.indexOf(onePlant)]["category"]
+  //plantName = plants[plants.indexOf(onePlant)]["name"]
+  //plantCategory = plants[plants.indexOf(onePlant)]["category"]
   plantScientificName = plants[plants.indexOf(onePlant)]["scientificName"]
   plantTimeToSow = plants[plants.indexOf(onePlant)]["timeToSow"]
   if (onePlant.directSowing === true){
@@ -199,10 +199,10 @@ const showACard = (onePlant) => {
     plantPerennial = "No"
   }
   cardContainer.innerHTML += `<div class="card" id="card">
-    <h2>${plantName}</h2>
+    <h2>${onePlant.name}</h2>
     <p class="scientific-name">${plantScientificName}</p>
     <img src="${plantImageLink}" alt="">
-    <p>Category: ${plantCategory}</p>
+    <p>Category: ${onePlant.category}</p>
     <p>Time to sow: ${plantTimeToSow}</p>
     <p>Direct sowing: ${plantDirectSowing}</p>
     <p>Development time: ${plantDevelopmentTime}</p>
