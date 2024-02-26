@@ -118,11 +118,11 @@ li#randomBook {
 .book-card {
   border: var(--main-border-color) 2px solid;
   border-radius: 16px;
-  margin: 0 auto;
+  /* margin: 0 auto; */
   padding: 16px 16px 24px 16px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   gap: 16px;
   width: 300px;
