@@ -52,8 +52,8 @@ main {
   display: flex;
   padding: 4rem 2rem;
   flex-flow: row wrap;
-  justify-content: center;
-  align-items: flex-start;
+  justify-content: flex-start;
+  align-items: baseline;
   gap: 2rem;
   background: #FAFBFF;
 }
@@ -143,6 +143,24 @@ main {
   transition: ease 0.5s;
 }
 
+.clearbtn {
+  background-color: #fafbff;
+  color: #0018a4;
+  font-weight: 300;
+  font-size: 15px;
+  border-radius: 5px;
+  border: solid 2px color(srgb 0 0.0923 0.6419);
+}
+
+.clearbtn:hover {
+  background-color: #0018a4;
+  color: #fafbff;
+  font-weight: 300;
+  font-size: 15px;
+  border-radius: 0px;
+  border: solid 2px color(srgb 0 0.0923 0.6419);
+  transition: ease 0.5s;
+}
 
 .sort {
   color: #0018A4;
@@ -159,6 +177,16 @@ main {
   color: #FFF;
   background: #FF6589;
   transition: ease 0.5s;
+}
+
+.randombtn {
+  color: #FFF;
+  background: #FF6589;
+}
+
+.randombtn:hover {
+  color: #0018A4;
+  background: #FFECEA;
 }
 
 #input-wrapper {
@@ -199,8 +227,18 @@ main {
   transition: ease 0.5s;
 }
 
+.searchResponse {
+  align-self: flex-end;
+  padding: 5px;
+}
+
+.sub {
+  align-content: flex-end;
+
+}
+
 @media(min-width:200px) and (max-width:795px) {
-  headr .title {
+  header .title {
     color: #0018A4;
     font-size: 30px;
     font-family: Futura;
@@ -212,16 +250,9 @@ main {
 
 
   #user-input {
-    /*border-radius: 2rem;
-		background: #FFF;
-		color: #0018A4;*/
     padding-left: 0;
     padding-top: 0;
     font-size: 12px;
-    /*border: 2px solid #0018A4;
-		font-family: Futura;
-		font-size: 1.125rem;
-		font-weight: 500;*/
   }
 
   .button {

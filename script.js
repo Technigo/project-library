@@ -169,6 +169,7 @@ const main = document.querySelector('main');
 const result = document.querySelector('.result');
 const nav = document.querySelector('nav');
 const form = document.getElementById("search-form");
+const sub = document.querySelector('.sub');
 
 const buttonContainer = document.createElement("div");
 const genreBtnContainer = document.createElement("div");
@@ -176,12 +177,12 @@ const sortBtnContainer = document.createElement("div");
 const nameBtnContainer = document.createElement("div");
 const button = document.createElement("button");
 
-let tempArr = [];
-let booksLastName;
-let searchResult = [];
-let searchstring;
-let foundWhere;
-let randomBook =[];
+let tempArr = []
+let booksLastName
+let searchResult = []
+let searchstring
+let foundWhere
+let randomBook = []
 
 // Display books on pageload
 function displayBooks() {
@@ -205,6 +206,8 @@ function displayBooks() {
 		subSort.appendChild(sortBtnContainer);
 		nav.appendChild(nameSort)
 		nameSort.appendChild(nameBtnContainer);
+
+
 	})
 }
 
@@ -314,9 +317,19 @@ sortBtnContainer.appendChild(sortRatingLowBtn);
 
 //random
 const randomButton = document.createElement("button");
-randomButton.classList.add('button');
+randomButton.classList.add('button', 'randombtn');
 randomButton.textContent = "Random";
 genreBtnContainer.appendChild(randomButton);
+
+const clearBtn = document.createElement("button");
+clearBtn.classList.add('button', 'sort');
+clearBtn.textContent = "Clear search";
+sub.appendChild(clearBtn);
+
+const showAllBtn = document.createElement("button");
+showAllBtn.classList.add('button', 'sort');
+showAllBtn.textContent = "Show all books";
+sub.appendChild(showAllBtn);
 
 //---------- FILTER & SORT FUNCTIONS -------------//
 
@@ -368,20 +381,13 @@ function search(searchstring) {
 			foundWhere = `Found "${searchstring}"in the genre: ${books[i].genre}.`
 			searchResult.push(books[i]);
 		}
-		else {
-			displayNoResultsMessage();
-		}
+
 	}
 
 	displaySearch(searchResult);
 }
 
-function displayNoResultsMessage() {
-	const feedback = document.createElement('div');
-	feedback.classList.add('book-card');
-	result.appendChild(feedback);
-	feedback.innerHTML = `<h2>No results found for "${searchstring}"</h2>`;
-}
+
 
 
 // functions for displaying filter/sort/search results
@@ -414,25 +420,28 @@ function displayFilteredBooks(a) {
 function displaySearch(a) {
 	//clear the existing content
 	result.innerHTML = "";
-
 	a.forEach((book) => {
 		const bookCard = document.createElement('div');
 		const feedback = document.createElement('div');
 		bookCard.classList.add('book-card');
-		bookCard.classList.add('search-result');
-
-		feedback.innerHTML = `
-			<p>${foundWhere}</p> `
-			bookCard.innerHTML = ` <img class="cover" src="${book.image}"alt="${book.title}"></img> <h2>${book.title}</h2>
+		bookCard.addEventListener("click", () => clear());
+		bookCard.innerHTML = `
+			<div class="searchResponse">
+		<button class="button clearbtn" onClick="clear()"> X </button>
+			</div>
+			<img class="cover" src="${book.image}"alt="${book.title}"></img>
+			<h2>${book.title}</h2>
 			<hr>
 			<p><b>Author:</b> ${book.author}</p>
 			<p><b>Genre:</b> ${book.genre}</p>
 			<p><b>Year:</b> ${book.year}
 			<b>Rating:</b> ${book.rating}</p>
 			<hr>
-			<p><b>Description:</b> ${book.description}</p> `;
+			<p><b>Description:</b> ${book.description}</p>
+ `;
 		result.appendChild(feedback);
 		result.appendChild(bookCard);
+
 	});
 
 	//empty the search
@@ -443,7 +452,7 @@ function displaySearch(a) {
 
 function clear() {
 	searchResult = [];
-	displaySearch(searchResult)
+	displaySearch(searchResult);
 };
 
 
@@ -452,9 +461,11 @@ function getRandom() {
 	randomBook = books[(Math.floor(Math.random() * books.length))];
 	const bookCard = document.createElement('div');
 	const feedback = document.createElement('div');
+	bookCard.addEventListener("click", () => clear());
 	bookCard.classList.add('book-card');
-	bookCard.classList.add('search-result');
-		bookCard.innerHTML = `
+	bookCard.innerHTML = `
+	<div class="searchResponse">
+	<button class="button clearbtn" onClick="clear()"> X </button></div>
 		<img class="cover" src="${randomBook.image}"alt="${randomBook.title}"></img>
 		<h2>${randomBook.title}</h2>
 		<hr>
@@ -463,9 +474,11 @@ function getRandom() {
 		<p><b>Year:</b> ${randomBook.year}
 		<b>Rating:</b> ${randomBook.rating}</p>
 		<hr>
-		<p><b>Description:</b> ${randomBook.description}</p> `;
+		<p><b>Description:</b> ${randomBook.description}</p>
+	`;
 	result.appendChild(feedback);
 	result.appendChild(bookCard);
+
 }
 
 
@@ -473,8 +486,8 @@ displayBooks();
 
 //Eventlisteners
 form.addEventListener("submit", handleSearchInput);
-form.addEventListener("click", () => clear());
-form.addEventListener("click", () => displayBooks());
+sub.addEventListener("click", () => clear());
+sub.addEventListener("click", () => displayBooks());
 sortRatingLowBtn.addEventListener("click", () => sortLow());
 sortRatingHighButton.addEventListener("click", () => sortHigh());
 sortAuthorLastNameButton.addEventListener("click", () => addLastName());
