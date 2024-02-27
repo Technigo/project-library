@@ -275,8 +275,8 @@ const toggleGenreSelected = (Btn) => {
 };
 
 const toggleYearSelected = (Btn) => {
-  yearBtns.forEach((yeaerBtn) => {
-    yeaerBtn.classList.remove("selected");
+  yearBtns.forEach((yearBtn) => {
+    yearBtn.classList.remove("selected");
   });
   Btn.classList.add("selected");
 };
@@ -314,13 +314,13 @@ let booksToDisplay = [];
 
 const checkFiltered = () => {
   booksToDisplay = filteredBooks.length === 0 ? books : filteredBooks;
-  console.log(booksToDisplay);
-  console.log(previousFilter);
-  console.log(filterType);
-  if (previousFilter === null) {
-    //string
+
+  if (previousFilter === null && !isGenreFiltered && !isYearFiltered) {
+    booksToDisplay = books;
+  } else if (previousFilter === null && isGenreFiltered && !isYearFiltered) {
     booksToDisplay = filteredBooks;
-    console.log("stops at previousFilter === null");
+  } else if (previousFilter === null && !isGenreFiltered && isYearFiltered) {
+    booksToDisplay = filteredBooks;
   } else if (isGenreFiltered && !isYearFiltered) {
     booksToDisplay = filteredBooks;
   } else if (!isGenreFiltered && isYearFiltered) {
@@ -332,8 +332,6 @@ const checkFiltered = () => {
     booksToDisplay = genreFilteredBooks.filter((book) =>
       yearFilteredBooks.includes(book)
     );
-    console.log("stops at else");
-    console.log(booksToDisplay);
   } else {
     console.log("something is wrong");
   } // get the intersection of filteredBooks array and newFilterBooks
@@ -480,6 +478,17 @@ bookDisplay.addEventListener("mouseout", (event) => {
   }
 });
 
+all.addEventListener("click", () => {
+  all.classList.add("selected");
+  setTimeout(() => {
+    all.classList.remove("selected");
+  }, 200);
+  filteredBooks = books;
+  checkFiltered();
+  console.log(books);
+  applySorting();
+});
+
 //
 //----Genre Style
 
@@ -502,14 +511,8 @@ genreBtns.forEach((genreBtn) => {
 
 //
 //----Genre Filter event listener
-all.addEventListener("click", () => {
-  filteredBooks = books;
-  checkFiltered();
-  console.log(books);
-  applySorting();
-});
 
-genreBtns.slice(1, 8).forEach((genreBtn) => {
+genreBtns.forEach((genreBtn) => {
   genreBtn.addEventListener("click", (event) => {
     getGenre(event.target.innerHTML);
     filteredBooks = genreFilteredBooks;
@@ -615,23 +618,34 @@ sortBtns.forEach((sortBtn) => {
 //----Sort evenet listener
 
 highestRating.addEventListener("click", () => {
+  checkFiltered();
   checkSorted(sortByHighRating);
 });
 
 newestPublished.addEventListener("click", () => {
+  checkFiltered();
   checkSorted(sortByPublish);
 });
 
 author.addEventListener("click", () => {
+  checkFiltered();
   checkSorted(sortByAuthor);
 });
 
 titleAZ.addEventListener("click", () => {
+  checkFiltered();
   checkSorted(sortByTileAZ);
 });
 
 titleZA.addEventListener("click", () => {
+  checkFiltered();
   checkSorted(sortByTileZA);
 });
 
-randomBookBtn.addEventListener("click", getRandomBook);
+randomBookBtn.addEventListener("click", () => {
+  getRandomBook();
+  randomBookBtn.classList.add("selected");
+  setTimeout(() => {
+    randomBookBtn.classList.remove("selected");
+  }, 200);
+});

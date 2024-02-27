@@ -78,6 +78,7 @@ li {
   margin: auto;
   line-height: 23px;
   transition: all 0.2s;
+  cursor: pointer;
 }
 
 li#sci-fi {
@@ -97,6 +98,7 @@ li#randomBook {
   cursor: pointer;
   background-color: var(--highlighted-color);
   color: var(--selected-color);
+  transition: all 0.2s;
 }
 
 .hover {
