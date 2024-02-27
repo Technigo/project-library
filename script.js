@@ -324,13 +324,13 @@ const showFavorites = () => {
 
 //Function to sorting descending
 const filteredRecipesByDescending = () => {
-  recipes.sort((a, b) => a.totalTime - b.totalTime)
+  recipes.sort((a, b) => b.totalTime - a.totalTime)
   showRecipes(recipes)
 }
 
 //Function to sorting ascending
 const filteredRecipesByAscending = () => {
-  recipes.sort((a, b) => b.totalTime - a.totalTime)
+  recipes.sort((a, b) => a.totalTime - b.totalTime)
   showRecipes(recipes)
 }
 
@@ -382,7 +382,6 @@ random.addEventListener("click", (event) => {
 //Event listener for searchform
 searchForm.addEventListener("submit", (event) => {
   event.preventDefault()
-
   filterRecipesBySearchInput(searchInput.value)
 })
 
