@@ -188,7 +188,8 @@ DOM selectors
 */
 const bookDisplay = document.querySelector(".book-display");
 
-const all = document.querySelector("#all");
+const reset = document.querySelector("#reset");
+
 const fiction = document.querySelector("#fiction");
 const scifi = document.querySelector("#sci-fi");
 const fantasy = document.querySelector("#fantasy");
@@ -208,6 +209,7 @@ const newestPublished = document.querySelector("#newest-published");
 const author = document.querySelector("#author");
 const titleAZ = document.querySelector("#title-a-z");
 const titleZA = document.querySelector("#title-z-a");
+
 const randomBookBtn = document.querySelector("#randomBook");
 
 /*
@@ -235,7 +237,36 @@ const yearBtns = [
 
 const sortBtns = [highestRating, newestPublished, author, titleAZ, titleZA];
 
-const generalBtns = [all, randomBookBtn];
+const generalBtns = [reset, randomBookBtn];
+
+/*
+
+
+Global Variables 
+
+
+*/
+
+let genreFilteredBooks;
+let yearFilteredBooks;
+let filterType = null;
+let isGenreFiltered = false;
+let isYearFiltered = false;
+let previousFilter = null;
+
+let booksToDisplay = [];
+
+let sortedBooks = [];
+let filteredBooks = [];
+
+let sortingFunction = null;
+let isSorted = false;
+let previousSort = null;
+
+let previousNum = -1;
+
+let startYear;
+let endYear;
 
 /*
 
@@ -290,13 +321,11 @@ const toggleSortSelected = (Btn) => {
   !isSelected ? Btn.classList.add("selected") : Btn.classList.add("hover");
 };
 
-let genreFilteredBooks;
 const getGenre = (genre) => {
   genreFilteredBooks = books.filter((book) => book.genre === genre);
   return genreFilteredBooks;
 };
 
-let yearFilteredBooks;
 const getYear = (startYear, endYear) => {
   const start = Number(startYear);
   const end = Number(endYear);
@@ -305,12 +334,6 @@ const getYear = (startYear, endYear) => {
   );
   return yearFilteredBooks;
 };
-
-let filterType = null;
-let isGenreFiltered = false;
-let isYearFiltered = false;
-let previousFilter = null;
-let booksToDisplay = [];
 
 const checkFiltered = () => {
   booksToDisplay = filteredBooks.length === 0 ? books : filteredBooks;
@@ -342,12 +365,6 @@ const checkFiltered = () => {
 
   previousFilter = filterType;
 };
-
-let sortedBooks = [];
-let filteredBooks = [];
-let sortingFunction = null; //wait for the user to choose the sorting     : (filteredBooks = booksToDisplay);function
-let isSorted = false;
-let previousSort = null;
 
 //Apply sorting
 //Part 1: Display books
@@ -444,7 +461,6 @@ const sortByTileZA = (arr) => {
   return sortedBooks;
 };
 
-let previousNum = -1;
 const getRandomBook = () => {
   let i;
   do {
@@ -454,6 +470,16 @@ const getRandomBook = () => {
   const randomBook = [books[i]];
   bookCards(randomBook);
   console.log(i);
+};
+
+const resetFunc = () => {
+  isGenreFiltered = false;
+  isYearFiltered = false;
+  isSorted = false;
+  previousFilter = null;
+  genreBtns.forEach((genreBtn) => genreBtn.classList.remove("selected"));
+  yearBtns.forEach((yearBtn) => yearBtn.classList.remove("selected"));
+  sortBtns.forEach((sortBtn) => sortBtn.classList.remove("selected"));
 };
 
 /*
@@ -476,17 +502,6 @@ bookDisplay.addEventListener("mouseout", (event) => {
   if (target.closest(".book-card")) {
     target.closest(".book-card").classList.remove("book-hover");
   }
-});
-
-all.addEventListener("click", () => {
-  all.classList.add("selected");
-  setTimeout(() => {
-    all.classList.remove("selected");
-  }, 200);
-  filteredBooks = books;
-  checkFiltered();
-  console.log(books);
-  applySorting();
 });
 
 //
@@ -544,8 +559,6 @@ yearBtns.forEach((yearBtn) => {
 });
 //
 //----Year Filter event listense
-let startYear;
-let endYear;
 
 yearBtns.forEach((yearBtn) => {
   yearBtn.addEventListener("click", (event) => {
@@ -642,10 +655,21 @@ titleZA.addEventListener("click", () => {
   checkSorted(sortByTileZA);
 });
 
+//---- General Style
 randomBookBtn.addEventListener("click", () => {
   getRandomBook();
   randomBookBtn.classList.add("selected");
   setTimeout(() => {
     randomBookBtn.classList.remove("selected");
-  }, 200);
+  }, 1000);
+  resetFunc();
+});
+
+reset.addEventListener("click", () => {
+  reset.classList.add("selected");
+  setTimeout(() => {
+    reset.classList.remove("selected");
+  }, 800);
+  bookCards(books);
+  resetFunc();
 });

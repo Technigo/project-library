@@ -77,7 +77,7 @@ li {
   margin-top: 1rem;
   margin: auto;
   line-height: 23px;
-  transition: all 0.2s;
+  transition: background-color 0.8s;
   cursor: pointer;
 }
 
@@ -85,20 +85,16 @@ li#sci-fi {
   text-wrap: nowrap;
 }
 
-li#randomBook {
-  background: linear-gradient(
-    90deg,
-    var(--fun-color),
-    var(--default-color),
-    var(--fun-color)
-  );
+.general li {
+  box-shadow: 0 0 10px var(--shadow-color);
+  border-radius: 50px;
 }
 
 .selected {
   cursor: pointer;
   background-color: var(--highlighted-color);
   color: var(--selected-color);
-  transition: all 0.2s;
+  transition: background-color 0.8s;
 }
 
 .hover {
@@ -121,7 +117,6 @@ li#randomBook {
 .book-card {
   border: var(--main-border-color) 2px solid;
   border-radius: 16px;
-  /* margin: 0 auto; */
   padding: 16px 16px 24px 16px;
   display: flex;
   flex-direction: column;
@@ -188,6 +183,12 @@ span.tag {
   line-height: 23.92px;
 }
 
+footer {
+  padding: 16px 16px 24px 16px;
+  text-align: center;
+  margin-top: 64px;
+}
+
 /* Media queries */
 @media only screen and (min-width: 1440px) and (max-width: 1800px) {
   .book-display {
@@ -224,6 +225,10 @@ span.tag {
 
   .filter-section {
     flex-direction: row;
+  }
+
+  li {
+    height: auto;
   }
 
   .genre,
