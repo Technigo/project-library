@@ -218,25 +218,12 @@ const recipes = [
   },
 ];
 
-// Function to capitilize the first letter of Cuisine type. If we have time.
-/*
-function capitalizeFirstLetter(recipes) {
-  console.log(recipes)
-
-  for (let i = 0; i < recipes.length; i++) {
-    recipes.cuisineType = recipes.cuisineType.charAt(0).toUpperCase() + recipes.cuisine.substr(1);
-    console.log(cuisineType);
-}
-  //string.charAt(0).toUpperCase() + string.slice(1);
-}
-capitalizeFirstLetter(recipes);
-*/
-
 // Display the cards
 // Find container from HTML
 let container = document.getElementById("container");
 // For every recipe: add recipe information to the container
 function addRecipeInformation(item) {
+  console.log(item);
   container.innerHTML = '';
   item.forEach((recipe) => {
     container.innerHTML += `
@@ -339,11 +326,11 @@ document
     }
   });
 
+  // Sort alphabetically both in A-Z and Z-A directions
 let nameToggle = true;
 const checkName = () => {
   if (nameToggle) {
     let nameSort = recipes.sort((a, b) => a.name.localeCompare(b.name));
-    console.log(nameSort)
     addRecipeInformation(nameSort);
   } else {
     let nameSort = recipes.sort((a, b) => b.name.localeCompare(a.name));
@@ -352,6 +339,7 @@ const checkName = () => {
   nameToggle = !nameToggle;
 };
 
+// Sorting on cooking time, low to high and high to low.
 let timeToggle = true;
 const checkTime = () => {
   if (timeToggle) {
@@ -367,13 +355,12 @@ const checkTime = () => {
 // Function to get a random recipe and display it
 const randomRecipe = () => {
   let randomNumber = Math.floor(Math.random() * recipes.length);
-  console.log(randomNumber);
   return randomNumber;
 };
 
 // Search bar
 const searchForm = document.getElementById("search-form");
-searchForm.addEventListener("submit", function (event) {
+searchForm.addEventListener("input", function (event) {
   // Prevent the form from submitting in the traditional way
   event.preventDefault();
   let i;
@@ -390,7 +377,7 @@ searchForm.addEventListener("submit", function (event) {
 
   // Show those recipes only
   if (matchedRecipes.length > 0) {
-    matchedRecipes.forEach(addRecipeInformation);
+    addRecipeInformation(matchedRecipes);
     // Checking for card-divs
     const y = document.getElementsByClassName("card");
     // For each card-div add the show class
