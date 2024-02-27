@@ -236,9 +236,11 @@ capitalizeFirstLetter(recipes);
 // Find container from HTML
 let container = document.getElementById("container");
 // For every recipe: add recipe information to the container
-function addRecipeInformation(recipe) {
-  container.innerHTML += `
-    <div class="card ${recipe.cuisineType}">
+function addRecipeInformation(item) {
+  container.innerHTML = '';
+  item.forEach((recipe) => {
+    container.innerHTML += `
+    <div class="card show ${recipe.cuisineType}">
     <h2>${recipe.name}</h2>
     <img src="${recipe.image}"></img>
     <p>Cooking time: <span class="time">${recipe.totalTime}</span></p>
@@ -248,10 +250,12 @@ function addRecipeInformation(recipe) {
     <a class="card-link" href="${recipe.url}"><span></span></a>
     </div>
   `;
+  });
 }
 
 // Show recipes in HTML
-recipes.forEach(addRecipeInformation);
+addRecipeInformation(recipes);
+//recipes.forEach(addRecipeInformation);
 const card = document.getElementsByClassName("card");
 
 // Filter on cuisine types
@@ -335,68 +339,30 @@ document
     }
   });
 
-function sortListName() {
-  let list, i, switching, b, shouldSwitch;
-  list = document.getElementById("container");
-  switching = true;
-  // Make a loop that will continue until no switching has been done:
-  while (switching) {
-    // Start by saying: no switching is done:
-    switching = false;
-    b = list.getElementsByClassName("card");
-    // Loop through all list items:
-    for (i = 0; i < b.length - 1; i++) {
-      // Start by saying there should be no switching:
-      shouldSwitch = false;
-      // Check if the next item should switch place with the current item:
-      if (b[i].innerHTML.toLowerCase() > b[i + 1].innerHTML.toLowerCase()) {
-        // If next item is alphabetically lower than current item,mark as a switch and break the loop:
-        shouldSwitch = true;
-        break;
-      }
-    }
-    if (shouldSwitch) {
-      //If a switch has been marked, make the switch and mark the switch as done:
-      b[i].parentNode.insertBefore(b[i + 1], b[i]);
-      switching = true;
-    }
+let nameToggle = true;
+const checkName = () => {
+  if (nameToggle) {
+    let nameSort = recipes.sort((a, b) => a.name.localeCompare(b.name));
+    console.log(nameSort)
+    addRecipeInformation(nameSort);
+  } else {
+    let nameSort = recipes.sort((a, b) => b.name.localeCompare(a.name));
+    addRecipeInformation(nameSort);
   }
-}
+  nameToggle = !nameToggle;
+};
 
-// Sort cooking time. Not working right.
-function sortListTime() {
-  let list, i, switching, b, shouldSwitch;
-  list = document.getElementById("container");
-  switching = true;
-  //Make a loop that will continue until no switching has been done:
-  while (switching) {
-    // Start by saying: no switching is done:
-    switching = false;
-    b = list.getElementsByClassName("time");
-    c = list.getElementsByClassName("card");
-    // Loop through all list items:
-    for (i = 0; i < b.length; i++) {
-      // Start by saying there should be no switching:
-      shouldSwitch = false;
-
-      // Check and replace if a null-value is found.
-      if (b[i].innerText === "null") {
-        b[i].innerText = 0;
-      }
-      // Check if the next item should switch place with the current item:
-      if (parseInt(b[i].innerHTML) > parseInt(b[i + 1].innerHTML)) {
-        // If next item is alphabetically lower than current item, mark as a switch and break the loop:
-        shouldSwitch = true;
-        break;
-      }
-    }
-    if (shouldSwitch) {
-      // If a switch has been marked, make the switch and mark the switch as done:
-      c[i].parentNode.insertBefore(c[i + 1], c[i]);
-      switching = true;
-    }
+let timeToggle = true;
+const checkTime = () => {
+  if (timeToggle) {
+    let cookSort = recipes.sort((a, b) => a.totalTime - b.totalTime);
+    addRecipeInformation(cookSort);
+  } else {
+    let cookSort = recipes.sort((a, b) => b.totalTime - a.totalTime);
+    addRecipeInformation(cookSort);
   }
-}
+  timeToggle = !timeToggle;
+};
 
 // Function to get a random recipe and display it
 const randomRecipe = () => {
