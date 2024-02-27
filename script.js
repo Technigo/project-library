@@ -224,7 +224,7 @@ let container = document.getElementById("container");
 // For every recipe: add recipe information to the container
 function addRecipeInformation(item) {
   console.log(item);
-  container.innerHTML = '';
+  container.innerHTML = "";
   item.forEach((recipe) => {
     container.innerHTML += `
     <div class="card show ${recipe.cuisineType}">
@@ -320,13 +320,13 @@ document
   .getElementById("mobileSortSelect")
   .addEventListener("change", function () {
     if (this.value == "alphabetical") {
-      sortListName();
+      checkName();
     } else if (this.value == "cook-time") {
-      sortListTime();
+      checkTime();
     }
   });
 
-  // Sort alphabetically both in A-Z and Z-A directions
+// Sort alphabetically both in A-Z and Z-A directions
 let nameToggle = true;
 const checkName = () => {
   if (nameToggle) {
