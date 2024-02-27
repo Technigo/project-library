@@ -94,7 +94,7 @@ button {
   border: none;
   border-radius: 30px;
   padding: 16px 20px;
- 
+
   font-size: 16px;
   line-height: 26px;
   font-family: "Fira Sans";
@@ -104,7 +104,9 @@ button {
 }
 
 button:hover {
-  border: 2px solid #66b095;
+  /* Use box-shadow instead of border to avoid causing a layout shift */
+  box-shadow: 1px 0 0 #66b095, -1px 0 0 #66b095, 0 1px 0 #66b095,
+    0 -1px 0 #66b095;
   color: white;
 }
 
