@@ -80,6 +80,7 @@ select {
   padding: 18px 20px;
   margin-right: 4px;
   font-size: 16px;
+  border-right: 16px solid transparent;
   line-height: 26px;
   font-family: "Fira Sans";
   font-weight: 500;
@@ -131,4 +132,30 @@ button.active {
 img {
   width: 268px;
   height: 200px;
+}
+
+@media (min-width: 768px) {
+  .controls {
+    flex-direction: row;
+    column-gap: 50px;
+    justify-content: center;
+  }
+
+
+  h1 {
+
+    font-size: 60px;
+   
+  }
+
+  .logo {
+    width: 120px;
+    height: 130px;
+  }
+
+  header {
+    
+    column-gap: 40px;
+
+  }
 }
