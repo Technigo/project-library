@@ -190,7 +190,9 @@ function displayBooks() {
 	books.forEach((book) => {
 		const bookCard = document.createElement('div');
 		bookCard.classList.add('book-card');
-		bookCard.innerHTML = ` <img class="cover" src="${book.image}"alt="${book.title}"></img> <h2>${book.title}</h2>
+		bookCard.innerHTML = `
+		<img class="cover" src="${book.image}"alt="${book.title}"></img>
+		<h2>${book.title}</h2>
 		<hr>
 		<p><b>Author:</b> ${book.author}</p>
 		<p><b>Genre:</b> ${book.genre}</p>
@@ -201,66 +203,19 @@ function displayBooks() {
 		main.appendChild(bookCard);
 		nav.appendChild(buttonContainer);
 		nav.appendChild(genreSort)
-		genreSort.appendChild(genreBtnContainer);
 		nav.appendChild(subSort)
-		subSort.appendChild(sortBtnContainer);
 		nav.appendChild(nameSort)
+		genreSort.appendChild(genreBtnContainer);
+		subSort.appendChild(sortBtnContainer);
 		nameSort.appendChild(nameBtnContainer);
-
 
 	})
 }
 
-// handle input for search
-const handleSearchInput = (event) => {
-	event.preventDefault();
-	// Store the value in a variable so we can access it after we
-	// clear it from the input
-	const userSearch = document.getElementById("user-input").value;
-	document.getElementById("user-input").value = "";
-	searchstring = userSearch;
-	if (searchstring != "") {
-		search(userSearch);
-	}
-}
-
-//get unique rating from the books array
-//get unique genres from the book array
+//get unique  genres an rating from the books array
 const genres = [...new Set(books.map((book) => book.genre))];
 const rating = [...new Set(books.map((book) => Math.trunc(book.rating)))];
 
-// function addLastName:
-//1. copy author property from books array to findLastName
-//2. split name string
-//3. identify the last word in the name
-//4. push last word(name) into new array temp
-//5. copy books array to get all the properties to mutable array BooksLastName
-//6. add a new property(lastname) into BooksLastName array and fill it with all the lastnames of the authors
-//7. pass new array with lastnames into sorting function
-
-function addLastName() {
-	main.innerHTML = ""; //clear existing content
-	const findLastname = books.map((book) => book.author);
-	for (i = 0; i < findLastname.length; i++) {
-		lastN = findLastname[i].split(" ");
-		tempN = lastN[lastN.length - 1];
-		tempArr.push(tempN);
-	}
-	booksLastName = books;
-	for (i = 0; i < books.length; i++) {
-		booksLastName[i].lastname = tempArr[i];
-	}
-	sortLast(booksLastName);
-}
-
-function sortLast(booksLastName) {
-	//clear existing content;
-	main.innerHTML = "";
-	// make new array with sorted results on last name
-	const booksByAuthorLastname = booksLastName.slice().sort((a, b) => a.lastname.localeCompare(b.lastname));
-	// pass new array into function for filtering books.
-	displayFilteredBooks(booksByAuthorLastname);
-}
 
 //----------- MAKE THE BUTTONS -----------//
 
@@ -290,7 +245,6 @@ sortButton.classList.add('button');
 sortButton.textContent = "Title";
 nameBtnContainer.appendChild(sortButton);
 
-
 const booksByAuthor = books.slice().sort((a, b) => a.author.localeCompare(b.author));
 const sortAuthorButton = document.createElement("button");
 sortAuthorButton.classList.add('button');
@@ -315,17 +269,19 @@ sortRatingLowBtn.classList.add('button', 'sort');
 sortRatingLowBtn.textContent = "Acending";
 sortBtnContainer.appendChild(sortRatingLowBtn);
 
-//random
+//random btn
 const randomButton = document.createElement("button");
 randomButton.classList.add('button', 'randombtn');
 randomButton.textContent = "Random";
 genreBtnContainer.appendChild(randomButton);
 
+// clear btn
 const clearBtn = document.createElement("button");
 clearBtn.classList.add('button', 'sort');
 clearBtn.textContent = "Clear search";
 sub.appendChild(clearBtn);
 
+//showall btn
 const showAllBtn = document.createElement("button");
 showAllBtn.classList.add('button', 'sort');
 showAllBtn.textContent = "Show all books";
@@ -360,8 +316,55 @@ function filterBooksbyRating(rating) {
 	displayFilteredBooks(bookRating);
 }
 
+
+// handle input for search
+const handleSearchInput = (event) => {
+	event.preventDefault();
+	// Store the value in a variable so we can access it after we
+	// clear it from the input
+	const userSearch = document.getElementById("user-input").value;
+	document.getElementById("user-input").value = "";
+	searchstring = userSearch;
+	if (searchstring != "") {
+		search(userSearch);
+	}
+}
+
+// function addLastName:
+//1. copy author property from books array to findLastName
+//2. split name string
+//3. identify the last word in the name
+//4. push last word(name) into new array temp
+//5. copy books array to get all the properties to mutable array BooksLastName
+//6. add a new property(lastname) into BooksLastName array and fill it with all the lastnames of the authors
+//7. pass new array with lastnames into sorting function
+
+function addLastName() {
+	main.innerHTML = ""; //clear existing content
+	const findLastname = books.map((book) => book.author);
+	for (i = 0; i < findLastname.length; i++) {
+		lastN = findLastname[i].split(" ");
+		tempN = lastN[lastN.length - 1];
+		tempArr.push(tempN);
+	}
+	booksLastName = books;
+	for (i = 0; i < books.length; i++) {
+		booksLastName[i].lastname = tempArr[i];
+	}
+	sortLast(booksLastName);
+}
+
+function sortLast(booksLastName) {
+	//clear existing content;
+	main.innerHTML = "";
+	// make new array with sorted results on last name
+	const booksByAuthorLastname = booksLastName.slice().sort((a, b) => a.lastname.localeCompare(b.lastname));
+	// pass new array into function for filtering books.
+	displayFilteredBooks(booksByAuthorLastname);
+}
+
 //Search for string in title, description, author, genre
-//storing the result in searchresult
+//storing the result in searchResult
 function search(searchstring) {
 	main.innerHTML = ""; //clear existing content
 	for (i = 0; i < books.length; i++) {
@@ -381,9 +384,7 @@ function search(searchstring) {
 			foundWhere = `Found "${searchstring}"in the genre: ${books[i].genre}.`
 			searchResult.push(books[i]);
 		}
-
 	}
-
 	displaySearch(searchResult);
 }
 
@@ -397,7 +398,6 @@ function displayFilteredBooks(a) {
 	a.forEach((book) => {
 		const bookCard = document.createElement('div');
 		bookCard.classList.add('book-card');
-
 		bookCard.innerHTML = `
 		<img class="cover" src="${book.image}"alt="${book.title}"></img> <h2>${book.title}</h2>
 		<hr>
@@ -408,7 +408,6 @@ function displayFilteredBooks(a) {
 		<hr>
 		<p><b>Description:</b> ${book.description}</p> `;
 		main.appendChild(bookCard);
-
 	});
 }
 
@@ -422,7 +421,7 @@ function displaySearch(a) {
 		bookCard.addEventListener("click", () => clear());
 		bookCard.innerHTML = `
 			<div class="searchResponse">
-		<button class="button clearbtn" onClick="clear()"> X </button>
+			<button class="button clearbtn" onClick="clear()"> X </button>
 			</div>
 			<img class="cover" src="${book.image}"alt="${book.title}"></img>
 			<h2>${book.title}</h2>
@@ -475,7 +474,6 @@ function getRandom() {
 	result.appendChild(bookCard);
 
 }
-
 
 displayBooks();
 

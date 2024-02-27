@@ -14,17 +14,13 @@ In order to simplify the execution of this project, we have provided you with tw
 
 ## How to get started
 
-
 ## Requirements
+
 - Your page should display all of the elements (and their information) in the chosen array when the website is loaded
 - Your page should have at least one `filter`, e.g. on genre or cuisine type
 - Your page should be able to `sort` on at least one property, e.g.
-  for books:
-    - from newest to oldest and vice versa
-    - from the highest to lowest rating and vice versa
-  for recipes:
-    - from most to least ingredients and vice versa
-    - from longest to shortest cooking time and vice versa
+  for books: - from newest to oldest and vice versa - from the highest to lowest rating and vice versa
+  for recipes: - from most to least ingredients and vice versa - from longest to shortest cooking time and vice versa
 - Your page should feature a button that selects a random book/recipe, and your page should display the selected item
 
 ## Stretch Goals
@@ -32,6 +28,7 @@ In order to simplify the execution of this project, we have provided you with tw
 So you’ve completed all the steps above? Great job! Make sure you've committed and pushed a version of your project before starting on the stretch goals. Remember that the stretch goals are optional.
 
 ### Intermediate stretch goals
+
 - Go wild with the filtering. Add a filter to:
   - only show the recipes with less than 5 or 10 ingredients
   - only show the books from the 21st century
@@ -39,5 +36,6 @@ So you’ve completed all the steps above? Great job! Make sure you've committed
   - Alphabetical order
 
 ### Advanced stretch goals
+
 - Create a search bar where the user can search for specific keywords
 - Recreate the same design as the one provided in the example on Figma
