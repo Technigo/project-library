@@ -232,10 +232,6 @@ main {
   padding: 5px;
 }
 
-.sub {
-  align-content: flex-end;
-
-}
 
 @media(min-width:200px) and (max-width:795px) {
   header .title {

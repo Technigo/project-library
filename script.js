@@ -387,9 +387,6 @@ function search(searchstring) {
 	displaySearch(searchResult);
 }
 
-
-
-
 // functions for displaying filter/sort/search results
 
 //display filtered/sorted books
@@ -412,9 +409,7 @@ function displayFilteredBooks(a) {
 		<p><b>Description:</b> ${book.description}</p> `;
 		main.appendChild(bookCard);
 
-	}
-
-	);
+	});
 }
 
 function displaySearch(a) {
