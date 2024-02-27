@@ -10,7 +10,7 @@ In this pocket bookshop website, users can
 * I found it challenging to ensure that the filters and sorting interacted smoothly with each other.
 
 😄 I managed to apply sorting smoothly to different genre filters and year filters. 
-🤔 However, I'm still searching a good solution to find intersections when applying multiple filters simultaneously.
+🤔 However, I'm still searching a good solution to find intersections when applying multiple filters simultaneously. Right now the code is not that clear.
 
 * I also struggled with maintaining the hover effect on the book cards after updating the book display. The event listeners were lost in the process.
   
@@ -18,7 +18,7 @@ In this pocket bookshop website, users can
 
 ## Next step
 
-* Search a good solution to find intersections when applying multiple filters simultaneously.
+* Make the code drier for applying multiple filters simultaneously.
   
 * More styling
 
