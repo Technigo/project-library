@@ -16,11 +16,15 @@ header {
 h1 {
   font-family: "Kosugi Maru";
   color: #000000;
-  font-size: 70px;
-  margin: 50px;
+  font-size: 40px;
+  margin: 0px;
   display: flex;
   letter-spacing: 0.1, 5rem;
-  
+}
+
+.logo {
+  width: 64px;
+  height: 70px;
 }
 
 h2 {
