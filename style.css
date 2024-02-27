@@ -4,6 +4,7 @@
 body {
   background-color: #eeb3c4;
   margin: 20px;
+  display: grid;
 }
 
 header {
@@ -29,12 +30,14 @@ h1 {
 
 h2 {
   font-family: "Fira Sans";
+  font-size: 16px;
 }
 
 /*hashtag on books because its an ID */
 #books {
   display: flex;
   flex-direction: row;
+  justify-content: center;
   flex-wrap: wrap;
   margin-top: 50px;
   column-gap: 70px;
@@ -91,7 +94,7 @@ button {
   border: none;
   border-radius: 30px;
   padding: 16px 20px;
-  margin-right: 25px;
+ 
   font-size: 16px;
   line-height: 26px;
   font-family: "Fira Sans";
@@ -113,8 +116,13 @@ button.active {
 
 .controls {
   display: flex;
-  flex-direction: row;
-  column-gap: 210px;
+  flex-direction: column;
+}
+
+.sortButtons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
 }
 
 /*This styling make all the images the same size */
