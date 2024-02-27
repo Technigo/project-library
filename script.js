@@ -316,7 +316,7 @@ sortBtnContainer.appendChild(sortRatingLowBtn);
 const randomButton = document.createElement("button");
 randomButton.classList.add('button');
 randomButton.textContent = "Random";
-buttonContainer.appendChild(randomButton);
+genreBtnContainer.appendChild(randomButton);
 
 //---------- FILTER & SORT FUNCTIONS -------------//
 
@@ -326,14 +326,6 @@ function sortHigh(a, b) {
 	const booksByHighRating = books.sort((a, b) => b.rating - a.rating);
 	displayFilteredBooks(booksByHighRating);
 }
-
-/*
-function getRandom() {
-	randomBook = books[(Math.floor(Math.random() * books.length))];
-	console.log(randomBook)
-	displaySearch(randomBook);
-
-}*/
 
 //function for sort low to high rating
 function sortLow(a, b) {
@@ -417,7 +409,6 @@ function displayFilteredBooks(a) {
 	}
 
 	);
-	//searchResult = [];
 }
 
 function displaySearch(a) {
@@ -453,14 +444,12 @@ function displaySearch(a) {
 function clear() {
 	searchResult = [];
 	displaySearch(searchResult)
-	//console.log("clear")
 };
 
 
 function getRandom() {
-	let temp = [];
+	result.innerHTML = "";
 	randomBook = books[(Math.floor(Math.random() * books.length))];
-	console.log(randomBook)
 	const bookCard = document.createElement('div');
 	const feedback = document.createElement('div');
 	bookCard.classList.add('book-card');
@@ -477,12 +466,6 @@ function getRandom() {
 		<p><b>Description:</b> ${randomBook.description}</p> `;
 	result.appendChild(feedback);
 	result.appendChild(bookCard);
-
-console.log(randomBook)
-
-//show all the books under the search
-
-
 }
 
 
