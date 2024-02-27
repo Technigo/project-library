@@ -1,0 +1,268 @@
+body {
+  font-family: futura, arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #FAFBFF;
+}
+
+nav {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 10px 10px 30px 10px;
+  border-bottom: 1px dashed #E9E9E9;
+  justify-content: space-between
+}
+
+section {
+  display: flex;
+  flex-flow: column;
+  margin-left: 10px;
+
+}
+
+hr {
+  width: 100%;
+  height: 2px;
+  border: 0;
+  border-bottom: 2px solid #E9E9E9;
+}
+
+header .title {
+  color: #0018A4;
+  font-size: 64px;
+  font-family: Futura;
+  font-weight: 700;
+  word-wrap: break-word;
+  padding-left: 1rem;
+}
+
+header {
+  display: flex;
+}
+
+h2 {
+  color: #000;
+  font-family: Futura;
+  font-size: 1.375rem;
+  font-weight: 700;
+}
+
+main {
+  display: flex;
+  padding: 4rem 2rem;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  align-items: baseline;
+  gap: 2rem;
+  background: #FAFBFF;
+}
+
+.book-card img {
+  max-width: 100%;
+  border-radius: 1rem;
+}
+
+.cover {
+  object-fit: cover;
+  width: 300px;
+  height: 200px;
+  object-position: 50% 50%;
+}
+
+.book-card {
+  display: flex;
+  flex-basis: auto;
+  width: 18.75rem;
+  padding: 1rem 1rem 1.5rem 1rem;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+  border-radius: 1rem;
+  border: 1px solid #E9E9E9;
+  background: #FFF;
+}
+
+.book-card:hover {
+  border-radius: 1rem;
+  border: 2px solid #0018A4;
+  background: #FFF;
+  box-shadow: 0px 0px 30px 0px rgba(0, 24, 164, 0.20);
+  transition: ease 0.5s;
+}
+
+.book-card p {
+  margin: 5px;
+}
+
+.result {
+  display: flex;
+  flex-basis: auto;
+  padding: 1rem 1rem;
+  flex: row;
+  flex-wrap: wrap;
+  gap: 1rem;
+  border-bottom: 1px dashed #E9E9E9;
+}
+
+.feedback {
+  width: 100vw;
+}
+
+.button {
+  color: #0018A4;
+  text-align: center;
+  font-family: Futura;
+  font-size: 1.125rem;
+  font-weight: 500;
+  border-radius: 25px;
+  background: #CCFFE2;
+  padding: 2px 6px;
+  margin: 5px;
+  border: 2px solid transparent;
+}
+
+.button::selection {
+  background-color: #0018A4;
+  color: #fff;
+}
+
+.selection {
+  background-color: #0018A4;
+  color: #fff;
+}
+
+.button:active {
+  background: #0018A4;
+  color: #fff;
+}
+
+.button:hover {
+  border-radius: 3.125rem;
+  border: 2px solid #0018A4;
+  transition: ease 0.5s;
+}
+
+.clearbtn {
+  background-color: #fafbff;
+  color: #0018a4;
+  font-weight: 300;
+  font-size: 15px;
+  border-radius: 5px;
+  border: solid 2px color(srgb 0 0.0923 0.6419);
+}
+
+.clearbtn:hover {
+  background-color: #0018a4;
+  color: #fafbff;
+  font-weight: 300;
+  font-size: 15px;
+  border-radius: 0px;
+  border: solid 2px color(srgb 0 0.0923 0.6419);
+  transition: ease 0.5s;
+}
+
+.sort {
+  color: #0018A4;
+  background: #FFECEA;
+}
+
+.sort::selection {
+  color: #FFF;
+  background-color: #FF6589;
+  transition: ease 0.5s;
+}
+
+.sort-selected {
+  color: #FFF;
+  background: #FF6589;
+  transition: ease 0.5s;
+}
+
+.randombtn {
+  color: #FFF;
+  background: #FF6589;
+}
+
+.randombtn:hover {
+  color: #0018A4;
+  background: #FFECEA;
+}
+
+#input-wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 0 10px;
+  justify-self: flex-end;
+  justify-content: flex-end;
+
+}
+
+#user-input {
+  border-radius: 2rem;
+  background: #FFF;
+  color: #0018A4;
+  padding: 0.2rem 0.2rem;
+  margin: 5px 0 2px 0;
+  border: 2px solid #0018A4;
+  font-family: Futura;
+  font-size: 1.125rem;
+  font-weight: 500;
+}
+
+.send-btn {
+  border: 2px solid #0018A4;
+  background: #0018A4;
+  color: #fff;
+  border-radius: 25px;
+  padding: 4px 10px;
+  margin: 5px 2px;
+}
+
+.send-btn:hover {
+  border: 2px solid #0018A4;
+  background: #CCFFE2;
+  color: #0018A4;
+  transition: ease 0.5s;
+}
+
+.searchResponse {
+  align-self: flex-end;
+  padding: 5px;
+}
+
+
+@media(min-width:200px) and (max-width:795px) {
+  header .title {
+    color: #0018A4;
+    font-size: 30px;
+    font-family: Futura;
+    font-weight: 700;
+    word-wrap: break-word;
+    padding-left: 0.5rem;
+    padding-top: 0.5rem;
+  }
+
+
+  #user-input {
+    padding-left: 0;
+    padding-top: 0;
+    font-size: 12px;
+  }
+
+  .button {
+    font-size: 12px;
+    padding: 2px 10px;
+    margin: 2px;
+  }
+
+  .send-btn {
+    padding: 2px 4px;
+    margin: 0px;
+  }
+
+  h2 {
+    margin: 3px;
+  }
+}
