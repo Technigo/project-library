@@ -185,6 +185,7 @@ const container = document.getElementById("container")
 const sortAtoZ = document.getElementById("az")
 const sortZtoA = document.getElementById("za")
 const sortByRate = document.getElementById("btnRate")
+const sortRandom = document.getElementById("btnRandom")
 const sortByGenre = document.getElementById("genreDropdown")
 const header = document.querySelector("header")
 
@@ -212,6 +213,13 @@ const loadBooks = (bookArray) =>{
 const sortBooksByRate = () => {
   const ratedBooks = [...BOOKS].sort((a, b) => b.rating - a.rating)
   loadBooks(ratedBooks)  
+}
+
+//Choose a random book
+const showRandomBook = () => {
+  const randomIndex = Math.floor(Math.random()*BOOKS.length)
+  const randomBook = [BOOKS[randomIndex]]
+  loadBooks(randomBook)  
 }
 
 //Sort books by genre
@@ -272,6 +280,7 @@ loadBooks(BOOKS)
 
 // Event Listeners go here:
 sortByRate.addEventListener("click", sortBooksByRate)
+sortRandom.addEventListener("click", showRandomBook)
 sortByGenre.addEventListener("change", sortBooksByGenre)
 sortAtoZ.addEventListener("click", sortBooksAtoZ)
 sortZtoA.addEventListener("click", sortBooksZtoA)

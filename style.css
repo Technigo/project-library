@@ -2,7 +2,7 @@
   --f1:  #b1abc3; 
   --f2:  #5c5470; 
   --f3:  #352f44; 
-  --f4:  #2a2438; 
+  --f4:  #2a2438;
   }
 
 body {
@@ -12,6 +12,7 @@ body {
   padding: 0;
   display: flex;
   flex-direction: column;
+  justify-content: space-around;
   flex-wrap: wrap;
   height: 100%;
 }
@@ -43,7 +44,8 @@ header {
   padding: 5px 30px;
 }
 
-button, select, #btnRate{
+button, select, 
+#btnRate, #btnRandom{
   font-size: 0.875em;
   margin: 10px;
   padding: 10px 25px;
@@ -53,6 +55,12 @@ button, select, #btnRate{
   border-radius: 20px;
   cursor: pointer;
   height: 100%;
+}
+
+button:hover, select:hover, 
+#btnRandom:hover, #btnRate:hover{
+  color: #fff;
+  background-color: var(--f2);
 }
 
 #az {
@@ -75,11 +83,12 @@ button, select, #btnRate{
 main, .main{
   display: flex;
   flex: 1;
+  height: 100%;
   flex-wrap: wrap;
   flex-direction: column;
   align-items: center;
-}
-
+  min-height: 100vh;
+} 
 
 .card{
   display: flex;
@@ -114,15 +123,9 @@ h2, h3, p{
 }
 
 footer {
-  position: fixed;
-  left: 0;
+  position: sticky;
   bottom: 0;
-  width: 100%;
-  padding: 10px;
-  text-align: center;
-}
-
-.footer-content {
+  height: 40px;
   color: #fff;
   background-color: var(--f3);
   display: flex;
@@ -181,6 +184,7 @@ footer {
 /* -----------------------------------PC SCREENS >1024px 4 columns ------------------------------------- */
 @media (min-width: 1024px){
  #container{
+    height: 100%;
     display: grid;
     gap: 30px;
     max-width: 80%;
