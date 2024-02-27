@@ -93,7 +93,6 @@ button:visited {
   display: grid;
   grid-template-columns: 1fr;
   justify-content: center;
-  /* gap: 20px; */
 }
 
 .recipe-container img {

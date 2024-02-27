@@ -5,6 +5,7 @@ const chickenButton = document.getElementById("chickenButton");
 const vegetarianButton = document.getElementById("vegetarianButton");
 const surpriseButton = document.getElementById("surpriseButton");
 const cookingTimeButton = document.getElementById("cookingTimeButton");
+const longestCookingTimeButton = document.getElementById("longestCookingTime");
 const buttons = document.getElementsByClassName("button");
 
 const recipes = [
@@ -276,8 +277,13 @@ const getRandomRecipe = () => {
   recipeContainer.appendChild(recipeDiv);
 };
 
-const sortByCookingTime = () => {
+const sortByShortestCookingTime = () => {
   const cookingTime = [...recipes].sort((a, b) => a.totalTime - b.totalTime);
+  displayRecipes(cookingTime);
+};
+
+const sortByLongestCookingTime = () => {
+  const cookingTime = [...recipes].sort((a, b) => b.totalTime - a.totalTime);
   displayRecipes(cookingTime);
 };
 
@@ -287,4 +293,5 @@ meatButton.addEventListener("click", () => filterRecipesByType("Meat"));
 chickenButton.addEventListener("click", () => filterRecipesByType("Chicken"));
 vegetarianButton.addEventListener("click", () => filterRecipesByType("Vegetarian"));
 surpriseButton.addEventListener("click", getRandomRecipe);
-cookingTimeButton.addEventListener("click", sortByCookingTime);
+cookingTimeButton.addEventListener("click", sortByShortestCookingTime);
+longestCookingTimeButton.addEventListener("click", sortByLongestCookingTime);
