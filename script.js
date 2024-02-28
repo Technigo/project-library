@@ -1,6 +1,7 @@
 //DOM selectors:
 const cardContainer = document.getElementById("card-container")
-const btnSortName = document.getElementById("sort-by-name")
+const btnSortNameAZ = document.getElementById("sort-by-name-AZ")
+const btnSortNameZA = document.getElementById("sort-by-name-ZA")
 const btnSortScientificName = document.getElementById("sort-by-scientific-name")
 const btnShowAll = document.getElementById("btn-show-all")
 const btnPickRandom = document.getElementById("btn-pick-random")
@@ -287,8 +288,8 @@ const writeThePlantNames = () => {
     onlyPlantNamesUnsorted.push(onePlant.name)
   })
 }
-//Make a new array with the plant names sorted
-const sortThePlantNames = () => {
+//Make a new array with the plant names sorted A-Z
+const sortThePlantNamesAZ = () => {
   onlyPlantNamesUnsorted.forEach((name) => {
     onlyPlantNamesToSort.push(name)
   })
@@ -298,14 +299,34 @@ const sortThePlantNames = () => {
     showACard(plants[onlyPlantNamesUnsorted.indexOf(name)])
   })
 }
-//Sort and show the cards by plant name
-const sortCardsByPlantName = () => {
+//Make a new array with the plant names sorted Z-A
+const sortThePlantNamesZA = () => {
+  onlyPlantNamesUnsorted.forEach((name) => {
+    onlyPlantNamesToSort.push(name)
+  });
+  onlyPlantNamesToSort.sort()
+  onlyPlantNamesToSort.reverse()
+  //Use both arrays to show the cards in the correct order
+  onlyPlantNamesToSort.forEach((name) => {
+    showACard(plants[onlyPlantNamesUnsorted.indexOf(name)]);
+  });
+};
+//Sort and show the cards by plant name A-Z
+const sortCardsByPlantNameAZ = () => {
   onlyPlantNamesUnsorted.length = 0
   onlyPlantNamesToSort.length = 0
   cardContainer.innerHTML = ""
   writeThePlantNames()
-  sortThePlantNames()
+  sortThePlantNamesAZ()
 }
+//Sort and show the cards by plant name Z-A
+const sortCardsByPlantNameZA = () => {
+  onlyPlantNamesUnsorted.length = 0;
+  onlyPlantNamesToSort.length = 0;
+  cardContainer.innerHTML = "";
+  writeThePlantNames();
+  sortThePlantNamesZA();
+};
 //Functions to sort by scientific name
 //Writes the scientific names in an array
 const writeTheScientificNames = () => {
@@ -336,7 +357,8 @@ const sortCardsByScientificName = () => {
 //Eventlisteners:
 btnShowAll.addEventListener("click", showAll)
 btnPickRandom.addEventListener("click", pickRandom)
-btnSortName.addEventListener("click", sortCardsByPlantName)
+btnSortNameAZ.addEventListener("click", sortCardsByPlantNameAZ)
+btnSortNameZA.addEventListener("click", sortCardsByPlantNameZA)
 btnSortScientificName.addEventListener ("click", sortCardsByScientificName)
 selectVegetables.addEventListener("click", showAllVegetables)
 selectHerbs.addEventListener("click", showAllHerbs)
