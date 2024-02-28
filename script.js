@@ -179,20 +179,11 @@ const plants = [
 //Functions:
 //Shows a card containing the inputted plant
 const showACard = (onePlant) => {
-  //plantName = plants[plants.indexOf(onePlant)]["name"]
-  //plantCategory = plants[plants.indexOf(onePlant)]["category"]
-  plantScientificName = plants[plants.indexOf(onePlant)]["scientificName"]
-  plantTimeToSow = plants[plants.indexOf(onePlant)]["timeToSow"]
   if (onePlant.directSowing === true){
     plantDirectSowing = "Yes"
   } else {
     plantDirectSowing = "No"
   }
-  plantDevelopmentTime = plants[plants.indexOf(onePlant)]["developmentTime"]
-  plantWaterDemand = plants[plants.indexOf(onePlant)]["waterDemand"]
-  plantNutritionalNeeds = plants[plants.indexOf(onePlant)]["nutritionalNeeds"]
-  plantPerennial = plants[plants.indexOf(onePlant)]["perennial"]
-  plantImageLink = plants[plants.indexOf(onePlant)]["img"]
   if (onePlant.perennial === true){
     plantPerennial = "Yes"
   } else {
@@ -200,14 +191,14 @@ const showACard = (onePlant) => {
   }
   cardContainer.innerHTML += `<div class="card" id="card">
     <h2>${onePlant.name}</h2>
-    <p class="scientific-name">${plantScientificName}</p>
-    <img src="${plantImageLink}" alt="">
+    <p class="scientific-name">${onePlant.scientificName}</p>
+    <img src="${onePlant.img}" alt="">
     <p>Category: ${onePlant.category}</p>
-    <p>Time to sow: ${plantTimeToSow}</p>
+    <p>Time to sow: ${onePlant.timeToSow}</p>
     <p>Direct sowing: ${plantDirectSowing}</p>
-    <p>Development time: ${plantDevelopmentTime}</p>
-    <p>Water demand: ${plantWaterDemand}</p>
-    <p>Nutritional needs: ${plantNutritionalNeeds}</p>
+    <p>Development time: ${onePlant.developmentTime}</p>
+    <p>Water demand: ${onePlant.waterDemand}</p>
+    <p>Nutritional needs: ${onePlant.nutritionalNeeds}</p>
     <p>Perennial: ${plantPerennial}</p>
   </div>`
 }
