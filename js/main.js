@@ -42,6 +42,6 @@ sortOptions.forEach((option) => {
 // Event listner for search form
 searchForm.addEventListener("submit", (e) => handleSearchForm(recipes, e));
 
-// Load the initial list of dogs when the page loads
+// Load the initial list of recipes when the page loads
 loadRecipeStory(recipes[0]);
 loadRecipes(recipes);
