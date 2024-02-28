@@ -367,4 +367,4 @@ selectSpring.addEventListener("click", showAllSpring)
 selectAutumn.addEventListener("click", showAllAutumn)
 
 //Start by showing all the plants sorted alphabetically
-sortCardsByPlantName()
+sortCardsByPlantNameAZ()
