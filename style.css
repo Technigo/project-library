@@ -1,0 +1,174 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  font-family: var(--textFont);
+  color: var(--primaryColor);
+}
+
+:root {
+  --headingFont: "Lora";
+  --textFont: "Quicksand";
+  --primaryColor: #432e36;
+  --secondaryColor: #edbfc6;
+  --thirdColor: #d5bdaf;
+}
+
+header {
+  background-color: var(--secondaryColor);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 10px;
+}
+
+h1 {
+  font-family: var(--headingFont);
+  text-align: center;
+  font-size: 40px;
+  margin: 0;
+}
+
+h3 {
+  text-align: center;
+  font-weight: 700;
+}
+
+ul {
+  margin-bottom: 5px;
+}
+
+.logo-image {
+  width: 200px;
+  margin: 0 30px 0 30px;
+}
+
+.filter-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.protein-container {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.button-row-1 {
+  margin: 5px 10px;
+}
+
+button {
+  width: 100px;
+  height: 30px;
+  margin: 5px 10px;
+  padding: 5px 5px;
+  background-color: var(--secondaryColor);
+  border: none;
+  border-radius: 10px;
+}
+
+button:hover {
+  background-color: var(--thirdColor);
+  color: #fff;
+}
+
+button:visited {
+  background-color: var(--primaryColor);
+  color: #fff;
+}
+
+.button-row-2 {
+  margin-bottom: 5px;
+}
+
+.time-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.recipe-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-content: center;
+}
+
+.recipe-container img {
+  width: 80%;
+  height: 300px;
+  object-fit: cover;
+}
+
+#card {
+  display: flex;
+  flex-direction: column;
+  box-shadow: 5px 5px 15px var(--primaryColor);
+  margin: 15px;
+  padding: 15px 10px;
+  background-color: var(--thirdColor);
+  border-radius: 15px;
+}
+
+#card img,
+h3 {
+  align-self: center;
+  margin-bottom: 10px;
+}
+
+.footer {
+  background-color: var(--secondaryColor);
+  padding: 50px;
+  margin-top: 20px;
+  text-align: center;
+  color: var(---primarycolor);
+  font-weight: 600;
+}
+
+/* Media query for tablet*/
+@media only screen and (min-width: 668px) and (max-width: 1024px) {
+  .recipe-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  h1 {
+    font-size: 50px;
+  }
+
+  button {
+    font-size: 14px;
+    width: 100px;
+    height: 30px;
+    margin: 5px 10px;
+    padding: 5px 5px;
+  }
+}
+
+/* Media query for desktop*/
+@media (min-width: 1025px) {
+  .recipe-container {
+    grid-template-columns: repeat(4, 25%);
+  }
+
+  h1 {
+    font-size: 50px;
+  }
+
+  .protein-container {
+    flex-direction: row;
+  }
+
+  .button-row-1 {
+    margin: 0;
+  }
+
+  .button-row-2 {
+    margin: 0 5px;
+  }
+
+  .filter-buttons {
+    flex-direction: row;
+    justify-content: center;
+  }
+}
