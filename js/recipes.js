@@ -38,7 +38,7 @@ const recipes = [
       "Ground white pepper",
     ],
     author: "Red Cook",
-    totalTime: null,
+    totalTime: 20,
     url: "http://redcook.net/2010/06/16/garlic-scape-an-off-menu-treat/",
     image: "./assets/recipe-images/avovado-shrimp.jpg",
   },
