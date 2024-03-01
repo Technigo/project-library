@@ -2,6 +2,28 @@
 const recipeStory = document.getElementById("big-story");
 const recipeWrapper = document.getElementById("section__recipes");
 
+const toHoursAndMinutes = (totalMinutes) => {
+  const hours = Math.floor(totalMinutes / 60);
+  const minutes = totalMinutes % 60;
+  let result = "";
+
+  if (hours > 0) {
+    result += `${hours}h `;
+  }
+  if (minutes > 0) {
+    result += `${minutes}m`;
+  }
+  return result.trim();
+};
+
+const makeFirstLetterUppercase = (words) => {
+  const result = words
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(", ");
+
+  return result;
+};
+
 // Function to load and display the list of recipe
 const loadRecipeStory = (recipe) => {
   // Add first recipe to top stories
@@ -17,10 +39,10 @@ const loadRecipeStory = (recipe) => {
      <div class="description">
        <h3>${recipe.name}</h3>
        <hr />
-       <p><span>Cuisine:</span> ${recipe.cuisineType
-         .map((cuisine) => cuisine)
-         .join("")}</p>
-       <p><span>Time:</span> 2h 10min</p>
+       <p><span>Cuisine:</span> ${makeFirstLetterUppercase(
+         recipe.cuisineType
+       )}</p>
+       <p><span>Time: </span>${toHoursAndMinutes(recipe.totalTime)}</p>
      </div>
    </div>
  
@@ -48,8 +70,10 @@ const loadRecipes = (recipes) => {
         height="auto"
       />
       <h3>${recipe.name}</h3>
-        <p><span>Cuisine: ${recipe.cuisineType}</span></p>
-        <p><span>Time: 1h 20min</span></p>
+        <p><span>Cuisine: ${makeFirstLetterUppercase(
+          recipe.cuisineType
+        )}</span></p>
+        <p><span>Time: ${toHoursAndMinutes(recipe.totalTime)}</span></p>
         <p>${recipe.author}</p>
       <hr />
       <h3>Ingredients</h3>
