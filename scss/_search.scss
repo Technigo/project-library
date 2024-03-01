@@ -3,6 +3,14 @@
   align-items: end;
   position: relative;
 
+  #errMsg {
+    position: absolute;
+    top: 0;
+    font-size: 0.7rem;
+    right: 52px;
+    color: #ff3b36;
+  }
+
   input {
     background-color: $lightgrey;
     border: none;

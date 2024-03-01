@@ -372,6 +372,13 @@
   align-items: end;
   position: relative;
 }
+.search-container #errMsg {
+  position: absolute;
+  top: 0;
+  font-size: 0.7rem;
+  right: 52px;
+  color: #ff3b36;
+}
 .search-container input {
   background-color: #f0f0f0;
   border: none;
