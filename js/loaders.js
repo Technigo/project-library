@@ -13,8 +13,15 @@ const toHoursAndMinutes = (totalMinutes) => {
   if (minutes > 0) {
     result += `${minutes}m`;
   }
-  console.log(result);
   return result.trim();
+};
+
+const makeFirstLetterUppercase = (words) => {
+  const result = words
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(", ");
+
+  return result;
 };
 
 // Function to load and display the list of recipe
@@ -32,9 +39,9 @@ const loadRecipeStory = (recipe) => {
      <div class="description">
        <h3>${recipe.name}</h3>
        <hr />
-       <p><span>Cuisine:</span> ${recipe.cuisineType
-         .map((cuisine) => cuisine)
-         .join("")}</p>
+       <p><span>Cuisine:</span> ${makeFirstLetterUppercase(
+         recipe.cuisineType
+       )}</p>
        <p><span>Time: </span>${toHoursAndMinutes(recipe.totalTime)}</p>
      </div>
    </div>
@@ -63,7 +70,9 @@ const loadRecipes = (recipes) => {
         height="auto"
       />
       <h3>${recipe.name}</h3>
-        <p><span>Cuisine: ${recipe.cuisineType}</span></p>
+        <p><span>Cuisine: ${makeFirstLetterUppercase(
+          recipe.cuisineType
+        )}</span></p>
         <p><span>Time: ${toHoursAndMinutes(recipe.totalTime)}</span></p>
         <p>${recipe.author}</p>
       <hr />
