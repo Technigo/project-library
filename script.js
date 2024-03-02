@@ -193,7 +193,6 @@ const sortBooksNewest = document.getElementById("newest");
 const sortBooksOldest = document.getElementById("oldest");
 const sortBooksRating = document.getElementById("highestRating");
 const randomButton = document.getElementById("random");
-const searchBar = document.getElementById("search-bar");
 
 //Function to display all the books on the website
 const displayBooks = (bookBoxes) => {
@@ -205,7 +204,7 @@ const displayBooks = (bookBoxes) => {
       <img class="img-cards" src="${books.image}">
       <h2>${books.title}</h2>
       <p class="subheadings">${books.author}</p>
-      <p class="subheadings"${books.year}</p>
+      <p class="subheadings">${books.year}</p>
       <p class="subheadings">${books.genre}</p>
       <p class="subheadings">⭐️ ${books.rating}</p>
       <p class="description">${books.description}</p>

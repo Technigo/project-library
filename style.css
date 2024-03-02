@@ -22,6 +22,7 @@ header {
 .wrapper {
   display: flex;
   justify-content: flex-start;
+  flex-wrap: wrap;
 }
 
 .filter-box,
@@ -35,6 +36,10 @@ header {
   font-size: 22px;
   font-weight: bold;
   padding: 16px 16px 16px 0px;
+}
+
+.buttons {
+  height: 20px;
 }
 
 .filter-buttons:focus,
@@ -60,7 +65,7 @@ header {
 
 .filter-buttons:hover,
 #random:hover {
-  border: 2px solid #0018a4;
+  outline: 2px solid #0018a4;
 }
 
 .sort-buttons {
@@ -73,7 +78,7 @@ header {
 }
 
 .sort-buttons:hover {
-  border: 2px solid #0018a4;
+  outline: 2px solid #0018a4;
   color: white;
   background-color: #ff6589;
 }
@@ -104,7 +109,7 @@ header {
 
 .book-cards:hover {
   box-shadow: 0px 0px 30px 0px #0018a433;
-  border: 2px solid #0018a4;
+  outline: 2px solid #0018a4;
 }
 
 .img-cards {
