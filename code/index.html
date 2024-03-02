@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Project Library</title>
+  </head>
+  <body>
+    <header>
+      <h1>Project Library</h1>
+    </header>
+    <div class="wrapper">
+      <div id="filter-books" class="filter-box">
+        <p class="headings-top">Filter books by genre</p>
+        <button id="all" class="filter-buttons">All</button>
+        <button id="fantasy" class="filter-buttons">Fantasy</button>
+        <button id="horror" class="filter-buttons">Horror</button>
+        <button id="adventure" class="filter-buttons">Adventure</button>
+      </div>
+      <div id="sort-books" class="sort-box">
+        <p class="headings-top">Sort books</p>
+        <button id="az" class="sort-buttons">A-Z</button>
+        <button id="za" class="sort-buttons">Z-A</button>
+        <button id="newest" class="sort-buttons">Year newest</button>
+        <button id="oldest" class="sort-buttons">Year oldest</button>
+        <button id="highestRating" class="sort-buttons">Highest Rating</button>
+      </div>
+      <div class="random-button-box">
+        <p class="headings-top">Random book generator</p>
+        <button id="random">Random book</button>
+      </div>
+    </div>
+    <div id="container"></div>
+    <script src="./script.js"></script>
+  </body>
+</html>
