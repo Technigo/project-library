@@ -132,11 +132,13 @@ h2 {
     grid-template-rows: repeat(8, 1fr);
     gap: 20px;
   }
+  
+  .wrapper {
+    flex-wrap: wrap;
+  }
 }
 
-.wrapper {
-  flex-wrap: wrap;
-}
+
 
 @media (min-width: 1025px) {
   #container {
