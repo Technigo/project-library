@@ -134,11 +134,19 @@ h2 {
   }
 }
 
+.wrapper {
+  flex-wrap: wrap;
+}
+
 @media (min-width: 1025px) {
   #container {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(5, 1fr);
     gap: 20px;
+  }
+
+  .wrapper {
+    flex-wrap: wrap;
   }
 }
