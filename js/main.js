@@ -6,7 +6,7 @@ import { handleSearchForm } from "./search.js";
 const cuisineDropdown = document.getElementById("cuisine");
 const authorDropdown = document.getElementById("author");
 const sortDropdown = document.getElementById("sortDropdown");
-const sortOptions = Array.from(sortDropdown.options);
+const sortOptions = document.getElementById("sortDropdown");
 const searchForm = document.getElementById("searchForm");
 
 // Toogle the filter dropdown
@@ -33,10 +33,8 @@ authorDropdown.addEventListener("click", (e) => {
 });
 
 // Event listner for sort options
-sortOptions.forEach((option) => {
-  option.addEventListener("click", (e) => {
-    handleSort(recipes, e);
-  });
+sortDropdown.addEventListener("change", function (e) {
+  handleSort(recipes, e);
 });
 
 // Event listner for search form

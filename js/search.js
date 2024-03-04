@@ -1,11 +1,9 @@
 import { loadRecipes } from "./loaders.js";
 
 let searchInput = document.getElementById("searchInput");
-const searchContainer = document.getElementById("search-container");
 const searchErrorMsg = document.getElementById("errMsg");
 
 const handleErrorMessage = (errMsg) => {
-  console.log(errMsg);
   searchErrorMsg.innerText = errMsg;
 };
 
@@ -15,8 +13,8 @@ const handleSearchForm = (recipes, e) => {
   const searchKey = searchInput.value.toLowerCase();
 
   const results = recipes.filter((recipe) => {
+    searchErrorMsg.innerText = "";
     return Object.values(recipe).some((value) => {
-      // console.log(value);
       if (Array.isArray(value)) {
         return value.some((item) => item.toLowerCase().includes(searchKey));
       } else if (typeof value === "string") {
@@ -25,7 +23,6 @@ const handleSearchForm = (recipes, e) => {
       return false;
     });
   });
-  console.log(results);
 
   if (results.length === 0) {
     console.log("ERROR");

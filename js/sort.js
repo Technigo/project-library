@@ -15,10 +15,11 @@ const handleSort = (recipes, e) => {
       sortedRecipes = sortedRecipes.sort((a, b) => a.totalTime - b.totalTime);
       break;
     case "sortAtoZ":
-      sortedRecipes = sortedRecipes.sort((a, b) => b.name < a.name);
+      // localeCompare helps resolve compatibility issues between browsers.
+      sortedRecipes.sort((a, b) => a.name.localeCompare(b.name));
       break;
     case "sortZtoA":
-      sortedRecipes = sortedRecipes.sort((a, b) => b.name > a.name);
+      sortedRecipes.sort((a, b) => b.name.localeCompare(a.name));
       break;
     case "sortLessThan10":
       sortedRecipes = sortedRecipes.filter(
