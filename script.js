@@ -1,164 +1,164 @@
 const books = [{
-	title: 'The Great Gatsby',
-	author: 'F. Scott Fitzgerald',
-	year: 1925,
-	genre: 'Fiction',
-	rating: 4.2,
-	description: 'A classic novel set in the Roaring Twenties, it explores themes of wealth, love, and the American Dream through the enigmatic Jay Gatsby.',
-	image: './books-images/the-great-gatsby.jpg'
+  title: 'The Great Gatsby',
+  author: 'F. Scott Fitzgerald',
+  year: 1925,
+  genre: 'Fiction',
+  rating: 4.2,
+  description: 'A classic novel set in the Roaring Twenties, it explores themes of wealth, love, and the American Dream through the enigmatic Jay Gatsby.',
+  image: './books-images/the-great-gatsby.jpg'
 },
 {
-	title: 'To Kill a Mockingbird',
-	author: 'Harper Lee',
-	year: 1960,
-	genre: 'Fiction',
-	rating: 4.5,
-	description: 'Set in the American South, this novel tackles issues of racism and injustice through the eyes of young Scout Finch.',
-	image: './books-images/to-kill-a-mockingbird.jpg'
+  title: 'To Kill a Mockingbird',
+  author: 'Harper Lee',
+  year: 1960,
+  genre: 'Fiction',
+  rating: 4.5,
+  description: 'Set in the American South, this novel tackles issues of racism and injustice through the eyes of young Scout Finch.',
+  image: './books-images/to-kill-a-mockingbird.jpg'
 },
 {
-	title: '1984',
-	author: 'George Orwell',
-	year: 1949,
-	genre: 'Science Fiction',
-	rating: 4.4,
-	description: 'A dystopian classic that explores totalitarianism and the consequences of a surveillance state in a bleak future.',
-	image: './books-images/1984.jpg'
+  title: '1984',
+  author: 'George Orwell',
+  year: 1949,
+  genre: 'Science Fiction',
+  rating: 4.4,
+  description: 'A dystopian classic that explores totalitarianism and the consequences of a surveillance state in a bleak future.',
+  image: './books-images/1984.jpg'
 },
 {
-	title: 'Pride and Prejudice',
-	author: 'Jane Austen',
-	year: 1813,
-	genre: 'Fiction',
-	rating: 4.25,
-	description: 'A timeless romance novel that examines societal expectations and the misunderstandings that can arise from pride and prejudice.',
-	image: './books-images/pride-and-prejudice.jpg'
+  title: 'Pride and Prejudice',
+  author: 'Jane Austen',
+  year: 1813,
+  genre: 'Fiction',
+  rating: 4.25,
+  description: 'A timeless romance novel that examines societal expectations and the misunderstandings that can arise from pride and prejudice.',
+  image: './books-images/pride-and-prejudice.jpg'
 },
 {
-	title: 'The Catcher in the Rye',
-	author: 'J.D. Salinger',
-	year: 1951,
-	genre: 'Fiction',
-	rating: 4,
-	description: 'Narrated by the teenage Holden Caulfield, the novel explores themes of alienation and the search for authenticity.',
-	image: './books-images/unknown.jpg'
+  title: 'The Catcher in the Rye',
+  author: 'J.D. Salinger',
+  year: 1951,
+  genre: 'Fiction',
+  rating: 4,
+  description: 'Narrated by the teenage Holden Caulfield, the novel explores themes of alienation and the search for authenticity.',
+  image: './books-images/unknown.jpg'
 },
 {
-	title: 'The Hobbit',
-	author: 'J.R.R. Tolkien',
-	year: 1937,
-	genre: 'Fantasy',
-	rating: 4.6,
-	description: 'A fantasy adventure novel that follows Bilbo Baggins on a quest to help a group of dwarves reclaim their homeland from a dragon.',
-	image: './books-images/the-hobbit.jpg'
+  title: 'The Hobbit',
+  author: 'J.R.R. Tolkien',
+  year: 1937,
+  genre: 'Fantasy',
+  rating: 4.6,
+  description: 'A fantasy adventure novel that follows Bilbo Baggins on a quest to help a group of dwarves reclaim their homeland from a dragon.',
+  image: './books-images/the-hobbit.jpg'
 },
 {
-	title: "Harry Potter and the Sorcerer's Stone",
-	author: 'J.K. Rowling',
-	year: 1997,
-	genre: 'Fantasy',
-	rating: 4.7,
-	description: 'The first book in the beloved Harry Potter series, it introduces readers to the magical world of Hogwarts and the young wizard Harry Potter.',
-	image: "./books-images/harry-potter-and-the-sorcerer.jpg"
+  title: "Harry Potter and the Sorcerer's Stone",
+  author: 'J.K. Rowling',
+  year: 1997,
+  genre: 'Fantasy',
+  rating: 4.7,
+  description: 'The first book in the beloved Harry Potter series, it introduces readers to the magical world of Hogwarts and the young wizard Harry Potter.',
+  image: "./books-images/harry-potter-and-the-sorcerer.jpg"
 },
 {
-	title: 'Moby-Dick',
-	author: 'Herman Melville',
-	year: 1851,
-	genre: 'Adventure',
-	rating: 4.1,
-	description: 'An epic tale of obsession, revenge, and the relentless pursuit of the great white whale, Moby Dick.',
-	image: './books-images/moby-dick.jpg'
+  title: 'Moby-Dick',
+  author: 'Herman Melville',
+  year: 1851,
+  genre: 'Adventure',
+  rating: 4.1,
+  description: 'An epic tale of obsession, revenge, and the relentless pursuit of the great white whale, Moby Dick.',
+  image: './books-images/moby-dick.jpg'
 },
 {
-	title: 'The Lord of the Rings: The Fellowship of the Ring',
-	author: 'J.R.R. Tolkien',
-	year: 1954,
-	genre: 'Fantasy',
-	rating: 4.55,
-	description: 'The first volume of the epic fantasy trilogy follows Frodo Baggins and the Fellowship on their quest to destroy the One Ring.',
-	image: './books-images/the-lord-of-the-rings.jpg'
+  title: 'The Lord of the Rings: The Fellowship of the Ring',
+  author: 'J.R.R. Tolkien',
+  year: 1954,
+  genre: 'Fantasy',
+  rating: 4.55,
+  description: 'The first volume of the epic fantasy trilogy follows Frodo Baggins and the Fellowship on their quest to destroy the One Ring.',
+  image: './books-images/the-lord-of-the-rings.jpg'
 },
 {
-	title: 'The Shining',
-	author: 'Stephen King',
-	year: 1977,
-	genre: 'Horror',
-	rating: 4.3,
-	description: "A psychological horror novel that tells the story of the Torrance family's terrifying experiences at the haunted Overlook Hotel.",
-	image: './books-images/unknown.jpg'
+  title: 'The Shining',
+  author: 'Stephen King',
+  year: 1977,
+  genre: 'Horror',
+  rating: 4.3,
+  description: "A psychological horror novel that tells the story of the Torrance family's terrifying experiences at the haunted Overlook Hotel.",
+  image: './books-images/unknown.jpg'
 },
 {
-	title: 'The Chronicles of Narnia: The Lion, the Witch and the Wardrobe',
-	author: 'C.S. Lewis',
-	year: 1950,
-	genre: 'Fantasy',
-	rating: 4.15,
-	description: 'The first book in the Chronicles of Narnia series, it follows the adventures of children who discover the magical land of Narnia.',
-	image: './books-images/the-chronicles-of-narnia.jpg'
+  title: 'The Chronicles of Narnia: The Lion, the Witch and the Wardrobe',
+  author: 'C.S. Lewis',
+  year: 1950,
+  genre: 'Fantasy',
+  rating: 4.15,
+  description: 'The first book in the Chronicles of Narnia series, it follows the adventures of children who discover the magical land of Narnia.',
+  image: './books-images/the-chronicles-of-narnia.jpg'
 },
 {
-	title: 'The Da Vinci Code',
-	author: 'Dan Brown',
-	year: 2003,
-	genre: 'Mystery',
-	rating: 3.8,
-	description: 'A gripping mystery thriller that follows Harvard symbologist Robert Langdon as he unravels the secrets of the Da Vinci Code.',
-	image: './books-images/unknown.jpg'
+  title: 'The Da Vinci Code',
+  author: 'Dan Brown',
+  year: 2003,
+  genre: 'Mystery',
+  rating: 3.8,
+  description: 'A gripping mystery thriller that follows Harvard symbologist Robert Langdon as he unravels the secrets of the Da Vinci Code.',
+  image: './books-images/unknown.jpg'
 },
 {
-	title: 'The Alchemist',
-	author: 'Paulo Coelho',
-	year: 1988,
-	genre: 'Fiction',
-	rating: 4.25,
-	description: 'A philosophical novel that tells the story of Santiago, a shepherd boy, on his quest to discover his personal legend.',
-	image: './books-images/unknown.jpg'
+  title: 'The Alchemist',
+  author: 'Paulo Coelho',
+  year: 1988,
+  genre: 'Fiction',
+  rating: 4.25,
+  description: 'A philosophical novel that tells the story of Santiago, a shepherd boy, on his quest to discover his personal legend.',
+  image: './books-images/unknown.jpg'
 },
 {
-	title: 'The Hunger Games',
-	author: 'Suzanne Collins',
-	year: 2008,
-	genre: 'Science Fiction',
-	rating: 4.3,
-	description: "In a dystopian future, Katniss Everdeen becomes a symbol of rebellion when she volunteers to take her sister's place in the brutal Hunger Games.",
-	image: './books-images/unknown.jpg'
+  title: 'The Hunger Games',
+  author: 'Suzanne Collins',
+  year: 2008,
+  genre: 'Science Fiction',
+  rating: 4.3,
+  description: "In a dystopian future, Katniss Everdeen becomes a symbol of rebellion when she volunteers to take her sister's place in the brutal Hunger Games.",
+  image: './books-images/unknown.jpg'
 },
 {
-	title: 'The Girl with the Dragon Tattoo',
-	author: 'Stieg Larsson',
-	year: 2005,
-	genre: 'Mystery',
-	rating: 4.1,
-	description: 'A gripping mystery novel featuring investigative journalist Mikael Blomkvist and the enigmatic hacker Lisbeth Salander.',
-	image: './books-images/unknown.jpg'
+  title: 'The Girl with the Dragon Tattoo',
+  author: 'Stieg Larsson',
+  year: 2005,
+  genre: 'Mystery',
+  rating: 4.1,
+  description: 'A gripping mystery novel featuring investigative journalist Mikael Blomkvist and the enigmatic hacker Lisbeth Salander.',
+  image: './books-images/unknown.jpg'
 },
 {
-	title: 'The Road',
-	author: 'Cormac McCarthy',
-	year: 2006,
-	genre: 'Dystopian',
-	rating: 4,
-	description: "Set in a post-apocalyptic world, it follows a father and son's harrowing journey to survive and find safety.",
-	image: './books-images/unknown.jpg'
+  title: 'The Road',
+  author: 'Cormac McCarthy',
+  year: 2006,
+  genre: 'Dystopian',
+  rating: 4,
+  description: "Set in a post-apocalyptic world, it follows a father and son's harrowing journey to survive and find safety.",
+  image: './books-images/unknown.jpg'
 },
 {
-	title: "The Hitchhiker's Guide to the Galaxy",
-	author: 'Douglas Adams',
-	year: 1979,
-	genre: 'Science Fiction',
-	rating: 4.35,
-	description: "A comedic science fiction series that follows the misadventures of Arthur Dent after Earth's destruction.",
-	image: './books-images/unknown.jpg'
+  title: "The Hitchhiker's Guide to the Galaxy",
+  author: 'Douglas Adams',
+  year: 1979,
+  genre: 'Science Fiction',
+  rating: 4.35,
+  description: "A comedic science fiction series that follows the misadventures of Arthur Dent after Earth's destruction.",
+  image: './books-images/unknown.jpg'
 },
 {
-	title: 'The Giver',
-	author: 'Lois Lowry',
-	year: 1993,
-	genre: 'Dystopian',
-	rating: 4.12,
-	description: 'A dystopian novel set in a seemingly perfect society where young Jonas discovers the dark truth beneath the surface.',
-	image: './books-images/unknown.jpg'
+  title: 'The Giver',
+  author: 'Lois Lowry',
+  year: 1993,
+  genre: 'Dystopian',
+  rating: 4.12,
+  description: 'A dystopian novel set in a seemingly perfect society where young Jonas discovers the dark truth beneath the surface.',
+  image: './books-images/unknown.jpg'
 }];
 
 const feedback = document.querySelector('.feedback');
@@ -186,11 +186,11 @@ let randomBook = []
 
 // Display books on pageload
 function displayBooks() {
-	main.innerHTML = ""; //clear existing content
-	books.forEach((book) => {
-		const bookCard = document.createElement('div');
-		bookCard.classList.add('book-card');
-		bookCard.innerHTML = `
+  main.innerHTML = ""; //clear existing content
+  books.forEach((book) => {
+    const bookCard = document.createElement('div');
+    bookCard.classList.add('book-card');
+    bookCard.innerHTML = `
 		<img class="cover" src="${book.image}"alt="${book.title}"></img>
 		<h2>${book.title}</h2>
 		<hr>
@@ -200,16 +200,16 @@ function displayBooks() {
 		<b>Rating:</b> ${book.rating}</p>
 		<hr>
 		<p><b>Description:</b> ${book.description}</p> `;
-		main.appendChild(bookCard);
-		nav.appendChild(buttonContainer);
-		nav.appendChild(genreSort)
-		nav.appendChild(subSort)
-		nav.appendChild(nameSort)
-		genreSort.appendChild(genreBtnContainer);
-		subSort.appendChild(sortBtnContainer);
-		nameSort.appendChild(nameBtnContainer);
+    main.appendChild(bookCard);
+    nav.appendChild(buttonContainer);
+    nav.appendChild(genreSort)
+    nav.appendChild(subSort)
+    nav.appendChild(nameSort)
+    genreSort.appendChild(genreBtnContainer);
+    subSort.appendChild(sortBtnContainer);
+    nameSort.appendChild(nameBtnContainer);
 
-	})
+  })
 }
 
 //get unique  genres an rating from the books array
@@ -222,20 +222,20 @@ const rating = [...new Set(books.map((book) => Math.trunc(book.rating)))];
 
 //genre
 genres.forEach((genre) => {
-	const button = document.createElement("button");
-	button.classList.add('button');
-	button.textContent = genre;
-	button.addEventListener("click", () => filterByGenre(genre));
-	genreBtnContainer.appendChild(button);
+  const button = document.createElement("button");
+  button.classList.add('button');
+  button.textContent = genre;
+  button.addEventListener("click", () => filterByGenre(genre));
+  genreBtnContainer.appendChild(button);
 });
 
 //rating
 rating.forEach((rating) => {
-	const button = document.createElement("button");
-	button.classList.add('button', 'sort');
-	button.textContent = rating;
-	button.addEventListener("click", () => filterBooksbyRating(rating));
-	sortBtnContainer.appendChild(button);
+  const button = document.createElement("button");
+  button.classList.add('button', 'sort');
+  button.textContent = rating;
+  button.addEventListener("click", () => filterBooksbyRating(rating));
+  sortBtnContainer.appendChild(button);
 });
 
 //sorting on author and title
@@ -291,43 +291,43 @@ sub.appendChild(showAllBtn);
 
 //function for sort high to low rating
 function sortHigh(a, b) {
-	main.innerHTML = ""; //clear existing content;
-	const booksByHighRating = books.sort((a, b) => b.rating - a.rating);
-	displayFilteredBooks(booksByHighRating);
+  main.innerHTML = ""; //clear existing content;
+  const booksByHighRating = books.sort((a, b) => b.rating - a.rating);
+  displayFilteredBooks(booksByHighRating);
 }
 
 //function for sort low to high rating
 function sortLow(a, b) {
-	main.innerHTML = ""; //clear existing content;
-	const booksByLow = books.sort((a, b) => a.rating - b.rating);
-	sortRatingLowBtn.classList.add('.sort-selected');
-	displayFilteredBooks(booksByLow);
+  main.innerHTML = ""; //clear existing content;
+  const booksByLow = books.sort((a, b) => a.rating - b.rating);
+  sortRatingLowBtn.classList.add('.sort-selected');
+  displayFilteredBooks(booksByLow);
 }
 
 //filterbooks by genre
 function filterByGenre(genre) {
-	const filteredBooks = books.filter((book) => book.genre === genre);
-	displayFilteredBooks(filteredBooks);
+  const filteredBooks = books.filter((book) => book.genre === genre);
+  displayFilteredBooks(filteredBooks);
 }
 
 //filterbooks by rating
 function filterBooksbyRating(rating) {
-	const bookRating = books.filter((book) => Math.trunc(book.rating) == rating);
-	displayFilteredBooks(bookRating);
+  const bookRating = books.filter((book) => Math.trunc(book.rating) == rating);
+  displayFilteredBooks(bookRating);
 }
 
 
 // handle input for search
 const handleSearchInput = (event) => {
-	event.preventDefault();
-	// Store the value in a variable so we can access it after we
-	// clear it from the input
-	const userSearch = document.getElementById("user-input").value;
-	document.getElementById("user-input").value = "";
-	searchstring = userSearch;
-	if (searchstring != "") {
-		search(userSearch);
-	}
+  event.preventDefault();
+  // Store the value in a variable so we can access it after we
+  // clear it from the input
+  const userSearch = document.getElementById("user-input").value;
+  document.getElementById("user-input").value = "";
+  searchstring = userSearch;
+  if (searchstring != "") {
+    search(userSearch);
+  }
 }
 
 // function addLastName:
@@ -340,65 +340,65 @@ const handleSearchInput = (event) => {
 //7. pass new array with lastnames into sorting function
 
 function addLastName() {
-	main.innerHTML = ""; //clear existing content
-	const findLastname = books.map((book) => book.author);
-	for (i = 0; i < findLastname.length; i++) {
-		lastN = findLastname[i].split(" ");
-		tempN = lastN[lastN.length - 1];
-		tempArr.push(tempN);
-	}
-	booksLastName = books;
-	for (i = 0; i < books.length; i++) {
-		booksLastName[i].lastname = tempArr[i];
-	}
-	sortLast(booksLastName);
+  main.innerHTML = ""; //clear existing content
+  const findLastname = books.map((book) => book.author);
+  for (i = 0; i < findLastname.length; i++) {
+    lastN = findLastname[i].split(" ");
+    tempN = lastN[lastN.length - 1];
+    tempArr.push(tempN);
+  }
+  booksLastName = books;
+  for (i = 0; i < books.length; i++) {
+    booksLastName[i].lastname = tempArr[i];
+  }
+  sortLast(booksLastName);
 }
 
 function sortLast(booksLastName) {
-	//clear existing content;
-	main.innerHTML = "";
-	// make new array with sorted results on last name
-	const booksByAuthorLastname = booksLastName.slice().sort((a, b) => a.lastname.localeCompare(b.lastname));
-	// pass new array into function for filtering books.
-	displayFilteredBooks(booksByAuthorLastname);
+  //clear existing content;
+  main.innerHTML = "";
+  // make new array with sorted results on last name
+  const booksByAuthorLastname = booksLastName.slice().sort((a, b) => a.lastname.localeCompare(b.lastname));
+  // pass new array into function for filtering books.
+  displayFilteredBooks(booksByAuthorLastname);
 }
 
 //Search for string in title, description, author, genre
 //storing the result in searchResult
 function search(searchstring) {
-	main.innerHTML = ""; //clear existing content
-	for (i = 0; i < books.length; i++) {
-		if (books[i].description.toLowerCase().includes(searchstring.toLowerCase())) {
-			foundWhere = `Found "${searchstring}"in the description: ${books[i].description}.`
-			searchResult.push(books[i]);
-		}
-		else if (books[i].title.toLowerCase().includes(searchstring.toLowerCase())) {
-			foundWhere = `Found "${searchstring}"in the title: ${books[i].title}.`
-			searchResult.push(books[i]);
-		}
-		else if (books[i].author.toLowerCase().includes(searchstring.toLowerCase())) {
-			foundWhere = `Found "${searchstring}"in an authors name: ${books[i].author}`
-			searchResult.push(books[i]);
-		}
-		else if (books[i].genre.toLowerCase().includes(searchstring.toLowerCase())) {
-			foundWhere = `Found "${searchstring}"in the genre: ${books[i].genre}.`
-			searchResult.push(books[i]);
-		}
-	}
-	displaySearch(searchResult);
+  main.innerHTML = ""; //clear existing content
+  for (i = 0; i < books.length; i++) {
+    if (books[i].description.toLowerCase().includes(searchstring.toLowerCase())) {
+      foundWhere = `Found "${searchstring}"in the description: ${books[i].description}.`
+      searchResult.push(books[i]);
+    }
+    else if (books[i].title.toLowerCase().includes(searchstring.toLowerCase())) {
+      foundWhere = `Found "${searchstring}"in the title: ${books[i].title}.`
+      searchResult.push(books[i]);
+    }
+    else if (books[i].author.toLowerCase().includes(searchstring.toLowerCase())) {
+      foundWhere = `Found "${searchstring}"in an authors name: ${books[i].author}`
+      searchResult.push(books[i]);
+    }
+    else if (books[i].genre.toLowerCase().includes(searchstring.toLowerCase())) {
+      foundWhere = `Found "${searchstring}"in the genre: ${books[i].genre}.`
+      searchResult.push(books[i]);
+    }
+  }
+  displaySearch(searchResult);
 }
 
 // functions for displaying filter/sort/search results
 
 //display filtered/sorted books
 function displayFilteredBooks(a) {
-	//clear the existing content
-	main.innerHTML = ""; //clear existing content
+  //clear the existing content
+  main.innerHTML = ""; //clear existing content
 
-	a.forEach((book) => {
-		const bookCard = document.createElement('div');
-		bookCard.classList.add('book-card');
-		bookCard.innerHTML = `
+  a.forEach((book) => {
+    const bookCard = document.createElement('div');
+    bookCard.classList.add('book-card');
+    bookCard.innerHTML = `
 		<img class="cover" src="${book.image}"alt="${book.title}"></img> <h2>${book.title}</h2>
 		<hr>
 		<p><b>Author:</b> ${book.author}</p>
@@ -407,19 +407,19 @@ function displayFilteredBooks(a) {
 		<b>Rating:</b> ${book.rating}</p>
 		<hr>
 		<p><b>Description:</b> ${book.description}</p> `;
-		main.appendChild(bookCard);
-	});
+    main.appendChild(bookCard);
+  });
 }
 
 function displaySearch(a) {
-	//clear the existing content
-	result.innerHTML = "";
-	a.forEach((book) => {
-		const bookCard = document.createElement('div');
-		const feedback = document.createElement('div');
-		bookCard.classList.add('book-card');
-		bookCard.addEventListener("click", () => clear());
-		bookCard.innerHTML = `
+  //clear the existing content
+  result.innerHTML = "";
+  a.forEach((book) => {
+    const bookCard = document.createElement('div');
+    const feedback = document.createElement('div');
+    bookCard.classList.add('book-card');
+    bookCard.addEventListener("click", () => clear());
+    bookCard.innerHTML = `
 			<div class="searchResponse">
 			<button class="button clearbtn" onClick="clear()"> X </button>
 			</div>
@@ -433,31 +433,31 @@ function displaySearch(a) {
 			<hr>
 			<p><b>Description:</b> ${book.description}</p>
  `;
-		result.appendChild(feedback);
-		result.appendChild(bookCard);
+    result.appendChild(feedback);
+    result.appendChild(bookCard);
 
-	});
+  });
 
-	//empty the search
-	searchResult = [];
-	//show all the books under the search
-	displayBooks();
+  //empty the search
+  searchResult = [];
+  //show all the books under the search
+  displayBooks();
 }
 
 function clear() {
-	searchResult = [];
-	displaySearch(searchResult);
+  searchResult = [];
+  displaySearch(searchResult);
 };
 
 
 function getRandom() {
-	result.innerHTML = "";
-	randomBook = books[(Math.floor(Math.random() * books.length))];
-	const bookCard = document.createElement('div');
-	const feedback = document.createElement('div');
-	bookCard.addEventListener("click", () => clear());
-	bookCard.classList.add('book-card');
-	bookCard.innerHTML = `
+  result.innerHTML = "";
+  randomBook = books[(Math.floor(Math.random() * books.length))];
+  const bookCard = document.createElement('div');
+  const feedback = document.createElement('div');
+  bookCard.addEventListener("click", () => clear());
+  bookCard.classList.add('book-card');
+  bookCard.innerHTML = `
 	<div class="searchResponse">
 	<button class="button clearbtn" onClick="clear()"> X </button></div>
 		<img class="cover" src="${randomBook.image}"alt="${randomBook.title}"></img>
@@ -470,8 +470,8 @@ function getRandom() {
 		<hr>
 		<p><b>Description:</b> ${randomBook.description}</p>
 	`;
-	result.appendChild(feedback);
-	result.appendChild(bookCard);
+  result.appendChild(feedback);
+  result.appendChild(bookCard);
 
 }
 
