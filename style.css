@@ -78,7 +78,6 @@ button {
   cursor: pointer;
   background-color: #CCFFE2;
   color: #0018A4;
-  ;
 }
 
 button:hover {
@@ -86,12 +85,15 @@ button:hover {
   color: #FAFBFF ;
 }
 
-#ascending, 
-#descending{
+#random-button{
   background-color: #FFECEA;
   color:#0018A4;
 }
-
+ 
+#random-button:hover{
+  background-color: #FF6589;
+  color:#FAFBFF;
+}
 
 header:hover{
   cursor: pointer;
@@ -101,14 +103,6 @@ header:hover{
   .gallery-wrapper {
     display: flex;
     flex-direction: column;  
-  }
-  .card-wrapper {
-    .card-wrapper:hover{
-      display: none;
-    }
-  }
-  button:hover{
-    display: none;
   }
 }
 
