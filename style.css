@@ -1,6 +1,5 @@
 body {
-  background-color: #f6eada;
-  color:#128057
+  background-color: #FAFBFF;
 }
 
 * {
@@ -19,9 +18,10 @@ body {
 
 header {
   text-align: center;
-  font-size: 2rem;
-  font-weight: 500;
-  background-color: #ee4574;
+  font-size: 3rem;
+  font-weight: 700;
+  background-color: #FFECEA;
+  color: #0018a4;
 }
 
 #title {
@@ -44,15 +44,13 @@ header {
   padding: 16px, 16px, 24px, 16px;
   box-sizing: border-box;
   border-radius: 20px;
-  border: dotted #ee4574;
+  border: solid 1px #0018A4;
   cursor: pointer; 
 }
 
 .card-wrapper:hover {
-  border: solid;
   border-radius: 20px;
-  border-color: #128057;
-  font-size: 1.5rem;
+  border: solid 2px #0018A4;
 }
 
 img {
@@ -74,17 +72,26 @@ span {
 
 button {
   border-radius: 20px;
+  height:2rem;
   padding: 0 10px;
   margin: 0 5px;
   cursor: pointer;
-  background-color: #128057;
-  color: #ee4574;
+  background-color: #CCFFE2;
+  color: #0018A4;
+  ;
 }
 
 button:hover {
-  background-color: #ee4574;
-  color: #128057 ;
+  background-color: #0018A4;
+  color: #FAFBFF ;
 }
+
+#ascending, 
+#descending{
+  background-color: #FFECEA;
+  color:#0018A4;
+}
+
 
 header:hover{
   cursor: pointer;

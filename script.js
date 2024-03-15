@@ -199,41 +199,38 @@ const randomButton=document.getElementById('random-button')
 //creat element
 const galleryWrapperDiv = document.createElement('div')
 
-//genre type by filter for fiction
-const genreFiction = () => {
-  const filteredFiction = books.filter((book)=>book.genre === 'Fiction')
-displayBooks(filteredFiction)
+const filterAndDisplayBooksByGenre = (genre) => {
+  const filteredBooks = books.filter(book => book.genre === genre);
+  displayBooks(filteredBooks);
 }
-fictionButton.addEventListener('click',genreFiction)
-
-
+fictionButton.addEventListener('click', () => filterAndDisplayBooksByGenre('Fiction'));
 // scienceFiction 
-const genreScience = () => {
-  const filteredScience = books.filter(book => book.genre === 'Science Fiction')
+const genreScience = (genre) => {
+  const filteredScience = books.filter(book => book.genre === genre)
   displayBooks(filteredScience)
 }
-scienceButton.addEventListener('click',genreScience)
+scienceButton.addEventListener('click',() => genreScience('Science Fiction'))
 
 //fantasy
-const genreFantasy = () => {
-  const filteredFantasy = books.filter(book => book.genre === 'Fantasy')
+const genreFantasy = (genre) => {
+  const filteredFantasy = books.filter(book => book.genre === genre )
   displayBooks(filteredFantasy)
 }
-fantasyButton.addEventListener('click',genreFantasy)
+fantasyButton.addEventListener('click',()=>genreFantasy('Fantasy'))
 
 //adventure
-const genreAdventure = () => {
-  const filteredAdventure = books.filter(book=>book.genre==='Adventure')
+const genreAdventure = (genre) => {
+  const filteredAdventure = books.filter(book=>book.genre=== genre)
   displayBooks(filteredAdventure)
 }
-adventureButton.addEventListener('click',genreAdventure)
+adventureButton.addEventListener('click',()=>genreAdventure('Adventure'))
 
 //horror
-const genreHorror = () =>{
-  const filteredHorror = books.filter(book=>book.genre === 'Horror')
+const genreHorror = (genre) =>{
+  const filteredHorror = books.filter(book=>book.genre === genre)
   displayBooks(filteredHorror)
 }
-horrorButton.addEventListener('click',genreHorror)
+horrorButton.addEventListener('click',()=>genreHorror('Horror'))
 
 //Mystery
 const genreMystery = () =>{
@@ -311,12 +308,3 @@ displayBooks(books)
 const restartPage = () => {
   location.reload()
 }
-//setTimeOut --
-//back to top button
-
-
-
-
-
-
-
